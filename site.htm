@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultoria de Musculação Online - Lukas Capetinga</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Custom styles to apply the Inter font */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827; /* bg-gray-900 */
+        }
+        .hero-bg {
+            background-image: linear-gradient(rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 1)), url('images/Lucas1.jpeg');
+            background-size: cover;
+            background-position: center 5%;
+        }
+        .section-title {
+            font-weight: 900;
+            font-size: 2.25rem; /* text-4xl */
+            letter-spacing: -0.05em;
+        }
+        .card {
+            background-color: #1F2937; /* bg-gray-800 */
+            border: 1px solid #374151; /* border-gray-700 */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .profile-img {
+            object-fit: cover;
+            object-position: center 10%;
+        }
+    </style>
+</head>
+<body class="text-gray-200">
+
+    <!-- Header & Navigation -->
+    <header class="bg-gray-900/80 backdrop-blur-sm fixed w-full z-50 top-0 shadow-lg">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-white">
+                <i class="fas fa-dumbbell mr-2"></i> Força<span class="text-indigo-400">Total</span>
+            </a>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#sobre" class="hover:text-indigo-400 transition-colors duration-300">Sobre</a>
+                <a href="#planos" class="hover:text-indigo-400 transition-colors duration-300">Planos</a>
+                <a href="#depoimentos" class="hover:text-indigo-400 transition-colors duration-300">Depoimentos</a>
+                <a href="#contato" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300">Comece Agora</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="#sobre" class="block py-2 px-4 text-sm hover:bg-gray-700">Sobre</a>
+            <a href="#planos" class="block py-2 px-4 text-sm hover:bg-gray-700">Planos</a>
+            <a href="#depoimentos" class="block py-2 px-4 text-sm hover:bg-gray-700">Depoimentos</a>
+            <a href="#contato" class="block py-2 px-4 text-sm hover:bg-gray-700">Contato</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main class="pt-16">
+        <section class="hero-bg min-h-screen flex items-center">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-6xl font-black text-white leading-tight mb-4">
+                    Transforme seu Corpo. <br> Conquiste seus <span class="text-indigo-400">Objetivos</span>.
+                </h1>
+                <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+                    Receba um plano de treino e dieta 100% personalizado, criado por especialistas para você atingir o máximo do seu potencial, onde quer que esteja.
+                </p>
+                <a href="#planos" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-lg text-lg transition-transform transform hover:scale-105 duration-300 inline-block">
+                    Ver Planos de Consultoria
+                </a>
+            </div>
+        </section>
+
+        <!-- Sobre Section -->
+        <section id="sobre" class="py-20 bg-gray-900">
+            <div class="container mx-auto px-6">
+                <div class="md:flex md:items-center md:space-x-12">
+                    <div class="md:w-1/2 mb-8 md:mb-0">
+                        <img src="images/Lucas.jpeg" 
+                             alt="Consultor Fitness Lukas Capetinga" 
+                             class="rounded-lg shadow-2xl w-full h-auto max-h-[600px] profile-img"
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x600/374151/ffffff?text=Lukas+Capetinga';">
+                    </div>
+                    <div class="md:w-1/2">
+                        <h2 class="section-title text-white mb-4">Sobre o seu Treinador</h2>
+                        <p class="text-gray-400 mb-4">
+                            Olá, sou <strong>Lukas Capetinga</strong>, um profissional de educação física apaixonado por musculação e desenvolvimento humano. Com mais de 10 anos de experiência, já ajudei centenas de pessoas a alcançarem seus objetivos, desde a perda de peso até a hipertrofia muscular avançada.
+                        </p>
+                        <p class="text-gray-400 mb-6">
+                            Minha metodologia é baseada na ciência do esporte, combinando treinos eficientes e estratégias nutricionais sustentáveis. Acredito que cada pessoa é única, e por isso, cada plano é cuidadosamente elaborado para se adaptar à sua rotina, preferências e metas.
+                        </p>
+                        <div class="flex space-x-4">
+                            <div class="bg-gray-800 p-4 rounded-lg text-center flex-1">
+                                <span class="text-3xl font-bold text-indigo-400 block">+500</span>
+                                <span class="text-sm text-gray-400">Clientes Satisfeitos</span>
+                            </div>
+                            <div class="bg-gray-800 p-4 rounded-lg text-center flex-1">
+                                <span class="text-3xl font-bold text-indigo-400 block">+10</span>
+                                <span class="text-sm text-gray-400">Anos de Experiência</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Planos Section -->
+        <section id="planos" class="py-20 bg-gray-800">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title text-center text-white mb-12">Planos de Consultoria</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Plano 1 -->
+                    <div class="card rounded-lg p-8 text-center flex flex-col">
+                        <i class="fas fa-bolt text-indigo-400 text-4xl mb-4"></i>
+                        <h3 class="text-2xl font-bold text-white mb-4">Plano Mensal</h3>
+                        <p class="text-gray-400 mb-6 flex-grow">Acesso completo com flexibilidade. Ideal para começar sua jornada com acompanhamento de perto.</p>
+                        <div class="text-4xl font-black text-white mb-6">R$189,90<span class="text-lg font-medium text-gray-400">/mês</span></div>
+                        <ul class="text-left space-y-3 text-gray-300 mb-8">
+                            <li><i class="fas fa-check-circle text-green-400 mr-2"></i>Plano de treino individualizado</li>
+                            <li><i class="fas fa-check-circle text-green-400 mr-2"></i>Orientações nutricionais</li>
+                            <li><i class="fas fa-check-circle text-green-400 mr-2"></i>Suporte via WhatsApp</li>
+                            <li><i class="fas fa-check-circle text-green-400 mr-2"></i>Ajustes mensais no treino</li>
+                        </ul>
+                        <a href="#contato" class="mt-auto bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg w-full transition-colors duration-300">Contratar</a>
+                    </div>
+                    <!-- Plano 2 -->
+                    <div class="card rounded-lg p-8 text-center border-2 border-indigo-500 relative flex flex-col">
+                        <span class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-indigo-500 text-white text-xs font-bold px-3 py-1 rounded-full">MAIS POPULAR</span>
+                        <i class="fas fa-rocket text-indigo-400 text-4xl mb-4"></i>
+                        <h3 class="text-2xl font-bold text-white mb-4">Plano Trimestral</h3>
+                        <p class="text-gray-400 mb-6 flex-grow">Compromisso e economia para resultados mais sólidos. O melhor custo-benefício.</p>
+                        <div class="text-4xl font-black text-white mb-2">R$429<span class="text-lg font-medium text-gray-400">/trimestre</span></div>
+                        <p class="text-gray-400 mb-6">(Equivalente a R$143/mês)</p>
+                        <ul class="text-left space-y-3 text-gray-300 mb-8">
+                            <li><i class="fas fa-check-circle text-green-400 mr-2"></i>Tudo do plano Mensal</li>
+                            <li><i class="fas fa-check-circle text-green-400 mr-2"></i><strong>Análise de vídeos de execução</strong></li>
+                            <li><i class="fas fa-check-circle text-green-400 mr-2"></i>Ajustes a cada 45 dias</li>
+                        </ul>
+                        <a href="#contato" class="mt-auto bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg w-full transition-colors duration-300">Contratar</a>
+                    </div>
+                    <!-- Plano 3 -->
+                    <div class="card rounded-lg p-8 text-center flex flex-col">
+                        <i class="fas fa-crown text-indigo-400 text-4xl mb-4"></i>
+                        <h3 class="text-2xl font-bold text-white mb-4">Plano Semestral</h3>
+                        <p class="text-gray-400 mb-6 flex-grow">A transformação definitiva. Acompanhamento completo para quem busca o máximo potencial.</p>
+                        <div class="text-4xl font-black text-white mb-2">R$774<span class="text-lg font-medium text-gray-400">/semestre</span></div>
+                        <p class="text-gray-400 mb-6">(Equivalente a R$129/mês)</p>
+                        <ul class="text-left space-y-3 text-gray-300 mb-8">
+                            <li><i class="fas fa-check-circle text-green-400 mr-2"></i>Tudo do plano Trimestral</li>
+                            <li><i class="fas fa-check-circle text-green-400 mr-2"></i><strong>Planejamento de suplementação</strong></li>
+                            <li><i class="fas fa-check-circle text-green-400 mr-2"></i><strong>Chamada de vídeo mensal</strong></li>
+                        </ul>
+                        <a href="#contato" class="mt-auto bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg w-full transition-colors duration-300">Contratar</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Depoimentos Section -->
+        <section id="depoimentos" class="py-20 bg-gray-900">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title text-center text-white mb-12">O que meus clientes dizem</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Depoimento 1 -->
+                    <div class="card rounded-lg p-6">
+                        <div class="flex items-center mb-4">
+                            <img src="https://placehold.co/50x50/3182ce/ffffff?text=J" alt="Cliente 1" class="w-12 h-12 rounded-full mr-4 object-cover">
+                            <div>
+                                <h4 class="font-bold text-white">João Silva</h4>
+                                <p class="text-sm text-gray-400">Aluno do Plano Trimestral</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300">"Em 3 meses, tive mais resultados do que em 2 anos treinando sozinho. O acompanhamento do Lukas fez toda a diferença. Recomendo demais!"</p>
+                    </div>
+                    <!-- Depoimento 2 -->
+                    <div class="card rounded-lg p-6">
+                        <div class="flex items-center mb-4">
+                            <img src="https://placehold.co/50x50/d53f8c/ffffff?text=M" alt="Cliente 2" class="w-12 h-12 rounded-full mr-4 object-cover">
+                            <div>
+                                <h4 class="font-bold text-white">Maria Oliveira</h4>
+                                <p class="text-sm text-gray-400">Aluna do Plano Semestral</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300">"Profissionalismo incrível! O plano é super detalhado e o suporte é constante. Finalmente estou vendo a definição que sempre sonhei."</p>
+                    </div>
+                    <!-- Depoimento 3 -->
+                    <div class="card rounded-lg p-6">
+                        <div class="flex items-center mb-4">
+                            <img src="https://placehold.co/50x50/38a169/ffffff?text=P" alt="Cliente 3" class="w-12 h-12 rounded-full mr-4 object-cover">
+                            <div>
+                                <h4 class="font-bold text-white">Pedro Costa</h4>
+                                <p class="text-sm text-gray-400">Aluno do Plano Mensal</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300">"Estava perdido na academia, sem saber o que fazer. A consultoria me deu um norte e a motivação que eu precisava para não desistir."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contato Section -->
+        <section id="contato" class="py-20 bg-gray-800">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title text-center text-white mb-4">Vamos Começar?</h2>
+                <p class="text-center text-gray-400 max-w-2xl mx-auto mb-12">Preencha o formulário abaixo para tirar suas dúvidas ou contratar um plano. Responderei o mais rápido possível!</p>
+                <form class="max-w-xl mx-auto">
+                    <div class="mb-4">
+                        <label for="name" class="block text-gray-300 mb-2">Nome</label>
+                        <input type="text" id="name" name="name" class="w-full bg-gray-700 border border-gray-600 rounded-lg py-2 px-4 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="block text-gray-300 mb-2">Email</label>
+                        <input type="email" id="email" name="email" class="w-full bg-gray-700 border border-gray-600 rounded-lg py-2 px-4 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    </div>
+                    <div class="mb-6">
+                        <label for="message" class="block text-gray-300 mb-2">Mensagem (Qual seu objetivo?)</label>
+                        <textarea id="message" name="message" rows="4" class="w-full bg-gray-700 border border-gray-600 rounded-lg py-2 px-4 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors duration-300">
+                            Enviar Mensagem
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-8">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="https://www.instagram.com/lukascapetinga/" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-indigo-400 transition-colors duration-300"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/qr/XSMHZ2CRIW3UG1" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-indigo-400 transition-colors duration-300"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" class="text-2xl hover:text-indigo-400 transition-colors duration-300"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>&copy; 2024 ForçaTotal Consultoria por Lukas Capetinga. Todos os direitos reservados.</p>
+            <p class="text-sm mt-2">Desenvolvido com <i class="fas fa-heart text-indigo-400"></i> para o seu sucesso.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                mobileMenu.classList.add('hidden'); // Close mobile menu on click
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
