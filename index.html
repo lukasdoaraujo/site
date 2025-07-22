@@ -60,6 +60,14 @@
                 <a href="#planos" class="hover:text-indigo-400 transition-colors duration-300">Planos</a>
                 <a href="#depoimentos" class="hover:text-indigo-400 transition-colors duration-300">Depoimentos</a>
                 <a href="#contato" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300">Comece Agora</a>
+				
+                <a href="https://wa.me/qr/XSMHZ2CRIW3UG1?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os." target="_blank" rel="noopener noreferrer"
+				   class="flex items-center gap-2 bg-green-500 text-white px-3 py-1.5 rounded-md hover:bg-green-600 transition duration-300 ml-3 text-sm font-medium">
+				  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+					<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967s-.47-.148-.67.15-.767.967-.94 1.167-.347.223-.644.074c-.297-.15-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.298-.018-.46.13-.609.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521s-.67-1.612-.917-2.216c-.242-.58-.487-.501-.67-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.1 3.2 5.087 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 6.13h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.896 6.991c-.003 5.452-4.437 9.884-9.888 9.884M20.013 3.986A11.815 11.815 0 0 0 12.005 1C6.479 1 1.999 5.48 2 11.007c0 1.937.507 3.82 1.474 5.476L2 23l6.663-1.753A11.91 11.91 0 0 0 12.005 23C17.532 23 22 18.52 22 12.993a11.82 11.82 0 0 0-1.987-7.007" />
+				  </svg>
+				  <span>WhatsApp</span>
+				</a>
             </div>
             <button id="mobile-menu-button" class="md:hidden focus:outline-none">
                 <i class="fas fa-bars text-2xl"></i>
@@ -71,6 +79,12 @@
             <a href="#planos" class="block py-2 px-4 text-sm hover:bg-gray-700">Planos</a>
             <a href="#depoimentos" class="block py-2 px-4 text-sm hover:bg-gray-700">Depoimentos</a>
             <a href="#contato" class="block py-2 px-4 text-sm hover:bg-gray-700">Contato</a>
+			<!-- WhatsApp Mobile -->
+			<a href="https://wa.me/qr/XSMHZ2CRIW3UG1?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os."
+			   target="_blank" rel="noopener noreferrer"
+			   class="block py-2 px-4 text-sm hover:bg-gray-700">
+				<span>WhatsApp</span>
+			</a>
         </div>
     </header>
 
@@ -217,48 +231,61 @@
             </div>
         </section>
 
-        <!-- Contato Section -->
-        <section id="contato" class="py-20 bg-gray-800">
-            <div class="container mx-auto px-6">
-                <h2 class="section-title text-center text-white mb-4">Vamos Começar?</h2>
-                <p class="text-center text-gray-400 max-w-2xl mx-auto mb-12">Preencha o formulário abaixo para tirar suas dúvidas ou contratar um plano. Responderei o mais rápido possível!</p>
-                <form class="max-w-xl mx-auto">
-                    <div class="mb-4">
-                        <label for="name" class="block text-gray-300 mb-2">Nome</label>
-                        <input type="text" id="name" name="name" class="w-full bg-gray-700 border border-gray-600 rounded-lg py-2 px-4 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                    </div>
-                    <div class="mb-4">
-                        <label for="email" class="block text-gray-300 mb-2">Email</label>
-                        <input type="email" id="email" name="email" class="w-full bg-gray-700 border border-gray-600 rounded-lg py-2 px-4 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                    </div>
-                    <div class="mb-6">
-                        <label for="message" class="block text-gray-300 mb-2">Mensagem (Qual seu objetivo?)</label>
-                        <textarea id="message" name="message" rows="4" class="w-full bg-gray-700 border border-gray-600 rounded-lg py-2 px-4 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
-                    </div>
-                    <div class="text-center">
-                        <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors duration-300">
-                            Enviar Mensagem
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </section>
-    </main>
+		<!-- Seção de Contato -->
+		<section id="contato" class="py-20 bg-gray-800">
+			<div class="container mx-auto px-6">
+				<h2 class="section-title text-center text-white mb-4">Vamos Começar?</h2>
+				<p class="text-center text-gray-400 max-w-2xl mx-auto mb-12">Preencha o formulário abaixo para tirar suas dúvidas ou contratar um plano. Responderei o mais rápido possível!</p>
+				<form id="contact-form" class="max-w-xl mx-auto">
+					<div class="mb-4">
+						<label for="name" class="block text-gray-300 mb-2">Nome</label>
+						<input type="text" id="name" name="name" required class="w-full bg-gray-700 border border-gray-600 rounded-lg py-2 px-4 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+					</div>
+					<div class="mb-4">
+						<label for="email" class="block text-gray-300 mb-2">Email</label>
+						<input type="email" id="email" name="email" required class="w-full bg-gray-700 border border-gray-600 rounded-lg py-2 px-4 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+					</div>
+					<div class="mb-6">
+						<label for="message" class="block text-gray-300 mb-2">Mensagem</label>
+						<textarea id="message" name="message" rows="4" required class="w-full bg-gray-700 border border-gray-600 rounded-lg py-2 px-4 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+					</div>
+					<div class="text-center">
+						<button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors duration-300">
+							Enviar Mensagem
+						</button>
+					</div>
+				</form>
+			</div>
+		</section>
+
+		<!-- Popup de Confirmação -->
+		<div id="popup-confirm" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center hidden z-50">
+			<div class="bg-white rounded-xl p-6 shadow-xl text-center text-gray-800 max-w-sm">
+				<h2 class="text-2xl font-bold mb-2">Mensagem enviada com sucesso!</h2>
+				<p class="mb-4">Em breve entraremos em contato com você.</p>
+				<button onclick="document.getElementById('popup-confirm').classList.add('hidden')" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition">Fechar</button>
+			</div>
+		</div>
+		</main>
 
     <!-- Footer -->
     <footer class="bg-gray-900 py-8">
         <div class="container mx-auto px-6 text-center text-gray-400">
             <div class="flex justify-center space-x-6 mb-4">
                 <a href="https://www.instagram.com/lukascapetinga/" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-indigo-400 transition-colors duration-300"><i class="fab fa-instagram"></i></a>
-                <a href="https://wa.me/qr/XSMHZ2CRIW3UG1" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-indigo-400 transition-colors duration-300"><i class="fab fa-whatsapp"></i></a>
-                <a href="#" class="text-2xl hover:text-indigo-400 transition-colors duration-300"><i class="fab fa-youtube"></i></a>
+                <a href="https://wa.me/qr/XSMHZ2CRIW3UG1?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os." target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-indigo-400 transition-colors duration-300"><i class="fab fa-whatsapp"></i></a>
+                <!--<a href="#" class="text-2xl hover:text-indigo-400 transition-colors duration-300"><i class="fab fa-youtube"></i></a>-->
             </div>
-            <p>&copy; 2024 ForçaTotal Consultoria por Lukas Capetinga. Todos os direitos reservados.</p>
+            <p>&copy; <span id="ano-atual"></span> - ForçaTotal Consultoria por Lukas Capetinga. Todos os direitos reservados.</p>
             <p class="text-sm mt-2">Desenvolvido com <i class="fas fa-heart text-indigo-400"></i> para o seu sucesso.</p>
         </div>
     </footer>
 
+	<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script>
+		//Ano
+		document.getElementById('ano-atual').textContent = new Date().getFullYear();
+	
         // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -281,6 +308,24 @@
                     });
                 }
             });
+        });
+		
+		//Envio de e-mail
+		(function() {
+            emailjs.init("firL9kpA1jMW6-RMN"); // Substitua pela sua public key
+        })();
+
+        document.getElementById("contact-form").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            emailjs.sendForm("service_kt5yemw", "template_ax46uqc", this)
+                .then(() => {
+                    document.getElementById('popup-confirm').classList.remove('hidden');
+                    this.reset();
+                }, (err) => {
+                    console.error("Erro ao enviar:", err);
+                    alert("Erro ao enviar a mensagem. Tente novamente.");
+                });
         });
     </script>
 
