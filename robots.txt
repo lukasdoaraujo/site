@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://lukascapetinga.com.br/sitemap.xml
