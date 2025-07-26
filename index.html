@@ -317,7 +317,14 @@
     </footer>
 
 	<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-BGWR18DZE0"></script>
     <script>
+		//Analytics WEB
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+ 	    gtag('config', 'G-BGWR18DZE0');
+	
 		//Ano
 		document.getElementById('ano-atual').textContent = new Date().getFullYear();
 	
