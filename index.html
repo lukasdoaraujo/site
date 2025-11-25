@@ -44,6 +44,84 @@
             --dark-bg: #0a0e27;
             --card-bg: #131729;
             --card-hover: #1a1f3a;
+            --bf-yellow: #FFD700;
+            --bf-orange: #FF6B00;
+            --bf-red: #FF0000;
+        }
+        
+        /* Black Friday Animations */
+        @keyframes bfPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        @keyframes bfShake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+        
+        @keyframes bfFlash {
+            0%, 50%, 100% { opacity: 1; }
+            25%, 75% { opacity: 0.5; }
+        }
+        
+        @keyframes bfFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes bfRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes bfNeon {
+            0%, 100% {
+                text-shadow: 0 0 10px var(--bf-yellow), 0 0 20px var(--bf-yellow), 0 0 30px var(--bf-orange), 0 0 40px var(--bf-orange);
+            }
+            50% {
+                text-shadow: 0 0 5px var(--bf-yellow), 0 0 10px var(--bf-yellow), 0 0 15px var(--bf-orange), 0 0 20px var(--bf-orange);
+            }
+        }
+        
+        .bf-pulse { animation: bfPulse 2s ease-in-out infinite; }
+        .bf-shake { animation: bfShake 0.5s ease-in-out infinite; }
+        .bf-flash { animation: bfFlash 1s ease-in-out infinite; }
+        .bf-float { animation: bfFloat 3s ease-in-out infinite; }
+        .bf-rotate { animation: bfRotate 10s linear infinite; }
+        .bf-neon { animation: bfNeon 2s ease-in-out infinite; }
+        
+        .bf-badge {
+            background: linear-gradient(135deg, var(--bf-yellow) 0%, var(--bf-orange) 50%, var(--bf-red) 100%);
+            animation: bfPulse 1.5s ease-in-out infinite;
+        }
+        
+        .bf-banner {
+            background: linear-gradient(90deg, #000 0%, #1a0000 25%, #330000 50%, #1a0000 75%, #000 100%);
+            background-size: 200% 100%;
+            animation: bfBannerMove 3s linear infinite;
+        }
+        
+        @keyframes bfBannerMove {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+        
+        .bf-strikethrough {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .bf-strikethrough::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 100%;
+            height: 3px;
+            background: var(--bf-red);
+            transform: rotate(-5deg);
         }
         
         body {
@@ -217,6 +295,7 @@
             border: 2px solid rgba(102, 126, 234, 0.3);
             border-radius: 20px;
             padding: 2rem;
+            min-height: 600px;
             height: 100%;
             display: flex;
             flex-direction: column;
@@ -246,6 +325,15 @@
             border-image: var(--primary-gradient) 1;
             transform: scale(1.05);
             box-shadow: 0 20px 60px rgba(102, 126, 234, 0.4);
+        }
+        
+        .swiper-slide {
+            height: auto;
+        }
+        
+        .plansSwiper {
+            padding-top: 20px !important;
+            padding-bottom: 60px !important;
         }
         
         .swiper-button-next, .swiper-button-prev {
@@ -398,8 +486,19 @@
 </head>
 <body class="text-gray-200">
 
+    <!-- Black Friday Top Banner -->
+    <div id="bf-top-banner" class="bf-banner fixed w-full z-50 top-0 py-3 overflow-hidden" style="display: none;">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-center gap-2 sm:gap-3 flex-wrap text-center">
+                <span class="text-yellow-400 font-black text-xs sm:text-sm md:text-base bf-flash whitespace-nowrap">🔥 BLACK FRIDAY 🔥</span>
+                <span class="text-white font-bold text-[10px] sm:text-xs md:text-sm">Descontos até <span class="text-red-500 text-sm sm:text-lg md:text-xl">50% OFF</span> em todos os planos!</span>
+                <span class="text-yellow-400 font-bold text-[10px] sm:text-xs md:text-sm bf-pulse whitespace-nowrap">⏰ Só HOJE!</span>
+            </div>
+        </div>
+    </div>
+    
     <!-- Header & Navigation -->
-    <header class="bg-gray-900/80 backdrop-blur-sm fixed w-full z-50 top-0 shadow-lg">
+    <header id="main-header" class="bg-gray-900/80 backdrop-blur-sm fixed w-full z-40 shadow-lg" style="top: 0;">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" class="text-2xl font-bold text-white">
                 <img src="images/favicon_branco/favicon-32x32.png" alt="Força Total" width="32" height="32" class="inline-block mr-2">Força<span class="text-indigo-400">Total</span>
@@ -441,7 +540,78 @@
     </header>
 
     <!-- Hero Section -->
-    <main class="pt-16">
+    <main class="pt-16" id="main-content">
+        <!-- Black Friday Mega Banner -->
+        <div id="bf-hero-banner" class="relative overflow-hidden" style="display: none;">
+            <div class="bf-banner py-8 sm:py-12 md:py-16 relative">
+                <!-- Animated Background Elements -->
+                <div class="absolute inset-0 overflow-hidden pointer-events-none">
+                    <div class="absolute top-10 left-10 w-32 h-32 bg-yellow-500/20 rounded-full blur-3xl bf-float"></div>
+                    <div class="absolute top-20 right-20 w-40 h-40 bg-orange-500/20 rounded-full blur-3xl bf-float" style="animation-delay: 1s;"></div>
+                    <div class="absolute bottom-10 left-1/3 w-36 h-36 bg-red-500/20 rounded-full blur-3xl bf-float" style="animation-delay: 2s;"></div>
+                </div>
+                
+                <div class="container mx-auto px-4 text-center relative z-10">
+                    <!-- Black Friday Logo/Badge -->
+                    <div class="inline-block mb-6" data-aos="zoom-in">
+                        <div class="bf-badge text-black font-black text-2xl sm:text-4xl md:text-5xl px-8 py-4 rounded-2xl transform -rotate-3 shadow-2xl">
+                            <span class="inline-block bf-shake">🔥 BLACK FRIDAY 🔥</span>
+                        </div>
+                    </div>
+                    
+                    <h2 class="text-3xl sm:text-4xl md:text-6xl font-black text-white mb-4 bf-neon" data-aos="fade-up" data-aos-delay="100">
+                        DESCONTO HISTÓRICO!
+                    </h2>
+                    
+                    <p class="text-xl sm:text-2xl md:text-4xl font-bold text-yellow-400 mb-6" data-aos="fade-up" data-aos-delay="200">
+                        Até <span class="text-5xl sm:text-6xl md:text-7xl text-red-500 bf-pulse">50% OFF</span>
+                    </p>
+                    
+                    <p class="text-lg sm:text-xl md:text-2xl text-white mb-8" data-aos="fade-up" data-aos-delay="300">
+                        Exclusivo nos Planos <span class="text-yellow-400 font-bold">SEMESTRAL</span> e <span class="text-yellow-400 font-bold">ANUAL</span>
+                    </p>
+                    
+                    <!-- Countdown Timer -->
+                    <div class="max-w-2xl mx-auto mb-8" data-aos="zoom-in" data-aos-delay="400">
+                        <p class="text-red-500 font-bold text-lg sm:text-xl mb-4 bf-flash">⏰ A OFERTA TERMINA EM:</p>
+                        <div id="bf-countdown" class="flex justify-center gap-3 sm:gap-6">
+                            <div class="bf-pulse">
+                                <div class="bg-gradient-to-br from-yellow-400 to-orange-500 rounded-xl p-3 sm:p-4 min-w-[70px] sm:min-w-[100px]">
+                                    <div id="hours" class="text-3xl sm:text-5xl font-black text-black">00</div>
+                                    <div class="text-xs sm:text-sm font-bold text-black">HORAS</div>
+                                </div>
+                            </div>
+                            <div class="text-4xl sm:text-6xl text-yellow-400 font-black">:</div>
+                            <div class="bf-pulse" style="animation-delay: 0.2s;">
+                                <div class="bg-gradient-to-br from-orange-500 to-red-500 rounded-xl p-3 sm:p-4 min-w-[70px] sm:min-w-[100px]">
+                                    <div id="minutes" class="text-3xl sm:text-5xl font-black text-white">00</div>
+                                    <div class="text-xs sm:text-sm font-bold text-white">MINUTOS</div>
+                                </div>
+                            </div>
+                            <div class="text-4xl sm:text-6xl text-yellow-400 font-black">:</div>
+                            <div class="bf-pulse" style="animation-delay: 0.4s;">
+                                <div class="bg-gradient-to-br from-red-500 to-red-700 rounded-xl p-3 sm:p-4 min-w-[70px] sm:min-w-[100px]">
+                                    <div id="seconds" class="text-3xl sm:text-5xl font-black text-white">00</div>
+                                    <div class="text-xs sm:text-sm font-bold text-white">SEGUNDOS</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center" data-aos="fade-up" data-aos-delay="500">
+                        <a href="#planos" class="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 text-black font-black py-4 px-8 sm:px-12 rounded-full text-lg sm:text-xl transform hover:scale-110 transition-all duration-300 shadow-2xl bf-pulse w-full sm:w-auto">
+                            🎁 GARANTIR DESCONTO AGORA!
+                        </a>
+                    </div>
+                    
+                    <p class="text-yellow-400 text-sm sm:text-base mt-6 font-bold bf-flash">
+                        ⚠️ ÚNICA CHANCE DO ANO! NÃO PERCA!
+                    </p>
+                </div>
+            </div>
+        </div>
+        
         <section class="hero-bg min-h-screen flex items-center relative overflow-hidden">
             <!-- Floating Elements - Hidden on mobile -->
             <div class="absolute inset-0 overflow-hidden pointer-events-none hidden md:block">
@@ -773,12 +943,39 @@
         </section>
 
         <!-- Planos Section com Carrossel -->
-        <section id="planos" class="py-20 relative overflow-hidden">
+        <section id="planos" class="py-20 relative" style="overflow-x: clip; overflow-y: visible;">
             <div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 to-purple-900/20"></div>
+            
+            <!-- Black Friday Alert Banner -->
+            <div id="bf-planos-alert" class="container mx-auto px-4 sm:px-6 mb-8" style="display: none;">
+                <div class="bf-banner rounded-2xl p-6 sm:p-8 border-4 border-yellow-400 relative overflow-hidden" data-aos="zoom-in">
+                    <div class="absolute top-0 right-0 bf-badge text-black font-black text-xs sm:text-sm px-3 sm:px-4 py-1 sm:py-2 rounded-bl-xl">
+                        🔥 HOJE APENAS
+                    </div>
+                    <div class="text-center relative z-10">
+                        <h3 class="text-2xl sm:text-3xl md:text-4xl font-black text-yellow-400 mb-2 bf-neon">
+                            🎉 BLACK FRIDAY EXCLUSIVA! 🎉
+                        </h3>
+                        <p class="text-white text-lg sm:text-xl md:text-2xl font-bold mb-2">
+                            Descontos de até <span class="text-red-500 bf-pulse">50% OFF</span> em TODOS os Planos!
+                        </p>
+                        <p class="text-yellow-400 text-sm sm:text-base font-semibold">
+                            ⚠️ Oferta válida SOMENTE em <span id="bf-date" class="font-black">29/11/2025</span> | Não perca!
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
             <div class="container mx-auto px-6 relative z-10">
-                <h2 class="section-title text-center mb-4" data-aos="fade-up">Escolha seu Plano de Transformação</h2>
+                <h2 class="section-title text-center mb-4" data-aos="fade-up">
+                    <span id="bf-planos-title" style="display: none;" class="text-yellow-400 bf-neon">🔥 PLANOS BLACK FRIDAY 🔥</span>
+                    <span id="normal-planos-title">Escolha seu Plano de Transformação</span>
+                </h2>
                 <p class="text-center text-gray-400 max-w-2xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="100">
-                    Investimento em você que cabe no seu bolso. Escolha o plano ideal para sua jornada.
+                    <span id="bf-planos-subtitle" style="display: none;" class="text-yellow-400 font-bold text-lg">
+                        ⏰ Descontos históricos por tempo limitado! Aproveite!
+                    </span>
+                    <span id="normal-planos-subtitle">Investimento em você que cabe no seu bolso. Escolha o plano ideal para sua jornada.</span>
                 </p>
                 
                 <!-- Swiper Carousel -->
@@ -786,7 +983,14 @@
                     <div class="swiper-wrapper pb-12">
                         <!-- Slide 1 - Plano Mensal -->
                         <div class="swiper-slide">
-                            <div class="plan-card text-center">
+                            <div class="plan-card text-center relative">
+                                <!-- Black Friday Badge -->
+                                <div id="bf-mensal-badge" class="absolute top-3 right-3 z-20" style="display: none;">
+                                    <div class="bf-badge text-black font-black text-xs px-2 py-1 rounded-lg transform rotate-12 bf-shake shadow-2xl whitespace-nowrap">
+                                        🔥 10% OFF
+                                    </div>
+                                </div>
+                                
                                 <div class="mb-6">
                                     <div class="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center mb-4">
                                         <i class="fas fa-bolt text-white text-3xl"></i>
@@ -796,10 +1000,27 @@
                                 </div>
                                 
                                 <div class="mb-6">
-                                    <div class="text-5xl font-black text-white mb-2">
-                                        <span class="gradient-text">R$150</span>
+                                    <!-- Black Friday Price -->
+                                    <div id="bf-mensal-price" style="display: none;">
+                                        <div class="text-2xl font-bold text-gray-400 mb-2">
+                                            <span class="bf-strikethrough">R$200</span>
+                                        </div>
+                                        <div class="text-5xl font-black mb-2">
+                                            <span class="text-yellow-400 bf-pulse">R$180</span>
+                                        </div>
+                                        <p class="text-yellow-400 text-sm font-bold">/mês na Black Friday</p>
+                                        <div class="bg-red-500 text-white text-xs font-black px-4 py-2 rounded-full inline-block mt-2 bf-flash">
+                                            ECONOMIZE R$20 (10% OFF)!
+                                        </div>
                                     </div>
-                                    <p class="text-gray-400 text-sm">/mês</p>
+                                    
+                                    <!-- Normal Price -->
+                                    <div id="normal-mensal-price">
+                                        <div class="text-5xl font-black text-white mb-2">
+                                            <span class="gradient-text">R$200</span>
+                                        </div>
+                                        <p class="text-gray-400 text-sm">/mês</p>
+                                    </div>
                                 </div>
                                 
                                 <p class="text-gray-400 mb-6 flex-grow">Acesso completo com flexibilidade. Ideal para começar sua jornada com acompanhamento de perto.</p>
@@ -831,8 +1052,15 @@
                         
                         <!-- Slide 2 - Plano Trimestral (Featured) -->
                         <div class="swiper-slide">
-                            <div class="plan-card featured text-center">
-                                <span class="absolute top-4 right-4 bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full badge-glow">
+                            <div class="plan-card featured text-center relative">
+                                <!-- Black Friday Badge -->
+                                <div id="bf-trimestral-badge" class="absolute top-3 right-3 z-20" style="display: none;">
+                                    <div class="bf-badge text-black font-black text-xs px-2 py-1 rounded-lg transform rotate-12 bf-shake shadow-2xl whitespace-nowrap">
+                                        🔥 15% OFF
+                                    </div>
+                                </div>
+                                
+                                <span class="absolute top-4 right-4 bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full badge-glow" id="normal-trimestral-badge">
                                     MAIS POPULAR
                                 </span>
                                 
@@ -845,11 +1073,28 @@
                                 </div>
                                 
                                 <div class="mb-6">
-                                    <div class="text-5xl font-black text-white mb-2">
-                                        <span class="gradient-text">R$360</span>
+                                    <!-- Black Friday Price -->
+                                    <div id="bf-trimestral-price" style="display: none;">
+                                        <div class="text-2xl font-bold text-gray-400 mb-2">
+                                            <span class="bf-strikethrough">R$500</span>
+                                        </div>
+                                        <div class="text-5xl font-black mb-2">
+                                            <span class="text-yellow-400 bf-pulse">R$425</span>
+                                        </div>
+                                        <p class="text-yellow-400 text-sm font-bold">/trimestre na Black Friday</p>
+                                        <div class="bg-red-500 text-white text-xs font-black px-4 py-2 rounded-full inline-block mt-2 bf-flash">
+                                            ECONOMIZE R$75 (15% OFF)!
+                                        </div>
                                     </div>
-                                    <p class="text-gray-400 text-sm">/trimestre</p>
-                                    <p class="text-green-400 text-xs font-semibold mt-1">Economia de R$90 (20% OFF)</p>
+                                    
+                                    <!-- Normal Price -->
+                                    <div id="normal-trimestral-price">
+                                        <div class="text-5xl font-black text-white mb-2">
+                                            <span class="gradient-text">R$500</span>
+                                        </div>
+                                        <p class="text-gray-400 text-sm">/trimestre</p>
+                                        <p class="text-green-400 text-xs font-semibold mt-1">Economia de R$100 (17% OFF)</p>
+                                    </div>
                                 </div>
                                 
                                 <p class="text-gray-400 mb-6 flex-grow">Compromisso e economia para resultados mais sólidos. O melhor custo-benefício.</p>
@@ -881,7 +1126,14 @@
                         
                         <!-- Slide 3 - Plano Semestral -->
                         <div class="swiper-slide">
-                            <div class="plan-card text-center">
+                            <div class="plan-card text-center relative">
+                                <!-- Black Friday Badge -->
+                                <div id="bf-semestral-badge" class="absolute top-3 right-3 z-20" style="display: none;">
+                                    <div class="bf-badge text-black font-black text-xs px-2 py-1 rounded-lg transform rotate-12 bf-shake shadow-2xl whitespace-nowrap">
+                                        🔥 30% OFF
+                                    </div>
+                                </div>
+                                
                                 <div class="mb-6">
                                     <div class="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-yellow-500 to-red-600 flex items-center justify-center mb-4">
                                         <i class="fas fa-crown text-white text-3xl"></i>
@@ -891,11 +1143,28 @@
                                 </div>
                                 
                                 <div class="mb-6">
-                                    <div class="text-5xl font-black text-white mb-2">
-                                        <span class="gradient-text">R$600</span>
+                                    <!-- Black Friday Price -->
+                                    <div id="bf-semestral-price" style="display: none;">
+                                        <div class="text-2xl font-bold text-gray-400 mb-2">
+                                            <span class="bf-strikethrough">R$900</span>
+                                        </div>
+                                        <div class="text-6xl font-black mb-2">
+                                            <span class="text-yellow-400 bf-pulse">R$630</span>
+                                        </div>
+                                        <p class="text-yellow-400 text-sm font-bold">/semestre na Black Friday</p>
+                                        <div class="bg-red-500 text-white text-xs font-black px-4 py-2 rounded-full inline-block mt-2 bf-flash">
+                                            ECONOMIZE R$270 (30% OFF)!
+                                        </div>
                                     </div>
-                                    <p class="text-gray-400 text-sm">/semestre</p>
-                                    <p class="text-green-400 text-xs font-semibold mt-1">Economia de R$300 (33% OFF)</p>
+                                    
+                                    <!-- Normal Price -->
+                                    <div id="normal-semestral-price">
+                                        <div class="text-5xl font-black text-white mb-2">
+                                            <span class="gradient-text">R$900</span>
+                                        </div>
+                                        <p class="text-gray-400 text-sm">/semestre</p>
+                                        <p class="text-green-400 text-xs font-semibold mt-1">Economia de R$300 (25% OFF)</p>
+                                    </div>
                                 </div>
                                 
                                 <p class="text-gray-400 mb-6 flex-grow">A transformação definitiva. Acompanhamento completo para quem busca o máximo potencial.</p>
@@ -927,9 +1196,19 @@
                         
                         <!-- Slide 4 - Plano Anual (NOVO) -->
                         <div class="swiper-slide">
-                            <div class="plan-card text-center" style="border: 3px solid; border-image: linear-gradient(135deg, #FFD700, #FFA500) 1;">
-                                <span class="absolute top-4 right-4 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 text-white text-xs font-bold px-3 py-1 rounded-full badge-glow">
+                            <div class="plan-card text-center relative" style="border: 3px solid; border-image: linear-gradient(135deg, #FFD700, #FFA500) 1;">
+                                <!-- Black Friday Badge -->
+                                <div id="bf-anual-badge" class="absolute top-3 right-3 z-20" style="display: none;">
+                                    <div class="bf-badge text-black font-black text-xs px-2 py-1 rounded-lg transform -rotate-12 bf-shake shadow-2xl whitespace-nowrap">
+                                        🔥 50% OFF
+                                    </div>
+                                </div>
+                                
+                                <span class="absolute top-4 left-4 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 text-white text-xs font-bold px-3 py-1 rounded-full badge-glow" id="normal-anual-badge">
                                     MELHOR INVESTIMENTO
+                                </span>
+                                <span class="absolute top-4 left-4 text-xs font-bold px-3 py-1 rounded-full bf-flash" id="bf-anual-badge-text" style="display: none; background: linear-gradient(135deg, #FFD700, #FF6B00); color: #000;">
+                                    🎁 SUPER BLACK FRIDAY
                                 </span>
                                 
                                 <div class="mb-6">
@@ -941,12 +1220,30 @@
                                 </div>
                                 
                                 <div class="mb-6">
-                                    <div class="text-5xl font-black text-white mb-2">
-                                        <span class="gradient-text">R$1.000</span>
+                                    <!-- Black Friday Price -->
+                                    <div id="bf-anual-price" style="display: none;">
+                                        <div class="text-2xl font-bold text-gray-400 mb-2">
+                                            <span class="bf-strikethrough">R$1.500</span>
+                                        </div>
+                                        <div class="text-6xl font-black mb-2">
+                                            <span class="text-yellow-400 bf-pulse">R$750</span>
+                                        </div>
+                                        <p class="text-yellow-400 text-sm font-bold">/ano na Black Friday</p>
+                                        <div class="bg-gradient-to-r from-red-500 to-orange-500 text-white text-sm font-black px-4 py-2 rounded-full inline-block mt-2 bf-pulse">
+                                            ECONOMIZE R$750 (50% OFF)!
+                                        </div>
+                                        <p class="text-green-400 text-xs font-bold mt-2">🚀 Apenas R$62,50/mês!</p>
                                     </div>
-                                    <p class="text-gray-400 text-sm">/ano completo</p>
-                                    <p class="text-green-400 text-xs font-semibold mt-1">💰 Economia de R$800 (44% OFF)</p>
-                                    <p class="text-yellow-400 text-xs font-bold mt-1">Apenas R$83/mês!</p>
+                                    
+                                    <!-- Normal Price -->
+                                    <div id="normal-anual-price">
+                                        <div class="text-5xl font-black text-white mb-2">
+                                            <span class="gradient-text">R$1.500</span>
+                                        </div>
+                                        <p class="text-gray-400 text-sm">/ano completo</p>
+                                        <p class="text-green-400 text-xs font-semibold mt-1">💰 Economia de R$900 (38% OFF)</p>
+                                        <p class="text-yellow-400 text-xs font-bold mt-1">Apenas R$125/mês!</p>
+                                    </div>
                                 </div>
                                 
                                 <p class="text-gray-400 mb-6 flex-grow">O investimento definitivo. 12 meses de acompanhamento VIP para resultados extraordinários e duradouros.</p>
@@ -989,6 +1286,18 @@
                     <div class="swiper-button-next"></div>
                     <div class="swiper-button-prev"></div>
                     <div class="swiper-pagination"></div>
+                </div>
+                
+                <!-- Black Friday Disclaimer -->
+                <div id="bf-disclaimer" class="text-center mt-8 px-4" style="display: none;" data-aos="fade-up">
+                    <div class="max-w-3xl mx-auto bg-gradient-to-r from-yellow-900/30 to-orange-900/30 border-2 border-yellow-500/50 rounded-lg p-4">
+                        <p class="text-yellow-400 text-sm md:text-base font-semibold">
+                            ⚠️ <strong>Válido apenas para novas adesões</strong> realizadas durante a Black Friday
+                        </p>
+                        <p class="text-gray-300 text-xs md:text-sm mt-2">
+                            Os descontos especiais da Black Friday são exclusivos para novos clientes que aderirem aos planos durante o período promocional.
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1584,18 +1893,161 @@
 		gtag('js', new Date());
  	    gtag('config', 'G-BGWR18DZE0');
 	
-		//Ano
-		document.getElementById('ano-atual').textContent = new Date().getFullYear();
+	//Ano
+	document.getElementById('ano-atual').textContent = new Date().getFullYear();
+	
+	// ========================================
+	// BLACK FRIDAY CONTROL SYSTEM
+	// ========================================
+	
+	function isBlackFriday() {
+		const now = new Date();
+		const year = now.getFullYear();
+		const month = now.getMonth(); // 0-11 (November = 10)
+		const day = now.getDate();
 		
-		// Initialize AOS
-		AOS.init({
-			duration: 1000,
-			once: true,
-			offset: 100,
-			easing: 'ease-out-cubic'
-		});
+		// Set Black Friday date (November 29, 2025)
+		const blackFridayDay = 29;
+		const blackFridayMonth = 10; // November (0-indexed)
+		const blackFridayYear = 2025;
 		
-		// Initialize Swiper
+		// Check if today is Black Friday
+		return (year === blackFridayYear && month === blackFridayMonth && day === blackFridayDay);
+	}
+	
+	function initBlackFriday() {
+		if (isBlackFriday()) {
+			console.log('🔥 BLACK FRIDAY MODE ACTIVATED! 🔥');
+			
+			// Show Black Friday elements
+			document.getElementById('bf-top-banner').style.display = 'block';
+			document.getElementById('bf-hero-banner').style.display = 'block';
+			document.getElementById('bf-planos-alert').style.display = 'block';
+			document.getElementById('bf-disclaimer').style.display = 'block';
+			
+            // Update header position (account for top banner)
+            const bannerHeight = document.getElementById('bf-top-banner').offsetHeight;
+            document.getElementById('main-header').style.top = bannerHeight + 'px';
+            document.getElementById('main-content').style.paddingTop = bannerHeight + 'px';			document.getElementById('bf-planos-title').style.display = 'inline';
+			document.getElementById('normal-planos-title').style.display = 'none';
+			document.getElementById('bf-planos-subtitle').style.display = 'inline';
+			document.getElementById('normal-planos-subtitle').style.display = 'none';
+			
+			// Show BF pricing for Mensal plan
+			document.getElementById('bf-mensal-badge').style.display = 'block';
+			document.getElementById('bf-mensal-price').style.display = 'block';
+			document.getElementById('normal-mensal-price').style.display = 'none';
+			
+			// Show BF pricing for Trimestral plan
+			document.getElementById('bf-trimestral-badge').style.display = 'block';
+			document.getElementById('bf-trimestral-price').style.display = 'block';
+			document.getElementById('normal-trimestral-price').style.display = 'none';
+			document.getElementById('normal-trimestral-badge').style.display = 'none';
+			
+			// Show BF pricing for Semestral plan
+			document.getElementById('bf-semestral-badge').style.display = 'block';
+			document.getElementById('bf-semestral-price').style.display = 'block';
+			document.getElementById('normal-semestral-price').style.display = 'none';
+			
+			// Show BF pricing for Anual plan
+			document.getElementById('bf-anual-badge').style.display = 'block';
+			document.getElementById('bf-anual-badge-text').style.display = 'block';
+			document.getElementById('normal-anual-badge').style.display = 'none';
+			document.getElementById('bf-anual-price').style.display = 'block';
+			document.getElementById('normal-anual-price').style.display = 'none';
+			
+			// Set Black Friday date in alert
+			document.getElementById('bf-date').textContent = '29/11/2025';
+			
+			// Start countdown timer
+			startCountdown();
+			
+			// Add confetti effect (optional)
+			createConfetti();
+		} else {
+			console.log('Regular pricing mode');
+			// Hide all Black Friday elements (already hidden by default with display:none in HTML)
+		}
+	}
+	
+	function startCountdown() {
+		const countdownDate = new Date('November 29, 2025 23:59:59').getTime();
+		
+		const countdownInterval = setInterval(function() {
+			const now = new Date().getTime();
+			const distance = countdownDate - now;
+			
+			if (distance < 0) {
+				clearInterval(countdownInterval);
+				document.getElementById('hours').textContent = '00';
+				document.getElementById('minutes').textContent = '00';
+				document.getElementById('seconds').textContent = '00';
+				return;
+			}
+			
+			const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+			const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+			
+			document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+			document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+			document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+		}, 1000);
+	}
+	
+	function createConfetti() {
+		// Simple confetti effect using emojis
+		const confettiEmojis = ['🎉', '🎊', '💥', '⭐', '✨', '🔥'];
+		const confettiCount = 30;
+		
+		for (let i = 0; i < confettiCount; i++) {
+			setTimeout(() => {
+				const confetti = document.createElement('div');
+				confetti.textContent = confettiEmojis[Math.floor(Math.random() * confettiEmojis.length)];
+				confetti.style.position = 'fixed';
+				confetti.style.left = Math.random() * 100 + '%';
+				confetti.style.top = '-50px';
+				confetti.style.fontSize = (Math.random() * 20 + 20) + 'px';
+				confetti.style.zIndex = '9999';
+				confetti.style.pointerEvents = 'none';
+				confetti.style.animation = `confettiFall ${Math.random() * 3 + 2}s linear forwards`;
+				
+				document.body.appendChild(confetti);
+				
+				setTimeout(() => {
+					confetti.remove();
+				}, 5000);
+			}, i * 100);
+		}
+	}
+	
+	// Add confetti animation CSS
+	const style = document.createElement('style');
+	style.textContent = `
+		@keyframes confettiFall {
+			to {
+				top: 100vh;
+				transform: translateX(${Math.random() * 200 - 100}px) rotate(${Math.random() * 360}deg);
+				opacity: 0;
+			}
+		}
+	`;
+	document.head.appendChild(style);
+	
+	// Initialize Black Friday on page load
+	initBlackFriday();
+	
+	// ========================================
+	// END BLACK FRIDAY CONTROL SYSTEM
+	// ========================================
+	
+	// Initialize AOS
+	AOS.init({
+		duration: 1000,
+		once: true,
+		offset: 100,
+		easing: 'ease-out-cubic'
+	});		// Initialize Swiper
 		const swiper = new Swiper('.plansSwiper', {
 			slidesPerView: 1,
 			spaceBetween: 30,
@@ -1638,12 +2090,10 @@
 				},
 			},
 			effect: 'slide',
-			speed: 800,
-			grabCursor: true,
-			watchOverflow: true,
-		});
-	
-        // Mobile menu toggle
+		speed: 800,
+		grabCursor: true,
+		watchOverflow: true,
+	});        // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
 
