@@ -87,12 +87,24 @@
         
         .section-title {
             font-weight: 900;
-            font-size: 2.5rem;
+            font-size: 1.75rem;
             letter-spacing: -0.05em;
             background: var(--primary-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+        }
+        
+        @media (min-width: 640px) {
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 2.5rem;
+            }
         }
         
         .card {
@@ -431,69 +443,69 @@
     <!-- Hero Section -->
     <main class="pt-16">
         <section class="hero-bg min-h-screen flex items-center relative overflow-hidden">
-            <!-- Floating Elements -->
-            <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <!-- Floating Elements - Hidden on mobile -->
+            <div class="absolute inset-0 overflow-hidden pointer-events-none hidden md:block">
                 <div class="absolute top-20 left-10 w-20 h-20 bg-purple-500/20 rounded-full blur-xl animate-pulse" data-aos="fade-in" data-aos-delay="100"></div>
                 <div class="absolute top-40 right-20 w-32 h-32 bg-pink-500/20 rounded-full blur-2xl animate-pulse" data-aos="fade-in" data-aos-delay="300" style="animation-delay: 1s;"></div>
                 <div class="absolute bottom-40 left-1/4 w-24 h-24 bg-indigo-500/20 rounded-full blur-xl animate-pulse" data-aos="fade-in" data-aos-delay="500" style="animation-delay: 2s;"></div>
                 <div class="absolute bottom-20 right-1/3 w-16 h-16 bg-blue-500/20 rounded-full blur-lg animate-pulse" data-aos="fade-in" data-aos-delay="700" style="animation-delay: 3s;"></div>
             </div>
             
-            <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="container mx-auto px-4 sm:px-6 text-center relative z-10 py-12 md:py-0">
                 <!-- Badge Premium -->
-                <div class="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 border border-yellow-500/50 rounded-full px-6 py-2 mb-6" data-aos="fade-down">
-                    <i class="fas fa-award text-yellow-400"></i>
-                    <span class="text-yellow-400 font-semibold text-sm">+500 Transformações Comprovadas</span>
+                <div class="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 border border-yellow-500/50 rounded-full px-3 sm:px-6 py-2 mb-4 sm:mb-6" data-aos="fade-down">
+                    <i class="fas fa-award text-yellow-400 text-sm sm:text-base"></i>
+                    <span class="text-yellow-400 font-semibold text-xs sm:text-sm">+500 Transformações Comprovadas</span>
                 </div>
                 
-                <h1 class="text-5xl md:text-7xl font-black text-white leading-tight mb-6" data-aos="zoom-in" data-aos-delay="100">
+                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black text-white leading-tight mb-4 sm:mb-6 px-2" data-aos="zoom-in" data-aos-delay="100">
                     Transforme seu Corpo.<br>
                     <span class="inline-block" data-aos="fade-left" data-aos-delay="300">
                         Conquiste seus <span class="gradient-text animate-pulse">Objetivos</span>.
                     </span>
                 </h1>
                 
-                <p class="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-4 leading-relaxed" data-aos="fade-up" data-aos-delay="400" style="text-align: justify; text-align-last: center;">
-                    Receba um plano de treino e nutrição 100% personalizado, criado por especialistas com mais de 10 anos de experiência. Alcance o máximo do seu potencial físico, onde quer que você esteja, com acompanhamento profissional que realmente funciona.
+                <p class="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto mb-4 sm:mb-6 leading-relaxed px-2" data-aos="fade-up" data-aos-delay="400" style="text-align: center;">
+                    Receba um plano de treino e nutrição 100% personalizado, criado por especialistas com mais de 10 anos de experiência. Alcance o máximo do seu potencial físico, onde quer que você esteja.
                 </p>
                 
                 <!-- Social Proof Mini -->
-                <div class="flex items-center justify-center gap-6 mb-8" data-aos="fade-up" data-aos-delay="500">
+                <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-6 mb-6 sm:mb-8 px-2" data-aos="fade-up" data-aos-delay="500">
                     <div class="flex items-center gap-2">
-                        <i class="fas fa-users text-indigo-400"></i>
-                        <span class="text-gray-300 text-sm"><strong class="text-white">500+</strong> Clientes</span>
+                        <i class="fas fa-users text-indigo-400 text-sm"></i>
+                        <span class="text-gray-300 text-xs sm:text-sm"><strong class="text-white">500+</strong> Clientes</span>
                     </div>
                     <div class="flex items-center gap-2">
-                        <div class="flex -space-x-2">
-                            <i class="fas fa-star text-yellow-400"></i>
-                            <i class="fas fa-star text-yellow-400"></i>
-                            <i class="fas fa-star text-yellow-400"></i>
-                            <i class="fas fa-star text-yellow-400"></i>
-                            <i class="fas fa-star text-yellow-400"></i>
+                        <div class="flex gap-1">
+                            <i class="fas fa-star text-yellow-400 text-xs"></i>
+                            <i class="fas fa-star text-yellow-400 text-xs"></i>
+                            <i class="fas fa-star text-yellow-400 text-xs"></i>
+                            <i class="fas fa-star text-yellow-400 text-xs"></i>
+                            <i class="fas fa-star text-yellow-400 text-xs"></i>
                         </div>
-                        <span class="text-gray-300 text-sm"><strong class="text-white">4.9/5</strong> Avaliação</span>
+                        <span class="text-gray-300 text-xs sm:text-sm"><strong class="text-white">4.9/5</strong> Avaliação</span>
                     </div>
                 </div>
                 
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6" data-aos="fade-up" data-aos-delay="600">
-                    <a href="#planos" class="btn-primary text-white font-bold py-4 px-10 rounded-full text-lg inline-block relative z-10 transform hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-purple-500/50">
-                        <span class="relative z-10 flex items-center gap-2">
+                <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center mb-4 sm:mb-6 px-4" data-aos="fade-up" data-aos-delay="600">
+                    <a href="#planos" class="btn-primary text-white font-bold py-3 sm:py-4 px-6 sm:px-10 rounded-full text-base sm:text-lg inline-block relative z-10 transform hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-purple-500/50 w-full sm:w-auto">
+                        <span class="relative z-10 flex items-center justify-center gap-2">
                             <i class="fas fa-rocket"></i>
-                            Ver Planos de Consultoria
+                            <span class="whitespace-nowrap">Ver Planos</span>
                         </span>
                     </a>
                     <a href="https://wa.me/5511948834582?text=Ol%C3%A1%2C%20quero%20transformar%20meu%20corpo!" target="_blank" rel="noopener noreferrer" 
-                       class="btn-success font-bold py-4 px-10 rounded-full text-lg inline-flex items-center gap-3 transform hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-green-500/50">
-                        <i class="fab fa-whatsapp text-2xl"></i> 
-                        <span class="font-extrabold">Fale Comigo Agora</span>
+                       class="btn-success font-bold py-3 sm:py-4 px-6 sm:px-10 rounded-full text-base sm:text-lg inline-flex items-center justify-center gap-2 sm:gap-3 transform hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-green-500/50 w-full sm:w-auto">
+                        <i class="fab fa-whatsapp text-xl sm:text-2xl"></i> 
+                        <span class="font-extrabold whitespace-nowrap">Fale Comigo</span>
                     </a>
                 </div>
                 
-                <div class="flex flex-wrap justify-center gap-4 items-center" data-aos="fade-up" data-aos-delay="700">
-                    <p class="text-sm text-yellow-400 font-semibold badge-glow inline-block px-5 py-2 rounded-full bg-yellow-900/30 border border-yellow-500/30">
-                        🔥 Vagas limitadas! Apenas 10 novos alunos por mês
+                <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-2 sm:gap-4 items-center px-4" data-aos="fade-up" data-aos-delay="700">
+                    <p class="text-xs sm:text-sm text-yellow-400 font-semibold badge-glow inline-block px-3 sm:px-5 py-2 rounded-full bg-yellow-900/30 border border-yellow-500/30 text-center">
+                        🔥 Vagas limitadas! Apenas 10 novos alunos/mês
                     </p>
-                    <p class="text-sm text-green-400 font-semibold inline-block px-5 py-2 rounded-full bg-green-900/30 border border-green-500/30">
+                    <p class="text-xs sm:text-sm text-green-400 font-semibold inline-block px-3 sm:px-5 py-2 rounded-full bg-green-900/30 border border-green-500/30">
                         ✅ Primeira consulta grátis
                     </p>
                 </div>
@@ -501,44 +513,44 @@
         </section>
 
         <!-- Sobre Section -->
-        <section id="sobre" class="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
+        <section id="sobre" class="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
             <!-- Background decorativo -->
             <div class="absolute inset-0 opacity-5">
                 <div class="absolute top-0 left-0 w-full h-full" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;"></div>
             </div>
             
-            <div class="container mx-auto px-6 relative z-10">
-                <div class="text-center mb-12" data-aos="fade-up">
-                    <h2 class="section-title text-white mb-4">Conheça seu Treinador</h2>
-                    <p class="text-gray-400 max-w-2xl mx-auto">Especialista em transformações corporais com resultados comprovados</p>
+            <div class="container mx-auto px-4 sm:px-6 relative z-10">
+                <div class="text-center mb-8 sm:mb-12" data-aos="fade-up">
+                    <h2 class="section-title text-white mb-3 sm:mb-4 text-3xl sm:text-4xl md:text-5xl">Conheça seu Treinador</h2>
+                    <p class="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base px-4">Especialista em transformações corporais com resultados comprovados</p>
                 </div>
                 
                 <div class="md:flex md:items-start md:gap-12 max-w-6xl mx-auto">
                     <!-- Coluna da Imagem com Cards Flutuantes -->
-                    <div class="md:w-1/2 mb-12 md:mb-0 relative" data-aos="fade-right">
-                        <div class="relative">
+                    <div class="md:w-1/2 mb-8 md:mb-0 relative px-4 sm:px-0" data-aos="fade-right">
+                        <div class="relative pt-8 pb-12 sm:pt-0 sm:pb-0">
                             <div class="absolute -inset-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl blur-2xl opacity-20 animate-pulse"></div>
                             <img src="images/Lucas.jpeg" 
                                  alt="Consultor Fitness Lukas Capetinga" 
                                  class="rounded-2xl shadow-2xl w-full h-auto max-h-[600px] profile-img hover-zoom relative z-10 border-4 border-gray-700/50"
                                  onerror="this.onerror=null;this.src='https://placehold.co/600x600/374151/ffffff?text=Lukas+Capetinga';">
                             
-                            <!-- Badge Flutuante -->
-                            <div class="absolute -top-4 -right-4 z-20 bg-gradient-to-br from-yellow-400 to-orange-500 text-white px-6 py-3 rounded-xl shadow-2xl transform rotate-3" data-aos="zoom-in" data-aos-delay="300">
+                            <!-- Badge Flutuante - Adjusted for mobile -->
+                            <div class="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 z-20 bg-gradient-to-br from-yellow-400 to-orange-500 text-white px-3 py-2 sm:px-6 sm:py-3 rounded-lg sm:rounded-xl shadow-2xl transform rotate-3" data-aos="zoom-in" data-aos-delay="300">
                                 <div class="text-center">
-                                    <i class="fas fa-trophy text-2xl mb-1"></i>
-                                    <p class="font-black text-lg">Top 1%</p>
-                                    <p class="text-xs opacity-90">Treinadores BR</p>
+                                    <i class="fas fa-trophy text-lg sm:text-2xl mb-0 sm:mb-1"></i>
+                                    <p class="font-black text-sm sm:text-lg">Top 1%</p>
+                                    <p class="text-xs opacity-90 hidden sm:block">Treinadores BR</p>
                                 </div>
                             </div>
                             
-                            <!-- Card Flutuante Inferior -->
-                            <div class="absolute -bottom-6 -left-6 z-20 bg-gray-800/95 backdrop-blur-sm px-6 py-4 rounded-xl shadow-2xl border border-indigo-500/30" data-aos="fade-up" data-aos-delay="500">
-                                <div class="flex items-center gap-3">
-                                    <i class="fas fa-certificate text-indigo-400 text-2xl"></i>
+                            <!-- Card Flutuante Inferior - Adjusted for mobile -->
+                            <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 sm:left-0 sm:translate-x-0 sm:-bottom-6 sm:-left-6 z-20 bg-gray-800/95 backdrop-blur-sm px-3 py-2 sm:px-6 sm:py-4 rounded-lg sm:rounded-xl shadow-2xl border border-indigo-500/30 max-w-[90%] sm:max-w-none sm:w-auto" data-aos="fade-up" data-aos-delay="500">
+                                <div class="flex items-center gap-2 sm:gap-3 justify-center sm:justify-start">
+                                    <i class="fas fa-certificate text-indigo-400 text-base sm:text-2xl"></i>
                                     <div>
-                                        <p class="text-white font-bold">CREF Certificado</p>
-                                        <p class="text-gray-400 text-xs">Profissional Registrado</p>
+                                        <p class="text-white font-bold text-xs sm:text-base whitespace-nowrap">CREF Certificado</p>
+                                        <p class="text-gray-400 text-[10px] sm:text-xs whitespace-nowrap">Profissional Registrado</p>
                                     </div>
                                 </div>
                             </div>
@@ -547,63 +559,63 @@
                     
                     <!-- Coluna do Conteúdo -->
                     <div class="md:w-1/2" data-aos="fade-left">
-                        <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50 mb-6">
-                            <div class="flex items-center gap-3 mb-4">
-                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
-                                    <i class="fas fa-user-tie text-white text-xl"></i>
+                        <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-4 sm:p-6 md:p-8 border border-gray-700/50 mb-4 sm:mb-6">
+                            <div class="flex items-center gap-2 sm:gap-3 mb-4">
+                                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-user-tie text-white text-base sm:text-xl"></i>
                                 </div>
                                 <div>
-                                    <h3 class="text-2xl font-black text-white">Lukas Capetinga</h3>
-                                    <p class="text-indigo-400 text-sm font-semibold">Educador Físico | Personal Trainer</p>
+                                    <h3 class="text-xl sm:text-2xl font-black text-white">Lukas Capetinga</h3>
+                                    <p class="text-indigo-400 text-xs sm:text-sm font-semibold">Educador Físico | Personal Trainer</p>
                                 </div>
                             </div>
                             
-                            <p class="text-gray-300 mb-4 leading-relaxed" style="text-align: justify;">
+                            <p class="text-gray-300 mb-3 sm:mb-4 leading-relaxed text-sm sm:text-base" style="text-align: justify;">
                                 Olá! Sou <strong class="text-white">Lukas Capetinga</strong>, profissional de educação física com mais de <strong class="text-indigo-400">10 anos de experiência</strong> dedicados exclusivamente à musculação e desenvolvimento humano. Minha paixão é ajudar pessoas como você a alcançarem objetivos que pareciam impossíveis, desde emagrecimento saudável até hipertrofia muscular avançada.
                             </p>
                             
-                            <p class="text-gray-300 mb-6 leading-relaxed" style="text-align: justify;">
+                            <p class="text-gray-300 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base" style="text-align: justify;">
                                 Minha metodologia é 100% fundamentada na <strong class="text-white">ciência do esporte</strong>, combinando treinos inteligentes e eficientes com estratégias nutricionais sustentáveis e personalizadas. Acredito firmemente que cada pessoa é única, com suas particularidades, limitações e potenciais. Por isso, cada plano é meticulosamente elaborado para se adaptar perfeitamente à sua rotina, preferências alimentares e metas específicas.
                             </p>
                             
                             <!-- Diferenciais -->
-                            <div class="space-y-3 mb-6">
-                                <div class="flex items-start gap-3">
-                                    <i class="fas fa-check-circle text-green-400 mt-1"></i>
-                                    <p class="text-gray-300 text-sm"><strong class="text-white">Acompanhamento individualizado</strong> com foco total nos seus resultados</p>
+                            <div class="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
+                                <div class="flex items-start gap-2 sm:gap-3">
+                                    <i class="fas fa-check-circle text-green-400 mt-1 flex-shrink-0 text-sm sm:text-base"></i>
+                                    <p class="text-gray-300 text-xs sm:text-sm"><strong class="text-white">Acompanhamento individualizado</strong> com foco total nos seus resultados</p>
                                 </div>
-                                <div class="flex items-start gap-3">
-                                    <i class="fas fa-check-circle text-green-400 mt-1"></i>
-                                    <p class="text-gray-300 text-sm"><strong class="text-white">Metodologia baseada em evidências</strong> científicas comprovadas</p>
+                                <div class="flex items-start gap-2 sm:gap-3">
+                                    <i class="fas fa-check-circle text-green-400 mt-1 flex-shrink-0 text-sm sm:text-base"></i>
+                                    <p class="text-gray-300 text-xs sm:text-sm"><strong class="text-white">Metodologia baseada em evidências</strong> científicas comprovadas</p>
                                 </div>
-                                <div class="flex items-start gap-3">
-                                    <i class="fas fa-check-circle text-green-400 mt-1"></i>
-                                    <p class="text-gray-300 text-sm"><strong class="text-white">Suporte constante</strong> para tirar dúvidas e manter sua motivação</p>
+                                <div class="flex items-start gap-2 sm:gap-3">
+                                    <i class="fas fa-check-circle text-green-400 mt-1 flex-shrink-0 text-sm sm:text-base"></i>
+                                    <p class="text-gray-300 text-xs sm:text-sm"><strong class="text-white">Suporte constante</strong> para tirar dúvidas e manter sua motivação</p>
                                 </div>
                             </div>
                         </div>
                         
                         <!-- Cards de Estatísticas Melhorados -->
-                        <div class="grid grid-cols-2 gap-4">
-                            <div class="bg-gradient-to-br from-indigo-600 to-purple-700 p-6 rounded-xl text-center transform hover:scale-105 transition duration-300 shadow-xl" data-aos="flip-left" data-aos-delay="100">
-                                <i class="fas fa-users text-white text-3xl mb-2"></i>
-                                <span class="text-4xl font-black text-white block counter" data-target="500">0</span>
-                                <span class="text-sm text-indigo-200 font-semibold">Clientes Transformados</span>
+                        <div class="grid grid-cols-2 gap-3 sm:gap-4">
+                            <div class="bg-gradient-to-br from-indigo-600 to-purple-700 p-4 sm:p-6 rounded-xl text-center transform hover:scale-105 transition duration-300 shadow-xl" data-aos="flip-left" data-aos-delay="100">
+                                <i class="fas fa-users text-white text-xl sm:text-3xl mb-1 sm:mb-2"></i>
+                                <span class="text-2xl sm:text-4xl font-black text-white block counter" data-target="500">0</span>
+                                <span class="text-xs sm:text-sm text-indigo-200 font-semibold">Clientes Transformados</span>
                             </div>
-                            <div class="bg-gradient-to-br from-pink-600 to-red-700 p-6 rounded-xl text-center transform hover:scale-105 transition duration-300 shadow-xl" data-aos="flip-left" data-aos-delay="200">
-                                <i class="fas fa-calendar-check text-white text-3xl mb-2"></i>
-                                <span class="text-4xl font-black text-white block counter" data-target="10">0</span>
-                                <span class="text-sm text-pink-200 font-semibold">Anos de Experiência</span>
+                            <div class="bg-gradient-to-br from-pink-600 to-red-700 p-4 sm:p-6 rounded-xl text-center transform hover:scale-105 transition duration-300 shadow-xl" data-aos="flip-left" data-aos-delay="200">
+                                <i class="fas fa-calendar-check text-white text-xl sm:text-3xl mb-1 sm:mb-2"></i>
+                                <span class="text-2xl sm:text-4xl font-black text-white block counter" data-target="10">0</span>
+                                <span class="text-xs sm:text-sm text-pink-200 font-semibold">Anos de Experiência</span>
                             </div>
-                            <div class="bg-gradient-to-br from-green-600 to-teal-700 p-6 rounded-xl text-center transform hover:scale-105 transition duration-300 shadow-xl" data-aos="flip-left" data-aos-delay="300">
-                                <i class="fas fa-trophy text-white text-3xl mb-2"></i>
-                                <span class="text-4xl font-black text-white block">98<span class="text-2xl">%</span></span>
-                                <span class="text-sm text-green-200 font-semibold">Taxa de Sucesso</span>
+                            <div class="bg-gradient-to-br from-green-600 to-teal-700 p-4 sm:p-6 rounded-xl text-center transform hover:scale-105 transition duration-300 shadow-xl" data-aos="flip-left" data-aos-delay="300">
+                                <i class="fas fa-trophy text-white text-xl sm:text-3xl mb-1 sm:mb-2"></i>
+                                <span class="text-2xl sm:text-4xl font-black text-white block">98<span class="text-lg sm:text-2xl">%</span></span>
+                                <span class="text-xs sm:text-sm text-green-200 font-semibold">Taxa de Sucesso</span>
                             </div>
-                            <div class="bg-gradient-to-br from-yellow-600 to-orange-700 p-6 rounded-xl text-center transform hover:scale-105 transition duration-300 shadow-xl" data-aos="flip-left" data-aos-delay="400">
-                                <i class="fas fa-heartbeat text-white text-3xl mb-2"></i>
-                                <span class="text-4xl font-black text-white block">24<span class="text-2xl">/7</span></span>
-                                <span class="text-sm text-yellow-200 font-semibold">Suporte Disponível</span>
+                            <div class="bg-gradient-to-br from-yellow-600 to-orange-700 p-4 sm:p-6 rounded-xl text-center transform hover:scale-105 transition duration-300 shadow-xl" data-aos="flip-left" data-aos-delay="400">
+                                <i class="fas fa-heartbeat text-white text-xl sm:text-3xl mb-1 sm:mb-2"></i>
+                                <span class="text-2xl sm:text-4xl font-black text-white block">24<span class="text-lg sm:text-2xl">/7</span></span>
+                                <span class="text-xs sm:text-sm text-yellow-200 font-semibold">Suporte Disponível</span>
                             </div>
                         </div>
                     </div>
@@ -612,35 +624,35 @@
         </section>
 
         <!-- Metodologia/Processo Section -->
-        <section class="py-20 bg-gradient-to-br from-gray-900 to-gray-800 relative overflow-hidden">
+        <section class="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-gray-900 to-gray-800 relative overflow-hidden">
             <div class="absolute inset-0 opacity-10">
                 <div class="absolute top-0 left-0 w-96 h-96 bg-purple-500 rounded-full filter blur-3xl"></div>
                 <div class="absolute bottom-0 right-0 w-96 h-96 bg-blue-500 rounded-full filter blur-3xl"></div>
             </div>
             
-            <div class="container mx-auto px-6 relative z-10">
-                <h2 class="section-title text-center mb-4" data-aos="fade-up">Como Funciona a Transformação</h2>
-                <p class="text-center text-gray-400 max-w-2xl mx-auto mb-16" data-aos="fade-up" data-aos-delay="100">
+            <div class="container mx-auto px-4 sm:px-6 relative z-10">
+                <h2 class="section-title text-center mb-3 sm:mb-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl px-4" data-aos="fade-up">Como Funciona a Transformação</h2>
+                <p class="text-center text-gray-400 max-w-2xl mx-auto mb-12 sm:mb-16 text-sm sm:text-base px-4" data-aos="fade-up" data-aos-delay="100">
                     Metodologia comprovada em 4 passos simples para alcançar seus objetivos
                 </p>
                 
-                <div class="max-w-4xl mx-auto">
+                <div class="max-w-4xl mx-auto px-4 sm:px-0">
                     <!-- Passo 1 -->
                     <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
-                        <div class="card rounded-2xl p-6 md:p-8">
-                            <div class="flex items-start gap-4">
-                                <div class="stat-circle w-16 h-16 flex-shrink-0">
-                                    <span class="text-2xl font-black text-white">1</span>
+                        <div class="card rounded-2xl p-4 sm:p-6 md:p-8">
+                            <div class="flex items-start gap-3 sm:gap-4">
+                                <div class="stat-circle w-12 h-12 sm:w-16 sm:h-16 flex-shrink-0">
+                                    <span class="text-xl sm:text-2xl font-black text-white">1</span>
                                 </div>
-                                <div>
-                                    <h3 class="text-2xl font-bold text-white mb-3">Avaliação Completa</h3>
-                                    <p class="text-gray-400 mb-4">
+                                <div class="flex-1 min-w-0">
+                                    <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 sm:mb-3">Avaliação Completa</h3>
+                                    <p class="text-gray-400 mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed">
                                         Análise detalhada do seu histórico, objetivos, rotina, limitações e preferências. Entendo exatamente onde você está e onde quer chegar.
                                     </p>
                                     <div class="flex flex-wrap gap-2">
-                                        <span class="text-xs bg-indigo-900/50 text-indigo-300 px-3 py-1 rounded-full">Anamnese</span>
-                                        <span class="text-xs bg-indigo-900/50 text-indigo-300 px-3 py-1 rounded-full">Metas</span>
-                                        <span class="text-xs bg-indigo-900/50 text-indigo-300 px-3 py-1 rounded-full">Diagnóstico</span>
+                                        <span class="text-xs bg-indigo-900/50 text-indigo-300 px-2 sm:px-3 py-1 rounded-full">Anamnese</span>
+                                        <span class="text-xs bg-indigo-900/50 text-indigo-300 px-2 sm:px-3 py-1 rounded-full">Metas</span>
+                                        <span class="text-xs bg-indigo-900/50 text-indigo-300 px-2 sm:px-3 py-1 rounded-full">Diagnóstico</span>
                                     </div>
                                 </div>
                             </div>
@@ -649,20 +661,20 @@
                     
                     <!-- Passo 2 -->
                     <div class="timeline-item" data-aos="fade-right" data-aos-delay="200">
-                        <div class="card rounded-2xl p-6 md:p-8">
-                            <div class="flex items-start gap-4">
-                                <div class="stat-circle w-16 h-16 flex-shrink-0">
-                                    <span class="text-2xl font-black text-white">2</span>
+                        <div class="card rounded-2xl p-4 sm:p-6 md:p-8">
+                            <div class="flex items-start gap-3 sm:gap-4">
+                                <div class="stat-circle w-12 h-12 sm:w-16 sm:h-16 flex-shrink-0">
+                                    <span class="text-xl sm:text-2xl font-black text-white">2</span>
                                 </div>
-                                <div>
-                                    <h3 class="text-2xl font-bold text-white mb-3">Planejamento Personalizado</h3>
-                                    <p class="text-gray-400 mb-4">
+                                <div class="flex-1 min-w-0">
+                                    <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 sm:mb-3">Planejamento Personalizado</h3>
+                                    <p class="text-gray-400 mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed">
                                         Criação do seu plano de treino e nutrição 100% personalizado, adaptado à sua realidade e aos equipamentos que você tem acesso.
                                     </p>
                                     <div class="flex flex-wrap gap-2">
-                                        <span class="text-xs bg-purple-900/50 text-purple-300 px-3 py-1 rounded-full">Treino Custom</span>
-                                        <span class="text-xs bg-purple-900/50 text-purple-300 px-3 py-1 rounded-full">Nutrição</span>
-                                        <span class="text-xs bg-purple-900/50 text-purple-300 px-3 py-1 rounded-full">Periodização</span>
+                                        <span class="text-xs bg-purple-900/50 text-purple-300 px-2 sm:px-3 py-1 rounded-full">Treino Custom</span>
+                                        <span class="text-xs bg-purple-900/50 text-purple-300 px-2 sm:px-3 py-1 rounded-full">Nutrição</span>
+                                        <span class="text-xs bg-purple-900/50 text-purple-300 px-2 sm:px-3 py-1 rounded-full">Periodização</span>
                                     </div>
                                 </div>
                             </div>
@@ -671,20 +683,20 @@
                     
                     <!-- Passo 3 -->
                     <div class="timeline-item" data-aos="fade-right" data-aos-delay="300">
-                        <div class="card rounded-2xl p-6 md:p-8">
-                            <div class="flex items-start gap-4">
-                                <div class="stat-circle w-16 h-16 flex-shrink-0">
-                                    <span class="text-2xl font-black text-white">3</span>
+                        <div class="card rounded-2xl p-4 sm:p-6 md:p-8">
+                            <div class="flex items-start gap-3 sm:gap-4">
+                                <div class="stat-circle w-12 h-12 sm:w-16 sm:h-16 flex-shrink-0">
+                                    <span class="text-xl sm:text-2xl font-black text-white">3</span>
                                 </div>
-                                <div>
-                                    <h3 class="text-2xl font-bold text-white mb-3">Acompanhamento Contínuo</h3>
-                                    <p class="text-gray-400 mb-4">
+                                <div class="flex-1 min-w-0">
+                                    <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 sm:mb-3">Acompanhamento Contínuo</h3>
+                                    <p class="text-gray-400 mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed">
                                         Suporte diário via WhatsApp, análise de execução dos exercícios e ajustes sempre que necessário para garantir sua evolução constante.
                                     </p>
                                     <div class="flex flex-wrap gap-2">
-                                        <span class="text-xs bg-pink-900/50 text-pink-300 px-3 py-1 rounded-full">WhatsApp 24/7</span>
-                                        <span class="text-xs bg-pink-900/50 text-pink-300 px-3 py-1 rounded-full">Vídeo Análise</span>
-                                        <span class="text-xs bg-pink-900/50 text-pink-300 px-3 py-1 rounded-full">Feedback</span>
+                                        <span class="text-xs bg-pink-900/50 text-pink-300 px-2 sm:px-3 py-1 rounded-full whitespace-nowrap">WhatsApp 24/7</span>
+                                        <span class="text-xs bg-pink-900/50 text-pink-300 px-2 sm:px-3 py-1 rounded-full whitespace-nowrap">Vídeo Análise</span>
+                                        <span class="text-xs bg-pink-900/50 text-pink-300 px-2 sm:px-3 py-1 rounded-full">Feedback</span>
                                     </div>
                                 </div>
                             </div>
@@ -693,20 +705,20 @@
                     
                     <!-- Passo 4 -->
                     <div class="timeline-item" data-aos="fade-right" data-aos-delay="400">
-                        <div class="card rounded-2xl p-6 md:p-8">
-                            <div class="flex items-start gap-4">
-                                <div class="stat-circle w-16 h-16 flex-shrink-0">
-                                    <span class="text-2xl font-black text-white">4</span>
+                        <div class="card rounded-2xl p-4 sm:p-6 md:p-8">
+                            <div class="flex items-start gap-3 sm:gap-4">
+                                <div class="stat-circle w-12 h-12 sm:w-16 sm:h-16 flex-shrink-0">
+                                    <span class="text-xl sm:text-2xl font-black text-white">4</span>
                                 </div>
-                                <div>
-                                    <h3 class="text-2xl font-bold text-white mb-3">Resultados Sustentáveis</h3>
-                                    <p class="text-gray-400 mb-4">
+                                <div class="flex-1 min-w-0">
+                                    <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 sm:mb-3">Resultados Sustentáveis</h3>
+                                    <p class="text-gray-400 mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed">
                                         Alcance seus objetivos de forma saudável e sustentável, com mudanças que vão além da estética e transformam seu estilo de vida.
                                     </p>
                                     <div class="flex flex-wrap gap-2">
-                                        <span class="text-xs bg-green-900/50 text-green-300 px-3 py-1 rounded-full">Transformação</span>
-                                        <span class="text-xs bg-green-900/50 text-green-300 px-3 py-1 rounded-full">Saúde</span>
-                                        <span class="text-xs bg-green-900/50 text-green-300 px-3 py-1 rounded-full">Lifestyle</span>
+                                        <span class="text-xs bg-green-900/50 text-green-300 px-2 sm:px-3 py-1 rounded-full">Transformação</span>
+                                        <span class="text-xs bg-green-900/50 text-green-300 px-2 sm:px-3 py-1 rounded-full">Saúde</span>
+                                        <span class="text-xs bg-green-900/50 text-green-300 px-2 sm:px-3 py-1 rounded-full">Lifestyle</span>
                                     </div>
                                 </div>
                             </div>
@@ -1159,28 +1171,28 @@
         </section>
 
         <!-- Depoimentos Section -->
-        <section id="depoimentos" class="py-20 bg-gradient-to-br from-gray-800 via-gray-900 to-gray-800 relative overflow-hidden">
+        <section id="depoimentos" class="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-gray-800 via-gray-900 to-gray-800 relative overflow-hidden">
             <!-- Background Pattern -->
             <div class="absolute inset-0 opacity-5">
                 <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
             </div>
             
-            <div class="container mx-auto px-6 relative z-10">
+            <div class="container mx-auto px-4 sm:px-6 relative z-10">
                 <div class="text-center mb-4" data-aos="fade-up">
-                    <div class="inline-flex items-center gap-2 bg-yellow-500/20 border border-yellow-500/50 rounded-full px-5 py-2 mb-4">
-                        <i class="fas fa-quote-left text-yellow-400"></i>
-                        <span class="text-yellow-400 font-semibold text-sm">Depoimentos Verificados</span>
-                        <i class="fas fa-shield-check text-yellow-400"></i>
+                    <div class="inline-flex items-center gap-2 bg-yellow-500/20 border border-yellow-500/50 rounded-full px-3 sm:px-5 py-2 mb-4">
+                        <i class="fas fa-quote-left text-yellow-400 text-xs sm:text-sm"></i>
+                        <span class="text-yellow-400 font-semibold text-xs sm:text-sm">Depoimentos Verificados</span>
+                        <i class="fas fa-shield-check text-yellow-400 text-xs sm:text-sm"></i>
                     </div>
-                    <h2 class="section-title text-center text-white mb-4">O que meus clientes dizem</h2>
-                    <p class="text-center text-gray-400 max-w-2xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="100">
+                    <h2 class="section-title text-center text-white mb-3 sm:mb-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl px-4">O que meus clientes dizem</h2>
+                    <p class="text-center text-gray-400 max-w-2xl mx-auto mb-8 sm:mb-12 text-sm sm:text-base px-4" data-aos="fade-up" data-aos-delay="100">
                         Histórias reais de transformação. Veja como a ForçaTotal mudou a vida dessas pessoas.
                     </p>
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                     <!-- Depoimento 1 -->
-                    <div class="card rounded-2xl p-6 relative overflow-hidden border border-gray-700/50 hover:border-indigo-500/50 transition-all duration-300 transform hover:-translate-y-2" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="card rounded-2xl p-4 sm:p-6 relative overflow-hidden border border-gray-700/50 hover:border-indigo-500/50 transition-all duration-300 transform hover:-translate-y-2" data-aos="zoom-in" data-aos-delay="100">
                         <div class="absolute top-4 right-4">
                             <i class="fas fa-shield-check text-green-400 text-xl" title="Depoimento Verificado"></i>
                         </div>
@@ -1218,7 +1230,7 @@
                         </div>
                     </div>
                     <!-- Depoimento 2 -->
-                    <div class="card rounded-2xl p-6 relative overflow-hidden border border-gray-700/50 hover:border-pink-500/50 transition-all duration-300 transform hover:-translate-y-2" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="card rounded-2xl p-4 sm:p-6 relative overflow-hidden border border-gray-700/50 hover:border-pink-500/50 transition-all duration-300 transform hover:-translate-y-2" data-aos="zoom-in" data-aos-delay="200">
                         <div class="absolute top-4 right-4">
                             <i class="fas fa-shield-check text-green-400 text-xl" title="Depoimento Verificado"></i>
                         </div>
@@ -1256,7 +1268,7 @@
                         </div>
                     </div>
                     <!-- Depoimento 3 -->
-                    <div class="card rounded-2xl p-6 relative overflow-hidden border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 transform hover:-translate-y-2" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="card rounded-2xl p-4 sm:p-6 relative overflow-hidden border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 transform hover:-translate-y-2" data-aos="zoom-in" data-aos-delay="300">
                         <div class="absolute top-4 right-4">
                             <i class="fas fa-shield-check text-green-400 text-xl" title="Depoimento Verificado"></i>
                         </div>
@@ -1295,9 +1307,9 @@
                     </div>
                 </div>
 				<br/>
-				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                     <!-- Depoimento 4 -->
-                    <div class="card rounded-2xl p-6 relative overflow-hidden border border-gray-700/50 hover:border-orange-500/50 transition-all duration-300 transform hover:-translate-y-2" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="card rounded-2xl p-4 sm:p-6 relative overflow-hidden border border-gray-700/50 hover:border-orange-500/50 transition-all duration-300 transform hover:-translate-y-2" data-aos="zoom-in" data-aos-delay="100">
                         <div class="absolute top-4 right-4">
                             <i class="fas fa-shield-check text-green-400 text-xl" title="Depoimento Verificado"></i>
                         </div>
@@ -1335,7 +1347,7 @@
                         </div>
                     </div>
                     <!-- Depoimento 5 -->
-                    <div class="card rounded-2xl p-6 relative overflow-hidden border border-gray-700/50 hover:border-teal-500/50 transition-all duration-300 transform hover:-translate-y-2" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="card rounded-2xl p-4 sm:p-6 relative overflow-hidden border border-gray-700/50 hover:border-teal-500/50 transition-all duration-300 transform hover:-translate-y-2" data-aos="zoom-in" data-aos-delay="200">
                         <div class="absolute top-4 right-4">
                             <i class="fas fa-shield-check text-green-400 text-xl" title="Depoimento Verificado"></i>
                         </div>
@@ -1373,7 +1385,7 @@
                         </div>
                     </div>
                     <!-- Depoimento 6 -->
-                    <div class="card rounded-2xl p-6 relative overflow-hidden border border-gray-700/50 hover:border-blue-500/50 transition-all duration-300 transform hover:-translate-y-2" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="card rounded-2xl p-4 sm:p-6 relative overflow-hidden border border-gray-700/50 hover:border-blue-500/50 transition-all duration-300 transform hover:-translate-y-2" data-aos="zoom-in" data-aos-delay="300">
                         <div class="absolute top-4 right-4">
                             <i class="fas fa-shield-check text-green-400 text-xl" title="Depoimento Verificado"></i>
                         </div>
