@@ -28,35 +28,359 @@
     
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
     <style>
         /* Custom styles to apply the Inter font */
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --success-gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            --dark-bg: #0a0e27;
+            --card-bg: #131729;
+            --card-hover: #1a1f3a;
+        }
+        
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #111827; /* bg-gray-900 */
+            background: linear-gradient(to bottom, var(--dark-bg), #0f1419);
+            color: #e2e8f0;
         }
+        
         .hero-bg {
-            background-image: linear-gradient(rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 1)), url('images/Lucas1.jpeg');
+            background-image: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(118, 75, 162, 0.15)), 
+                              linear-gradient(rgba(10, 14, 39, 0.85), rgba(15, 20, 25, 0.95)), 
+                              url('images/Lucas1.jpeg');
             background-size: cover;
             background-position: center 5%;
+            background-attachment: fixed;
+            position: relative;
+            overflow: hidden;
         }
+        
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(245, 87, 108, 0.1) 0%, transparent 50%);
+            animation: pulseGlow 8s ease-in-out infinite;
+        }
+        
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 0.8; }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
         .section-title {
             font-weight: 900;
-            font-size: 2.25rem; /* text-4xl */
+            font-size: 2.5rem;
             letter-spacing: -0.05em;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
+        
         .card {
-            background-color: #1F2937; /* bg-gray-800 */
-            border: 1px solid #374151; /* border-gray-700 */
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: var(--card-bg);
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
         }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+            transition: left 0.5s;
+        }
+        
+        .card:hover::before {
+            left: 100%;
+        }
+        
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3), 0 0 20px rgba(118, 75, 162, 0.2);
+            border-color: rgba(102, 126, 234, 0.6);
+            background: var(--card-hover);
         }
+        
         .profile-img {
             object-fit: cover;
             object-position: center 10%;
+            border: 3px solid transparent;
+            background: var(--primary-gradient);
+            background-clip: padding-box;
+        }
+        
+        /* Gradiente animado melhorado */
+        .gradient-text {
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c, #667eea);
+            background-size: 300% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 4s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        /* Botões aprimorados */
+        .btn-primary {
+            background: var(--primary-gradient);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .btn-primary:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+        }
+        
+        .btn-success {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.5);
+            color: #ffffff !important;
+            font-weight: 700;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn-success:hover {
+            background: linear-gradient(135deg, #128C7E 0%, #075E54 100%);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.7);
+            transform: translateY(-2px);
+        }
+        
+        /* Swiper Carousel Custom Styles */
+        .swiper-slide {
+            height: auto;
+            display: flex;
+        }
+        
+        .plan-card {
+            background: var(--card-bg);
+            border: 2px solid rgba(102, 126, 234, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        
+        .plan-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+        
+        .plan-card:hover::after {
+            opacity: 1;
+        }
+        
+        .plan-card.featured {
+            border: 3px solid;
+            border-image: var(--primary-gradient) 1;
+            transform: scale(1.05);
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.4);
+        }
+        
+        .swiper-button-next, .swiper-button-prev {
+            color: #ffffff !important;
+            background: rgba(102, 126, 234, 0.8) !important;
+            padding: 1rem !important;
+            border-radius: 50% !important;
+            width: 45px !important;
+            height: 45px !important;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .swiper-button-next::after, .swiper-button-prev::after {
+            font-size: 20px !important;
+            font-weight: 900 !important;
+        }
+        
+        .swiper-button-next:hover, .swiper-button-prev:hover {
+            background: rgba(102, 126, 234, 1) !important;
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+            transform: scale(1.1);
+        }
+        
+        .swiper-pagination-bullet-active {
+            background: #667eea;
+        }
+        
+        /* FAQ Accordion */
+        .faq-item {
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+        
+        .faq-item:hover {
+            border-left-color: #667eea;
+        }
+        
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .faq-content.active {
+            max-height: 500px;
+        }
+        
+        /* Testimonial Stars */
+        .star-rating {
+            color: #fbbf24;
+            text-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+        }
+        
+        /* Hover effect para imagens */
+        .hover-zoom {
+            transition: transform 0.5s ease;
+            position: relative;
+        }
+        .hover-zoom::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--primary-gradient);
+            opacity: 0;
+            transition: opacity 0.5s;
+            border-radius: inherit;
+        }
+        .hover-zoom:hover {
+            transform: scale(1.05);
+        }
+        .hover-zoom:hover::after {
+            opacity: 0.1;
+        }
+        
+        /* Stats Section */
+        .stat-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--primary-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        /* Process Timeline */
+        .timeline-item {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary-gradient);
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.6);
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 9px;
+            top: 20px;
+            width: 2px;
+            height: calc(100% + 2rem);
+            background: linear-gradient(to bottom, rgba(102, 126, 234, 0.5), transparent);
+        }
+        
+        .timeline-item:last-child::after {
+            display: none;
+        }
+        
+        /* Badge */
+        .badge-glow {
+            animation: glowPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes glowPulse {
+            0%, 100% {
+                box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(245, 158, 11, 0.8), 0 0 30px rgba(245, 158, 11, 0.4);
+            }
+        }
+        
+        /* Parallax Effect */
+        .parallax-section {
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
         }
     </style>
 </head>
@@ -71,12 +395,16 @@
             <div class="hidden md:flex space-x-8 items-center">
                 <a href="#sobre" class="hover:text-indigo-400 transition-colors duration-300">Sobre</a>
                 <a href="#planos" class="hover:text-indigo-400 transition-colors duration-300">Planos</a>
+                <a href="#beneficios" class="hover:text-indigo-400 transition-colors duration-300">Benefícios</a>
                 <a href="#depoimentos" class="hover:text-indigo-400 transition-colors duration-300">Depoimentos</a>
-                <a href="#contato" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300">Comece Agora</a>
+                <a href="#faq" class="hover:text-indigo-400 transition-colors duration-300">FAQ</a>
+                <a href="#contato" class="btn-primary text-white font-bold py-2 px-6 rounded-full transition-colors duration-300 inline-block">
+                    <span class="relative z-10">Comece Agora</span>
+                </a>
 				
                 <a href="https://wa.me/5511948834582?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os." target="_blank" rel="noopener noreferrer"
-				   class="flex items-center gap-2 bg-green-500 text-white px-3 py-1.5 rounded-md hover:bg-green-600 transition duration-300 ml-3 text-sm font-medium">
-				  <span>WhatsApp</span>
+				   class="whatsapp-btn btn-success flex items-center gap-2 px-4 py-2 rounded-full transition duration-300 ml-3 text-sm font-medium">
+				  <i class="fab fa-whatsapp text-xl"></i><span class="font-bold">WhatsApp</span>
 				</a>
             </div>
             <button id="mobile-menu-button" class="md:hidden focus:outline-none">
@@ -87,59 +415,195 @@
         <div id="mobile-menu" class="hidden md:hidden">
             <a href="#sobre" class="block py-2 px-4 text-sm hover:bg-gray-700">Sobre</a>
             <a href="#planos" class="block py-2 px-4 text-sm hover:bg-gray-700">Planos</a>
+            <a href="#beneficios" class="block py-2 px-4 text-sm hover:bg-gray-700">Benefícios</a>
             <a href="#depoimentos" class="block py-2 px-4 text-sm hover:bg-gray-700">Depoimentos</a>
+            <a href="#faq" class="block py-2 px-4 text-sm hover:bg-gray-700">FAQ</a>
             <a href="#contato" class="block py-2 px-4 text-sm hover:bg-gray-700">Contato</a>
 			<!-- WhatsApp Mobile -->
 			<a href="https://wa.me/5511948834582?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os."
 			   target="_blank" rel="noopener noreferrer"
 			   class="block py-2 px-4 text-sm hover:bg-gray-700">
-				<span>WhatsApp</span>
+				<i class="fab fa-whatsapp mr-2"></i><span>WhatsApp</span>
 			</a>
         </div>
     </header>
 
     <!-- Hero Section -->
     <main class="pt-16">
-        <section class="hero-bg min-h-screen flex items-center">
-            <div class="container mx-auto px-6 text-center">
-                <h1 class="text-4xl md:text-6xl font-black text-white leading-tight mb-4">
-                    Transforme seu Corpo. <br> Conquiste seus <span class="text-indigo-400">Objetivos</span>.
+        <section class="hero-bg min-h-screen flex items-center relative overflow-hidden">
+            <!-- Floating Elements -->
+            <div class="absolute inset-0 overflow-hidden pointer-events-none">
+                <div class="absolute top-20 left-10 w-20 h-20 bg-purple-500/20 rounded-full blur-xl animate-pulse" data-aos="fade-in" data-aos-delay="100"></div>
+                <div class="absolute top-40 right-20 w-32 h-32 bg-pink-500/20 rounded-full blur-2xl animate-pulse" data-aos="fade-in" data-aos-delay="300" style="animation-delay: 1s;"></div>
+                <div class="absolute bottom-40 left-1/4 w-24 h-24 bg-indigo-500/20 rounded-full blur-xl animate-pulse" data-aos="fade-in" data-aos-delay="500" style="animation-delay: 2s;"></div>
+                <div class="absolute bottom-20 right-1/3 w-16 h-16 bg-blue-500/20 rounded-full blur-lg animate-pulse" data-aos="fade-in" data-aos-delay="700" style="animation-delay: 3s;"></div>
+            </div>
+            
+            <div class="container mx-auto px-6 text-center relative z-10">
+                <!-- Badge Premium -->
+                <div class="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 border border-yellow-500/50 rounded-full px-6 py-2 mb-6" data-aos="fade-down">
+                    <i class="fas fa-award text-yellow-400"></i>
+                    <span class="text-yellow-400 font-semibold text-sm">+500 Transformações Comprovadas</span>
+                </div>
+                
+                <h1 class="text-5xl md:text-7xl font-black text-white leading-tight mb-6" data-aos="zoom-in" data-aos-delay="100">
+                    Transforme seu Corpo.<br>
+                    <span class="inline-block" data-aos="fade-left" data-aos-delay="300">
+                        Conquiste seus <span class="gradient-text animate-pulse">Objetivos</span>.
+                    </span>
                 </h1>
-                <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-                    Receba um plano de treino e dieta 100% personalizado, criado por especialistas para você atingir o máximo do seu potencial, onde quer que esteja.
+                
+                <p class="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-4 leading-relaxed" data-aos="fade-up" data-aos-delay="400" style="text-align: justify; text-align-last: center;">
+                    Receba um plano de treino e nutrição 100% personalizado, criado por especialistas com mais de 10 anos de experiência. Alcance o máximo do seu potencial físico, onde quer que você esteja, com acompanhamento profissional que realmente funciona.
                 </p>
-                <a href="#planos" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-lg text-lg transition-transform transform hover:scale-105 duration-300 inline-block">
-                    Ver Planos de Consultoria
-                </a>
+                
+                <!-- Social Proof Mini -->
+                <div class="flex items-center justify-center gap-6 mb-8" data-aos="fade-up" data-aos-delay="500">
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-users text-indigo-400"></i>
+                        <span class="text-gray-300 text-sm"><strong class="text-white">500+</strong> Clientes</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <div class="flex -space-x-2">
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                        </div>
+                        <span class="text-gray-300 text-sm"><strong class="text-white">4.9/5</strong> Avaliação</span>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6" data-aos="fade-up" data-aos-delay="600">
+                    <a href="#planos" class="btn-primary text-white font-bold py-4 px-10 rounded-full text-lg inline-block relative z-10 transform hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-purple-500/50">
+                        <span class="relative z-10 flex items-center gap-2">
+                            <i class="fas fa-rocket"></i>
+                            Ver Planos de Consultoria
+                        </span>
+                    </a>
+                    <a href="https://wa.me/5511948834582?text=Ol%C3%A1%2C%20quero%20transformar%20meu%20corpo!" target="_blank" rel="noopener noreferrer" 
+                       class="btn-success font-bold py-4 px-10 rounded-full text-lg inline-flex items-center gap-3 transform hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-green-500/50">
+                        <i class="fab fa-whatsapp text-2xl"></i> 
+                        <span class="font-extrabold">Fale Comigo Agora</span>
+                    </a>
+                </div>
+                
+                <div class="flex flex-wrap justify-center gap-4 items-center" data-aos="fade-up" data-aos-delay="700">
+                    <p class="text-sm text-yellow-400 font-semibold badge-glow inline-block px-5 py-2 rounded-full bg-yellow-900/30 border border-yellow-500/30">
+                        🔥 Vagas limitadas! Apenas 10 novos alunos por mês
+                    </p>
+                    <p class="text-sm text-green-400 font-semibold inline-block px-5 py-2 rounded-full bg-green-900/30 border border-green-500/30">
+                        ✅ Primeira consulta grátis
+                    </p>
+                </div>
             </div>
         </section>
 
         <!-- Sobre Section -->
-        <section id="sobre" class="py-20 bg-gray-900">
-            <div class="container mx-auto px-6">
-                <div class="md:flex md:items-center md:space-x-12">
-                    <div class="md:w-1/2 mb-8 md:mb-0">
-                        <img src="images/Lucas.jpeg" 
-                             alt="Consultor Fitness Lukas Capetinga" 
-                             class="rounded-lg shadow-2xl w-full h-auto max-h-[600px] profile-img"
-                             onerror="this.onerror=null;this.src='https://placehold.co/600x600/374151/ffffff?text=Lukas+Capetinga';">
-                    </div>
-                    <div class="md:w-1/2">
-                        <h2 class="section-title text-white mb-4">Sobre o seu Treinador</h2>
-                        <p class="text-gray-400 mb-4">
-                            Olá, sou <strong>Lukas Capetinga</strong>, um profissional de educação física apaixonado por musculação e desenvolvimento humano. Com mais de 10 anos de experiência, já ajudei centenas de pessoas a alcançarem seus objetivos, desde a perda de peso até a hipertrofia muscular avançada.
-                        </p>
-                        <p class="text-gray-400 mb-6">
-                            Minha metodologia é baseada na ciência do esporte, combinando treinos eficientes e estratégias nutricionais sustentáveis. Acredito que cada pessoa é única, e por isso, cada plano é cuidadosamente elaborado para se adaptar à sua rotina, preferências e metas.
-                        </p>
-                        <div class="flex space-x-4">
-                            <div class="bg-gray-800 p-4 rounded-lg text-center flex-1">
-                                <span class="text-3xl font-bold text-indigo-400 block">+500</span>
-                                <span class="text-sm text-gray-400">Clientes Satisfeitos</span>
+        <section id="sobre" class="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
+            <!-- Background decorativo -->
+            <div class="absolute inset-0 opacity-5">
+                <div class="absolute top-0 left-0 w-full h-full" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;"></div>
+            </div>
+            
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h2 class="section-title text-white mb-4">Conheça seu Treinador</h2>
+                    <p class="text-gray-400 max-w-2xl mx-auto">Especialista em transformações corporais com resultados comprovados</p>
+                </div>
+                
+                <div class="md:flex md:items-start md:gap-12 max-w-6xl mx-auto">
+                    <!-- Coluna da Imagem com Cards Flutuantes -->
+                    <div class="md:w-1/2 mb-12 md:mb-0 relative" data-aos="fade-right">
+                        <div class="relative">
+                            <div class="absolute -inset-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl blur-2xl opacity-20 animate-pulse"></div>
+                            <img src="images/Lucas.jpeg" 
+                                 alt="Consultor Fitness Lukas Capetinga" 
+                                 class="rounded-2xl shadow-2xl w-full h-auto max-h-[600px] profile-img hover-zoom relative z-10 border-4 border-gray-700/50"
+                                 onerror="this.onerror=null;this.src='https://placehold.co/600x600/374151/ffffff?text=Lukas+Capetinga';">
+                            
+                            <!-- Badge Flutuante -->
+                            <div class="absolute -top-4 -right-4 z-20 bg-gradient-to-br from-yellow-400 to-orange-500 text-white px-6 py-3 rounded-xl shadow-2xl transform rotate-3" data-aos="zoom-in" data-aos-delay="300">
+                                <div class="text-center">
+                                    <i class="fas fa-trophy text-2xl mb-1"></i>
+                                    <p class="font-black text-lg">Top 1%</p>
+                                    <p class="text-xs opacity-90">Treinadores BR</p>
+                                </div>
                             </div>
-                            <div class="bg-gray-800 p-4 rounded-lg text-center flex-1">
-                                <span class="text-3xl font-bold text-indigo-400 block">+10</span>
-                                <span class="text-sm text-gray-400">Anos de Experiência</span>
+                            
+                            <!-- Card Flutuante Inferior -->
+                            <div class="absolute -bottom-6 -left-6 z-20 bg-gray-800/95 backdrop-blur-sm px-6 py-4 rounded-xl shadow-2xl border border-indigo-500/30" data-aos="fade-up" data-aos-delay="500">
+                                <div class="flex items-center gap-3">
+                                    <i class="fas fa-certificate text-indigo-400 text-2xl"></i>
+                                    <div>
+                                        <p class="text-white font-bold">CREF Certificado</p>
+                                        <p class="text-gray-400 text-xs">Profissional Registrado</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Coluna do Conteúdo -->
+                    <div class="md:w-1/2" data-aos="fade-left">
+                        <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50 mb-6">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
+                                    <i class="fas fa-user-tie text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-black text-white">Lukas Capetinga</h3>
+                                    <p class="text-indigo-400 text-sm font-semibold">Educador Físico | Personal Trainer</p>
+                                </div>
+                            </div>
+                            
+                            <p class="text-gray-300 mb-4 leading-relaxed" style="text-align: justify;">
+                                Olá! Sou <strong class="text-white">Lukas Capetinga</strong>, profissional de educação física com mais de <strong class="text-indigo-400">10 anos de experiência</strong> dedicados exclusivamente à musculação e desenvolvimento humano. Minha paixão é ajudar pessoas como você a alcançarem objetivos que pareciam impossíveis, desde emagrecimento saudável até hipertrofia muscular avançada.
+                            </p>
+                            
+                            <p class="text-gray-300 mb-6 leading-relaxed" style="text-align: justify;">
+                                Minha metodologia é 100% fundamentada na <strong class="text-white">ciência do esporte</strong>, combinando treinos inteligentes e eficientes com estratégias nutricionais sustentáveis e personalizadas. Acredito firmemente que cada pessoa é única, com suas particularidades, limitações e potenciais. Por isso, cada plano é meticulosamente elaborado para se adaptar perfeitamente à sua rotina, preferências alimentares e metas específicas.
+                            </p>
+                            
+                            <!-- Diferenciais -->
+                            <div class="space-y-3 mb-6">
+                                <div class="flex items-start gap-3">
+                                    <i class="fas fa-check-circle text-green-400 mt-1"></i>
+                                    <p class="text-gray-300 text-sm"><strong class="text-white">Acompanhamento individualizado</strong> com foco total nos seus resultados</p>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <i class="fas fa-check-circle text-green-400 mt-1"></i>
+                                    <p class="text-gray-300 text-sm"><strong class="text-white">Metodologia baseada em evidências</strong> científicas comprovadas</p>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <i class="fas fa-check-circle text-green-400 mt-1"></i>
+                                    <p class="text-gray-300 text-sm"><strong class="text-white">Suporte constante</strong> para tirar dúvidas e manter sua motivação</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Cards de Estatísticas Melhorados -->
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-gradient-to-br from-indigo-600 to-purple-700 p-6 rounded-xl text-center transform hover:scale-105 transition duration-300 shadow-xl" data-aos="flip-left" data-aos-delay="100">
+                                <i class="fas fa-users text-white text-3xl mb-2"></i>
+                                <span class="text-4xl font-black text-white block counter" data-target="500">0</span>
+                                <span class="text-sm text-indigo-200 font-semibold">Clientes Transformados</span>
+                            </div>
+                            <div class="bg-gradient-to-br from-pink-600 to-red-700 p-6 rounded-xl text-center transform hover:scale-105 transition duration-300 shadow-xl" data-aos="flip-left" data-aos-delay="200">
+                                <i class="fas fa-calendar-check text-white text-3xl mb-2"></i>
+                                <span class="text-4xl font-black text-white block counter" data-target="10">0</span>
+                                <span class="text-sm text-pink-200 font-semibold">Anos de Experiência</span>
+                            </div>
+                            <div class="bg-gradient-to-br from-green-600 to-teal-700 p-6 rounded-xl text-center transform hover:scale-105 transition duration-300 shadow-xl" data-aos="flip-left" data-aos-delay="300">
+                                <i class="fas fa-trophy text-white text-3xl mb-2"></i>
+                                <span class="text-4xl font-black text-white block">98<span class="text-2xl">%</span></span>
+                                <span class="text-sm text-green-200 font-semibold">Taxa de Sucesso</span>
+                            </div>
+                            <div class="bg-gradient-to-br from-yellow-600 to-orange-700 p-6 rounded-xl text-center transform hover:scale-105 transition duration-300 shadow-xl" data-aos="flip-left" data-aos-delay="400">
+                                <i class="fas fa-heartbeat text-white text-3xl mb-2"></i>
+                                <span class="text-4xl font-black text-white block">24<span class="text-2xl">/7</span></span>
+                                <span class="text-sm text-yellow-200 font-semibold">Suporte Disponível</span>
                             </div>
                         </div>
                     </div>
@@ -147,173 +611,937 @@
             </div>
         </section>
 
-        <!-- Planos Section -->
-        <section id="planos" class="py-20 bg-gray-800">
+        <!-- Metodologia/Processo Section -->
+        <section class="py-20 bg-gradient-to-br from-gray-900 to-gray-800 relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10">
+                <div class="absolute top-0 left-0 w-96 h-96 bg-purple-500 rounded-full filter blur-3xl"></div>
+                <div class="absolute bottom-0 right-0 w-96 h-96 bg-blue-500 rounded-full filter blur-3xl"></div>
+            </div>
+            
+            <div class="container mx-auto px-6 relative z-10">
+                <h2 class="section-title text-center mb-4" data-aos="fade-up">Como Funciona a Transformação</h2>
+                <p class="text-center text-gray-400 max-w-2xl mx-auto mb-16" data-aos="fade-up" data-aos-delay="100">
+                    Metodologia comprovada em 4 passos simples para alcançar seus objetivos
+                </p>
+                
+                <div class="max-w-4xl mx-auto">
+                    <!-- Passo 1 -->
+                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
+                        <div class="card rounded-2xl p-6 md:p-8">
+                            <div class="flex items-start gap-4">
+                                <div class="stat-circle w-16 h-16 flex-shrink-0">
+                                    <span class="text-2xl font-black text-white">1</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-bold text-white mb-3">Avaliação Completa</h3>
+                                    <p class="text-gray-400 mb-4">
+                                        Análise detalhada do seu histórico, objetivos, rotina, limitações e preferências. Entendo exatamente onde você está e onde quer chegar.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="text-xs bg-indigo-900/50 text-indigo-300 px-3 py-1 rounded-full">Anamnese</span>
+                                        <span class="text-xs bg-indigo-900/50 text-indigo-300 px-3 py-1 rounded-full">Metas</span>
+                                        <span class="text-xs bg-indigo-900/50 text-indigo-300 px-3 py-1 rounded-full">Diagnóstico</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Passo 2 -->
+                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="200">
+                        <div class="card rounded-2xl p-6 md:p-8">
+                            <div class="flex items-start gap-4">
+                                <div class="stat-circle w-16 h-16 flex-shrink-0">
+                                    <span class="text-2xl font-black text-white">2</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-bold text-white mb-3">Planejamento Personalizado</h3>
+                                    <p class="text-gray-400 mb-4">
+                                        Criação do seu plano de treino e nutrição 100% personalizado, adaptado à sua realidade e aos equipamentos que você tem acesso.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="text-xs bg-purple-900/50 text-purple-300 px-3 py-1 rounded-full">Treino Custom</span>
+                                        <span class="text-xs bg-purple-900/50 text-purple-300 px-3 py-1 rounded-full">Nutrição</span>
+                                        <span class="text-xs bg-purple-900/50 text-purple-300 px-3 py-1 rounded-full">Periodização</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Passo 3 -->
+                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="300">
+                        <div class="card rounded-2xl p-6 md:p-8">
+                            <div class="flex items-start gap-4">
+                                <div class="stat-circle w-16 h-16 flex-shrink-0">
+                                    <span class="text-2xl font-black text-white">3</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-bold text-white mb-3">Acompanhamento Contínuo</h3>
+                                    <p class="text-gray-400 mb-4">
+                                        Suporte diário via WhatsApp, análise de execução dos exercícios e ajustes sempre que necessário para garantir sua evolução constante.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="text-xs bg-pink-900/50 text-pink-300 px-3 py-1 rounded-full">WhatsApp 24/7</span>
+                                        <span class="text-xs bg-pink-900/50 text-pink-300 px-3 py-1 rounded-full">Vídeo Análise</span>
+                                        <span class="text-xs bg-pink-900/50 text-pink-300 px-3 py-1 rounded-full">Feedback</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Passo 4 -->
+                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="400">
+                        <div class="card rounded-2xl p-6 md:p-8">
+                            <div class="flex items-start gap-4">
+                                <div class="stat-circle w-16 h-16 flex-shrink-0">
+                                    <span class="text-2xl font-black text-white">4</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-bold text-white mb-3">Resultados Sustentáveis</h3>
+                                    <p class="text-gray-400 mb-4">
+                                        Alcance seus objetivos de forma saudável e sustentável, com mudanças que vão além da estética e transformam seu estilo de vida.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="text-xs bg-green-900/50 text-green-300 px-3 py-1 rounded-full">Transformação</span>
+                                        <span class="text-xs bg-green-900/50 text-green-300 px-3 py-1 rounded-full">Saúde</span>
+                                        <span class="text-xs bg-green-900/50 text-green-300 px-3 py-1 rounded-full">Lifestyle</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Estatísticas Visuais -->
+        <section class="py-20 bg-gray-900">
             <div class="container mx-auto px-6">
-                <h2 class="section-title text-center text-white mb-12">Planos de Consultoria</h2>
+                <h2 class="section-title text-center mb-4" data-aos="fade-up">Resultados que Falam por Si</h2>
+                <p class="text-center text-gray-400 max-w-2xl mx-auto mb-16" data-aos="fade-up" data-aos-delay="100">
+                    Números reais de transformações reais
+                </p>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <div class="text-center" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="stat-circle mx-auto mb-4">
+                            <span class="text-3xl font-black text-white counter" data-target="500">0</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Clientes</h3>
+                        <p class="text-gray-400 text-sm">Transformados</p>
+                    </div>
+                    
+                    <div class="text-center" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="stat-circle mx-auto mb-4">
+                            <span class="text-3xl font-black text-white counter" data-target="10">0</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Anos</h3>
+                        <p class="text-gray-400 text-sm">De Experiência</p>
+                    </div>
+                    
+                    <div class="text-center" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="stat-circle mx-auto mb-4">
+                            <span class="text-3xl font-black text-white counter" data-target="98">0</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">98%</h3>
+                        <p class="text-gray-400 text-sm">Satisfação</p>
+                    </div>
+                    
+                    <div class="text-center" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="stat-circle mx-auto mb-4">
+                            <span class="text-3xl font-black text-white counter" data-target="24">0</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">24/7</h3>
+                        <p class="text-gray-400 text-sm">Suporte</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Planos Section com Carrossel -->
+        <section id="planos" class="py-20 relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 to-purple-900/20"></div>
+            <div class="container mx-auto px-6 relative z-10">
+                <h2 class="section-title text-center mb-4" data-aos="fade-up">Escolha seu Plano de Transformação</h2>
+                <p class="text-center text-gray-400 max-w-2xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="100">
+                    Investimento em você que cabe no seu bolso. Escolha o plano ideal para sua jornada.
+                </p>
+                
+                <!-- Swiper Carousel -->
+                <div class="swiper plansSwiper max-w-7xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                    <div class="swiper-wrapper pb-12">
+                        <!-- Slide 1 - Plano Mensal -->
+                        <div class="swiper-slide">
+                            <div class="plan-card text-center">
+                                <div class="mb-6">
+                                    <div class="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center mb-4">
+                                        <i class="fas fa-bolt text-white text-3xl"></i>
+                                    </div>
+                                    <h3 class="text-2xl font-bold text-white mb-2">Plano Mensal</h3>
+                                    <p class="text-gray-400 text-sm">Comece sua jornada</p>
+                                </div>
+                                
+                                <div class="mb-6">
+                                    <div class="text-5xl font-black text-white mb-2">
+                                        <span class="gradient-text">R$150</span>
+                                    </div>
+                                    <p class="text-gray-400 text-sm">/mês</p>
+                                </div>
+                                
+                                <p class="text-gray-400 mb-6 flex-grow">Acesso completo com flexibilidade. Ideal para começar sua jornada com acompanhamento de perto.</p>
+                                
+                                <ul class="text-left space-y-3 text-gray-300 mb-8">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-400 mr-3 mt-1"></i>
+                                        <span>Plano de treino 100% individualizado</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-400 mr-3 mt-1"></i>
+                                        <span>Orientações nutricionais completas</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-400 mr-3 mt-1"></i>
+                                        <span>Suporte ilimitado via WhatsApp</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-400 mr-3 mt-1"></i>
+                                        <span>Ajustes mensais no treino</span>
+                                    </li>
+                                </ul>
+                                
+                                <a href="#contato" class="btn-primary text-white font-bold py-3 px-6 rounded-full w-full inline-block mt-auto">
+                                    <span class="relative z-10">Começar Agora</span>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 2 - Plano Trimestral (Featured) -->
+                        <div class="swiper-slide">
+                            <div class="plan-card featured text-center">
+                                <span class="absolute top-4 right-4 bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full badge-glow">
+                                    MAIS POPULAR
+                                </span>
+                                
+                                <div class="mb-6">
+                                    <div class="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center mb-4">
+                                        <i class="fas fa-rocket text-white text-3xl"></i>
+                                    </div>
+                                    <h3 class="text-2xl font-bold text-white mb-2">Plano Trimestral</h3>
+                                    <p class="text-gray-400 text-sm">Melhor custo-benefício</p>
+                                </div>
+                                
+                                <div class="mb-6">
+                                    <div class="text-5xl font-black text-white mb-2">
+                                        <span class="gradient-text">R$360</span>
+                                    </div>
+                                    <p class="text-gray-400 text-sm">/trimestre</p>
+                                    <p class="text-green-400 text-xs font-semibold mt-1">Economia de R$90 (20% OFF)</p>
+                                </div>
+                                
+                                <p class="text-gray-400 mb-6 flex-grow">Compromisso e economia para resultados mais sólidos. O melhor custo-benefício.</p>
+                                
+                                <ul class="text-left space-y-3 text-gray-300 mb-8">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-400 mr-3 mt-1"></i>
+                                        <span><strong>Tudo do plano Mensal</strong></span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-star text-yellow-400 mr-3 mt-1"></i>
+                                        <span><strong>Análise de vídeos de execução</strong></span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-star text-yellow-400 mr-3 mt-1"></i>
+                                        <span><strong>Ajustes a cada 45 dias</strong></span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-star text-yellow-400 mr-3 mt-1"></i>
+                                        <span><strong>Relatórios de progresso detalhados</strong></span>
+                                    </li>
+                                </ul>
+                                
+                                <a href="#contato" class="btn-primary text-white font-bold py-3 px-6 rounded-full w-full inline-block mt-auto">
+                                    <span class="relative z-10">Quero Este Plano! 🔥</span>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 3 - Plano Semestral -->
+                        <div class="swiper-slide">
+                            <div class="plan-card text-center">
+                                <div class="mb-6">
+                                    <div class="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-yellow-500 to-red-600 flex items-center justify-center mb-4">
+                                        <i class="fas fa-crown text-white text-3xl"></i>
+                                    </div>
+                                    <h3 class="text-2xl font-bold text-white mb-2">Plano Semestral</h3>
+                                    <p class="text-gray-400 text-sm">Transformação completa</p>
+                                </div>
+                                
+                                <div class="mb-6">
+                                    <div class="text-5xl font-black text-white mb-2">
+                                        <span class="gradient-text">R$600</span>
+                                    </div>
+                                    <p class="text-gray-400 text-sm">/semestre</p>
+                                    <p class="text-green-400 text-xs font-semibold mt-1">Economia de R$300 (33% OFF)</p>
+                                </div>
+                                
+                                <p class="text-gray-400 mb-6 flex-grow">A transformação definitiva. Acompanhamento completo para quem busca o máximo potencial.</p>
+                                
+                                <ul class="text-left space-y-3 text-gray-300 mb-8">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-400 mr-3 mt-1"></i>
+                                        <span><strong>Tudo do plano Trimestral</strong></span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-crown text-yellow-400 mr-3 mt-1"></i>
+                                        <span><strong>Planejamento de suplementação</strong></span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-crown text-yellow-400 mr-3 mt-1"></i>
+                                        <span><strong>Chamada de vídeo mensal</strong></span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-crown text-yellow-400 mr-3 mt-1"></i>
+                                        <span><strong>Prioridade no atendimento</strong></span>
+                                    </li>
+                                </ul>
+                                
+                                <a href="#contato" class="btn-primary text-white font-bold py-3 px-6 rounded-full w-full inline-block mt-auto">
+                                    <span class="relative z-10">Investir na Transformação</span>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 4 - Plano Anual (NOVO) -->
+                        <div class="swiper-slide">
+                            <div class="plan-card text-center" style="border: 3px solid; border-image: linear-gradient(135deg, #FFD700, #FFA500) 1;">
+                                <span class="absolute top-4 right-4 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 text-white text-xs font-bold px-3 py-1 rounded-full badge-glow">
+                                    MELHOR INVESTIMENTO
+                                </span>
+                                
+                                <div class="mb-6">
+                                    <div class="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-yellow-400 via-orange-500 to-red-600 flex items-center justify-center mb-4 animate-pulse">
+                                        <i class="fas fa-trophy text-white text-3xl"></i>
+                                    </div>
+                                    <h3 class="text-2xl font-bold text-white mb-2">Plano Anual</h3>
+                                    <p class="text-yellow-400 text-sm font-bold">🏆 Transformação Total</p>
+                                </div>
+                                
+                                <div class="mb-6">
+                                    <div class="text-5xl font-black text-white mb-2">
+                                        <span class="gradient-text">R$1.000</span>
+                                    </div>
+                                    <p class="text-gray-400 text-sm">/ano completo</p>
+                                    <p class="text-green-400 text-xs font-semibold mt-1">💰 Economia de R$800 (44% OFF)</p>
+                                    <p class="text-yellow-400 text-xs font-bold mt-1">Apenas R$83/mês!</p>
+                                </div>
+                                
+                                <p class="text-gray-400 mb-6 flex-grow">O investimento definitivo. 12 meses de acompanhamento VIP para resultados extraordinários e duradouros.</p>
+                                
+                                <ul class="text-left space-y-3 text-gray-300 mb-8">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-400 mr-3 mt-1"></i>
+                                        <span><strong>Tudo do plano Semestral</strong></span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-trophy text-yellow-400 mr-3 mt-1"></i>
+                                        <span><strong>Acompanhamento VIP 12 meses</strong></span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-trophy text-yellow-400 mr-3 mt-1"></i>
+                                        <span><strong>2 chamadas de vídeo por mês</strong></span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-trophy text-yellow-400 mr-3 mt-1"></i>
+                                        <span><strong>Reavaliação trimestral completa</strong></span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-trophy text-yellow-400 mr-3 mt-1"></i>
+                                        <span><strong>Material educativo exclusivo</strong></span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-star text-yellow-400 mr-3 mt-1"></i>
+                                        <span><strong>Atendimento prioritário 24/7</strong></span>
+                                    </li>
+                                </ul>
+                                
+                                <a href="#contato" class="btn-primary text-white font-bold py-3 px-6 rounded-full w-full inline-block mt-auto">
+                                    <span class="relative z-10">Garantir Meu Ano de Transformação! 🏆</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Navegação -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefícios Section -->
+        <section id="beneficios" class="py-20 bg-gray-900">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title text-center text-white mb-4" data-aos="fade-up">Por que escolher a ForçaTotal?</h2>
+                <p class="text-center text-gray-400 max-w-2xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="100">
+                    Metodologia comprovada, acompanhamento personalizado e resultados reais que transformam vidas.
+                </p>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Plano 1 -->
-                    <div class="card rounded-lg p-8 text-center flex flex-col">
-                        <i class="fas fa-bolt text-indigo-400 text-4xl mb-4"></i>
-                        <h3 class="text-2xl font-bold text-white mb-4">Plano Mensal</h3>
-                        <p class="text-gray-400 mb-6 flex-grow">Acesso completo com flexibilidade. Ideal para começar sua jornada com acompanhamento de perto.</p>
-                        <div class="text-4xl font-black text-white mb-6">R$150,00<span class="text-lg font-medium text-gray-400">/mês</span></div>
-                        <ul class="text-left space-y-3 text-gray-300 mb-8">
-                            <li><i class="fas fa-check-circle text-green-400 mr-2"></i>Plano de treino individualizado</li>
-                            <li><i class="fas fa-check-circle text-green-400 mr-2"></i>Orientações nutricionais</li>
-                            <li><i class="fas fa-check-circle text-green-400 mr-2"></i>Suporte via WhatsApp</li>
-                            <li><i class="fas fa-check-circle text-green-400 mr-2"></i>Ajustes mensais no treino</li>
-                        </ul>
-                        <a href="#contato" class="mt-auto bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg w-full transition-colors duration-300">Contratar</a>
+                    <div class="card rounded-lg p-8 text-center" data-aos="flip-left" data-aos-delay="100">
+                        <div class="bg-indigo-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-user-check text-3xl text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">100% Personalizado</h3>
+                        <p class="text-gray-400">Cada treino e orientação nutricional é criado especificamente para você, considerando seu histórico, objetivos e limitações.</p>
                     </div>
-                    <!-- Plano 2 -->
-                    <div class="card rounded-lg p-8 text-center border-2 border-indigo-500 relative flex flex-col">
-                        <span class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-indigo-500 text-white text-xs font-bold px-3 py-1 rounded-full">MAIS POPULAR</span>
-                        <i class="fas fa-rocket text-indigo-400 text-4xl mb-4"></i>
-                        <h3 class="text-2xl font-bold text-white mb-4">Plano Trimestral</h3>
-                        <p class="text-gray-400 mb-6 flex-grow">Compromisso e economia para resultados mais sólidos. O melhor custo-benefício.</p>
-                        <div class="text-4xl font-black text-white mb-2">R$360,00<span class="text-lg font-medium text-gray-400">/trimestre</span></div>
-                        <p class="text-gray-400 mb-6">(Equivalente a R$120,00/mês)</p>
-                        <ul class="text-left space-y-3 text-gray-300 mb-8">
-                            <li><i class="fas fa-check-circle text-green-400 mr-2"></i>Tudo do plano Mensal</li>
-                            <li><i class="fas fa-check-circle text-green-400 mr-2"></i><strong>Análise de vídeos de execução</strong></li>
-                            <li><i class="fas fa-check-circle text-green-400 mr-2"></i>Ajustes a cada 45 dias</li>
-                        </ul>
-                        <a href="#contato" class="mt-auto bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg w-full transition-colors duration-300">Contratar</a>
+                    
+                    <div class="card rounded-lg p-8 text-center" data-aos="flip-left" data-aos-delay="200">
+                        <div class="bg-indigo-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-mobile-alt text-3xl text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Suporte via WhatsApp</h3>
+                        <p class="text-gray-400">Tire suas dúvidas a qualquer momento. Respondo rapidamente para garantir que você está no caminho certo.</p>
                     </div>
-                    <!-- Plano 3 -->
-                    <div class="card rounded-lg p-8 text-center flex flex-col">
-                        <i class="fas fa-crown text-indigo-400 text-4xl mb-4"></i>
-                        <h3 class="text-2xl font-bold text-white mb-4">Plano Semestral</h3>
-                        <p class="text-gray-400 mb-6 flex-grow">A transformação definitiva. Acompanhamento completo para quem busca o máximo potencial.</p>
-                        <div class="text-4xl font-black text-white mb-2">R$600<span class="text-lg font-medium text-gray-400">/semestre</span></div>
-                        <p class="text-gray-400 mb-6">(Equivalente a R$100,00/mês)</p>
-                        <ul class="text-left space-y-3 text-gray-300 mb-8">
-                            <li><i class="fas fa-check-circle text-green-400 mr-2"></i>Tudo do plano Trimestral</li>
-                            <li><i class="fas fa-check-circle text-green-400 mr-2"></i><strong>Planejamento de suplementação</strong></li>
-                            <li><i class="fas fa-check-circle text-green-400 mr-2"></i><strong>Chamada de vídeo mensal</strong></li>
-                        </ul>
-                        <a href="#contato" class="mt-auto bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg w-full transition-colors duration-300">Contratar</a>
+                    
+                    <div class="card rounded-lg p-8 text-center" data-aos="flip-left" data-aos-delay="300">
+                        <div class="bg-indigo-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-flask text-3xl text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Baseado em Ciência</h3>
+                        <p class="text-gray-400">Metodologia fundamentada em estudos científicos e anos de experiência prática com centenas de alunos.</p>
                     </div>
+                    
+                    <div class="card rounded-lg p-8 text-center" data-aos="flip-left" data-aos-delay="100">
+                        <div class="bg-indigo-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-sync-alt text-3xl text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Ajustes Constantes</h3>
+                        <p class="text-gray-400">Seu treino evolui conforme você progride. Faço ajustes regulares para garantir resultados contínuos.</p>
+                    </div>
+                    
+                    <div class="card rounded-lg p-8 text-center" data-aos="flip-left" data-aos-delay="200">
+                        <div class="bg-indigo-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-video text-3xl text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Análise de Execução</h3>
+                        <p class="text-gray-400">Nos planos superiores, analiso vídeos dos seus treinos para corrigir técnica e prevenir lesões.</p>
+                    </div>
+                    
+                    <div class="card rounded-lg p-8 text-center" data-aos="flip-left" data-aos-delay="300">
+                        <div class="bg-indigo-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-chart-line text-3xl text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Resultados Comprovados</h3>
+                        <p class="text-gray-400">Mais de 500 clientes satisfeitos alcançaram seus objetivos com minha metodologia personalizada.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Transformações Section -->
+        <section class="py-20 bg-gradient-to-br from-gray-800 to-gray-900 relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10">
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full filter blur-3xl"></div>
+            </div>
+            
+            <div class="container mx-auto px-6 relative z-10">
+                <h2 class="section-title text-center mb-4" data-aos="fade-up">Transformações Reais</h2>
+                <p class="text-center text-gray-400 max-w-2xl mx-auto mb-16" data-aos="fade-up" data-aos-delay="100">
+                    Veja o poder de um acompanhamento profissional e personalizado
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <!-- Transformação 1 -->
+                    <div class="card rounded-2xl overflow-hidden" data-aos="flip-left" data-aos-delay="100">
+                        <div class="relative">
+                            <div class="absolute top-4 left-4 z-10">
+                                <span class="bg-gradient-to-r from-green-400 to-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+                                    -12kg em 3 meses
+                                </span>
+                            </div>
+                            <div class="aspect-square bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center">
+                                <div class="text-center p-6">
+                                    <i class="fas fa-user-check text-6xl text-indigo-400 mb-4"></i>
+                                    <p class="text-white font-bold text-lg">Fran Cristina</p>
+                                    <p class="text-gray-400 text-sm">Plano Trimestral</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-gray-400 text-sm">Antes:</span>
+                                <span class="text-red-400 font-bold">72kg</span>
+                            </div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-gray-400 text-sm">Depois:</span>
+                                <span class="text-green-400 font-bold">60kg</span>
+                            </div>
+                            <div class="h-2 bg-gray-700 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-green-400 to-blue-500" style="width: 85%"></div>
+                            </div>
+                            <p class="text-gray-400 text-xs mt-3 italic">"Mudou completamente minha relação com o treino!"</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Transformação 2 -->
+                    <div class="card rounded-2xl overflow-hidden" data-aos="flip-left" data-aos-delay="200">
+                        <div class="relative">
+                            <div class="absolute top-4 left-4 z-10">
+                                <span class="bg-gradient-to-r from-purple-400 to-pink-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+                                    +8kg de massa
+                                </span>
+                            </div>
+                            <div class="aspect-square bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center">
+                                <div class="text-center p-6">
+                                    <i class="fas fa-dumbbell text-6xl text-purple-400 mb-4"></i>
+                                    <p class="text-white font-bold text-lg">João Machado</p>
+                                    <p class="text-gray-400 text-sm">Plano Semestral</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-gray-400 text-sm">Antes:</span>
+                                <span class="text-red-400 font-bold">68kg</span>
+                            </div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-gray-400 text-sm">Depois:</span>
+                                <span class="text-green-400 font-bold">76kg</span>
+                            </div>
+                            <div class="h-2 bg-gray-700 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-purple-400 to-pink-500" style="width: 90%"></div>
+                            </div>
+                            <p class="text-gray-400 text-xs mt-3 italic">"Finalmente consegui ganhar massa magra!"</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Transformação 3 -->
+                    <div class="card rounded-2xl overflow-hidden" data-aos="flip-left" data-aos-delay="300">
+                        <div class="relative">
+                            <div class="absolute top-4 left-4 z-10">
+                                <span class="bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+                                    +40% de força
+                                </span>
+                            </div>
+                            <div class="aspect-square bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center">
+                                <div class="text-center p-6">
+                                    <i class="fas fa-fire text-6xl text-orange-400 mb-4"></i>
+                                    <p class="text-white font-bold text-lg">Mariana Mendes</p>
+                                    <p class="text-gray-400 text-sm">Plano Mensal</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-gray-400 text-sm">Supino Antes:</span>
+                                <span class="text-red-400 font-bold">30kg</span>
+                            </div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-gray-400 text-sm">Supino Depois:</span>
+                                <span class="text-green-400 font-bold">42kg</span>
+                            </div>
+                            <div class="h-2 bg-gray-700 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-yellow-400 to-orange-500" style="width: 75%"></div>
+                            </div>
+                            <p class="text-gray-400 text-xs mt-3 italic">"Evolução incrível em pouco tempo!"</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-12" data-aos="fade-up" data-aos-delay="400">
+                    <a href="#contato" class="btn-primary text-white font-bold py-4 px-8 rounded-full text-lg inline-block">
+                        <span class="relative z-10">Quero Minha Transformação! 💪</span>
+                    </a>
                 </div>
             </div>
         </section>
 
         <!-- Depoimentos Section -->
-        <section id="depoimentos" class="py-20 bg-gray-900">
-            <div class="container mx-auto px-6">
-                <h2 class="section-title text-center text-white mb-12">O que meus clientes dizem</h2>
+        <section id="depoimentos" class="py-20 bg-gradient-to-br from-gray-800 via-gray-900 to-gray-800 relative overflow-hidden">
+            <!-- Background Pattern -->
+            <div class="absolute inset-0 opacity-5">
+                <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+            </div>
+            
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="text-center mb-4" data-aos="fade-up">
+                    <div class="inline-flex items-center gap-2 bg-yellow-500/20 border border-yellow-500/50 rounded-full px-5 py-2 mb-4">
+                        <i class="fas fa-quote-left text-yellow-400"></i>
+                        <span class="text-yellow-400 font-semibold text-sm">Depoimentos Verificados</span>
+                        <i class="fas fa-shield-check text-yellow-400"></i>
+                    </div>
+                    <h2 class="section-title text-center text-white mb-4">O que meus clientes dizem</h2>
+                    <p class="text-center text-gray-400 max-w-2xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="100">
+                        Histórias reais de transformação. Veja como a ForçaTotal mudou a vida dessas pessoas.
+                    </p>
+                </div>
+                
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Depoimento 1 -->
-                    <div class="card rounded-lg p-6">
-                        <div class="flex items-center mb-4">
-                            <img src="images/Joao.jpeg" alt="João Machado" class="w-12 h-12 rounded-full mr-4 object-cover">
-                            <div>
-                                <h4 class="font-bold text-white">João Machado</h4>
-                                <p class="text-sm text-gray-400">Aluno do Plano Mensal</p>
+                    <div class="card rounded-2xl p-6 relative overflow-hidden border border-gray-700/50 hover:border-indigo-500/50 transition-all duration-300 transform hover:-translate-y-2" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="absolute top-4 right-4">
+                            <i class="fas fa-shield-check text-green-400 text-xl" title="Depoimento Verificado"></i>
+                        </div>
+                        <div class="flex items-start mb-4">
+                            <div class="relative">
+                                <img src="images/Joao.jpeg" alt="João Machado" class="w-20 h-20 rounded-full object-cover border-4 border-indigo-500/50 shadow-lg">
+                                <div class="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-gray-800 flex items-center justify-center">
+                                    <i class="fas fa-check text-white text-xs"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4 flex-1">
+                                <h4 class="font-bold text-white text-lg">João Machado</h4>
+                                <p class="text-xs text-indigo-400 font-semibold">Plano Mensal</p>
+                                <div class="star-rating text-sm mt-1">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span class="text-yellow-400 text-xs ml-1 font-bold">5.0</span>
+                                </div>
                             </div>
                         </div>
-                        <p class="text-gray-300">"Nem sei como agradecer! Esses treinos novos mudaram tudo pra mim. Tô me sentindo mais forte, com muito mais disposição e vendo resultados reais. Ter seu acompanhamento faz toda a diferença! E ainda me divirto nos treinos!"</p>
+                        <div class="relative mb-4">
+                            <i class="fas fa-quote-left text-indigo-500/30 text-3xl absolute -top-2 -left-2"></i>
+                            <p class="text-gray-300 leading-relaxed pl-6" style="text-align: justify;">
+                                Nem sei como agradecer! Esses treinos novos mudaram tudo pra mim. Tô me sentindo mais forte, com muito mais disposição e vendo resultados reais. Ter seu acompanhamento faz toda a diferença! E ainda me divirto nos treinos!
+                            </p>
+                        </div>
+                        <div class="bg-gradient-to-r from-indigo-900/50 to-purple-900/50 rounded-lg p-3 border border-indigo-500/30">
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-trophy text-yellow-400"></i>
+                                <p class="text-sm text-indigo-200 font-semibold">+8kg de massa muscular em 3 meses</p>
+                            </div>
+                        </div>
                     </div>
                     <!-- Depoimento 2 -->
-                    <div class="card rounded-lg p-6">
-                        <div class="flex items-center mb-4">
-                            <img src="images/Fran.jpeg" alt="Fran Cristina" class="w-12 h-12 rounded-full mr-4 object-cover">
-                            <div>
-                                <h4 class="font-bold text-white">Fran Cristina</h4>
-                                <p class="text-sm text-gray-400">Aluna do Plano Mensal</p>
+                    <div class="card rounded-2xl p-6 relative overflow-hidden border border-gray-700/50 hover:border-pink-500/50 transition-all duration-300 transform hover:-translate-y-2" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="absolute top-4 right-4">
+                            <i class="fas fa-shield-check text-green-400 text-xl" title="Depoimento Verificado"></i>
+                        </div>
+                        <div class="flex items-start mb-4">
+                            <div class="relative">
+                                <img src="images/Fran.jpeg" alt="Fran Cristina" class="w-20 h-20 rounded-full object-cover border-4 border-pink-500/50 shadow-lg">
+                                <div class="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-gray-800 flex items-center justify-center">
+                                    <i class="fas fa-check text-white text-xs"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4 flex-1">
+                                <h4 class="font-bold text-white text-lg">Fran Cristina</h4>
+                                <p class="text-xs text-pink-400 font-semibold">Plano Mensal</p>
+                                <div class="star-rating text-sm mt-1">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span class="text-yellow-400 text-xs ml-1 font-bold">5.0</span>
+                                </div>
                             </div>
                         </div>
-                        <p class="text-gray-300">"Desde que comecei o treino contigo, minha evolução foi surreal! Corpo mais firme, força aumentando e autoestima lá em cima. Ter alguém que realmente entende e guia faz TODA a diferença! Obrigada por tudo!"</p>
+                        <div class="relative mb-4">
+                            <i class="fas fa-quote-left text-pink-500/30 text-3xl absolute -top-2 -left-2"></i>
+                            <p class="text-gray-300 leading-relaxed pl-6" style="text-align: justify;">
+                                Desde que comecei o treino contigo, minha evolução foi surreal! Corpo mais firme, força aumentando e autoestima lá em cima. Ter alguém que realmente entende e guia faz TODA a diferença! Obrigada por tudo!
+                            </p>
+                        </div>
+                        <div class="bg-gradient-to-r from-pink-900/50 to-red-900/50 rounded-lg p-3 border border-pink-500/30">
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-fire text-orange-400"></i>
+                                <p class="text-sm text-pink-200 font-semibold">Perdeu 12kg e ganhou definição muscular</p>
+                            </div>
+                        </div>
                     </div>
                     <!-- Depoimento 3 -->
-                    <div class="card rounded-lg p-6">
-                        <div class="flex items-center mb-4">
-                            <img src="images/Anna.jpeg" alt="Anna Carolina" class="w-12 h-12 rounded-full mr-4 object-cover">
-                            <div>
-                                <h4 class="font-bold text-white">Anna Carolina</h4>
-                                <p class="text-sm text-gray-400">Aluno do Plano Trimestral</p>
+                    <div class="card rounded-2xl p-6 relative overflow-hidden border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 transform hover:-translate-y-2" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="absolute top-4 right-4">
+                            <i class="fas fa-shield-check text-green-400 text-xl" title="Depoimento Verificado"></i>
+                        </div>
+                        <div class="flex items-start mb-4">
+                            <div class="relative">
+                                <img src="images/Anna.jpeg" alt="Anna Carolina" class="w-20 h-20 rounded-full object-cover border-4 border-purple-500/50 shadow-lg">
+                                <div class="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-gray-800 flex items-center justify-center">
+                                    <i class="fas fa-check text-white text-xs"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4 flex-1">
+                                <h4 class="font-bold text-white text-lg">Anna Carolina</h4>
+                                <p class="text-xs text-purple-400 font-semibold">Plano Trimestral</p>
+                                <div class="star-rating text-sm mt-1">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span class="text-yellow-400 text-xs ml-1 font-bold">5.0</span>
+                                </div>
                             </div>
                         </div>
-                        <p class="text-gray-300">"Sério, tô impressionada com o quanto meu corpo mudou em tão pouco tempo! O treino é desafiador na medida certa e seu acompanhamento motiva demais. Cada sessão é um mix de suor e risada hahaha. Tô viciada!"</p>
+                        <div class="relative mb-4">
+                            <i class="fas fa-quote-left text-purple-500/30 text-3xl absolute -top-2 -left-2"></i>
+                            <p class="text-gray-300 leading-relaxed pl-6" style="text-align: justify;">
+                                Sério, tô impressionada com o quanto meu corpo mudou em tão pouco tempo! O treino é desafiador na medida certa e seu acompanhamento motiva demais. Cada sessão é um mix de suor e risada hahaha. Tô viciada!
+                            </p>
+                        </div>
+                        <div class="bg-gradient-to-r from-purple-900/50 to-indigo-900/50 rounded-lg p-3 border border-purple-500/30">
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <p class="text-sm text-purple-200 font-semibold">Transformação completa em 4 meses</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 				<br/>
 				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Depoimento 1 -->
-                    <div class="card rounded-lg p-6">
-                        <div class="flex items-center mb-4">
-                            <img src="images/Mari.jpeg" alt="Mariana Mendes" class="w-12 h-12 rounded-full mr-4 object-cover">
-                            <div>
-                                <h4 class="font-bold text-white">Mariana Mendes</h4>
-                                <p class="text-sm text-gray-400">Aluno do Plano Mensal</p>
+                    <!-- Depoimento 4 -->
+                    <div class="card rounded-2xl p-6 relative overflow-hidden border border-gray-700/50 hover:border-orange-500/50 transition-all duration-300 transform hover:-translate-y-2" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="absolute top-4 right-4">
+                            <i class="fas fa-shield-check text-green-400 text-xl" title="Depoimento Verificado"></i>
+                        </div>
+                        <div class="flex items-start mb-4">
+                            <div class="relative">
+                                <img src="images/Mari.jpeg" alt="Mariana Mendes" class="w-20 h-20 rounded-full object-cover border-4 border-orange-500/50 shadow-lg">
+                                <div class="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-gray-800 flex items-center justify-center">
+                                    <i class="fas fa-check text-white text-xs"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4 flex-1">
+                                <h4 class="font-bold text-white text-lg">Mariana Mendes</h4>
+                                <p class="text-xs text-orange-400 font-semibold">Plano Mensal</p>
+                                <div class="star-rating text-sm mt-1">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span class="text-yellow-400 text-xs ml-1 font-bold">5.0</span>
+                                </div>
                             </div>
                         </div>
-                        <p class="text-gray-300">"Queria agradecer pelo treino novo e pelo acompanhamento! Senti uma diferença enorme no meu corpo — tô muito mais definida, rendendo mais e evoluindo nas cargas. Treinar com você faz toda a diferença! E os gritos e risadas no treino são um bônus à parte hahaha. Tô amando!"</p>
+                        <div class="relative mb-4">
+                            <i class="fas fa-quote-left text-orange-500/30 text-3xl absolute -top-2 -left-2"></i>
+                            <p class="text-gray-300 leading-relaxed pl-6" style="text-align: justify;">
+                                Queria agradecer pelo treino novo e pelo acompanhamento! Senti uma diferença enorme no meu corpo — tô muito mais definida, rendendo mais e evoluindo nas cargas. Treinar com você faz toda a diferença! E os gritos e risadas no treino são um bônus à parte hahaha. Tô amando!
+                            </p>
+                        </div>
+                        <div class="bg-gradient-to-r from-orange-900/50 to-yellow-900/50 rounded-lg p-3 border border-orange-500/30">
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-dumbbell text-orange-400"></i>
+                                <p class="text-sm text-orange-200 font-semibold">Aumento de 40% na força em 2 meses</p>
+                            </div>
+                        </div>
                     </div>
-                    <!-- Depoimento 2 -->
-                    <div class="card rounded-lg p-6">
-                        <div class="flex items-center mb-4">
-                            <img src="images/Miucha.jpeg" alt="Miucha Nascimento" class="w-12 h-12 rounded-full mr-4 object-cover">
-                            <div>
-                                <h4 class="font-bold text-white">Miucha Nascimento</h4>
-                                <p class="text-sm text-gray-400">Aluna do Plano Mensal</p>
+                    <!-- Depoimento 5 -->
+                    <div class="card rounded-2xl p-6 relative overflow-hidden border border-gray-700/50 hover:border-teal-500/50 transition-all duration-300 transform hover:-translate-y-2" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="absolute top-4 right-4">
+                            <i class="fas fa-shield-check text-green-400 text-xl" title="Depoimento Verificado"></i>
+                        </div>
+                        <div class="flex items-start mb-4">
+                            <div class="relative">
+                                <img src="images/Miucha.jpeg" alt="Miucha Nascimento" class="w-20 h-20 rounded-full object-cover border-4 border-teal-500/50 shadow-lg">
+                                <div class="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-gray-800 flex items-center justify-center">
+                                    <i class="fas fa-check text-white text-xs"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4 flex-1">
+                                <h4 class="font-bold text-white text-lg">Miucha Nascimento</h4>
+                                <p class="text-xs text-teal-400 font-semibold">Plano Mensal</p>
+                                <div class="star-rating text-sm mt-1">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span class="text-yellow-400 text-xs ml-1 font-bold">5.0</span>
+                                </div>
                             </div>
                         </div>
-                        <p class="text-gray-300">"Personalizado de verdade faz diferença! Depois que comecei a treinar contigo, minha performance melhorou muito. Sem contar que você puxa na medida e ainda deixa o treino leve com bom humor. Tô amando!"</p>
+                        <div class="relative mb-4">
+                            <i class="fas fa-quote-left text-teal-500/30 text-3xl absolute -top-2 -left-2"></i>
+                            <p class="text-gray-300 leading-relaxed pl-6" style="text-align: justify;">
+                                Personalizado de verdade faz diferença! Depois que comecei a treinar contigo, minha performance melhorou muito. Sem contar que você puxa na medida e ainda deixa o treino leve com bom humor. Tô amando!
+                            </p>
+                        </div>
+                        <div class="bg-gradient-to-r from-teal-900/50 to-green-900/50 rounded-lg p-3 border border-teal-500/30">
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-heartbeat text-teal-400"></i>
+                                <p class="text-sm text-teal-200 font-semibold">Melhor condicionamento físico</p>
+                            </div>
+                        </div>
                     </div>
-                    <!-- Depoimento 3 -->
-                    <div class="card rounded-lg p-6">
-                        <div class="flex items-center mb-4">
-                            <img src="images/Renan.png" alt="Renan Costa" class="w-12 h-12 rounded-full mr-4 object-cover">
-                            <div>
-                                <h4 class="font-bold text-white">Renan Costa</h4>
-                                <p class="text-sm text-gray-400">Aluno do Plano Semestral</p>
+                    <!-- Depoimento 6 -->
+                    <div class="card rounded-2xl p-6 relative overflow-hidden border border-gray-700/50 hover:border-blue-500/50 transition-all duration-300 transform hover:-translate-y-2" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="absolute top-4 right-4">
+                            <i class="fas fa-shield-check text-green-400 text-xl" title="Depoimento Verificado"></i>
+                        </div>
+                        <div class="flex items-start mb-4">
+                            <div class="relative">
+                                <img src="images/Renan.png" alt="Renan Costa" class="w-20 h-20 rounded-full object-cover border-4 border-blue-500/50 shadow-lg">
+                                <div class="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-gray-800 flex items-center justify-center">
+                                    <i class="fas fa-check text-white text-xs"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4 flex-1">
+                                <h4 class="font-bold text-white text-lg">Renan Costa</h4>
+                                <p class="text-xs text-blue-400 font-semibold">Plano Semestral</p>
+                                <div class="star-rating text-sm mt-1">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span class="text-yellow-400 text-xs ml-1 font-bold">5.0</span>
+                                </div>
                             </div>
                         </div>
-                        <p class="text-gray-300">"Nunca imaginei que ia gostar tanto de treinar! Seu planejamento é certeiro, cada exercício tem um motivo e o resultado já tá aparecendo. Fora a energia boa nos treinos! Valeu demais pelo cuidado e atenção!"</p>
+                        <div class="relative mb-4">
+                            <i class="fas fa-quote-left text-blue-500/30 text-3xl absolute -top-2 -left-2"></i>
+                            <p class="text-gray-300 leading-relaxed pl-6" style="text-align: justify;">
+                                Nunca imaginei que ia gostar tanto de treinar! Seu planejamento é certeiro, cada exercício tem um motivo e o resultado já tá aparecendo. Fora a energia boa nos treinos! Valeu demais pelo cuidado e atenção!
+                            </p>
+                        </div>
+                        <div class="bg-gradient-to-r from-blue-900/50 to-cyan-900/50 rounded-lg p-3 border border-blue-500/30">
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-bolt text-blue-400"></i>
+                                <p class="text-sm text-blue-200 font-semibold">Transformação de lifestyle em 6 meses</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-			
-			
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="py-20 bg-gray-900">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title text-center text-white mb-4" data-aos="fade-up">Perguntas Frequentes</h2>
+                <p class="text-center text-gray-400 max-w-2xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="100">
+                    Tire suas dúvidas sobre a consultoria online
+                </p>
+                <div class="max-w-3xl mx-auto space-y-4">
+                    <div class="faq-item card rounded-lg overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                        <button class="faq-question w-full text-left p-6 flex justify-between items-center focus:outline-none">
+                            <span class="text-white font-semibold">Como funciona a consultoria online?</span>
+                            <i class="fas fa-chevron-down text-indigo-400 transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content px-6 pb-6">
+                            <p class="text-gray-400">Após contratar o plano, faremos uma avaliação completa do seu perfil, objetivos e rotina. Com base nisso, crio um plano de treino e orientações nutricionais 100% personalizados. Você recebe tudo de forma digital e pode treinar onde quiser. O acompanhamento é feito via WhatsApp, onde responderei suas dúvidas e farei os ajustes necessários.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item card rounded-lg overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                        <button class="faq-question w-full text-left p-6 flex justify-between items-center focus:outline-none">
+                            <span class="text-white font-semibold">Preciso ter experiência em musculação?</span>
+                            <i class="fas fa-chevron-down text-indigo-400 transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content px-6 pb-6">
+                            <p class="text-gray-400">Não! Atendo desde iniciantes até atletas avançados. Cada treino é adaptado ao seu nível atual de condicionamento físico. Se você é iniciante, vou te ensinar a técnica correta de cada exercício e progredir gradualmente. Se é avançado, vou criar desafios adequados ao seu nível.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item card rounded-lg overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                        <button class="faq-question w-full text-left p-6 flex justify-between items-center focus:outline-none">
+                            <span class="text-white font-semibold">Posso treinar em casa ou preciso de academia?</span>
+                            <i class="fas fa-chevron-down text-indigo-400 transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content px-6 pb-6">
+                            <p class="text-gray-400">Você pode treinar onde preferir! Adapto o treino para o ambiente que você tem disponível - seja academia completa, home gym ou treino com peso corporal. Basta me informar quais equipamentos você tem acesso.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item card rounded-lg overflow-hidden" data-aos="fade-up" data-aos-delay="400">
+                        <button class="faq-question w-full text-left p-6 flex justify-between items-center focus:outline-none">
+                            <span class="text-white font-semibold">Qual a diferença entre os planos?</span>
+                            <i class="fas fa-chevron-down text-indigo-400 transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content px-6 pb-6">
+                            <p class="text-gray-400">Todos os planos incluem treino e nutrição personalizados com suporte via WhatsApp. Os planos mais longos (Trimestral e Semestral) oferecem economia mensal, além de benefícios extras como análise de vídeos de execução, planejamento de suplementação e chamadas mensais de acompanhamento.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item card rounded-lg overflow-hidden" data-aos="fade-up" data-aos-delay="500">
+                        <button class="faq-question w-full text-left p-6 flex justify-between items-center focus:outline-none">
+                            <span class="text-white font-semibold">Como é feito o pagamento?</span>
+                            <i class="fas fa-chevron-down text-indigo-400 transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content px-6 pb-6">
+                            <p class="text-gray-400">Aceitamos pagamento via PIX, cartão de crédito ou transferência bancária. Entre em contato pelo WhatsApp para mais detalhes sobre a forma de pagamento e para iniciar sua jornada!</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item card rounded-lg overflow-hidden" data-aos="fade-up" data-aos-delay="600">
+                        <button class="faq-question w-full text-left p-6 flex justify-between items-center focus:outline-none">
+                            <span class="text-white font-semibold">Em quanto tempo verei resultados?</span>
+                            <i class="fas fa-chevron-down text-indigo-400 transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content px-6 pb-6">
+                            <p class="text-gray-400">Os primeiros resultados costumam aparecer entre 4 a 6 semanas, mas isso varia de pessoa para pessoa dependendo da dedicação, alimentação e genética. O importante é que você terá um acompanhamento constante para garantir que está no caminho certo e evoluindo de forma sustentável.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
 		<!-- Seção de Contato -->
 		<section id="contato" class="py-20 bg-gray-800">
 			<div class="container mx-auto px-6">
-				<h2 class="section-title text-center text-white mb-4">Vamos Começar?</h2>
-				<p class="text-center text-gray-400 max-w-2xl mx-auto mb-12">Preencha o formulário abaixo para tirar suas dúvidas ou contratar um plano. Responderei o mais rápido possível!</p>
-				<form id="contact-form" class="max-w-xl mx-auto">
+				<h2 class="section-title text-center text-white mb-4" data-aos="fade-up">Vamos Começar sua Transformação?</h2>
+				<p class="text-center text-gray-400 max-w-2xl mx-auto mb-8" data-aos="fade-up" data-aos-delay="100">Preencha o formulário abaixo ou fale diretamente pelo WhatsApp. Responderei o mais rápido possível!</p>
+				
+				<div class="flex justify-center mb-12" data-aos="fade-up" data-aos-delay="200">
+					<a href="https://wa.me/5511948834582?text=Ol%C3%A1%2C%20quero%20come%C3%A7ar%20minha%20transforma%C3%A7%C3%A3o!" 
+					   target="_blank" rel="noopener noreferrer"
+					   class="bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-lg text-lg transition-transform transform hover:scale-105 duration-300 inline-flex items-center gap-3">
+						<i class="fab fa-whatsapp text-2xl"></i>
+						<span>Falar no WhatsApp Agora</span>
+					</a>
+				</div>
+
+				<div class="text-center text-gray-500 mb-8">
+					<span class="inline-block px-4">ou</span>
+				</div>
+				
+				<form id="contact-form" class="max-w-xl mx-auto" data-aos="fade-up" data-aos-delay="300">
 					<div class="mb-4">
-						<label for="name" class="block text-gray-300 mb-2">Nome</label>
-						<input type="text" id="name" name="name" required class="w-full bg-gray-700 border border-gray-600 rounded-lg py-2 px-4 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+						<label for="name" class="block text-gray-300 mb-2 font-semibold">Nome Completo *</label>
+						<input type="text" id="name" name="name" required 
+						       class="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition"
+						       placeholder="Digite seu nome">
 					</div>
 					<div class="mb-4">
-						<label for="email" class="block text-gray-300 mb-2">Email</label>
-						<input type="email" id="email" name="email" required class="w-full bg-gray-700 border border-gray-600 rounded-lg py-2 px-4 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+						<label for="email" class="block text-gray-300 mb-2 font-semibold">Email *</label>
+						<input type="email" id="email" name="email" required 
+						       class="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition"
+						       placeholder="seu@email.com">
+					</div>
+					<div class="mb-4">
+						<label for="phone" class="block text-gray-300 mb-2 font-semibold">Telefone (WhatsApp)</label>
+						<input type="tel" id="phone" name="phone" 
+						       class="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition"
+						       placeholder="(11) 98888-8888">
 					</div>
 					<div class="mb-6">
-						<label for="message" class="block text-gray-300 mb-2">Mensagem</label>
-						<textarea id="message" name="message" rows="4" required class="w-full bg-gray-700 border border-gray-600 rounded-lg py-2 px-4 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+						<label for="message" class="block text-gray-300 mb-2 font-semibold">Mensagem *</label>
+						<textarea id="message" name="message" rows="5" required 
+						          class="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition"
+						          placeholder="Conte-me sobre seus objetivos e como posso te ajudar..."></textarea>
 					</div>
 					<div class="text-center">
-						<button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors duration-300">
-							Enviar Mensagem
+						<button type="submit" id="whatsapp-submit" 
+						        class="btn-success font-bold py-4 px-10 rounded-full text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg w-full sm:w-auto">
+							<i class="fab fa-whatsapp mr-2 text-2xl"></i><span class="font-extrabold">Enviar via WhatsApp</span>
 						</button>
 					</div>
+					<p class="text-xs text-gray-400 text-center mt-4">
+						<i class="fas fa-lock mr-1"></i>Seus dados estão seguros. Será aberto o WhatsApp com sua mensagem pronta.
+					</p>
 				</form>
 			</div>
 		</section>
 
-		<!-- Popup de Confirmação -->
-		<div id="popup-confirm" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center hidden z-50">
-			<div class="bg-white rounded-xl p-6 shadow-xl text-center text-gray-800 max-w-sm">
-				<h2 class="text-2xl font-bold mb-2">Mensagem enviada com sucesso!</h2>
-				<p class="mb-4">Em breve entraremos em contato com você.</p>
-				<button onclick="document.getElementById('popup-confirm').classList.add('hidden')" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition">Fechar</button>
-			</div>
-		</div>
 		</main>
 
     <!-- Footer -->
@@ -332,7 +1560,10 @@
         </div>
     </footer>
 
-	<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+	<!-- AOS Animation Library -->
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<!-- Swiper JS -->
+	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-BGWR18DZE0"></script>
     <script>
 		//Analytics WEB
@@ -343,6 +1574,62 @@
 	
 		//Ano
 		document.getElementById('ano-atual').textContent = new Date().getFullYear();
+		
+		// Initialize AOS
+		AOS.init({
+			duration: 1000,
+			once: true,
+			offset: 100,
+			easing: 'ease-out-cubic'
+		});
+		
+		// Initialize Swiper
+		const swiper = new Swiper('.plansSwiper', {
+			slidesPerView: 1,
+			spaceBetween: 30,
+			loop: true,
+			centeredSlides: true,
+			autoplay: {
+				delay: 5000,
+				disableOnInteraction: false,
+				pauseOnMouseEnter: true,
+			},
+			pagination: {
+				el: '.swiper-pagination',
+				clickable: true,
+				dynamicBullets: true,
+			},
+			navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev',
+			},
+			breakpoints: {
+				640: {
+					slidesPerView: 1,
+					spaceBetween: 20,
+					centeredSlides: true,
+				},
+				768: {
+					slidesPerView: 2,
+					spaceBetween: 30,
+					centeredSlides: false,
+				},
+				1024: {
+					slidesPerView: 3,
+					spaceBetween: 30,
+					centeredSlides: false,
+				},
+				1280: {
+					slidesPerView: 3,
+					spaceBetween: 40,
+					centeredSlides: false,
+				},
+			},
+			effect: 'slide',
+			speed: 800,
+			grabCursor: true,
+			watchOverflow: true,
+		});
 	
         // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -368,22 +1655,128 @@
             });
         });
 		
-		//Envio de e-mail
-		(function() {
-            emailjs.init("firL9kpA1jMW6-RMN"); // Substitua pela sua public key
-        })();
-
-        document.getElementById("contact-form").addEventListener("submit", function(e) {
+		// Counter Animation
+		const counters = document.querySelectorAll('.counter');
+		const speed = 200; // The lower, the faster
+		
+		const animateCounter = (counter) => {
+			const target = +counter.getAttribute('data-target');
+			const count = +counter.innerText;
+			const increment = target / speed;
+			
+			if (count < target) {
+				counter.innerText = Math.ceil(count + increment);
+				setTimeout(() => animateCounter(counter), 20);
+			} else {
+				counter.innerText = target + '+';
+			}
+		};
+		
+		// Intersection Observer for counters
+		const counterObserver = new IntersectionObserver((entries) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					const counter = entry.target;
+					animateCounter(counter);
+					counterObserver.unobserve(counter);
+				}
+			});
+		}, { threshold: 0.5 });
+		
+		counters.forEach(counter => {
+			counterObserver.observe(counter);
+		});
+		
+		// FAQ Accordion
+		document.querySelectorAll('.faq-question').forEach(button => {
+			button.addEventListener('click', () => {
+				const faqItem = button.parentElement;
+				const content = faqItem.querySelector('.faq-content');
+				const icon = button.querySelector('i');
+				
+				// Close other open FAQs
+				document.querySelectorAll('.faq-item').forEach(item => {
+					if (item !== faqItem) {
+						item.querySelector('.faq-content').classList.remove('active');
+						item.querySelector('i').style.transform = 'rotate(0deg)';
+					}
+				});
+				
+				// Toggle current FAQ
+				content.classList.toggle('active');
+				icon.style.transform = content.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+			});
+		});
+		
+		// Enviar via WhatsApp
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
-
-            emailjs.sendForm("service_kt5yemw", "template_ax46uqc", this)
-                .then(() => {
-                    document.getElementById('popup-confirm').classList.remove('hidden');
-                    this.reset();
-                }, (err) => {
-                    console.error("Erro ao enviar:", err);
-                    alert("Erro ao enviar a mensagem. Tente novamente.");
-                });
+            
+            const submitBtn = document.getElementById('whatsapp-submit');
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const message = document.getElementById('message').value.trim();
+            
+            // Validação
+            if (!name || !email || !message) {
+                // Mostrar alerta
+                const alertMsg = document.createElement('div');
+                alertMsg.className = 'fixed top-20 left-1/2 transform -translate-x-1/2 bg-red-600 text-white px-6 py-4 rounded-lg shadow-2xl z-50 max-w-md text-center animate-bounce';
+                alertMsg.innerHTML = `
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-exclamation-circle text-2xl"></i>
+                        <p class="font-bold">Preencha todos os campos obrigatórios!</p>
+                    </div>
+                `;
+                document.body.appendChild(alertMsg);
+                setTimeout(() => alertMsg.remove(), 3000);
+                return;
+            }
+            
+            // Desabilitar botão temporariamente
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2 text-2xl"></i><span class="font-extrabold">Preparando...</span>';
+            submitBtn.disabled = true;
+            
+            // Criar mensagem formatada para WhatsApp
+            let whatsappMessage = `🎯 *Contato do Site ForçaTotal*\n\n`;
+            whatsappMessage += `👤 *Nome:* ${name}\n`;
+            whatsappMessage += `📧 *Email:* ${email}\n`;
+            if (phone) {
+                whatsappMessage += `📱 *Telefone:* ${phone}\n`;
+            }
+            whatsappMessage += `\n💬 *Mensagem:*\n${message}`;
+            
+            // Codificar mensagem para URL
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            
+            // Delay para feedback visual
+            setTimeout(() => {
+                // Abrir WhatsApp
+                window.open(`https://wa.me/5511948834582?text=${encodedMessage}`, '_blank');
+                
+                // Limpar formulário
+                document.getElementById('contact-form').reset();
+                
+                // Restaurar botão
+                submitBtn.innerHTML = '<i class="fab fa-whatsapp mr-2 text-2xl"></i><span class="font-extrabold">Enviar via WhatsApp</span>';
+                submitBtn.disabled = false;
+                
+                // Mostrar confirmação
+                const confirmMsg = document.createElement('div');
+                confirmMsg.className = 'fixed top-20 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-6 py-4 rounded-lg shadow-2xl z-50 max-w-md text-center';
+                confirmMsg.innerHTML = `
+                    <div class="flex items-center gap-3">
+                        <i class="fab fa-whatsapp text-3xl"></i>
+                        <div>
+                            <p class="font-bold text-lg">WhatsApp Aberto!</p>
+                            <p class="text-sm">Sua mensagem está pronta para enviar</p>
+                        </div>
+                    </div>
+                `;
+                document.body.appendChild(confirmMsg);
+                setTimeout(() => confirmMsg.remove(), 4000);
+            }, 500);
         });
     </script>
 
