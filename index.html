@@ -960,7 +960,7 @@
                             Descontos de até <span class="text-red-500 bf-pulse">50% OFF</span> em TODOS os Planos!
                         </p>
                         <p class="text-yellow-400 text-sm sm:text-base font-semibold">
-                            ⚠️ Oferta válida SOMENTE em <span id="bf-date" class="font-black">28/12/2025</span> | Não perca!
+                            ⚠️ Oferta válida SOMENTE em <span id="bf-date" class="font-black">28/11/2025</span> | Não perca!
                         </p>
                     </div>
                 </div>
@@ -1906,9 +1906,9 @@
 		const month = now.getMonth(); // 0-11 (November = 10)
 		const day = now.getDate();
 		
-		// Set Black Friday date (December 28, 2025)
+		// Set Black Friday date (November 28, 2025)
 		const blackFridayDay = 28;
-		const blackFridayMonth = 11; // December (0-indexed)
+		const blackFridayMonth = 10; // November (0-indexed)
 		const blackFridayYear = 2025;
 		
 		// Check if today is Black Friday
@@ -1957,7 +1957,7 @@
 			document.getElementById('normal-anual-price').style.display = 'none';
 			
 			// Set Black Friday date in alert
-			document.getElementById('bf-date').textContent = '28/12/2025';
+			document.getElementById('bf-date').textContent = '28/11/2025';
 			
 			// Start countdown timer
 			startCountdown();
@@ -1971,7 +1971,7 @@
 	}
 	
 	function startCountdown() {
-		const countdownDate = new Date('December 28, 2025 23:59:59').getTime();
+		const countdownDate = new Date('November 28, 2025 23:59:59').getTime();
 		
 		const countdownInterval = setInterval(function() {
 			const now = new Date().getTime();
