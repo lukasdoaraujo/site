@@ -1,2412 +1,923 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consultoria de Musculação Online - Lukas Capetinga</title>
-	<link rel="icon" href="images/favicon_preto/favicon.ico" type="image/x-icon">
-    
-	<meta name="description" content="Lukas Capetinga é coach de musculação e bodybuilding em São Paulo. Planos de treinos personalizados, transformação física e performance com acompanhamento online e presencial.">
-	<meta name="keywords" content="treino personalizado, bodybuilding coach, musculação, treinador fitness São Paulo, transformação corporal">
-	<link rel="canonical" href="https://lukascapetinga.com.br/">
-	<meta name="robots" content="index,follow">
-	
-	<meta property="og:title" content="Lukas Capetinga – Coach de Bodybuilding e Treinamento Personalizado">
-	<meta property="og:description" content="Planos de treino e coaching para hipertrofia e performance em São Paulo com Lukas Capetinga. Acompanhamento online ou presencial.">
-	<meta property="og:image" content="https://lukascapetinga.com.br/images/Lucas1.jpeg">
-	<meta property="og:url" content="https://lukascapetinga.com.br/">
-	<meta property="og:type" content="website">
-	<meta name="twitter:card" content="summary_large_image">
-	
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- AOS Animation Library -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <style>
-        /* Custom styles to apply the Inter font */
-        :root {
-            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            --success-gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
-            --dark-bg: #0a0e27;
-            --card-bg: #131729;
-            --card-hover: #1a1f3a;
-            --bf-yellow: #FFD700;
-            --bf-orange: #FF6B00;
-            --bf-red: #FF0000;
+<!-- Primary Meta -->
+<title>Lukas Capetinga — Arquitetura Corporal · Consultoria de Alta Performance</title>
+<meta name="description" content="Não vendo treinos. Projeto sistemas. Auditoria biomecânica, gestão de sobrecarga e periodização calculada — engenharia aplicada ao seu físico. Consultoria de musculação online com Lukas Capetinga, em São Paulo." />
+<meta name="keywords" content="consultoria de musculação, treino personalizado, arquitetura corporal, hipertrofia, periodização, auditoria biomecânica, Lukas Capetinga, personal online São Paulo, bodybuilding coach" />
+<meta name="author" content="Lukas Capetinga" />
+<meta name="robots" content="index, follow" />
+<meta name="theme-color" content="#050505" />
+<link rel="canonical" href="https://lukascapetinga.com.br/" />
+
+<!-- Favicons -->
+<link rel="icon" href="https://lukascapetinga.com.br/images/favicon_preto/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="32x32" href="https://lukascapetinga.com.br/images/favicon_preto/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="https://lukascapetinga.com.br/images/favicon_preto/favicon-16x16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://lukascapetinga.com.br/images/favicon_preto/apple-touch-icon.png" />
+<link rel="manifest" href="https://lukascapetinga.com.br/images/favicon_preto/site.webmanifest" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="pt_BR" />
+<meta property="og:site_name" content="Lukas Capetinga — Arquitetura Corporal" />
+<meta property="og:url" content="https://lukascapetinga.com.br/" />
+<meta property="og:title" content="Lukas Capetinga — Arquitetura Corporal · Consultoria de Alta Performance" />
+<meta property="og:description" content="Não vendo treinos. Projeto sistemas. Auditoria biomecânica, gestão de sobrecarga e periodização calculada — engenharia aplicada ao seu físico." />
+<meta property="og:image" content="https://lukascapetinga.com.br/images/Lucas1.jpeg" />
+<meta property="og:image:alt" content="Lukas Capetinga, educador físico e especialista em hipertrofia" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Lukas Capetinga — Arquitetura Corporal · Consultoria de Alta Performance" />
+<meta name="twitter:description" content="Não vendo treinos. Projeto sistemas. Auditoria biomecânica, gestão de sobrecarga e periodização calculada — engenharia aplicada ao seu físico." />
+<meta name="twitter:image" content="https://lukascapetinga.com.br/images/Lucas1.jpeg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800;900&family=Montserrat:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --void:#050505;
+    --void-2:#0A0A0A;
+    --surface:#101010;
+    --surface-faint:rgba(255,255,255,0.02);
+    --sand:#D9C2B0;
+    --sand-dim:rgba(217,194,176,0.55);
+    --ink:#F5F5F5;
+    --muted:rgba(245,245,245,0.62);
+    --muted-2:#A3A3A3;
+    --line:rgba(217,194,176,0.15);
+    --line-soft:rgba(245,245,245,0.06);
+    --maxw:1180px;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--void);
+    color:var(--ink);
+    font-family:'Montserrat',sans-serif;
+    font-weight:300;
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  /* ---------- Type system ---------- */
+  h1,h2,h3,h4{
+    font-family:'Poppins',sans-serif;
+    text-transform:uppercase;
+    font-weight:900;
+    line-height:1.06;
+    letter-spacing:-1px;
+    color:var(--ink);
+  }
+  h2{font-weight:800;letter-spacing:-1px}
+  h3{font-weight:800;letter-spacing:-.5px}
+  h4{font-weight:700;letter-spacing:-.3px}
+  p{color:var(--muted);font-weight:300}
+  a{color:inherit;text-decoration:none}
+
+  .eyebrow{
+    font-family:'Space Mono',monospace;
+    text-transform:uppercase;
+    font-size:11px;
+    letter-spacing:3px;
+    color:var(--sand);
+    font-weight:400;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--sand);display:inline-block;opacity:.7}
+  .mono{font-family:'Space Mono',monospace;letter-spacing:1px}
+
+  /* ---------- Layout ---------- */
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  section{position:relative}
+  .band{padding:120px 0;border-top:1px solid var(--line)}
+  .band-tight{padding:88px 0}
+
+  /* blueprint grid background helper */
+  .grid-bg{
+    background-image:
+      linear-gradient(rgba(217,194,176,0.035) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(217,194,176,0.035) 1px,transparent 1px);
+    background-size:46px 46px;
+  }
+
+  /* registration crosshair marks on framed elements */
+  .framed{position:relative;border:1px solid var(--line);background:var(--surface-faint)}
+  .framed::before,.framed::after{
+    content:"+";
+    position:absolute;
+    font-family:'Space Mono',monospace;
+    color:var(--sand);
+    opacity:.5;
+    font-size:14px;
+    line-height:1;
+  }
+  .framed::before{top:-7px;left:-6px}
+  .framed::after{bottom:-9px;right:-6px}
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex;align-items:center;gap:12px;
+    font-family:'Poppins',sans-serif;font-weight:700;
+    text-transform:uppercase;letter-spacing:1px;font-size:13px;
+    padding:17px 30px;border-radius:2px;cursor:pointer;border:1px solid var(--sand);
+    background:var(--sand);color:var(--void);
+    transition:background .25s ease,color .25s ease;
+  }
+  .btn:hover{background:transparent;color:var(--sand)}
+  .btn:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+  .btn .arw{font-family:'Space Mono',monospace;font-weight:400}
+  .btn-ghost{
+    background:transparent;color:var(--sand);
+    border:1px solid var(--line);
+  }
+  .btn-ghost:hover{background:var(--sand);color:var(--void);border-color:var(--sand)}
+
+  /* ---------- Announcement strip ---------- */
+  .strip{
+    border-bottom:1px solid var(--line);
+    background:var(--void);
+    text-align:center;
+    padding:9px 16px;
+    font-family:'Space Mono',monospace;
+    font-size:11px;letter-spacing:2.5px;text-transform:uppercase;
+    color:var(--sand-dim);
+  }
+  .strip b{color:var(--sand);font-weight:400}
+
+  /* ---------- Nav ---------- */
+  header.nav{
+    position:sticky;top:0;z-index:60;
+    background:rgba(5,5,5,0.82);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .brand{
+    font-family:'Poppins',sans-serif;font-weight:800;text-transform:uppercase;
+    letter-spacing:1px;font-size:16px;color:var(--ink);display:flex;align-items:center;gap:11px;
+  }
+  .brand .dot{width:7px;height:7px;background:var(--sand);display:inline-block}
+  .brand span{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--sand);font-weight:400;display:block;line-height:1}
+  .nav-links{display:flex;align-items:center;gap:34px}
+  .nav-links a{
+    font-family:'Space Mono',monospace;font-size:11px;text-transform:uppercase;
+    letter-spacing:2px;color:var(--muted);transition:color .2s;
+  }
+  .nav-links a:hover{color:var(--sand)}
+  .nav-cta{font-family:'Poppins';font-weight:700;font-size:11px;letter-spacing:1px;text-transform:uppercase;
+    color:var(--void);background:var(--sand);padding:11px 18px;border-radius:2px;transition:background .25s,color .25s;border:1px solid var(--sand)}
+  .nav-cta:hover{background:transparent;color:var(--sand)}
+  .burger{display:none;background:none;border:1px solid var(--line);color:var(--ink);width:42px;height:42px;border-radius:2px;cursor:pointer;font-size:18px}
+  .mobile-menu{display:none;flex-direction:column;border-bottom:1px solid var(--line);background:var(--void-2)}
+  .mobile-menu a{padding:16px 28px;border-top:1px solid var(--line-soft);font-family:'Space Mono';font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+
+  /* ---------- Hero ---------- */
+  .hero{position:relative;overflow:hidden;padding:120px 0 104px}
+  .hero-glow{
+    position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(circle at 50% 38%,rgba(217,194,176,0.07) 0%,transparent 58%);
+  }
+  .hero-coord{
+    position:absolute;top:34px;right:28px;
+    font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--sand-dim);text-align:right;
+    line-height:1.9;
+  }
+  .hero h1{
+    font-size:clamp(2.7rem,9vw,7rem);
+    letter-spacing:-2px;
+    max-width:14ch;
+    margin:24px 0 0;
+  }
+  .hero h1 em{font-style:normal;color:var(--sand)}
+  .hero .lede{max-width:54ch;margin:30px 0 40px;font-size:clamp(1rem,1.5vw,1.18rem);line-height:1.8}
+  .hero-actions{display:flex;gap:16px;flex-wrap:wrap}
+  .spec-row{
+    margin-top:64px;display:grid;grid-template-columns:repeat(4,1fr);
+    border-top:1px solid var(--line);
+  }
+  .spec{padding:24px 22px 0;border-right:1px solid var(--line)}
+  .spec:last-child{border-right:none}
+  .spec .k{font-family:'Space Mono';font-size:10px;letter-spacing:2px;color:var(--sand);text-transform:uppercase}
+  .spec .v{font-family:'Poppins';font-weight:800;font-size:1.7rem;letter-spacing:-1px;margin-top:6px;text-transform:uppercase}
+
+  /* ---------- Section header ---------- */
+  .sec-head{max-width:62ch;margin-bottom:56px}
+  .sec-head h2{font-size:clamp(1.9rem,4.4vw,3.2rem);margin:18px 0 0}
+  .sec-head p{margin-top:18px;font-size:1.05rem}
+
+  /* ---------- Treinar x Auditar ---------- */
+  .versus{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line)}
+  .vcol{padding:46px 40px}
+  .vcol:first-child{border-right:1px solid var(--line)}
+  .vcol .tag{font-family:'Space Mono';font-size:11px;letter-spacing:3px;text-transform:uppercase;display:block;margin-bottom:6px}
+  .vcol.old .tag{color:var(--muted-2)}
+  .vcol.new .tag{color:var(--sand)}
+  .vcol h3{font-size:2rem;margin-bottom:26px}
+  .vcol.old h3{color:var(--muted-2)}
+  .vlist{list-style:none;display:flex;flex-direction:column;gap:18px}
+  .vlist li{position:relative;padding-left:26px;font-size:.98rem;line-height:1.6}
+  .vcol.old .vlist li{color:var(--muted)}
+  .vcol.old .vlist li::before{content:"\2014";position:absolute;left:0;color:var(--muted-2)}
+  .vcol.new .vlist li{color:var(--ink);font-weight:400}
+  .vcol.new .vlist li::before{content:"+";position:absolute;left:0;color:var(--sand);font-family:'Space Mono'}
+
+  /* ---------- Arquiteto ---------- */
+  .arch{display:grid;grid-template-columns:0.85fr 1fr;gap:64px;align-items:center}
+  .arch-photo{position:relative;aspect-ratio:4/5;overflow:hidden}
+  .arch-photo img{width:100%;height:100%;object-fit:cover;filter:grayscale(80%) contrast(110%);display:block}
+  .arch-photo .ov{position:absolute;inset:0;background:linear-gradient(to top,var(--void) 2%,transparent 55%)}
+  .arch-photo .stamp{position:absolute;bottom:18px;left:18px;font-family:'Space Mono';font-size:10px;letter-spacing:2px;color:var(--sand);text-transform:uppercase;z-index:2}
+  .arch-body h2{font-size:clamp(1.8rem,4vw,2.9rem)}
+  .arch-body .role{font-family:'Space Mono';font-size:11px;letter-spacing:3px;color:var(--sand);text-transform:uppercase;margin:14px 0 28px;display:block}
+  .arch-body p{margin-bottom:20px;font-size:1.02rem}
+  .creds{display:flex;gap:0;margin-top:34px;border-top:1px solid var(--line)}
+  .cred{flex:1;padding:20px 18px 0;border-right:1px solid var(--line)}
+  .cred:last-child{border-right:none}
+  .cred .n{font-family:'Poppins';font-weight:800;font-size:1.5rem;letter-spacing:-1px}
+  .cred .l{font-family:'Space Mono';font-size:9px;letter-spacing:2px;color:var(--sand);text-transform:uppercase;margin-top:6px}
+
+  /* ---------- Método (fases) ---------- */
+  .phases{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line)}
+  .phase{padding:36px 28px;border-right:1px solid var(--line);position:relative}
+  .phase:last-child{border-right:none}
+  .phase .ix{font-family:'Space Mono';font-size:11px;letter-spacing:2px;color:var(--sand)}
+  .phase h4{font-size:1.18rem;margin:30px 0 14px}
+  .phase p{font-size:.92rem;line-height:1.65}
+  .phase .meta{font-family:'Space Mono';font-size:9px;letter-spacing:2px;color:var(--sand-dim);text-transform:uppercase;margin-top:20px;display:block}
+
+  /* ---------- Entregável ---------- */
+  .deliver{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line)}
+  .dcard{background:var(--void);padding:38px 32px;transition:background .3s}
+  .dcard:hover{background:var(--surface)}
+  .dcard .ix{font-family:'Space Mono';font-size:10px;letter-spacing:2px;color:var(--sand)}
+  .dcard h4{font-size:1.18rem;margin:22px 0 12px}
+  .dcard p{font-size:.93rem;line-height:1.6}
+
+  /* ---------- Protocolos (planos) ---------- */
+  .plans{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line)}
+  .plan{padding:38px 28px;border-right:1px solid var(--line);display:flex;flex-direction:column}
+  .plan:last-child{border-right:none}
+  .plan.feat{background:var(--surface-faint)}
+  .plan .ptag{font-family:'Space Mono';font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--sand);min-height:14px}
+  .plan h4{font-size:1.35rem;margin:14px 0 4px}
+  .plan .sub{font-size:.82rem;color:var(--muted-2);font-family:'Montserrat'}
+  .plan .price{margin:26px 0 4px;font-family:'Poppins';font-weight:900;font-size:2.2rem;letter-spacing:-1.5px}
+  .plan .price small{font-family:'Space Mono';font-weight:400;font-size:.72rem;letter-spacing:1px;color:var(--muted-2);display:block;margin-top:4px}
+  .plan ul{list-style:none;margin:26px 0 30px;display:flex;flex-direction:column;gap:13px;flex:1}
+  .plan li{position:relative;padding-left:22px;font-size:.86rem;line-height:1.5;color:var(--muted)}
+  .plan li::before{content:"+";position:absolute;left:0;color:var(--sand);font-family:'Space Mono'}
+  .plan .btn{width:100%;justify-content:center;font-size:11px;padding:15px}
+  .plan.feat .ptag{color:var(--sand)}
+
+  .plans-note{margin-top:24px;font-family:'Space Mono';font-size:10px;letter-spacing:1.5px;color:var(--muted-2);text-transform:uppercase}
+
+  /* ---------- Resultados ---------- */
+  .results{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);margin-bottom:1px}
+  .rcard{background:var(--void);padding:40px 32px}
+  .rcard .delta{font-family:'Poppins';font-weight:900;font-size:2.6rem;letter-spacing:-2px;color:var(--sand)}
+  .rcard .who{font-family:'Space Mono';font-size:11px;letter-spacing:2px;text-transform:uppercase;margin:14px 0 4px}
+  .rcard .plan-l{font-family:'Space Mono';font-size:9px;letter-spacing:2px;color:var(--muted-2);text-transform:uppercase}
+  .rcard .data{margin-top:22px;border-top:1px solid var(--line);padding-top:16px;font-family:'Space Mono';font-size:11px;letter-spacing:1px;color:var(--muted);line-height:1.9}
+  .rcard .data b{color:var(--sand);font-weight:400}
+
+  .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:48px}
+  .quote{border-left:1px solid var(--line);padding:6px 0 6px 26px}
+  .quote p{font-style:italic;font-size:.98rem;line-height:1.7;color:var(--ink);font-weight:300}
+  .quote .cite{display:block;margin-top:16px;font-family:'Space Mono';font-size:10px;letter-spacing:2px;color:var(--sand);text-transform:uppercase;font-style:normal}
+
+  /* ---------- Elite module ---------- */
+  .elite{display:grid;grid-template-columns:1fr 0.9fr;gap:0;border:1px solid var(--line)}
+  .elite .l{padding:54px 48px}
+  .elite .r{padding:54px 48px;border-left:1px solid var(--line);background:var(--surface-faint);display:flex;flex-direction:column;justify-content:center}
+  .elite h3{font-size:2.1rem;margin:16px 0 22px}
+  .elite p{font-size:.98rem;margin-bottom:18px}
+  .elite ul{list-style:none;display:flex;flex-direction:column;gap:14px;margin-top:8px}
+  .elite li{position:relative;padding-left:24px;font-size:.92rem;color:var(--muted)}
+  .elite li::before{content:"+";position:absolute;left:0;color:var(--sand);font-family:'Space Mono'}
+  .elite .coupon{font-family:'Space Mono';font-size:12px;letter-spacing:2px;color:var(--sand);border:1px dashed var(--line);padding:14px 18px;text-align:center;margin:6px 0 26px;text-transform:uppercase}
+
+  /* ---------- FAQ ---------- */
+  .faq{border-top:1px solid var(--line)}
+  .qitem{border-bottom:1px solid var(--line)}
+  .qbtn{width:100%;background:none;border:none;color:var(--ink);text-align:left;cursor:pointer;
+    padding:28px 0;display:flex;justify-content:space-between;align-items:center;gap:24px;
+    font-family:'Poppins';font-weight:700;text-transform:uppercase;letter-spacing:-.3px;font-size:1.05rem}
+  .qbtn .ic{font-family:'Space Mono';color:var(--sand);font-size:1.2rem;flex-shrink:0;transition:transform .3s}
+  .qitem.open .ic{transform:rotate(45deg)}
+  .qans{max-height:0;overflow:hidden;transition:max-height .35s ease}
+  .qans p{padding:0 0 30px;max-width:74ch;font-size:.98rem}
+  .qbtn:focus-visible{outline:2px solid var(--sand);outline-offset:4px}
+
+  /* ---------- Apply / contato ---------- */
+  .apply{position:relative;overflow:hidden}
+  .apply .glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 50% 50%,rgba(217,194,176,0.06) 0%,transparent 60%)}
+  .apply-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+  .apply h2{font-size:clamp(2rem,5vw,3.4rem);max-width:13ch}
+  .apply .lede{margin:24px 0 32px;font-size:1.05rem;max-width:46ch}
+  .form{display:flex;flex-direction:column;gap:16px}
+  .field label{font-family:'Space Mono';font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--sand);display:block;margin-bottom:8px}
+  .field input,.field textarea{
+    width:100%;background:var(--surface-faint);border:1px solid var(--line);color:var(--ink);
+    padding:14px 16px;border-radius:2px;font-family:'Montserrat';font-size:.95rem;font-weight:300;
+  }
+  .field input:focus,.field textarea:focus{outline:none;border-color:var(--sand)}
+  .field textarea{resize:vertical;min-height:96px}
+  .form .btn{justify-content:center;margin-top:8px}
+  .form-note{font-family:'Space Mono';font-size:9px;letter-spacing:1.5px;color:var(--muted-2);text-transform:uppercase;margin-top:4px}
+
+  /* ---------- Footer ---------- */
+  footer{border-top:1px solid var(--line);padding:64px 0 40px}
+  .foot{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;align-items:flex-start}
+  .foot .brand{margin-bottom:14px}
+  .foot p{font-size:.86rem;max-width:34ch}
+  .foot-links{display:flex;flex-direction:column;gap:12px}
+  .foot-links a{font-family:'Space Mono';font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);transition:color .2s}
+  .foot-links a:hover{color:var(--sand)}
+  .foot-bottom{margin-top:54px;padding-top:24px;border-top:1px solid var(--line-soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
+    font-family:'Space Mono';font-size:10px;letter-spacing:1.5px;color:var(--muted-2);text-transform:uppercase}
+
+  /* ---------- Reveal animation ---------- */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- Responsive ---------- */
+  @media(max-width:980px){
+    .arch{grid-template-columns:1fr;gap:40px}
+    .phases{grid-template-columns:1fr 1fr}
+    .phase:nth-child(2){border-right:none}
+    .phase:nth-child(1),.phase:nth-child(2){border-bottom:1px solid var(--line)}
+    .plans{grid-template-columns:1fr 1fr}
+    .plan:nth-child(2){border-right:none}
+    .plan:nth-child(1),.plan:nth-child(2){border-bottom:1px solid var(--line)}
+    .deliver,.results,.quotes{grid-template-columns:1fr 1fr}
+    .elite{grid-template-columns:1fr}
+    .elite .r{border-left:none;border-top:1px solid var(--line)}
+    .apply-inner{grid-template-columns:1fr;gap:48px}
+  }
+  @media(max-width:680px){
+    .band{padding:80px 0}
+    .nav-links{display:none}
+    .nav-cta{display:none}
+    .burger{display:block}
+    .versus{grid-template-columns:1fr}
+    .vcol:first-child{border-right:none;border-bottom:1px solid var(--line)}
+    .spec-row{grid-template-columns:1fr 1fr}
+    .spec:nth-child(2){border-right:none}
+    .spec:nth-child(1),.spec:nth-child(2){border-bottom:1px solid var(--line);padding-bottom:24px}
+    .phases,.plans{grid-template-columns:1fr}
+    .phase,.plan{border-right:none;border-bottom:1px solid var(--line)}
+    .phase:last-child,.plan:last-child{border-bottom:none}
+    .deliver,.results,.quotes{grid-template-columns:1fr}
+    .creds{flex-wrap:wrap}
+    .hero-coord{display:none}
+    .foot{flex-direction:column}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    html{scroll-behavior:auto}
+  }
+</style>
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["ProfessionalService", "HealthAndBeautyBusiness"],
+      "@id": "https://lukascapetinga.com.br/#business",
+      "name": "Lukas Capetinga — Arquitetura Corporal",
+      "description": "Consultoria de alta performance: auditoria biomecânica, gestão de sobrecarga e periodização calculada. Engenharia aplicada ao físico.",
+      "url": "https://lukascapetinga.com.br/",
+      "image": "https://lukascapetinga.com.br/images/Lucas1.jpeg",
+      "logo": "https://lukascapetinga.com.br/images/logo.png",
+      "telephone": "+55-11-94883-4582",
+      "email": "contato@lukascapetinga.com.br",
+      "priceRange": "R$200 - R$1.500",
+      "areaServed": "Brasil",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "São Paulo",
+        "addressRegion": "SP",
+        "addressCountry": "BR"
+      },
+      "founder": { "@id": "https://lukascapetinga.com.br/#lukas" },
+      "sameAs": [
+        "https://www.instagram.com/lukascapetinga/"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://lukascapetinga.com.br/#lukas",
+      "name": "Lukas Capetinga",
+      "jobTitle": "Educador físico · Especialista em hipertrofia",
+      "image": "https://lukascapetinga.com.br/images/Lucas.jpeg",
+      "url": "https://lukascapetinga.com.br/",
+      "worksFor": { "@id": "https://lukascapetinga.com.br/#business" },
+      "sameAs": [
+        "https://www.instagram.com/lukascapetinga/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://lukascapetinga.com.br/#website",
+      "url": "https://lukascapetinga.com.br/",
+      "name": "Lukas Capetinga — Arquitetura Corporal",
+      "inLanguage": "pt-BR",
+      "publisher": { "@id": "https://lukascapetinga.com.br/#business" }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://lukascapetinga.com.br/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Como funciona a consultoria online?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Após a aplicação, fazemos a avaliação completa do seu perfil, objetivos e rotina. Com base nos dados, projeto um protocolo de treino e orientações nutricionais individualizados, entregues na plataforma. O acompanhamento é contínuo via WhatsApp, com ajustes sempre que os dados pedirem."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Preciso ter experiência em musculação?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Não. O protocolo é calibrado ao seu nível atual. Iniciante: padrão de movimento ensinado do zero e progressão gradual. Avançado: estímulos adequados para romper platô. O nível é apenas mais um parâmetro de projeto."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Posso treinar em casa ou preciso de academia?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Onde for mais eficiente para você. O protocolo se adapta ao ambiente e aos equipamentos disponíveis — academia completa, home gym ou peso corporal. O acesso TotalPass amplia a rede de unidades disponíveis."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qual a diferença entre os protocolos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Todos incluem treino e nutrição individualizados com suporte direto. Engajamentos mais longos adicionam auditoria de vídeo, planejamento de suplementação, chamadas de acompanhamento e reavaliações trimestrais — mais profundidade de engenharia por ciclo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Como é feito o pagamento?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "PIX, cartão de crédito ou transferência. Os detalhes são alinhados no contato inicial pelo WhatsApp, junto com a confirmação da vaga."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Em quanto tempo vejo resultado?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Os primeiros dados de evolução costumam aparecer entre a 4ª e a 6ª semana, variando conforme aderência, alimentação e genética. O acompanhamento garante que cada ciclo seja lido e recalibrado para manter a curva ascendente."
+          }
         }
-        
-        /* Black Friday Animations */
-        @keyframes bfPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-        
-        @keyframes bfShake {
-            0%, 100% { transform: translateX(0); }
-            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
-            20%, 40%, 60%, 80% { transform: translateX(5px); }
-        }
-        
-        @keyframes bfFlash {
-            0%, 50%, 100% { opacity: 1; }
-            25%, 75% { opacity: 0.5; }
-        }
-        
-        @keyframes bfFloat {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-        
-        @keyframes bfRotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        
-        @keyframes bfNeon {
-            0%, 100% {
-                text-shadow: 0 0 10px var(--bf-yellow), 0 0 20px var(--bf-yellow), 0 0 30px var(--bf-orange), 0 0 40px var(--bf-orange);
-            }
-            50% {
-                text-shadow: 0 0 5px var(--bf-yellow), 0 0 10px var(--bf-yellow), 0 0 15px var(--bf-orange), 0 0 20px var(--bf-orange);
-            }
-        }
-        
-        .bf-pulse { animation: bfPulse 2s ease-in-out infinite; }
-        .bf-shake { animation: bfShake 0.5s ease-in-out infinite; }
-        .bf-flash { animation: bfFlash 1s ease-in-out infinite; }
-        .bf-float { animation: bfFloat 3s ease-in-out infinite; }
-        .bf-rotate { animation: bfRotate 10s linear infinite; }
-        .bf-neon { animation: bfNeon 2s ease-in-out infinite; }
-        
-        .bf-badge {
-            background: linear-gradient(135deg, var(--bf-yellow) 0%, var(--bf-orange) 50%, var(--bf-red) 100%);
-            animation: bfPulse 1.5s ease-in-out infinite;
-        }
-        
-        .bf-banner {
-            background: linear-gradient(90deg, #000 0%, #1a0000 25%, #330000 50%, #1a0000 75%, #000 100%);
-            background-size: 200% 100%;
-            animation: bfBannerMove 3s linear infinite;
-        }
-        
-        @keyframes bfBannerMove {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 200% 50%; }
-        }
-        
-        .bf-strikethrough {
-            position: relative;
-            display: inline-block;
-        }
-        
-        .bf-strikethrough::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            width: 100%;
-            height: 3px;
-            background: var(--bf-red);
-            transform: rotate(-5deg);
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(to bottom, var(--dark-bg), #0f1419);
-            color: #e2e8f0;
-        }
-        
-        .hero-bg {
-            background-image: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(118, 75, 162, 0.15)), 
-                              linear-gradient(rgba(10, 14, 39, 0.85), rgba(15, 20, 25, 0.95)), 
-                              url('images/Lucas1.jpeg');
-            background-size: cover;
-            background-position: center 5%;
-            background-attachment: fixed;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero-bg::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(245, 87, 108, 0.1) 0%, transparent 50%);
-            animation: pulseGlow 8s ease-in-out infinite;
-        }
-        
-        @keyframes pulseGlow {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 0.8; }
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        .section-title {
-            font-weight: 900;
-            font-size: 1.75rem;
-            letter-spacing: -0.05em;
-            background: var(--primary-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        @media (min-width: 640px) {
-            .section-title {
-                font-size: 2rem;
-            }
-        }
-        
-        @media (min-width: 768px) {
-            .section-title {
-                font-size: 2.5rem;
-            }
-        }
-        
-        .card {
-            background: var(--card-bg);
-            border: 1px solid rgba(102, 126, 234, 0.2);
-            backdrop-filter: blur(10px);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
-            transition: left 0.5s;
-        }
-        
-        .card:hover::before {
-            left: 100%;
-        }
-        
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3), 0 0 20px rgba(118, 75, 162, 0.2);
-            border-color: rgba(102, 126, 234, 0.6);
-            background: var(--card-hover);
-        }
-        
-        .profile-img {
-            object-fit: cover;
-            object-position: center 10%;
-            border: 3px solid transparent;
-            background: var(--primary-gradient);
-            background-clip: padding-box;
-        }
-        
-        /* Gradiente animado melhorado */
-        .gradient-text {
-            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c, #667eea);
-            background-size: 300% 100%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: gradientShift 4s ease infinite;
-        }
-        
-        @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-        
-        /* Botões aprimorados */
-        .btn-primary {
-            background: var(--primary-gradient);
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-        
-        .btn-primary:hover::before {
-            width: 300px;
-            height: 300px;
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
-        }
-        
-        .btn-success {
-            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.5);
-            color: #ffffff !important;
-            font-weight: 700;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-        }
-        
-        .btn-success:hover {
-            background: linear-gradient(135deg, #128C7E 0%, #075E54 100%);
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.7);
-            transform: translateY(-2px);
-        }
-        
-        /* Swiper Carousel Custom Styles */
-        .swiper-slide {
-            height: auto;
-            display: flex;
-        }
-        
-        .plan-card {
-            background: var(--card-bg);
-            border: 2px solid rgba(102, 126, 234, 0.3);
-            border-radius: 20px;
-            padding: 2rem;
-            min-height: 600px;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s ease;
-        }
-        
-        .plan-card::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
-            opacity: 0;
-            transition: opacity 0.4s;
-        }
-        
-        .plan-card:hover::after {
-            opacity: 1;
-        }
-        
-        .plan-card.featured {
-            border: 3px solid;
-            border-image: var(--primary-gradient) 1;
-            transform: scale(1.05);
-            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.4);
-        }
-        
-        .swiper-slide {
-            height: auto;
-        }
-        
-        .plansSwiper {
-            padding-top: 20px !important;
-            padding-bottom: 60px !important;
-        }
-        
-        .swiper-button-next, .swiper-button-prev {
-            color: #ffffff !important;
-            background: rgba(102, 126, 234, 0.8) !important;
-            padding: 1rem !important;
-            border-radius: 50% !important;
-            width: 45px !important;
-            height: 45px !important;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-        }
-        
-        .swiper-button-next::after, .swiper-button-prev::after {
-            font-size: 20px !important;
-            font-weight: 900 !important;
-        }
-        
-        .swiper-button-next:hover, .swiper-button-prev:hover {
-            background: rgba(102, 126, 234, 1) !important;
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
-            transform: scale(1.1);
-        }
-        
-        .swiper-pagination-bullet-active {
-            background: #667eea;
-        }
-        
-        /* FAQ Accordion */
-        .faq-item {
-            transition: all 0.3s ease;
-            border-left: 3px solid transparent;
-        }
-        
-        .faq-item:hover {
-            border-left-color: #667eea;
-        }
-        
-        .faq-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-        }
-        .faq-content.active {
-            max-height: 500px;
-        }
-        
-        /* Testimonial Stars */
-        .star-rating {
-            color: #fbbf24;
-            text-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
-        }
-        
-        /* Hover effect para imagens */
-        .hover-zoom {
-            transition: transform 0.5s ease;
-            position: relative;
-        }
-        .hover-zoom::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--primary-gradient);
-            opacity: 0;
-            transition: opacity 0.5s;
-            border-radius: inherit;
-        }
-        .hover-zoom:hover {
-            transform: scale(1.05);
-        }
-        .hover-zoom:hover::after {
-            opacity: 0.1;
-        }
-        
-        /* Stats Section */
-        .stat-circle {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background: var(--primary-gradient);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-            animation: float 3s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        /* Process Timeline */
-        .timeline-item {
-            position: relative;
-            padding-left: 3rem;
-            margin-bottom: 2rem;
-        }
-        
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: var(--primary-gradient);
-            box-shadow: 0 0 20px rgba(102, 126, 234, 0.6);
-        }
-        
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            left: 9px;
-            top: 20px;
-            width: 2px;
-            height: calc(100% + 2rem);
-            background: linear-gradient(to bottom, rgba(102, 126, 234, 0.5), transparent);
-        }
-        
-        .timeline-item:last-child::after {
-            display: none;
-        }
-        
-        /* Badge */
-        .badge-glow {
-            animation: glowPulse 2s ease-in-out infinite;
-        }
-        
-        @keyframes glowPulse {
-            0%, 100% {
-                box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
-            }
-            50% {
-                box-shadow: 0 0 20px rgba(245, 158, 11, 0.8), 0 0 30px rgba(245, 158, 11, 0.4);
-            }
-        }
-        
-        /* Parallax Effect */
-        .parallax-section {
-            background-attachment: fixed;
-            background-size: cover;
-            background-position: center;
-        }
-    </style>
+      ]
+    }
+  ]
+}
+</script>
 </head>
-<body class="text-gray-200">
+<body>
 
-    <!-- Black Friday Top Banner -->
-    <div id="bf-top-banner" class="bf-banner fixed w-full z-50 top-0 py-3 overflow-hidden" style="display: none;">
-        <div class="container mx-auto px-4">
-            <div class="flex items-center justify-center gap-2 sm:gap-3 flex-wrap text-center">
-                <span class="text-yellow-400 font-black text-xs sm:text-sm md:text-base bf-flash whitespace-nowrap">🔥 BLACK FRIDAY 🔥</span>
-                <span class="text-white font-bold text-[10px] sm:text-xs md:text-sm">Descontos até <span class="text-red-500 text-sm sm:text-lg md:text-xl">50% OFF</span> em todos os planos!</span>
-                <span class="text-yellow-400 font-bold text-[10px] sm:text-xs md:text-sm bf-pulse whitespace-nowrap">⏰ Só HOJE!</span>
-            </div>
-        </div>
+<div class="strip">Processo seletivo aberto — <b>10 vagas / mês</b> · Consultoria por aplicação</div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">
+      <span class="dot"></span>
+      LUKAS CAPETINGA
+      <span>ARQUITETURA CORPORAL</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#arquiteto">O Arquiteto</a>
+      <a href="#metodo">Método</a>
+      <a href="#protocolos">Protocolos</a>
+      <a href="#resultados">Resultados</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="nav-cta" href="#aplicar">Aplicar</a>
+    <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false">≡</button>
+  </div>
+  <nav class="mobile-menu" id="mobileMenu">
+    <a href="#arquiteto">O Arquiteto</a>
+    <a href="#metodo">Método</a>
+    <a href="#protocolos">Protocolos</a>
+    <a href="#resultados">Resultados</a>
+    <a href="#faq">FAQ</a>
+    <a href="#aplicar">Aplicar para consultoria</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero grid-bg" id="top">
+  <div class="hero-glow"></div>
+  <div class="hero-coord">
+    LAT 23°33'S · LON 46°38'W<br>
+    SÃO PAULO — BR<br>
+    SISTEMA // ATIVO
+  </div>
+  <div class="wrap">
+    <span class="eyebrow reveal">Consultoria de alta performance</span>
+    <h1 class="reveal">A engenharia<br>do seu <em>físico</em></h1>
+    <p class="lede reveal">Não vendo treinos. Projeto sistemas. Auditoria biomecânica, gestão de sobrecarga e periodização calculada para construir o físico que a estética avançada exige — com precisão de engenharia, não com improviso motivacional.</p>
+    <div class="hero-actions reveal">
+      <a class="btn" href="#aplicar">Aplicar para consultoria <span class="arw">→</span></a>
+      <a class="btn btn-ghost" href="#protocolos">Ver protocolos</a>
     </div>
-    
-    <!-- Header & Navigation -->
-    <header id="main-header" class="bg-gray-900/80 backdrop-blur-sm fixed w-full z-40 shadow-lg" style="top: 0;">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-white">
-                <img src="images/favicon_branco/favicon-32x32.png" alt="Força Total" width="32" height="32" class="inline-block mr-2">Força<span class="text-indigo-400">Total</span>
-            </a>
-            <div class="hidden md:flex space-x-8 items-center">
-                <a href="#sobre" class="hover:text-indigo-400 transition-colors duration-300">Sobre</a>
-                <a href="#planos" class="hover:text-indigo-400 transition-colors duration-300">Planos</a>
-                <a href="#beneficios" class="hover:text-indigo-400 transition-colors duration-300">Benefícios</a>
-                <a href="#depoimentos" class="hover:text-indigo-400 transition-colors duration-300">Depoimentos</a>
-                <a href="#cursos" class="hover:text-yellow-400 transition-colors duration-300 font-semibold 🌟">Cursos</a>
-                <a href="#faq" class="hover:text-indigo-400 transition-colors duration-300">FAQ</a>
-                <a href="#contato" class="btn-primary text-white font-bold py-2 px-6 rounded-full transition-colors duration-300 inline-block">
-                    <span class="relative z-10">Comece Agora</span>
-                </a>
-				
-                <a href="https://wa.me/5511948834582?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os." target="_blank" rel="noopener noreferrer"
-				   class="whatsapp-btn btn-success flex items-center gap-2 px-4 py-2 rounded-full transition duration-300 ml-3 text-sm font-medium">
-				  <i class="fab fa-whatsapp text-xl"></i><span class="font-bold">WhatsApp</span>
-				</a>
-            </div>
-            <button id="mobile-menu-button" class="md:hidden focus:outline-none">
-                <i class="fas fa-bars text-2xl"></i>
-            </button>
-        </nav>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden">
-            <a href="#sobre" class="block py-2 px-4 text-sm hover:bg-gray-700">Sobre</a>
-            <a href="#planos" class="block py-2 px-4 text-sm hover:bg-gray-700">Planos</a>
-            <a href="#beneficios" class="block py-2 px-4 text-sm hover:bg-gray-700">Benefícios</a>
-            <a href="#depoimentos" class="block py-2 px-4 text-sm hover:bg-gray-700">Depoimentos</a>
-            <a href="#cursos" class="block py-2 px-4 text-sm hover:bg-gray-700 font-semibold text-yellow-400 🌟">Cursos</a>
-            <a href="#faq" class="block py-2 px-4 text-sm hover:bg-gray-700">FAQ</a>
-            <a href="#contato" class="block py-2 px-4 text-sm hover:bg-gray-700">Contato</a>
-			<!-- WhatsApp Mobile -->
-			<a href="https://wa.me/5511948834582?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os."
-			   target="_blank" rel="noopener noreferrer"
-			   class="block py-2 px-4 text-sm hover:bg-gray-700">
-				<i class="fab fa-whatsapp mr-2"></i><span>WhatsApp</span>
-			</a>
+    <div class="spec-row reveal">
+      <div class="spec"><div class="k">Experiência</div><div class="v">10+ anos</div></div>
+      <div class="spec"><div class="k">Projetos concluídos</div><div class="v">500+</div></div>
+      <div class="spec"><div class="k">Registro técnico</div><div class="v">CREF ativo</div></div>
+      <div class="spec"><div class="k">Índice de aprovação</div><div class="v">4.9 / 5</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TREINAR x AUDITAR -->
+<section class="band">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Esp—01 · Diagnóstico de método</span>
+      <h2>Treinar não é auditar</h2>
+      <p>A maioria treina. Poucos auditam. A diferença entre repetir estímulos e ler dados é a diferença entre torcer por um resultado e projetá-lo.</p>
+    </div>
+    <div class="versus reveal">
+      <div class="vcol old">
+        <span class="tag">// Modelo comum</span>
+        <h3>Treinar</h3>
+        <ul class="vlist">
+          <li>Repetição de estímulos sem leitura de dados</li>
+          <li>Execução guiada por "sentir" o músculo</li>
+          <li>Volume e intensidade definidos no improviso</li>
+          <li>Motivação tratada como metodologia</li>
+        </ul>
+      </div>
+      <div class="vcol new">
+        <span class="tag">// Arquitetura corporal</span>
+        <h3>Auditar</h3>
+        <ul class="vlist">
+          <li>Análise biomecânica de cada eixo articular</li>
+          <li>Gestão de sobrecarga progressiva e mensurável</li>
+          <li>Periodização com variáveis controladas</li>
+          <li>Decisão por dados — cálculo, não improviso</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARQUITETO -->
+<section class="band" id="arquiteto">
+  <div class="wrap">
+    <div class="arch">
+      <div class="arch-photo framed reveal">
+        <img src="https://lukascapetinga.com.br/images/Lucas.jpeg" alt="Lukas Capetinga, educador físico" loading="lazy">
+        <div class="ov"></div>
+        <div class="stamp">REF // LC-001 · CREF</div>
+      </div>
+      <div class="arch-body reveal">
+        <span class="eyebrow">Esp—02 · O responsável técnico</span>
+        <h2>Lukas Capetinga</h2>
+        <span class="role">Educador físico · Especialista em hipertrofia</span>
+        <p>Mais de dez anos dedicados exclusivamente à construção física. A metodologia é fundamentada na ciência do esporte: treino tratado como sistema, não como rotina — cada variável existe por um motivo e é medida.</p>
+        <p>Nenhum protocolo é genérico. Histórico, limitações articulares, rotina e metas entram como parâmetros de projeto. O plano que sai é a engenharia reversa do físico que você quer construir — sustentável, técnico e auditável a cada ciclo.</p>
+        <div class="creds">
+          <div class="cred"><div class="n">10+</div><div class="l">anos de campo</div></div>
+          <div class="cred"><div class="n">500+</div><div class="l">projetos</div></div>
+          <div class="cred"><div class="n">98%</div><div class="l">taxa de êxito</div></div>
+          <div class="cred"><div class="n">CREF</div><div class="l">registro ativo</div></div>
         </div>
-    </header>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Hero Section -->
-    <main class="pt-16" id="main-content">
-        <!-- Black Friday Mega Banner -->
-        <div id="bf-hero-banner" class="relative overflow-hidden" style="display: none;">
-            <div class="bf-banner py-8 sm:py-12 md:py-16 relative">
-                <!-- Animated Background Elements -->
-                <div class="absolute inset-0 overflow-hidden pointer-events-none">
-                    <div class="absolute top-10 left-10 w-32 h-32 bg-yellow-500/20 rounded-full blur-3xl bf-float"></div>
-                    <div class="absolute top-20 right-20 w-40 h-40 bg-orange-500/20 rounded-full blur-3xl bf-float" style="animation-delay: 1s;"></div>
-                    <div class="absolute bottom-10 left-1/3 w-36 h-36 bg-red-500/20 rounded-full blur-3xl bf-float" style="animation-delay: 2s;"></div>
-                </div>
-                
-                <div class="container mx-auto px-4 text-center relative z-10">
-                    <!-- Black Friday Logo/Badge -->
-                    <div class="inline-block mb-6" data-aos="zoom-in">
-                        <div class="bf-badge text-black font-black text-2xl sm:text-4xl md:text-5xl px-8 py-4 rounded-2xl transform -rotate-3 shadow-2xl">
-                            <span class="inline-block bf-shake">🔥 BLACK FRIDAY 🔥</span>
-                        </div>
-                    </div>
-                    
-                    <h2 class="text-3xl sm:text-4xl md:text-6xl font-black text-white mb-4 bf-neon" data-aos="fade-up" data-aos-delay="100">
-                        DESCONTO HISTÓRICO!
-                    </h2>
-                    
-                    <p class="text-xl sm:text-2xl md:text-4xl font-bold text-yellow-400 mb-6" data-aos="fade-up" data-aos-delay="200">
-                        Até <span class="text-5xl sm:text-6xl md:text-7xl text-red-500 bf-pulse">50% OFF</span>
-                    </p>
-                    
-                    <p class="text-lg sm:text-xl md:text-2xl text-white mb-8" data-aos="fade-up" data-aos-delay="300">
-                        Exclusivo nos Planos <span class="text-yellow-400 font-bold">SEMESTRAL</span> e <span class="text-yellow-400 font-bold">ANUAL</span>
-                    </p>
-                    
-                    <!-- Countdown Timer -->
-                    <div class="max-w-2xl mx-auto mb-8" data-aos="zoom-in" data-aos-delay="400">
-                        <p class="text-red-500 font-bold text-lg sm:text-xl mb-4 bf-flash">⏰ A OFERTA TERMINA EM:</p>
-                        <div id="bf-countdown" class="flex justify-center gap-3 sm:gap-6">
-                            <div class="bf-pulse">
-                                <div class="bg-gradient-to-br from-yellow-400 to-orange-500 rounded-xl p-3 sm:p-4 min-w-[70px] sm:min-w-[100px]">
-                                    <div id="hours" class="text-3xl sm:text-5xl font-black text-black">00</div>
-                                    <div class="text-xs sm:text-sm font-bold text-black">HORAS</div>
-                                </div>
-                            </div>
-                            <div class="text-4xl sm:text-6xl text-yellow-400 font-black">:</div>
-                            <div class="bf-pulse" style="animation-delay: 0.2s;">
-                                <div class="bg-gradient-to-br from-orange-500 to-red-500 rounded-xl p-3 sm:p-4 min-w-[70px] sm:min-w-[100px]">
-                                    <div id="minutes" class="text-3xl sm:text-5xl font-black text-white">00</div>
-                                    <div class="text-xs sm:text-sm font-bold text-white">MINUTOS</div>
-                                </div>
-                            </div>
-                            <div class="text-4xl sm:text-6xl text-yellow-400 font-black">:</div>
-                            <div class="bf-pulse" style="animation-delay: 0.4s;">
-                                <div class="bg-gradient-to-br from-red-500 to-red-700 rounded-xl p-3 sm:p-4 min-w-[70px] sm:min-w-[100px]">
-                                    <div id="seconds" class="text-3xl sm:text-5xl font-black text-white">00</div>
-                                    <div class="text-xs sm:text-sm font-bold text-white">SEGUNDOS</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- CTA Buttons -->
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center" data-aos="fade-up" data-aos-delay="500">
-                        <a href="#planos" class="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 text-black font-black py-4 px-8 sm:px-12 rounded-full text-lg sm:text-xl transform hover:scale-110 transition-all duration-300 shadow-2xl bf-pulse w-full sm:w-auto">
-                            🎁 GARANTIR DESCONTO AGORA!
-                        </a>
-                    </div>
-                    
-                    <p class="text-yellow-400 text-sm sm:text-base mt-6 font-bold bf-flash">
-                        ⚠️ ÚNICA CHANCE DO ANO! NÃO PERCA!
-                    </p>
-                </div>
-            </div>
-        </div>
-        
-        <section class="hero-bg min-h-screen flex items-center relative overflow-hidden">
-            <!-- Floating Elements - Hidden on mobile -->
-            <div class="absolute inset-0 overflow-hidden pointer-events-none hidden md:block">
-                <div class="absolute top-20 left-10 w-20 h-20 bg-purple-500/20 rounded-full blur-xl animate-pulse" data-aos="fade-in" data-aos-delay="100"></div>
-                <div class="absolute top-40 right-20 w-32 h-32 bg-pink-500/20 rounded-full blur-2xl animate-pulse" data-aos="fade-in" data-aos-delay="300" style="animation-delay: 1s;"></div>
-                <div class="absolute bottom-40 left-1/4 w-24 h-24 bg-indigo-500/20 rounded-full blur-xl animate-pulse" data-aos="fade-in" data-aos-delay="500" style="animation-delay: 2s;"></div>
-                <div class="absolute bottom-20 right-1/3 w-16 h-16 bg-blue-500/20 rounded-full blur-lg animate-pulse" data-aos="fade-in" data-aos-delay="700" style="animation-delay: 3s;"></div>
-            </div>
-            
-            <div class="container mx-auto px-4 sm:px-6 text-center relative z-10 py-12 md:py-0">
-                <!-- Badge Premium -->
-                <div class="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 border border-yellow-500/50 rounded-full px-3 sm:px-6 py-2 mb-4 sm:mb-6" data-aos="fade-down">
-                    <i class="fas fa-award text-yellow-400 text-sm sm:text-base"></i>
-                    <span class="text-yellow-400 font-semibold text-xs sm:text-sm">+500 Transformações Comprovadas</span>
-                </div>
-                
-                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black text-white leading-tight mb-4 sm:mb-6 px-2" data-aos="zoom-in" data-aos-delay="100">
-                    Transforme seu Corpo.<br>
-                    <span class="inline-block" data-aos="fade-left" data-aos-delay="300">
-                        Conquiste seus <span class="gradient-text animate-pulse">Objetivos</span>.
-                    </span>
-                </h1>
-                
-                <p class="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto mb-4 sm:mb-6 leading-relaxed px-2" data-aos="fade-up" data-aos-delay="400" style="text-align: center;">
-                    Receba um plano de treino e nutrição 100% personalizado, criado por especialistas com mais de 10 anos de experiência. Alcance o máximo do seu potencial físico, onde quer que você esteja.
-                </p>
-                
-                <!-- Social Proof Mini -->
-                <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-6 mb-6 sm:mb-8 px-2" data-aos="fade-up" data-aos-delay="500">
-                    <div class="flex items-center gap-2">
-                        <i class="fas fa-users text-indigo-400 text-sm"></i>
-                        <span class="text-gray-300 text-xs sm:text-sm"><strong class="text-white">500+</strong> Clientes</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <div class="flex gap-1">
-                            <i class="fas fa-star text-yellow-400 text-xs"></i>
-                            <i class="fas fa-star text-yellow-400 text-xs"></i>
-                            <i class="fas fa-star text-yellow-400 text-xs"></i>
-                            <i class="fas fa-star text-yellow-400 text-xs"></i>
-                            <i class="fas fa-star text-yellow-400 text-xs"></i>
-                        </div>
-                        <span class="text-gray-300 text-xs sm:text-sm"><strong class="text-white">4.9/5</strong> Avaliação</span>
-                    </div>
-                </div>
-                
-                <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center mb-4 sm:mb-6 px-4" data-aos="fade-up" data-aos-delay="600">
-                    <a href="#planos" class="btn-primary text-white font-bold py-3 sm:py-4 px-6 sm:px-10 rounded-full text-base sm:text-lg inline-block relative z-10 transform hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-purple-500/50 w-full sm:w-auto">
-                        <span class="relative z-10 flex items-center justify-center gap-2">
-                            <i class="fas fa-rocket"></i>
-                            <span class="whitespace-nowrap">Ver Planos</span>
-                        </span>
-                    </a>
-                    <a href="https://wa.me/5511948834582?text=Ol%C3%A1%2C%20quero%20transformar%20meu%20corpo!" target="_blank" rel="noopener noreferrer" 
-                       class="btn-success font-bold py-3 sm:py-4 px-6 sm:px-10 rounded-full text-base sm:text-lg inline-flex items-center justify-center gap-2 sm:gap-3 transform hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-green-500/50 w-full sm:w-auto">
-                        <i class="fab fa-whatsapp text-xl sm:text-2xl"></i> 
-                        <span class="font-extrabold whitespace-nowrap">Fale Comigo</span>
-                    </a>
-                </div>
-                
-                <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-2 sm:gap-4 items-center px-4" data-aos="fade-up" data-aos-delay="700">
-                    <p class="text-xs sm:text-sm text-yellow-400 font-semibold badge-glow inline-block px-3 sm:px-5 py-2 rounded-full bg-yellow-900/30 border border-yellow-500/30 text-center">
-                        🔥 Vagas limitadas! Apenas 10 novos alunos/mês
-                    </p>
-                    <p class="text-xs sm:text-sm text-green-400 font-semibold inline-block px-3 sm:px-5 py-2 rounded-full bg-green-900/30 border border-green-500/30">
-                        ✅ Primeira consulta grátis
-                    </p>
-                </div>
-            </div>
-        </section>
+<!-- MÉTODO -->
+<section class="band" id="metodo">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Esp—03 · Pipeline de execução</span>
+      <h2>O método, em fases</h2>
+      <p>Um processo linear e mensurável. Cada fase produz dados que alimentam a próxima. Nada aleatório, nada motivacional.</p>
+    </div>
+    <div class="phases reveal">
+      <div class="phase">
+        <span class="ix">FASE 01</span>
+        <h4>Diagnóstico</h4>
+        <p>Anamnese completa, leitura de histórico, mapeamento de limitações e dos eixos articulares disponíveis.</p>
+        <span class="meta">Anamnese · Métricas · Linha de base</span>
+      </div>
+      <div class="phase">
+        <span class="ix">FASE 02</span>
+        <h4>Projeto</h4>
+        <p>Periodização individual, seleção de estímulos e definição da curva de sobrecarga conforme seus parâmetros.</p>
+        <span class="meta">Periodização · Carga · Estímulo</span>
+      </div>
+      <div class="phase">
+        <span class="ix">FASE 03</span>
+        <h4>Auditoria</h4>
+        <p>Análise de vídeo da execução, correção do padrão de movimento e ajuste técnico contínuo via suporte direto.</p>
+        <span class="meta">Vídeo · Padrão · Correção</span>
+      </div>
+      <div class="phase">
+        <span class="ix">FASE 04</span>
+        <h4>Recalibração</h4>
+        <p>Releitura de dados, reavaliação física e recalibração das variáveis para sustentar a evolução por ciclos.</p>
+        <span class="meta">Reavaliação · Dados · Ciclo</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <!-- Sobre Section -->
-        <section id="sobre" class="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
-            <!-- Background decorativo -->
-            <div class="absolute inset-0 opacity-5">
-                <div class="absolute top-0 left-0 w-full h-full" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;"></div>
-            </div>
-            
-            <div class="container mx-auto px-4 sm:px-6 relative z-10">
-                <div class="text-center mb-8 sm:mb-12" data-aos="fade-up">
-                    <h2 class="section-title text-white mb-3 sm:mb-4 text-3xl sm:text-4xl md:text-5xl">Conheça seu Treinador</h2>
-                    <p class="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base px-4">Especialista em transformações corporais com resultados comprovados</p>
-                </div>
-                
-                <div class="md:flex md:items-start md:gap-12 max-w-6xl mx-auto">
-                    <!-- Coluna da Imagem com Cards Flutuantes -->
-                    <div class="md:w-1/2 mb-8 md:mb-0 relative px-4 sm:px-0" data-aos="fade-right">
-                        <div class="relative pt-8 pb-12 sm:pt-0 sm:pb-0">
-                            <div class="absolute -inset-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl blur-2xl opacity-20 animate-pulse"></div>
-                            <img src="images/Lucas.jpeg" 
-                                 alt="Consultor Fitness Lukas Capetinga" 
-                                 class="rounded-2xl shadow-2xl w-full h-auto max-h-[600px] profile-img hover-zoom relative z-10 border-4 border-gray-700/50"
-                                 onerror="this.onerror=null;this.src='https://placehold.co/600x600/374151/ffffff?text=Lukas+Capetinga';">
-                            
-                            <!-- Badge Flutuante - Adjusted for mobile -->
-                            <div class="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 z-20 bg-gradient-to-br from-yellow-400 to-orange-500 text-white px-3 py-2 sm:px-6 sm:py-3 rounded-lg sm:rounded-xl shadow-2xl transform rotate-3" data-aos="zoom-in" data-aos-delay="300">
-                                <div class="text-center">
-                                    <i class="fas fa-trophy text-lg sm:text-2xl mb-0 sm:mb-1"></i>
-                                    <p class="font-black text-sm sm:text-lg">Top 1%</p>
-                                    <p class="text-xs opacity-90 hidden sm:block">Treinadores BR</p>
-                                </div>
-                            </div>
-                            
-                            <!-- Card Flutuante Inferior - Adjusted for mobile -->
-                            <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 sm:left-0 sm:translate-x-0 sm:-bottom-6 sm:-left-6 z-20 bg-gray-800/95 backdrop-blur-sm px-3 py-2 sm:px-6 sm:py-4 rounded-lg sm:rounded-xl shadow-2xl border border-indigo-500/30 max-w-[90%] sm:max-w-none sm:w-auto" data-aos="fade-up" data-aos-delay="500">
-                                <div class="flex items-center gap-2 sm:gap-3 justify-center sm:justify-start">
-                                    <i class="fas fa-certificate text-indigo-400 text-base sm:text-2xl"></i>
-                                    <div>
-                                        <p class="text-white font-bold text-xs sm:text-base whitespace-nowrap">CREF Certificado</p>
-                                        <p class="text-gray-400 text-[10px] sm:text-xs whitespace-nowrap">Profissional Registrado</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Coluna do Conteúdo -->
-                    <div class="md:w-1/2" data-aos="fade-left">
-                        <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-4 sm:p-6 md:p-8 border border-gray-700/50 mb-4 sm:mb-6">
-                            <div class="flex items-center gap-2 sm:gap-3 mb-4">
-                                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center flex-shrink-0">
-                                    <i class="fas fa-user-tie text-white text-base sm:text-xl"></i>
-                                </div>
-                                <div>
-                                    <h3 class="text-xl sm:text-2xl font-black text-white">Lukas Capetinga</h3>
-                                    <p class="text-indigo-400 text-xs sm:text-sm font-semibold">Educador Físico | Personal Trainer</p>
-                                </div>
-                            </div>
-                            
-                            <p class="text-gray-300 mb-3 sm:mb-4 leading-relaxed text-sm sm:text-base" style="text-align: justify;">
-                                Olá! Sou <strong class="text-white">Lukas Capetinga</strong>, profissional de educação física com mais de <strong class="text-indigo-400">10 anos de experiência</strong> dedicados exclusivamente à musculação e desenvolvimento humano. Minha paixão é ajudar pessoas como você a alcançarem objetivos que pareciam impossíveis, desde emagrecimento saudável até hipertrofia muscular avançada.
-                            </p>
-                            
-                            <p class="text-gray-300 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base" style="text-align: justify;">
-                                Minha metodologia é 100% fundamentada na <strong class="text-white">ciência do esporte</strong>, combinando treinos inteligentes e eficientes com estratégias nutricionais sustentáveis e personalizadas. Acredito firmemente que cada pessoa é única, com suas particularidades, limitações e potenciais. Por isso, cada plano é meticulosamente elaborado para se adaptar perfeitamente à sua rotina, preferências alimentares e metas específicas.
-                            </p>
-                            
-                            <!-- Diferenciais -->
-                            <div class="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
-                                <div class="flex items-start gap-2 sm:gap-3">
-                                    <i class="fas fa-check-circle text-green-400 mt-1 flex-shrink-0 text-sm sm:text-base"></i>
-                                    <p class="text-gray-300 text-xs sm:text-sm"><strong class="text-white">Acompanhamento individualizado</strong> com foco total nos seus resultados</p>
-                                </div>
-                                <div class="flex items-start gap-2 sm:gap-3">
-                                    <i class="fas fa-check-circle text-green-400 mt-1 flex-shrink-0 text-sm sm:text-base"></i>
-                                    <p class="text-gray-300 text-xs sm:text-sm"><strong class="text-white">Metodologia baseada em evidências</strong> científicas comprovadas</p>
-                                </div>
-                                <div class="flex items-start gap-2 sm:gap-3">
-                                    <i class="fas fa-check-circle text-green-400 mt-1 flex-shrink-0 text-sm sm:text-base"></i>
-                                    <p class="text-gray-300 text-xs sm:text-sm"><strong class="text-white">Suporte constante</strong> para tirar dúvidas e manter sua motivação</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Cards de Estatísticas Melhorados -->
-                        <div class="grid grid-cols-2 gap-3 sm:gap-4">
-                            <div class="bg-gradient-to-br from-indigo-600 to-purple-700 p-4 sm:p-6 rounded-xl text-center transform hover:scale-105 transition duration-300 shadow-xl" data-aos="flip-left" data-aos-delay="100">
-                                <i class="fas fa-users text-white text-xl sm:text-3xl mb-1 sm:mb-2"></i>
-                                <span class="text-2xl sm:text-4xl font-black text-white block counter" data-target="500">0</span>
-                                <span class="text-xs sm:text-sm text-indigo-200 font-semibold">Clientes Transformados</span>
-                            </div>
-                            <div class="bg-gradient-to-br from-pink-600 to-red-700 p-4 sm:p-6 rounded-xl text-center transform hover:scale-105 transition duration-300 shadow-xl" data-aos="flip-left" data-aos-delay="200">
-                                <i class="fas fa-calendar-check text-white text-xl sm:text-3xl mb-1 sm:mb-2"></i>
-                                <span class="text-2xl sm:text-4xl font-black text-white block counter" data-target="10">0</span>
-                                <span class="text-xs sm:text-sm text-pink-200 font-semibold">Anos de Experiência</span>
-                            </div>
-                            <div class="bg-gradient-to-br from-green-600 to-teal-700 p-4 sm:p-6 rounded-xl text-center transform hover:scale-105 transition duration-300 shadow-xl" data-aos="flip-left" data-aos-delay="300">
-                                <i class="fas fa-trophy text-white text-xl sm:text-3xl mb-1 sm:mb-2"></i>
-                                <span class="text-2xl sm:text-4xl font-black text-white block">98<span class="text-lg sm:text-2xl">%</span></span>
-                                <span class="text-xs sm:text-sm text-green-200 font-semibold">Taxa de Sucesso</span>
-                            </div>
-                            <div class="bg-gradient-to-br from-yellow-600 to-orange-700 p-4 sm:p-6 rounded-xl text-center transform hover:scale-105 transition duration-300 shadow-xl" data-aos="flip-left" data-aos-delay="400">
-                                <i class="fas fa-heartbeat text-white text-xl sm:text-3xl mb-1 sm:mb-2"></i>
-                                <span class="text-2xl sm:text-4xl font-black text-white block">24<span class="text-lg sm:text-2xl">/7</span></span>
-                                <span class="text-xs sm:text-sm text-yellow-200 font-semibold">Suporte Disponível</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!-- ENTREGÁVEL -->
+<section class="band">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Esp—04 · Escopo do entregável</span>
+      <h2>O que está no projeto</h2>
+      <p>A estrutura operacional que sustenta o protocolo. Tudo centralizado, tudo rastreável.</p>
+    </div>
+    <div class="deliver reveal">
+      <div class="dcard"><span class="ix">D-01</span><h4>Acesso TotalPass</h4><p>Rede de unidades para executar o protocolo onde estiver, sem prender você a uma única academia.</p></div>
+      <div class="dcard"><span class="ix">D-02</span><h4>Plataforma</h4><p>Protocolo, vídeos de referência e métricas reunidos em um único ambiente digital de acompanhamento.</p></div>
+      <div class="dcard"><span class="ix">D-03</span><h4>Auditoria de vídeo</h4><p>Análise técnica da sua execução para corrigir padrão de movimento e prevenir sobrecarga indevida.</p></div>
+      <div class="dcard"><span class="ix">D-04</span><h4>Suporte direto</h4><p>Canal contínuo via WhatsApp para calibragem do protocolo entre as reavaliações.</p></div>
+      <div class="dcard"><span class="ix">D-05</span><h4>Periodização</h4><p>Ciclos de carga calculados, com progressão definida em vez de aumento aleatório de peso.</p></div>
+      <div class="dcard"><span class="ix">D-06</span><h4>Reavaliação</h4><p>Recalibração periódica por dados objetivos — o sistema é revisado, não apenas mantido.</p></div>
+    </div>
+  </div>
+</section>
 
-        <!-- Metodologia/Processo Section -->
-        <section class="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-gray-900 to-gray-800 relative overflow-hidden">
-            <div class="absolute inset-0 opacity-10">
-                <div class="absolute top-0 left-0 w-96 h-96 bg-purple-500 rounded-full filter blur-3xl"></div>
-                <div class="absolute bottom-0 right-0 w-96 h-96 bg-blue-500 rounded-full filter blur-3xl"></div>
-            </div>
-            
-            <div class="container mx-auto px-4 sm:px-6 relative z-10">
-                <h2 class="section-title text-center mb-3 sm:mb-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl px-4" data-aos="fade-up">Como Funciona a Transformação</h2>
-                <p class="text-center text-gray-400 max-w-2xl mx-auto mb-12 sm:mb-16 text-sm sm:text-base px-4" data-aos="fade-up" data-aos-delay="100">
-                    Metodologia comprovada em 4 passos simples para alcançar seus objetivos
-                </p>
-                
-                <div class="max-w-4xl mx-auto px-4 sm:px-0">
-                    <!-- Passo 1 -->
-                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
-                        <div class="card rounded-2xl p-4 sm:p-6 md:p-8">
-                            <div class="flex items-start gap-3 sm:gap-4">
-                                <div class="stat-circle w-12 h-12 sm:w-16 sm:h-16 flex-shrink-0">
-                                    <span class="text-xl sm:text-2xl font-black text-white">1</span>
-                                </div>
-                                <div class="flex-1 min-w-0">
-                                    <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 sm:mb-3">Avaliação Completa</h3>
-                                    <p class="text-gray-400 mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed">
-                                        Análise detalhada do seu histórico, objetivos, rotina, limitações e preferências. Entendo exatamente onde você está e onde quer chegar.
-                                    </p>
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="text-xs bg-indigo-900/50 text-indigo-300 px-2 sm:px-3 py-1 rounded-full">Anamnese</span>
-                                        <span class="text-xs bg-indigo-900/50 text-indigo-300 px-2 sm:px-3 py-1 rounded-full">Metas</span>
-                                        <span class="text-xs bg-indigo-900/50 text-indigo-300 px-2 sm:px-3 py-1 rounded-full">Diagnóstico</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Passo 2 -->
-                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="200">
-                        <div class="card rounded-2xl p-4 sm:p-6 md:p-8">
-                            <div class="flex items-start gap-3 sm:gap-4">
-                                <div class="stat-circle w-12 h-12 sm:w-16 sm:h-16 flex-shrink-0">
-                                    <span class="text-xl sm:text-2xl font-black text-white">2</span>
-                                </div>
-                                <div class="flex-1 min-w-0">
-                                    <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 sm:mb-3">Planejamento Personalizado</h3>
-                                    <p class="text-gray-400 mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed">
-                                        Criação do seu plano de treino e nutrição 100% personalizado, adaptado à sua realidade e aos equipamentos que você tem acesso.
-                                    </p>
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="text-xs bg-purple-900/50 text-purple-300 px-2 sm:px-3 py-1 rounded-full">Treino Custom</span>
-                                        <span class="text-xs bg-purple-900/50 text-purple-300 px-2 sm:px-3 py-1 rounded-full">Nutrição</span>
-                                        <span class="text-xs bg-purple-900/50 text-purple-300 px-2 sm:px-3 py-1 rounded-full">Periodização</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Passo 3 -->
-                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="300">
-                        <div class="card rounded-2xl p-4 sm:p-6 md:p-8">
-                            <div class="flex items-start gap-3 sm:gap-4">
-                                <div class="stat-circle w-12 h-12 sm:w-16 sm:h-16 flex-shrink-0">
-                                    <span class="text-xl sm:text-2xl font-black text-white">3</span>
-                                </div>
-                                <div class="flex-1 min-w-0">
-                                    <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 sm:mb-3">Acompanhamento Contínuo</h3>
-                                    <p class="text-gray-400 mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed">
-                                        Suporte diário via WhatsApp, análise de execução dos exercícios e ajustes sempre que necessário para garantir sua evolução constante.
-                                    </p>
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="text-xs bg-pink-900/50 text-pink-300 px-2 sm:px-3 py-1 rounded-full whitespace-nowrap">WhatsApp 24/7</span>
-                                        <span class="text-xs bg-pink-900/50 text-pink-300 px-2 sm:px-3 py-1 rounded-full whitespace-nowrap">Vídeo Análise</span>
-                                        <span class="text-xs bg-pink-900/50 text-pink-300 px-2 sm:px-3 py-1 rounded-full">Feedback</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Passo 4 -->
-                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="400">
-                        <div class="card rounded-2xl p-4 sm:p-6 md:p-8">
-                            <div class="flex items-start gap-3 sm:gap-4">
-                                <div class="stat-circle w-12 h-12 sm:w-16 sm:h-16 flex-shrink-0">
-                                    <span class="text-xl sm:text-2xl font-black text-white">4</span>
-                                </div>
-                                <div class="flex-1 min-w-0">
-                                    <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 sm:mb-3">Resultados Sustentáveis</h3>
-                                    <p class="text-gray-400 mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed">
-                                        Alcance seus objetivos de forma saudável e sustentável, com mudanças que vão além da estética e transformam seu estilo de vida.
-                                    </p>
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="text-xs bg-green-900/50 text-green-300 px-2 sm:px-3 py-1 rounded-full">Transformação</span>
-                                        <span class="text-xs bg-green-900/50 text-green-300 px-2 sm:px-3 py-1 rounded-full">Saúde</span>
-                                        <span class="text-xs bg-green-900/50 text-green-300 px-2 sm:px-3 py-1 rounded-full">Lifestyle</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!-- PROTOCOLOS -->
+<section class="band grid-bg" id="protocolos">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Esp—05 · Engajamento</span>
+      <h2>Protocolos</h2>
+      <p>Quanto mais longo o engajamento, mais profunda a engenharia: auditoria de vídeo, suplementação e recalibração entram conforme o ciclo se estende.</p>
+    </div>
+    <div class="plans reveal">
+      <div class="plan">
+        <span class="ptag">&nbsp;</span>
+        <h4>Mensal</h4>
+        <span class="sub">Entrada no sistema</span>
+        <div class="price">R$200<small>/ mês</small></div>
+        <ul>
+          <li>Protocolo de treino individualizado</li>
+          <li>Orientações nutricionais completas</li>
+          <li>Suporte direto via WhatsApp</li>
+          <li>Ajuste mensal do protocolo</li>
+        </ul>
+        <a class="btn" href="#aplicar">Aplicar</a>
+      </div>
+      <div class="plan feat">
+        <span class="ptag">// Mais escolhido</span>
+        <h4>Trimestral</h4>
+        <span class="sub">Melhor custo-benefício</span>
+        <div class="price">R$500<small>/ trimestre</small></div>
+        <ul>
+          <li>Tudo do protocolo Mensal</li>
+          <li>Auditoria de vídeo da execução</li>
+          <li>Ajuste a cada 45 dias</li>
+          <li>Relatórios de progresso detalhados</li>
+        </ul>
+        <a class="btn" href="#aplicar">Aplicar</a>
+      </div>
+      <div class="plan">
+        <span class="ptag">&nbsp;</span>
+        <h4>Semestral</h4>
+        <span class="sub">Construção completa</span>
+        <div class="price">R$900<small>/ semestre</small></div>
+        <ul>
+          <li>Tudo do protocolo Trimestral</li>
+          <li>Planejamento de suplementação</li>
+          <li>Chamada de vídeo mensal</li>
+          <li>Prioridade no atendimento</li>
+        </ul>
+        <a class="btn" href="#aplicar">Aplicar</a>
+      </div>
+      <div class="plan">
+        <span class="ptag">// Engajamento total</span>
+        <h4>Anual</h4>
+        <span class="sub">Acompanhamento VIP</span>
+        <div class="price">R$1.500<small>/ ano · ~R$125 por mês</small></div>
+        <ul>
+          <li>Tudo do protocolo Semestral</li>
+          <li>2 chamadas de vídeo por mês</li>
+          <li>Reavaliação trimestral completa</li>
+          <li>Atendimento prioritário</li>
+        </ul>
+        <a class="btn" href="#aplicar">Aplicar</a>
+      </div>
+    </div>
+    <p class="plans-note reveal">Vagas limitadas a 10 novos projetos por mês · acesso por aplicação</p>
+  </div>
+</section>
 
-        <!-- Estatísticas Visuais -->
-        <section class="py-20 bg-gray-900">
-            <div class="container mx-auto px-6">
-                <h2 class="section-title text-center mb-4" data-aos="fade-up">Resultados que Falam por Si</h2>
-                <p class="text-center text-gray-400 max-w-2xl mx-auto mb-16" data-aos="fade-up" data-aos-delay="100">
-                    Números reais de transformações reais
-                </p>
-                
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-                    <div class="text-center" data-aos="zoom-in" data-aos-delay="100">
-                        <div class="stat-circle mx-auto mb-4">
-                            <span class="text-3xl font-black text-white counter" data-target="500">0</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Clientes</h3>
-                        <p class="text-gray-400 text-sm">Transformados</p>
-                    </div>
-                    
-                    <div class="text-center" data-aos="zoom-in" data-aos-delay="200">
-                        <div class="stat-circle mx-auto mb-4">
-                            <span class="text-3xl font-black text-white counter" data-target="10">0</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Anos</h3>
-                        <p class="text-gray-400 text-sm">De Experiência</p>
-                    </div>
-                    
-                    <div class="text-center" data-aos="zoom-in" data-aos-delay="300">
-                        <div class="stat-circle mx-auto mb-4">
-                            <span class="text-3xl font-black text-white counter" data-target="98">0</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">98%</h3>
-                        <p class="text-gray-400 text-sm">Satisfação</p>
-                    </div>
-                    
-                    <div class="text-center" data-aos="zoom-in" data-aos-delay="400">
-                        <div class="stat-circle mx-auto mb-4">
-                            <span class="text-3xl font-black text-white counter" data-target="24">0</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">24/7</h3>
-                        <p class="text-gray-400 text-sm">Suporte</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!-- RESULTADOS -->
+<section class="band" id="resultados">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Esp—06 · Dados de saída</span>
+      <h2>Resultados, em números</h2>
+      <p>Cada transformação é um delta mensurável. Não panfletos — variáveis lidas no início e no fim do ciclo.</p>
+    </div>
+    <div class="results reveal">
+      <div class="rcard">
+        <div class="delta">−12 kg</div>
+        <div class="who">Fran Cristina</div>
+        <div class="plan-l">Protocolo Trimestral</div>
+        <div class="data">PERÍODO <b>3 meses</b><br>72 kg <b>→</b> 60 kg<br>OBJETIVO <b>definição</b></div>
+      </div>
+      <div class="rcard">
+        <div class="delta">+8 kg</div>
+        <div class="who">João Machado</div>
+        <div class="plan-l">Protocolo Semestral</div>
+        <div class="data">PERÍODO <b>3 meses</b><br>68 kg <b>→</b> 76 kg<br>OBJETIVO <b>massa magra</b></div>
+      </div>
+      <div class="rcard">
+        <div class="delta">+40%</div>
+        <div class="who">Mariana Mendes</div>
+        <div class="plan-l">Protocolo Mensal</div>
+        <div class="data">PERÍODO <b>2 meses</b><br>SUPINO 30 kg <b>→</b> 42 kg<br>OBJETIVO <b>força</b></div>
+      </div>
+    </div>
+    <div class="quotes reveal">
+      <div class="quote"><p>Minha evolução foi surreal: corpo mais firme, força aumentando e autoestima em alta. Ter alguém que entende e guia faz toda a diferença.</p><span class="cite">— Fran Cristina</span></div>
+      <div class="quote"><p>Esses protocolos mudaram tudo. Mais forte, com muito mais disposição e vendo resultado real. O acompanhamento faz a diferença.</p><span class="cite">— João Machado</span></div>
+      <div class="quote"><p>Senti uma diferença enorme: muito mais definida, rendendo mais e evoluindo nas cargas. Cada exercício tem um motivo claro.</p><span class="cite">— Mariana Mendes</span></div>
+    </div>
+  </div>
+</section>
 
-        <!-- Planos Section com Carrossel -->
-        <section id="planos" class="py-20 relative" style="overflow-x: clip; overflow-y: visible;">
-            <div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 to-purple-900/20"></div>
-            
-            <!-- Black Friday Alert Banner -->
-            <div id="bf-planos-alert" class="container mx-auto px-4 sm:px-6 mb-8" style="display: none;">
-                <div class="bf-banner rounded-2xl p-6 sm:p-8 border-4 border-yellow-400 relative overflow-hidden" data-aos="zoom-in">
-                    <div class="absolute top-0 right-0 bf-badge text-black font-black text-xs sm:text-sm px-3 sm:px-4 py-1 sm:py-2 rounded-bl-xl">
-                        🔥 HOJE APENAS
-                    </div>
-                    <div class="text-center relative z-10">
-                        <h3 class="text-2xl sm:text-3xl md:text-4xl font-black text-yellow-400 mb-2 bf-neon">
-                            🎉 BLACK FRIDAY EXCLUSIVA! 🎉
-                        </h3>
-                        <p class="text-white text-lg sm:text-xl md:text-2xl font-bold mb-2">
-                            Descontos de até <span class="text-red-500 bf-pulse">50% OFF</span> em TODOS os Planos!
-                        </p>
-                        <p class="text-yellow-400 text-sm sm:text-base font-semibold">
-                            ⚠️ Oferta válida SOMENTE em <span id="bf-date" class="font-black">28/11/2025</span> | Não perca!
-                        </p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="container mx-auto px-6 relative z-10">
-                <h2 class="section-title text-center mb-4" data-aos="fade-up">
-                    <span id="bf-planos-title" style="display: none;" class="text-yellow-400 bf-neon">🔥 PLANOS BLACK FRIDAY 🔥</span>
-                    <span id="normal-planos-title">Escolha seu Plano de Transformação</span>
-                </h2>
-                <p class="text-center text-gray-400 max-w-2xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="100">
-                    <span id="bf-planos-subtitle" style="display: none;" class="text-yellow-400 font-bold text-lg">
-                        ⏰ Descontos históricos por tempo limitado! Aproveite!
-                    </span>
-                    <span id="normal-planos-subtitle">Investimento em você que cabe no seu bolso. Escolha o plano ideal para sua jornada.</span>
-                </p>
-                
-                <!-- Swiper Carousel -->
-                <div class="swiper plansSwiper max-w-7xl mx-auto" data-aos="fade-up" data-aos-delay="200">
-                    <div class="swiper-wrapper pb-12">
-                        <!-- Slide 1 - Plano Mensal -->
-                        <div class="swiper-slide">
-                            <div class="plan-card text-center relative">
-                                <!-- Black Friday Badge -->
-                                <div id="bf-mensal-badge" class="absolute top-3 right-3 z-20" style="display: none;">
-                                    <div class="bf-badge text-black font-black text-xs px-2 py-1 rounded-lg transform rotate-12 bf-shake shadow-2xl whitespace-nowrap">
-                                        🔥 10% OFF
-                                    </div>
-                                </div>
-                                
-                                <div class="mb-6">
-                                    <div class="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center mb-4">
-                                        <i class="fas fa-bolt text-white text-3xl"></i>
-                                    </div>
-                                    <h3 class="text-2xl font-bold text-white mb-2">Plano Mensal</h3>
-                                    <p class="text-gray-400 text-sm">Comece sua jornada</p>
-                                </div>
-                                
-                                <div class="mb-6">
-                                    <!-- Black Friday Price -->
-                                    <div id="bf-mensal-price" style="display: none;">
-                                        <div class="text-2xl font-bold text-gray-400 mb-2">
-                                            <span class="bf-strikethrough">R$200</span>
-                                        </div>
-                                        <div class="text-5xl font-black mb-2">
-                                            <span class="text-yellow-400 bf-pulse">R$180</span>
-                                        </div>
-                                        <p class="text-yellow-400 text-sm font-bold">/mês na Black Friday</p>
-                                        <div class="bg-red-500 text-white text-xs font-black px-4 py-2 rounded-full inline-block mt-2 bf-flash">
-                                            ECONOMIZE R$20 (10% OFF)!
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Normal Price -->
-                                    <div id="normal-mensal-price">
-                                        <div class="text-5xl font-black text-white mb-2">
-                                            <span class="gradient-text">R$200</span>
-                                        </div>
-                                        <p class="text-gray-400 text-sm">/mês</p>
-                                    </div>
-                                </div>
-                                
-                                <p class="text-gray-400 mb-6 flex-grow">Acesso completo com flexibilidade. Ideal para começar sua jornada com acompanhamento de perto.</p>
-                                
-                                <ul class="text-left space-y-3 text-gray-300 mb-8">
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle text-green-400 mr-3 mt-1"></i>
-                                        <span>Plano de treino 100% individualizado</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle text-green-400 mr-3 mt-1"></i>
-                                        <span>Orientações nutricionais completas</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle text-green-400 mr-3 mt-1"></i>
-                                        <span>Suporte ilimitado via WhatsApp</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle text-green-400 mr-3 mt-1"></i>
-                                        <span>Ajustes mensais no treino</span>
-                                    </li>
-                                </ul>
-                                
-                                <a href="#contato" class="btn-primary text-white font-bold py-3 px-6 rounded-full w-full inline-block mt-auto">
-                                    <span class="relative z-10">Começar Agora</span>
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <!-- Slide 2 - Plano Trimestral (Featured) -->
-                        <div class="swiper-slide">
-                            <div class="plan-card featured text-center relative">
-                                <!-- Black Friday Badge -->
-                                <div id="bf-trimestral-badge" class="absolute top-3 right-3 z-20" style="display: none;">
-                                    <div class="bf-badge text-black font-black text-xs px-2 py-1 rounded-lg transform rotate-12 bf-shake shadow-2xl whitespace-nowrap">
-                                        🔥 15% OFF
-                                    </div>
-                                </div>
-                                
-                                <span class="absolute top-4 right-4 bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full badge-glow" id="normal-trimestral-badge">
-                                    MAIS POPULAR
-                                </span>
-                                
-                                <div class="mb-6">
-                                    <div class="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center mb-4">
-                                        <i class="fas fa-rocket text-white text-3xl"></i>
-                                    </div>
-                                    <h3 class="text-2xl font-bold text-white mb-2">Plano Trimestral</h3>
-                                    <p class="text-gray-400 text-sm">Melhor custo-benefício</p>
-                                </div>
-                                
-                                <div class="mb-6">
-                                    <!-- Black Friday Price -->
-                                    <div id="bf-trimestral-price" style="display: none;">
-                                        <div class="text-2xl font-bold text-gray-400 mb-2">
-                                            <span class="bf-strikethrough">R$500</span>
-                                        </div>
-                                        <div class="text-5xl font-black mb-2">
-                                            <span class="text-yellow-400 bf-pulse">R$425</span>
-                                        </div>
-                                        <p class="text-yellow-400 text-sm font-bold">/trimestre na Black Friday</p>
-                                        <div class="bg-red-500 text-white text-xs font-black px-4 py-2 rounded-full inline-block mt-2 bf-flash">
-                                            ECONOMIZE R$75 (15% OFF)!
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Normal Price -->
-                                    <div id="normal-trimestral-price">
-                                        <div class="text-5xl font-black text-white mb-2">
-                                            <span class="gradient-text">R$500</span>
-                                        </div>
-                                        <p class="text-gray-400 text-sm">/trimestre</p>
-                                        <p class="text-green-400 text-xs font-semibold mt-1">Economia de R$100 (17% OFF)</p>
-                                    </div>
-                                </div>
-                                
-                                <p class="text-gray-400 mb-6 flex-grow">Compromisso e economia para resultados mais sólidos. O melhor custo-benefício.</p>
-                                
-                                <ul class="text-left space-y-3 text-gray-300 mb-8">
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle text-green-400 mr-3 mt-1"></i>
-                                        <span><strong>Tudo do plano Mensal</strong></span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-star text-yellow-400 mr-3 mt-1"></i>
-                                        <span><strong>Análise de vídeos de execução</strong></span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-star text-yellow-400 mr-3 mt-1"></i>
-                                        <span><strong>Ajustes a cada 45 dias</strong></span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-star text-yellow-400 mr-3 mt-1"></i>
-                                        <span><strong>Relatórios de progresso detalhados</strong></span>
-                                    </li>
-                                </ul>
-                                
-                                <a href="#contato" class="btn-primary text-white font-bold py-3 px-6 rounded-full w-full inline-block mt-auto">
-                                    <span class="relative z-10">Quero Este Plano! 🔥</span>
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <!-- Slide 3 - Plano Semestral -->
-                        <div class="swiper-slide">
-                            <div class="plan-card text-center relative">
-                                <!-- Black Friday Badge -->
-                                <div id="bf-semestral-badge" class="absolute top-3 right-3 z-20" style="display: none;">
-                                    <div class="bf-badge text-black font-black text-xs px-2 py-1 rounded-lg transform rotate-12 bf-shake shadow-2xl whitespace-nowrap">
-                                        🔥 30% OFF
-                                    </div>
-                                </div>
-                                
-                                <div class="mb-6">
-                                    <div class="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-yellow-500 to-red-600 flex items-center justify-center mb-4">
-                                        <i class="fas fa-crown text-white text-3xl"></i>
-                                    </div>
-                                    <h3 class="text-2xl font-bold text-white mb-2">Plano Semestral</h3>
-                                    <p class="text-gray-400 text-sm">Transformação completa</p>
-                                </div>
-                                
-                                <div class="mb-6">
-                                    <!-- Black Friday Price -->
-                                    <div id="bf-semestral-price" style="display: none;">
-                                        <div class="text-2xl font-bold text-gray-400 mb-2">
-                                            <span class="bf-strikethrough">R$900</span>
-                                        </div>
-                                        <div class="text-6xl font-black mb-2">
-                                            <span class="text-yellow-400 bf-pulse">R$630</span>
-                                        </div>
-                                        <p class="text-yellow-400 text-sm font-bold">/semestre na Black Friday</p>
-                                        <div class="bg-red-500 text-white text-xs font-black px-4 py-2 rounded-full inline-block mt-2 bf-flash">
-                                            ECONOMIZE R$270 (30% OFF)!
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Normal Price -->
-                                    <div id="normal-semestral-price">
-                                        <div class="text-5xl font-black text-white mb-2">
-                                            <span class="gradient-text">R$900</span>
-                                        </div>
-                                        <p class="text-gray-400 text-sm">/semestre</p>
-                                        <p class="text-green-400 text-xs font-semibold mt-1">Economia de R$300 (25% OFF)</p>
-                                    </div>
-                                </div>
-                                
-                                <p class="text-gray-400 mb-6 flex-grow">A transformação definitiva. Acompanhamento completo para quem busca o máximo potencial.</p>
-                                
-                                <ul class="text-left space-y-3 text-gray-300 mb-8">
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle text-green-400 mr-3 mt-1"></i>
-                                        <span><strong>Tudo do plano Trimestral</strong></span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-crown text-yellow-400 mr-3 mt-1"></i>
-                                        <span><strong>Planejamento de suplementação</strong></span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-crown text-yellow-400 mr-3 mt-1"></i>
-                                        <span><strong>Chamada de vídeo mensal</strong></span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-crown text-yellow-400 mr-3 mt-1"></i>
-                                        <span><strong>Prioridade no atendimento</strong></span>
-                                    </li>
-                                </ul>
-                                
-                                <a href="#contato" class="btn-primary text-white font-bold py-3 px-6 rounded-full w-full inline-block mt-auto">
-                                    <span class="relative z-10">Investir na Transformação</span>
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <!-- Slide 4 - Plano Anual (NOVO) -->
-                        <div class="swiper-slide">
-                            <div class="plan-card text-center relative" style="border: 3px solid; border-image: linear-gradient(135deg, #FFD700, #FFA500) 1;">
-                                <!-- Black Friday Badge -->
-                                <div id="bf-anual-badge" class="absolute top-3 right-3 z-20" style="display: none;">
-                                    <div class="bf-badge text-black font-black text-xs px-2 py-1 rounded-lg transform -rotate-12 bf-shake shadow-2xl whitespace-nowrap">
-                                        🔥 50% OFF
-                                    </div>
-                                </div>
-                                
-                                <span class="absolute top-4 left-4 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 text-white text-xs font-bold px-3 py-1 rounded-full badge-glow" id="normal-anual-badge">
-                                    MELHOR INVESTIMENTO
-                                </span>
-                                <span class="absolute top-4 left-4 text-xs font-bold px-3 py-1 rounded-full bf-flash" id="bf-anual-badge-text" style="display: none; background: linear-gradient(135deg, #FFD700, #FF6B00); color: #000;">
-                                    🎁 SUPER BLACK FRIDAY
-                                </span>
-                                
-                                <div class="mb-6">
-                                    <div class="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-yellow-400 via-orange-500 to-red-600 flex items-center justify-center mb-4 animate-pulse">
-                                        <i class="fas fa-trophy text-white text-3xl"></i>
-                                    </div>
-                                    <h3 class="text-2xl font-bold text-white mb-2">Plano Anual</h3>
-                                    <p class="text-yellow-400 text-sm font-bold">🏆 Transformação Total</p>
-                                </div>
-                                
-                                <div class="mb-6">
-                                    <!-- Black Friday Price -->
-                                    <div id="bf-anual-price" style="display: none;">
-                                        <div class="text-2xl font-bold text-gray-400 mb-2">
-                                            <span class="bf-strikethrough">R$1.500</span>
-                                        </div>
-                                        <div class="text-6xl font-black mb-2">
-                                            <span class="text-yellow-400 bf-pulse">R$750</span>
-                                        </div>
-                                        <p class="text-yellow-400 text-sm font-bold">/ano na Black Friday</p>
-                                        <div class="bg-gradient-to-r from-red-500 to-orange-500 text-white text-sm font-black px-4 py-2 rounded-full inline-block mt-2 bf-pulse">
-                                            ECONOMIZE R$750 (50% OFF)!
-                                        </div>
-                                        <p class="text-green-400 text-xs font-bold mt-2">🚀 Apenas R$62,50/mês!</p>
-                                    </div>
-                                    
-                                    <!-- Normal Price -->
-                                    <div id="normal-anual-price">
-                                        <div class="text-5xl font-black text-white mb-2">
-                                            <span class="gradient-text">R$1.500</span>
-                                        </div>
-                                        <p class="text-gray-400 text-sm">/ano completo</p>
-                                        <p class="text-green-400 text-xs font-semibold mt-1">💰 Economia de R$900 (38% OFF)</p>
-                                        <p class="text-yellow-400 text-xs font-bold mt-1">Apenas R$125/mês!</p>
-                                    </div>
-                                </div>
-                                
-                                <p class="text-gray-400 mb-6 flex-grow">O investimento definitivo. 12 meses de acompanhamento VIP para resultados extraordinários e duradouros.</p>
-                                
-                                <ul class="text-left space-y-3 text-gray-300 mb-8">
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle text-green-400 mr-3 mt-1"></i>
-                                        <span><strong>Tudo do plano Semestral</strong></span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-trophy text-yellow-400 mr-3 mt-1"></i>
-                                        <span><strong>Acompanhamento VIP 12 meses</strong></span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-trophy text-yellow-400 mr-3 mt-1"></i>
-                                        <span><strong>2 chamadas de vídeo por mês</strong></span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-trophy text-yellow-400 mr-3 mt-1"></i>
-                                        <span><strong>Reavaliação trimestral completa</strong></span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-trophy text-yellow-400 mr-3 mt-1"></i>
-                                        <span><strong>Material educativo exclusivo</strong></span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-star text-yellow-400 mr-3 mt-1"></i>
-                                        <span><strong>Atendimento prioritário 24/7</strong></span>
-                                    </li>
-                                </ul>
-                                
-                                <a href="#contato" class="btn-primary text-white font-bold py-3 px-6 rounded-full w-full inline-block mt-auto">
-                                    <span class="relative z-10">Garantir Meu Ano de Transformação! 🏆</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Navegação -->
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-pagination"></div>
-                </div>
-                
-                <!-- Black Friday Disclaimer -->
-                <div id="bf-disclaimer" class="text-center mt-8 px-4" style="display: none;" data-aos="fade-up">
-                    <div class="max-w-3xl mx-auto bg-gradient-to-r from-yellow-900/30 to-orange-900/30 border-2 border-yellow-500/50 rounded-lg p-4">
-                        <p class="text-yellow-400 text-sm md:text-base font-semibold">
-                            ⚠️ <strong>Válido apenas para novas adesões</strong> realizadas durante a Black Friday
-                        </p>
-                        <p class="text-gray-300 text-xs md:text-sm mt-2">
-                            Os descontos especiais da Black Friday são exclusivos para novos clientes que aderirem aos planos durante o período promocional.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!-- ELITE FEMININO -->
+<section class="band">
+  <div class="wrap">
+    <div class="elite reveal">
+      <div class="l">
+        <span class="eyebrow">Esp—07 · Produto digital</span>
+        <h3>Protocolo Elite · Feminino</h3>
+        <p>Um sistema completo de periodização para mulheres que querem romper o platô e alcançar estética avançada: pernas torneadas, glúteos blindados e superiores definidos.</p>
+        <p>Não é uma ficha de exercícios — é metodologia. A estrutura semanal alterna dias de força pura e sessões metabólicas, unindo a ciência da hipertrofia à intensidade calculada.</p>
+        <ul>
+          <li>Divisão semanal com ênfase em pontos estéticos críticos</li>
+          <li>Guia visual com ilustração de cada movimento</li>
+          <li>Técnicas avançadas — bi-sets e variações metabólicas</li>
+          <li>Protocolo para tônus, força e definição reais</li>
+        </ul>
+      </div>
+      <div class="r">
+        <span class="eyebrow">Acesso vitalício · Hotmart</span>
+        <h4 style="font-size:1.4rem;margin:18px 0 8px">Acesso ao curso completo</h4>
+        <p style="margin-bottom:24px">Material didático completo, prático e visualmente claro — do agachamento livre à mesa flexora.</p>
+        <div class="coupon">Cupom · SOUELITE</div>
+        <a class="btn" href="https://hotmart.com/pt-BR/club/lucas-oliveira-araujo-1/" target="_blank" rel="noopener">Acessar o curso <span class="arw">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <!-- Benefícios Section -->
-        <section id="beneficios" class="py-20 bg-gray-900">
-            <div class="container mx-auto px-6">
-                <h2 class="section-title text-center text-white mb-4" data-aos="fade-up">Por que escolher a ForçaTotal?</h2>
-                <p class="text-center text-gray-400 max-w-2xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="100">
-                    Metodologia comprovada, acompanhamento personalizado e resultados reais que transformam vidas.
-                </p>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="card rounded-lg p-8 text-center" data-aos="flip-left" data-aos-delay="100">
-                        <div class="bg-indigo-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-user-check text-3xl text-white"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">100% Personalizado</h3>
-                        <p class="text-gray-400">Cada treino e orientação nutricional é criado especificamente para você, considerando seu histórico, objetivos e limitações.</p>
-                    </div>
-                    
-                    <div class="card rounded-lg p-8 text-center" data-aos="flip-left" data-aos-delay="200">
-                        <div class="bg-indigo-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-mobile-alt text-3xl text-white"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Suporte via WhatsApp</h3>
-                        <p class="text-gray-400">Tire suas dúvidas a qualquer momento. Respondo rapidamente para garantir que você está no caminho certo.</p>
-                    </div>
-                    
-                    <div class="card rounded-lg p-8 text-center" data-aos="flip-left" data-aos-delay="300">
-                        <div class="bg-indigo-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-flask text-3xl text-white"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Baseado em Ciência</h3>
-                        <p class="text-gray-400">Metodologia fundamentada em estudos científicos e anos de experiência prática com centenas de alunos.</p>
-                    </div>
-                    
-                    <div class="card rounded-lg p-8 text-center" data-aos="flip-left" data-aos-delay="100">
-                        <div class="bg-indigo-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-sync-alt text-3xl text-white"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Ajustes Constantes</h3>
-                        <p class="text-gray-400">Seu treino evolui conforme você progride. Faço ajustes regulares para garantir resultados contínuos.</p>
-                    </div>
-                    
-                    <div class="card rounded-lg p-8 text-center" data-aos="flip-left" data-aos-delay="200">
-                        <div class="bg-indigo-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-video text-3xl text-white"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Análise de Execução</h3>
-                        <p class="text-gray-400">Nos planos superiores, analiso vídeos dos seus treinos para corrigir técnica e prevenir lesões.</p>
-                    </div>
-                    
-                    <div class="card rounded-lg p-8 text-center" data-aos="flip-left" data-aos-delay="300">
-                        <div class="bg-indigo-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-chart-line text-3xl text-white"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Resultados Comprovados</h3>
-                        <p class="text-gray-400">Mais de 500 clientes satisfeitos alcançaram seus objetivos com minha metodologia personalizada.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!-- FAQ -->
+<section class="band" id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Esp—08 · Especificações</span>
+      <h2>Perguntas frequentes</h2>
+    </div>
+    <div class="faq reveal">
+      <div class="qitem">
+        <button class="qbtn">Como funciona a consultoria online?<span class="ic">+</span></button>
+        <div class="qans"><p>Após a aplicação, fazemos a avaliação completa do seu perfil, objetivos e rotina. Com base nos dados, projeto um protocolo de treino e orientações nutricionais individualizados, entregues na plataforma. O acompanhamento é contínuo via WhatsApp, com ajustes sempre que os dados pedirem.</p></div>
+      </div>
+      <div class="qitem">
+        <button class="qbtn">Preciso ter experiência em musculação?<span class="ic">+</span></button>
+        <div class="qans"><p>Não. O protocolo é calibrado ao seu nível atual. Iniciante: padrão de movimento ensinado do zero e progressão gradual. Avançado: estímulos adequados para romper platô. O nível é apenas mais um parâmetro de projeto.</p></div>
+      </div>
+      <div class="qitem">
+        <button class="qbtn">Posso treinar em casa ou preciso de academia?<span class="ic">+</span></button>
+        <div class="qans"><p>Onde for mais eficiente para você. O protocolo se adapta ao ambiente e aos equipamentos disponíveis — academia completa, home gym ou peso corporal. O acesso TotalPass amplia a rede de unidades disponíveis.</p></div>
+      </div>
+      <div class="qitem">
+        <button class="qbtn">Qual a diferença entre os protocolos?<span class="ic">+</span></button>
+        <div class="qans"><p>Todos incluem treino e nutrição individualizados com suporte direto. Engajamentos mais longos adicionam auditoria de vídeo, planejamento de suplementação, chamadas de acompanhamento e reavaliações trimestrais — mais profundidade de engenharia por ciclo.</p></div>
+      </div>
+      <div class="qitem">
+        <button class="qbtn">Como é feito o pagamento?<span class="ic">+</span></button>
+        <div class="qans"><p>PIX, cartão de crédito ou transferência. Os detalhes são alinhados no contato inicial pelo WhatsApp, junto com a confirmação da vaga.</p></div>
+      </div>
+      <div class="qitem">
+        <button class="qbtn">Em quanto tempo vejo resultado?<span class="ic">+</span></button>
+        <div class="qans"><p>Os primeiros dados de evolução costumam aparecer entre a 4ª e a 6ª semana, variando conforme aderência, alimentação e genética. O acompanhamento garante que cada ciclo seja lido e recalibrado para manter a curva ascendente.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <!-- Transformações Section -->
-        <section class="py-20 bg-gradient-to-br from-gray-800 to-gray-900 relative overflow-hidden">
-            <div class="absolute inset-0 opacity-10">
-                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full filter blur-3xl"></div>
-            </div>
-            
-            <div class="container mx-auto px-6 relative z-10">
-                <h2 class="section-title text-center mb-4" data-aos="fade-up">Transformações Reais</h2>
-                <p class="text-center text-gray-400 max-w-2xl mx-auto mb-16" data-aos="fade-up" data-aos-delay="100">
-                    Veja o poder de um acompanhamento profissional e personalizado
-                </p>
-                
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                    <!-- Transformação 1 -->
-                    <div class="card rounded-2xl overflow-hidden" data-aos="flip-left" data-aos-delay="100">
-                        <div class="relative">
-                            <div class="absolute top-4 left-4 z-10">
-                                <span class="bg-gradient-to-r from-green-400 to-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full">
-                                    -12kg em 3 meses
-                                </span>
-                            </div>
-                            <div class="aspect-square bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center">
-                                <div class="text-center p-6">
-                                    <i class="fas fa-user-check text-6xl text-indigo-400 mb-4"></i>
-                                    <p class="text-white font-bold text-lg">Fran Cristina</p>
-                                    <p class="text-gray-400 text-sm">Plano Trimestral</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <div class="flex items-center justify-between mb-3">
-                                <span class="text-gray-400 text-sm">Antes:</span>
-                                <span class="text-red-400 font-bold">72kg</span>
-                            </div>
-                            <div class="flex items-center justify-between mb-3">
-                                <span class="text-gray-400 text-sm">Depois:</span>
-                                <span class="text-green-400 font-bold">60kg</span>
-                            </div>
-                            <div class="h-2 bg-gray-700 rounded-full overflow-hidden">
-                                <div class="h-full bg-gradient-to-r from-green-400 to-blue-500" style="width: 85%"></div>
-                            </div>
-                            <p class="text-gray-400 text-xs mt-3 italic">"Mudou completamente minha relação com o treino!"</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Transformação 2 -->
-                    <div class="card rounded-2xl overflow-hidden" data-aos="flip-left" data-aos-delay="200">
-                        <div class="relative">
-                            <div class="absolute top-4 left-4 z-10">
-                                <span class="bg-gradient-to-r from-purple-400 to-pink-500 text-white text-xs font-bold px-3 py-1 rounded-full">
-                                    +8kg de massa
-                                </span>
-                            </div>
-                            <div class="aspect-square bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center">
-                                <div class="text-center p-6">
-                                    <i class="fas fa-dumbbell text-6xl text-purple-400 mb-4"></i>
-                                    <p class="text-white font-bold text-lg">João Machado</p>
-                                    <p class="text-gray-400 text-sm">Plano Semestral</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <div class="flex items-center justify-between mb-3">
-                                <span class="text-gray-400 text-sm">Antes:</span>
-                                <span class="text-red-400 font-bold">68kg</span>
-                            </div>
-                            <div class="flex items-center justify-between mb-3">
-                                <span class="text-gray-400 text-sm">Depois:</span>
-                                <span class="text-green-400 font-bold">76kg</span>
-                            </div>
-                            <div class="h-2 bg-gray-700 rounded-full overflow-hidden">
-                                <div class="h-full bg-gradient-to-r from-purple-400 to-pink-500" style="width: 90%"></div>
-                            </div>
-                            <p class="text-gray-400 text-xs mt-3 italic">"Finalmente consegui ganhar massa magra!"</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Transformação 3 -->
-                    <div class="card rounded-2xl overflow-hidden" data-aos="flip-left" data-aos-delay="300">
-                        <div class="relative">
-                            <div class="absolute top-4 left-4 z-10">
-                                <span class="bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full">
-                                    +40% de força
-                                </span>
-                            </div>
-                            <div class="aspect-square bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center">
-                                <div class="text-center p-6">
-                                    <i class="fas fa-fire text-6xl text-orange-400 mb-4"></i>
-                                    <p class="text-white font-bold text-lg">Mariana Mendes</p>
-                                    <p class="text-gray-400 text-sm">Plano Mensal</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <div class="flex items-center justify-between mb-3">
-                                <span class="text-gray-400 text-sm">Supino Antes:</span>
-                                <span class="text-red-400 font-bold">30kg</span>
-                            </div>
-                            <div class="flex items-center justify-between mb-3">
-                                <span class="text-gray-400 text-sm">Supino Depois:</span>
-                                <span class="text-green-400 font-bold">42kg</span>
-                            </div>
-                            <div class="h-2 bg-gray-700 rounded-full overflow-hidden">
-                                <div class="h-full bg-gradient-to-r from-yellow-400 to-orange-500" style="width: 75%"></div>
-                            </div>
-                            <p class="text-gray-400 text-xs mt-3 italic">"Evolução incrível em pouco tempo!"</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="text-center mt-12" data-aos="fade-up" data-aos-delay="400">
-                    <a href="#contato" class="btn-primary text-white font-bold py-4 px-8 rounded-full text-lg inline-block">
-                        <span class="relative z-10">Quero Minha Transformação! 💪</span>
-                    </a>
-                </div>
-            </div>
-        </section>
+<!-- APLICAR -->
+<section class="band apply" id="aplicar">
+  <div class="glow"></div>
+  <div class="wrap apply-inner">
+    <div class="reveal">
+      <span class="eyebrow">Esp—09 · Iniciar projeto</span>
+      <h2>Aplicar para consultoria</h2>
+      <p class="lede">A consultoria opera por aplicação, com 10 novos projetos por mês. Envie os dados ao lado ou fale direto no WhatsApp — a primeira leitura de viabilidade é sem custo.</p>
+      <a class="btn btn-ghost" href="https://wa.me/5511948834582?text=Ol%C3%A1%2C%20quero%20aplicar%20para%20a%20consultoria." target="_blank" rel="noopener">Falar no WhatsApp <span class="arw">→</span></a>
+    </div>
+    <div class="reveal">
+      <div class="form">
+        <div class="field"><label for="nome">Nome completo</label><input id="nome" type="text" placeholder="Seu nome"></div>
+        <div class="field"><label for="email">Email</label><input id="email" type="email" placeholder="voce@email.com"></div>
+        <div class="field"><label for="tel">Telefone (WhatsApp)</label><input id="tel" type="tel" placeholder="(11) 90000-0000"></div>
+        <div class="field"><label for="msg">Objetivo</label><textarea id="msg" placeholder="Descreva seu objetivo e seu momento atual"></textarea></div>
+        <button class="btn" id="sendBtn">Enviar aplicação <span class="arw">→</span></button>
+        <span class="form-note">Seus dados abrem o WhatsApp com a mensagem pronta. Nada é armazenado neste site.</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <!-- Depoimentos Section -->
-        <section id="depoimentos" class="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-gray-800 via-gray-900 to-gray-800 relative overflow-hidden">
-            <!-- Background Pattern -->
-            <div class="absolute inset-0 opacity-5">
-                <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
-            </div>
-            
-            <div class="container mx-auto px-4 sm:px-6 relative z-10">
-                <div class="text-center mb-4" data-aos="fade-up">
-                    <div class="inline-flex items-center gap-2 bg-yellow-500/20 border border-yellow-500/50 rounded-full px-3 sm:px-5 py-2 mb-4">
-                        <i class="fas fa-quote-left text-yellow-400 text-xs sm:text-sm"></i>
-                        <span class="text-yellow-400 font-semibold text-xs sm:text-sm">Depoimentos Verificados</span>
-                        <i class="fas fa-shield-check text-yellow-400 text-xs sm:text-sm"></i>
-                    </div>
-                    <h2 class="section-title text-center text-white mb-3 sm:mb-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl px-4">O que meus clientes dizem</h2>
-                    <p class="text-center text-gray-400 max-w-2xl mx-auto mb-8 sm:mb-12 text-sm sm:text-base px-4" data-aos="fade-up" data-aos-delay="100">
-                        Histórias reais de transformação. Veja como a ForçaTotal mudou a vida dessas pessoas.
-                    </p>
-                </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                    <!-- Depoimento 1 -->
-                    <div class="card rounded-2xl p-4 sm:p-6 relative overflow-hidden border border-gray-700/50 hover:border-indigo-500/50 transition-all duration-300 transform hover:-translate-y-2" data-aos="zoom-in" data-aos-delay="100">
-                        <div class="absolute top-4 right-4">
-                            <i class="fas fa-shield-check text-green-400 text-xl" title="Depoimento Verificado"></i>
-                        </div>
-                        <div class="flex items-start mb-4">
-                            <div class="relative">
-                                <img src="images/Joao.jpeg" alt="João Machado" class="w-20 h-20 rounded-full object-cover border-4 border-indigo-500/50 shadow-lg">
-                                <div class="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-gray-800 flex items-center justify-center">
-                                    <i class="fas fa-check text-white text-xs"></i>
-                                </div>
-                            </div>
-                            <div class="ml-4 flex-1">
-                                <h4 class="font-bold text-white text-lg">João Machado</h4>
-                                <p class="text-xs text-indigo-400 font-semibold">Plano Mensal</p>
-                                <div class="star-rating text-sm mt-1">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <span class="text-yellow-400 text-xs ml-1 font-bold">5.0</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="relative mb-4">
-                            <i class="fas fa-quote-left text-indigo-500/30 text-3xl absolute -top-2 -left-2"></i>
-                            <p class="text-gray-300 leading-relaxed pl-6" style="text-align: justify;">
-                                Nem sei como agradecer! Esses treinos novos mudaram tudo pra mim. Tô me sentindo mais forte, com muito mais disposição e vendo resultados reais. Ter seu acompanhamento faz toda a diferença! E ainda me divirto nos treinos!
-                            </p>
-                        </div>
-                        <div class="bg-gradient-to-r from-indigo-900/50 to-purple-900/50 rounded-lg p-3 border border-indigo-500/30">
-                            <div class="flex items-center gap-2">
-                                <i class="fas fa-trophy text-yellow-400"></i>
-                                <p class="text-sm text-indigo-200 font-semibold">+8kg de massa muscular em 3 meses</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Depoimento 2 -->
-                    <div class="card rounded-2xl p-4 sm:p-6 relative overflow-hidden border border-gray-700/50 hover:border-pink-500/50 transition-all duration-300 transform hover:-translate-y-2" data-aos="zoom-in" data-aos-delay="200">
-                        <div class="absolute top-4 right-4">
-                            <i class="fas fa-shield-check text-green-400 text-xl" title="Depoimento Verificado"></i>
-                        </div>
-                        <div class="flex items-start mb-4">
-                            <div class="relative">
-                                <img src="images/Fran.jpeg" alt="Fran Cristina" class="w-20 h-20 rounded-full object-cover border-4 border-pink-500/50 shadow-lg">
-                                <div class="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-gray-800 flex items-center justify-center">
-                                    <i class="fas fa-check text-white text-xs"></i>
-                                </div>
-                            </div>
-                            <div class="ml-4 flex-1">
-                                <h4 class="font-bold text-white text-lg">Fran Cristina</h4>
-                                <p class="text-xs text-pink-400 font-semibold">Plano Mensal</p>
-                                <div class="star-rating text-sm mt-1">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <span class="text-yellow-400 text-xs ml-1 font-bold">5.0</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="relative mb-4">
-                            <i class="fas fa-quote-left text-pink-500/30 text-3xl absolute -top-2 -left-2"></i>
-                            <p class="text-gray-300 leading-relaxed pl-6" style="text-align: justify;">
-                                Desde que comecei o treino contigo, minha evolução foi surreal! Corpo mais firme, força aumentando e autoestima lá em cima. Ter alguém que realmente entende e guia faz TODA a diferença! Obrigada por tudo!
-                            </p>
-                        </div>
-                        <div class="bg-gradient-to-r from-pink-900/50 to-red-900/50 rounded-lg p-3 border border-pink-500/30">
-                            <div class="flex items-center gap-2">
-                                <i class="fas fa-fire text-orange-400"></i>
-                                <p class="text-sm text-pink-200 font-semibold">Perdeu 12kg e ganhou definição muscular</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Depoimento 3 -->
-                    <div class="card rounded-2xl p-4 sm:p-6 relative overflow-hidden border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 transform hover:-translate-y-2" data-aos="zoom-in" data-aos-delay="300">
-                        <div class="absolute top-4 right-4">
-                            <i class="fas fa-shield-check text-green-400 text-xl" title="Depoimento Verificado"></i>
-                        </div>
-                        <div class="flex items-start mb-4">
-                            <div class="relative">
-                                <img src="images/Anna.jpeg" alt="Anna Carolina" class="w-20 h-20 rounded-full object-cover border-4 border-purple-500/50 shadow-lg">
-                                <div class="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-gray-800 flex items-center justify-center">
-                                    <i class="fas fa-check text-white text-xs"></i>
-                                </div>
-                            </div>
-                            <div class="ml-4 flex-1">
-                                <h4 class="font-bold text-white text-lg">Anna Carolina</h4>
-                                <p class="text-xs text-purple-400 font-semibold">Plano Trimestral</p>
-                                <div class="star-rating text-sm mt-1">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <span class="text-yellow-400 text-xs ml-1 font-bold">5.0</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="relative mb-4">
-                            <i class="fas fa-quote-left text-purple-500/30 text-3xl absolute -top-2 -left-2"></i>
-                            <p class="text-gray-300 leading-relaxed pl-6" style="text-align: justify;">
-                                Sério, tô impressionada com o quanto meu corpo mudou em tão pouco tempo! O treino é desafiador na medida certa e seu acompanhamento motiva demais. Cada sessão é um mix de suor e risada hahaha. Tô viciada!
-                            </p>
-                        </div>
-                        <div class="bg-gradient-to-r from-purple-900/50 to-indigo-900/50 rounded-lg p-3 border border-purple-500/30">
-                            <div class="flex items-center gap-2">
-                                <i class="fas fa-star text-yellow-400"></i>
-                                <p class="text-sm text-purple-200 font-semibold">Transformação completa em 4 meses</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-				<br/>
-				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                    <!-- Depoimento 4 -->
-                    <div class="card rounded-2xl p-4 sm:p-6 relative overflow-hidden border border-gray-700/50 hover:border-orange-500/50 transition-all duration-300 transform hover:-translate-y-2" data-aos="zoom-in" data-aos-delay="100">
-                        <div class="absolute top-4 right-4">
-                            <i class="fas fa-shield-check text-green-400 text-xl" title="Depoimento Verificado"></i>
-                        </div>
-                        <div class="flex items-start mb-4">
-                            <div class="relative">
-                                <img src="images/Mari.jpeg" alt="Mariana Mendes" class="w-20 h-20 rounded-full object-cover border-4 border-orange-500/50 shadow-lg">
-                                <div class="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-gray-800 flex items-center justify-center">
-                                    <i class="fas fa-check text-white text-xs"></i>
-                                </div>
-                            </div>
-                            <div class="ml-4 flex-1">
-                                <h4 class="font-bold text-white text-lg">Mariana Mendes</h4>
-                                <p class="text-xs text-orange-400 font-semibold">Plano Mensal</p>
-                                <div class="star-rating text-sm mt-1">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <span class="text-yellow-400 text-xs ml-1 font-bold">5.0</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="relative mb-4">
-                            <i class="fas fa-quote-left text-orange-500/30 text-3xl absolute -top-2 -left-2"></i>
-                            <p class="text-gray-300 leading-relaxed pl-6" style="text-align: justify;">
-                                Queria agradecer pelo treino novo e pelo acompanhamento! Senti uma diferença enorme no meu corpo — tô muito mais definida, rendendo mais e evoluindo nas cargas. Treinar com você faz toda a diferença! E os gritos e risadas no treino são um bônus à parte hahaha. Tô amando!
-                            </p>
-                        </div>
-                        <div class="bg-gradient-to-r from-orange-900/50 to-yellow-900/50 rounded-lg p-3 border border-orange-500/30">
-                            <div class="flex items-center gap-2">
-                                <i class="fas fa-dumbbell text-orange-400"></i>
-                                <p class="text-sm text-orange-200 font-semibold">Aumento de 40% na força em 2 meses</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Depoimento 5 -->
-                    <div class="card rounded-2xl p-4 sm:p-6 relative overflow-hidden border border-gray-700/50 hover:border-teal-500/50 transition-all duration-300 transform hover:-translate-y-2" data-aos="zoom-in" data-aos-delay="200">
-                        <div class="absolute top-4 right-4">
-                            <i class="fas fa-shield-check text-green-400 text-xl" title="Depoimento Verificado"></i>
-                        </div>
-                        <div class="flex items-start mb-4">
-                            <div class="relative">
-                                <img src="images/Miucha.jpeg" alt="Miucha Nascimento" class="w-20 h-20 rounded-full object-cover border-4 border-teal-500/50 shadow-lg">
-                                <div class="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-gray-800 flex items-center justify-center">
-                                    <i class="fas fa-check text-white text-xs"></i>
-                                </div>
-                            </div>
-                            <div class="ml-4 flex-1">
-                                <h4 class="font-bold text-white text-lg">Miucha Nascimento</h4>
-                                <p class="text-xs text-teal-400 font-semibold">Plano Mensal</p>
-                                <div class="star-rating text-sm mt-1">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <span class="text-yellow-400 text-xs ml-1 font-bold">5.0</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="relative mb-4">
-                            <i class="fas fa-quote-left text-teal-500/30 text-3xl absolute -top-2 -left-2"></i>
-                            <p class="text-gray-300 leading-relaxed pl-6" style="text-align: justify;">
-                                Personalizado de verdade faz diferença! Depois que comecei a treinar contigo, minha performance melhorou muito. Sem contar que você puxa na medida e ainda deixa o treino leve com bom humor. Tô amando!
-                            </p>
-                        </div>
-                        <div class="bg-gradient-to-r from-teal-900/50 to-green-900/50 rounded-lg p-3 border border-teal-500/30">
-                            <div class="flex items-center gap-2">
-                                <i class="fas fa-heartbeat text-teal-400"></i>
-                                <p class="text-sm text-teal-200 font-semibold">Melhor condicionamento físico</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Depoimento 6 -->
-                    <div class="card rounded-2xl p-4 sm:p-6 relative overflow-hidden border border-gray-700/50 hover:border-blue-500/50 transition-all duration-300 transform hover:-translate-y-2" data-aos="zoom-in" data-aos-delay="300">
-                        <div class="absolute top-4 right-4">
-                            <i class="fas fa-shield-check text-green-400 text-xl" title="Depoimento Verificado"></i>
-                        </div>
-                        <div class="flex items-start mb-4">
-                            <div class="relative">
-                                <img src="images/Renan.png" alt="Renan Costa" class="w-20 h-20 rounded-full object-cover border-4 border-blue-500/50 shadow-lg">
-                                <div class="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-gray-800 flex items-center justify-center">
-                                    <i class="fas fa-check text-white text-xs"></i>
-                                </div>
-                            </div>
-                            <div class="ml-4 flex-1">
-                                <h4 class="font-bold text-white text-lg">Renan Costa</h4>
-                                <p class="text-xs text-blue-400 font-semibold">Plano Semestral</p>
-                                <div class="star-rating text-sm mt-1">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <span class="text-yellow-400 text-xs ml-1 font-bold">5.0</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="relative mb-4">
-                            <i class="fas fa-quote-left text-blue-500/30 text-3xl absolute -top-2 -left-2"></i>
-                            <p class="text-gray-300 leading-relaxed pl-6" style="text-align: justify;">
-                                Nunca imaginei que ia gostar tanto de treinar! Seu planejamento é certeiro, cada exercício tem um motivo e o resultado já tá aparecendo. Fora a energia boa nos treinos! Valeu demais pelo cuidado e atenção!
-                            </p>
-                        </div>
-                        <div class="bg-gradient-to-r from-blue-900/50 to-cyan-900/50 rounded-lg p-3 border border-blue-500/30">
-                            <div class="flex items-center gap-2">
-                                <i class="fas fa-bolt text-blue-400"></i>
-                                <p class="text-sm text-blue-200 font-semibold">Transformação de lifestyle em 6 meses</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="brand" href="#top"><span class="dot"></span>LUKAS CAPETINGA</a>
+        <p>Arquitetura corporal e consultoria de alta performance. Engenharia aplicada ao físico — São Paulo / online.</p>
+      </div>
+      <div class="foot-links">
+        <a href="https://www.instagram.com/lukascapetinga/" target="_blank" rel="noopener">Instagram →</a>
+        <a href="https://wa.me/5511948834582" target="_blank" rel="noopener">WhatsApp →</a>
+        <a href="mailto:contato@lukascapetinga.com.br">Email →</a>
+      </div>
+      <div class="foot-links">
+        <a href="https://lukascapetinga.com.br/termos/TermosUso.pdf" target="_blank" rel="noopener">Termos de uso →</a>
+        <a href="https://lukascapetinga.com.br/termos/PoliticaPrivacidade.pdf" target="_blank" rel="noopener">Política de privacidade →</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© Lukas Capetinga — Todos os direitos reservados</span>
+      <span>CREF Certificado · São Paulo / BR</span>
+    </div>
+  </div>
+</footer>
 
-        <!-- Cursos Hotmart Section -->
-        <section id="cursos" class="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-pink-900/30 via-purple-900/30 to-indigo-900/30 relative overflow-hidden">
-            <!-- Animação de fundo -->
-            <div class="absolute inset-0 overflow-hidden pointer-events-none">
-                <div class="absolute top-0 right-0 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl"></div>
-                <div class="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
-            </div>
-            
-            <div class="container mx-auto px-4 sm:px-6 relative z-10">
-                <div class="max-w-4xl mx-auto">
-                    <!-- Banner de tempo limitado -->
-                    <div class="mb-8 sm:mb-12 text-center" data-aos="zoom-in">
-                        <div class="inline-flex items-center gap-2 bg-red-500/20 border border-red-500/50 rounded-full px-3 sm:px-5 py-2 mb-4 animate-pulse">
-                            <i class="fas fa-clock text-red-400 text-xs sm:text-sm"></i>
-                            <span class="text-red-400 font-bold text-xs sm:text-sm">Tempo Limitado - Válido até 05/01/2026</span>
-                            <i class="fas fa-hourglass-end text-red-400 text-xs sm:text-sm"></i>
-                        </div>
-                        <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4">
-                            🎓 <span class="bg-gradient-to-r from-pink-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent">Treino de Elite Feminino</span>
-                        </h2>
-                        <p class="text-base sm:text-lg text-gray-300 mb-6">Para mulheres que querem romper o platô e alcançar uma estética avançada</p>
-                    </div>
+<script>
+  // Mobile menu
+  var burger=document.getElementById('burger');
+  var menu=document.getElementById('mobileMenu');
+  burger.addEventListener('click',function(){
+    var open=menu.style.display==='flex';
+    menu.style.display=open?'none':'flex';
+    burger.setAttribute('aria-expanded',(!open).toString());
+  });
+  menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.style.display='none';burger.setAttribute('aria-expanded','false');});});
 
-                    <!-- Cupom destaque -->
-                    <div class="bg-gradient-to-r from-yellow-500/20 via-orange-500/20 to-red-500/20 border-2 border-yellow-400 rounded-2xl p-6 sm:p-8 mb-8 sm:mb-12 relative overflow-hidden" data-aos="flip-up">
-                        <div class="absolute top-0 right-0 w-20 h-20 bg-yellow-400/30 rounded-full blur-2xl"></div>
-                        <div class="relative z-10 text-center">
-                            <p class="text-sm sm:text-base text-yellow-300 font-semibold mb-2">🎁 PROMOÇÃO EXCLUSIVA</p>
-                            <div class="mb-4">
-                                <span class="text-3xl sm:text-5xl font-black text-yellow-400">50% OFF</span>
-                            </div>
-                            <p class="text-lg sm:text-2xl font-bold text-white mb-3">Cupom: <span class="bg-yellow-400 text-yellow-900 px-4 py-2 rounded-lg font-black tracking-widest">SOUELITE</span></p>
-                            <p class="text-xs sm:text-sm text-yellow-300 font-semibold">⚠️ Esta promoção tem tempo limitado - Aproveite agora!</p>
-                        </div>
-                    </div>
+  // FAQ accordion
+  document.querySelectorAll('.qbtn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var item=btn.parentElement;
+      var ans=item.querySelector('.qans');
+      var isOpen=item.classList.contains('open');
+      document.querySelectorAll('.qitem').forEach(function(i){i.classList.remove('open');i.querySelector('.qans').style.maxHeight=null;});
+      if(!isOpen){item.classList.add('open');ans.style.maxHeight=ans.scrollHeight+'px';}
+    });
+  });
 
-                    <!-- Conteúdo do curso -->
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12">
-                        <!-- Descrição -->
-                        <div data-aos="fade-up">
-                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-4 flex items-center gap-2">
-                                <i class="fas fa-sparkles text-pink-400"></i>
-                                Por que o Treino de Elite Feminino?
-                            </h3>
-                            <p class="text-gray-300 leading-relaxed mb-4 text-sm sm:text-base">
-                                Chegou a hora de romper o platô e transformar seu físico com a estratégia de uma atleta. Este é um sistema completo de periodização desenhado para mulheres que buscam sair do nível iniciante e alcançar uma estética avançada: pernas torneadas, glúteos blindados e membros superiores definidos e harmônicos.
-                            </p>
-                            <p class="text-gray-300 leading-relaxed text-sm sm:text-base">
-                                Não é apenas uma ficha de exercícios; é uma metodologia que alia a ciência da hipertrofia à intensidade metabólica. Nossa estrutura semanal alterna estrategicamente dias de Força Pura (com foco em cargas e técnica) e sessões de Cardio/HIIT (para máxima queima calórica), garantindo evolução constante e um físico "seco" e forte.
-                            </p>
-                        </div>
+  // WhatsApp form
+  document.getElementById('sendBtn').addEventListener('click',function(){
+    var n=document.getElementById('nome').value.trim();
+    var e=document.getElementById('email').value.trim();
+    var t=document.getElementById('tel').value.trim();
+    var m=document.getElementById('msg').value.trim();
+    var txt='Olá Lukas, quero aplicar para a consultoria.%0A%0A'+
+            'Nome: '+encodeURIComponent(n||'-')+'%0A'+
+            'Email: '+encodeURIComponent(e||'-')+'%0A'+
+            'Telefone: '+encodeURIComponent(t||'-')+'%0A'+
+            'Objetivo: '+encodeURIComponent(m||'-');
+    window.open('https://wa.me/5511948834582?text='+txt,'_blank');
+  });
 
-                        <!-- O que você recebe -->
-                        <div data-aos="fade-up" data-aos-delay="100">
-                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-4 flex items-center gap-2">
-                                <i class="fas fa-check-circle text-green-400"></i>
-                                O Curso Entrega:
-                            </h3>
-                            <ul class="space-y-3">
-                                <li class="flex items-start gap-3">
-                                    <div class="w-6 h-6 rounded-full bg-pink-500/30 flex items-center justify-center flex-shrink-0 mt-1">
-                                        <i class="fas fa-check text-pink-400 text-xs"></i>
-                                    </div>
-                                    <div>
-                                        <p class="font-semibold text-white text-sm sm:text-base">Planejamento Inteligente</p>
-                                        <p class="text-gray-400 text-xs sm:text-sm">Divisão semanal focada em pontos estéticos críticos (ênfase em glúteos e posteriores), equilibrando volume e recuperação</p>
-                                    </div>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <div class="w-6 h-6 rounded-full bg-purple-500/30 flex items-center justify-center flex-shrink-0 mt-1">
-                                        <i class="fas fa-check text-purple-400 text-xs"></i>
-                                    </div>
-                                    <div>
-                                        <p class="font-semibold text-white text-sm sm:text-base">Guia Visual Exclusivo</p>
-                                        <p class="text-gray-400 text-xs sm:text-sm">Material didático com ilustrações detalhadas de cada movimento — da Mesa Flexora ao Agachamento Livre</p>
-                                    </div>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <div class="w-6 h-6 rounded-full bg-indigo-500/30 flex items-center justify-center flex-shrink-0 mt-1">
-                                        <i class="fas fa-check text-indigo-400 text-xs"></i>
-                                    </div>
-                                    <div>
-                                        <p class="font-semibold text-white text-sm sm:text-base">Técnicas Avançadas</p>
-                                        <p class="text-gray-400 text-xs sm:text-sm">Aplicação prática de métodos como Bi-sets e variações metabólicas para intensificar seus resultados</p>
-                                    </div>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <div class="w-6 h-6 rounded-full bg-green-500/30 flex items-center justify-center flex-shrink-0 mt-1">
-                                        <i class="fas fa-check text-green-400 text-xs"></i>
-                                    </div>
-                                    <div>
-                                        <p class="font-semibold text-white text-sm sm:text-base">Evolução Constante</p>
-                                        <p class="text-gray-400 text-xs sm:text-sm">Projetado para quem busca tônus real, força e definição muscular com protocolo sério e visualmente claro</p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Chamada para ação -->
-                    <div class="text-center" data-aos="zoom-in" data-aos-delay="200">
-                        <p class="text-sm sm:text-base text-gray-300 mb-6">Não deixe essa oportunidade passar! Com 50% de desconto, essa é a hora de investir em sua transformação.</p>
-                        <a href="https://hotmart.com/pt-BR/club/lucas-oliveira-araujo-1/" target="_blank" rel="noopener noreferrer"
-                           class="inline-flex items-center gap-3 bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 hover:from-pink-600 hover:via-purple-600 hover:to-indigo-600 text-white font-black py-4 px-8 sm:px-12 rounded-full text-base sm:text-lg transition-all duration-300 transform hover:scale-105 shadow-2xl">
-                            <span>🚀 ACESSE O CURSO NA HOTMART</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                        <p class="text-xs sm:text-sm text-gray-400 mt-4">Use o cupom <span class="font-bold text-yellow-400">SOUELITE</span> para receber 50% de desconto</p>
-                    </div>
-
-                    <!-- Stats -->
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mt-12 sm:mt-16 pt-8 sm:pt-12 border-t border-gray-700/50">
-                        <div class="text-center" data-aos="zoom-in">
-                            <p class="text-2xl sm:text-3xl font-black text-pink-400">👥</p>
-                            <p class="text-xl sm:text-2xl font-bold text-white mt-2">500+</p>
-                            <p class="text-xs sm:text-sm text-gray-400 mt-1">Alunas Satisfeitas</p>
-                        </div>
-                        <div class="text-center" data-aos="zoom-in" data-aos-delay="100">
-                            <p class="text-2xl sm:text-3xl font-black text-purple-400">⭐</p>
-                            <p class="text-xl sm:text-2xl font-bold text-white mt-2">4.9/5</p>
-                            <p class="text-xs sm:text-sm text-gray-400 mt-1">Avaliação</p>
-                        </div>
-                        <div class="text-center" data-aos="zoom-in" data-aos-delay="200">
-                            <p class="text-2xl sm:text-3xl font-black text-indigo-400">📊</p>
-                            <p class="text-xl sm:text-2xl font-bold text-white mt-2">100%</p>
-                            <p class="text-xs sm:text-sm text-gray-400 mt-1">Prático</p>
-                        </div>
-                        <div class="text-center" data-aos="zoom-in" data-aos-delay="300">
-                            <p class="text-2xl sm:text-3xl font-black text-green-400">✓</p>
-                            <p class="text-xl sm:text-2xl font-bold text-white mt-2">Vitalício</p>
-                            <p class="text-xs sm:text-sm text-gray-400 mt-1">Acesso</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ Section -->
-        <section id="faq" class="py-20 bg-gray-900">
-            <div class="container mx-auto px-6">
-                <h2 class="section-title text-center text-white mb-4" data-aos="fade-up">Perguntas Frequentes</h2>
-                <p class="text-center text-gray-400 max-w-2xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="100">
-                    Tire suas dúvidas sobre a consultoria online
-                </p>
-                <div class="max-w-3xl mx-auto space-y-4">
-                    <div class="faq-item card rounded-lg overflow-hidden" data-aos="fade-up" data-aos-delay="100">
-                        <button class="faq-question w-full text-left p-6 flex justify-between items-center focus:outline-none">
-                            <span class="text-white font-semibold">Como funciona a consultoria online?</span>
-                            <i class="fas fa-chevron-down text-indigo-400 transition-transform duration-300"></i>
-                        </button>
-                        <div class="faq-content px-6 pb-6">
-                            <p class="text-gray-400">Após contratar o plano, faremos uma avaliação completa do seu perfil, objetivos e rotina. Com base nisso, crio um plano de treino e orientações nutricionais 100% personalizados. Você recebe tudo de forma digital e pode treinar onde quiser. O acompanhamento é feito via WhatsApp, onde responderei suas dúvidas e farei os ajustes necessários.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item card rounded-lg overflow-hidden" data-aos="fade-up" data-aos-delay="200">
-                        <button class="faq-question w-full text-left p-6 flex justify-between items-center focus:outline-none">
-                            <span class="text-white font-semibold">Preciso ter experiência em musculação?</span>
-                            <i class="fas fa-chevron-down text-indigo-400 transition-transform duration-300"></i>
-                        </button>
-                        <div class="faq-content px-6 pb-6">
-                            <p class="text-gray-400">Não! Atendo desde iniciantes até atletas avançados. Cada treino é adaptado ao seu nível atual de condicionamento físico. Se você é iniciante, vou te ensinar a técnica correta de cada exercício e progredir gradualmente. Se é avançado, vou criar desafios adequados ao seu nível.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item card rounded-lg overflow-hidden" data-aos="fade-up" data-aos-delay="300">
-                        <button class="faq-question w-full text-left p-6 flex justify-between items-center focus:outline-none">
-                            <span class="text-white font-semibold">Posso treinar em casa ou preciso de academia?</span>
-                            <i class="fas fa-chevron-down text-indigo-400 transition-transform duration-300"></i>
-                        </button>
-                        <div class="faq-content px-6 pb-6">
-                            <p class="text-gray-400">Você pode treinar onde preferir! Adapto o treino para o ambiente que você tem disponível - seja academia completa, home gym ou treino com peso corporal. Basta me informar quais equipamentos você tem acesso.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item card rounded-lg overflow-hidden" data-aos="fade-up" data-aos-delay="400">
-                        <button class="faq-question w-full text-left p-6 flex justify-between items-center focus:outline-none">
-                            <span class="text-white font-semibold">Qual a diferença entre os planos?</span>
-                            <i class="fas fa-chevron-down text-indigo-400 transition-transform duration-300"></i>
-                        </button>
-                        <div class="faq-content px-6 pb-6">
-                            <p class="text-gray-400">Todos os planos incluem treino e nutrição personalizados com suporte via WhatsApp. Os planos mais longos (Trimestral e Semestral) oferecem economia mensal, além de benefícios extras como análise de vídeos de execução, planejamento de suplementação e chamadas mensais de acompanhamento.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item card rounded-lg overflow-hidden" data-aos="fade-up" data-aos-delay="500">
-                        <button class="faq-question w-full text-left p-6 flex justify-between items-center focus:outline-none">
-                            <span class="text-white font-semibold">Como é feito o pagamento?</span>
-                            <i class="fas fa-chevron-down text-indigo-400 transition-transform duration-300"></i>
-                        </button>
-                        <div class="faq-content px-6 pb-6">
-                            <p class="text-gray-400">Aceitamos pagamento via PIX, cartão de crédito ou transferência bancária. Entre em contato pelo WhatsApp para mais detalhes sobre a forma de pagamento e para iniciar sua jornada!</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item card rounded-lg overflow-hidden" data-aos="fade-up" data-aos-delay="600">
-                        <button class="faq-question w-full text-left p-6 flex justify-between items-center focus:outline-none">
-                            <span class="text-white font-semibold">Em quanto tempo verei resultados?</span>
-                            <i class="fas fa-chevron-down text-indigo-400 transition-transform duration-300"></i>
-                        </button>
-                        <div class="faq-content px-6 pb-6">
-                            <p class="text-gray-400">Os primeiros resultados costumam aparecer entre 4 a 6 semanas, mas isso varia de pessoa para pessoa dependendo da dedicação, alimentação e genética. O importante é que você terá um acompanhamento constante para garantir que está no caminho certo e evoluindo de forma sustentável.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-		<!-- Seção de Contato -->
-		<section id="contato" class="py-20 bg-gray-800">
-			<div class="container mx-auto px-6">
-				<h2 class="section-title text-center text-white mb-4" data-aos="fade-up">Vamos Começar sua Transformação?</h2>
-				<p class="text-center text-gray-400 max-w-2xl mx-auto mb-8" data-aos="fade-up" data-aos-delay="100">Preencha o formulário abaixo ou fale diretamente pelo WhatsApp. Responderei o mais rápido possível!</p>
-				
-				<div class="flex justify-center mb-12" data-aos="fade-up" data-aos-delay="200">
-					<a href="https://wa.me/5511948834582?text=Ol%C3%A1%2C%20quero%20come%C3%A7ar%20minha%20transforma%C3%A7%C3%A3o!" 
-					   target="_blank" rel="noopener noreferrer"
-					   class="bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-lg text-lg transition-transform transform hover:scale-105 duration-300 inline-flex items-center gap-3">
-						<i class="fab fa-whatsapp text-2xl"></i>
-						<span>Falar no WhatsApp Agora</span>
-					</a>
-				</div>
-
-				<div class="text-center text-gray-500 mb-8">
-					<span class="inline-block px-4">ou</span>
-				</div>
-				
-				<form id="contact-form" class="max-w-xl mx-auto" data-aos="fade-up" data-aos-delay="300">
-					<div class="mb-4">
-						<label for="name" class="block text-gray-300 mb-2 font-semibold">Nome Completo *</label>
-						<input type="text" id="name" name="name" required 
-						       class="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition"
-						       placeholder="Digite seu nome">
-					</div>
-					<div class="mb-4">
-						<label for="email" class="block text-gray-300 mb-2 font-semibold">Email *</label>
-						<input type="email" id="email" name="email" required 
-						       class="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition"
-						       placeholder="seu@email.com">
-					</div>
-					<div class="mb-4">
-						<label for="phone" class="block text-gray-300 mb-2 font-semibold">Telefone (WhatsApp)</label>
-						<input type="tel" id="phone" name="phone" 
-						       class="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition"
-						       placeholder="(11) 98888-8888">
-					</div>
-					<div class="mb-6">
-						<label for="message" class="block text-gray-300 mb-2 font-semibold">Mensagem *</label>
-						<textarea id="message" name="message" rows="5" required 
-						          class="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition"
-						          placeholder="Conte-me sobre seus objetivos e como posso te ajudar..."></textarea>
-					</div>
-					<div class="text-center">
-						<button type="submit" id="whatsapp-submit" 
-						        class="btn-success font-bold py-4 px-10 rounded-full text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg w-full sm:w-auto">
-							<i class="fab fa-whatsapp mr-2 text-2xl"></i><span class="font-extrabold">Enviar via WhatsApp</span>
-						</button>
-					</div>
-					<p class="text-xs text-gray-400 text-center mt-4">
-						<i class="fas fa-lock mr-1"></i>Seus dados estão seguros. Será aberto o WhatsApp com sua mensagem pronta.
-					</p>
-				</form>
-			</div>
-		</section>
-
-		</main>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 py-8">
-        <div class="container mx-auto px-6 text-center text-gray-400">
-            <div class="flex justify-center space-x-6 mb-4">
-                <a href="https://www.instagram.com/lukascapetinga/" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-indigo-400 transition-colors duration-300"><i class="fab fa-instagram"></i></a>
-                <a href="https://wa.me/5511948834582?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os." target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-indigo-400 transition-colors duration-300"><i class="fab fa-whatsapp"></i></a>
-                <!--<a href="#" class="text-2xl hover:text-indigo-400 transition-colors duration-300"><i class="fab fa-youtube"></i></a>-->
-            </div>
-            <p><img src="images/favicon_branco/favicon-32x32.png" alt="Força Total" width="32" height="32" class="inline-block mr-2"> ForçaTotal Consultoria por <a href="mailto:contato@lukascapetinga.com.br" _target="_blank"><u>Lukas Capetinga</u></a>.</p>
-			<p>&copy;<span id="ano-atual"></span> - Todos os direitos reservados.</p>
-            <p class="text-sm mt-2">Desenvolvido com <i class="fas fa-heart text-indigo-400"></i> para o seu sucesso.</p>
-			<p class="text-sm mt-2"><a href="https://lukascapetinga.com.br/termos/TermosUso.pdf" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-400 transition-colors duration-300"><u>Termos e Condições de Uso</u></a></p>
-			<p class="text-sm mt-2"><a href="https://lukascapetinga.com.br/termos/PoliticaPrivacidade.pdf" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-400 transition-colors duration-300"><u>Política de Privacidade</u></a></p>
-        </div>
-    </footer>
-
-	<!-- AOS Animation Library -->
-	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-	<!-- Swiper JS -->
-	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-BGWR18DZE0"></script>
-    <script>
-		//Analytics WEB
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
- 	    gtag('config', 'G-BGWR18DZE0');
-	
-	//Ano
-	document.getElementById('ano-atual').textContent = new Date().getFullYear();
-	
-	// ========================================
-	// BLACK FRIDAY CONTROL SYSTEM
-	// ========================================
-	
-	function isBlackFriday() {
-		const now = new Date();
-		const year = now.getFullYear();
-		const month = now.getMonth(); // 0-11 (November = 10)
-		const day = now.getDate();
-		
-		// Set Black Friday date (November 28, 2025)
-		const blackFridayDay = 28;
-		const blackFridayMonth = 10; // November (0-indexed)
-		const blackFridayYear = 2025;
-		
-		// Check if today is Black Friday
-		return (year === blackFridayYear && month === blackFridayMonth && day === blackFridayDay);
-	}
-	
-	function initBlackFriday() {
-		if (isBlackFriday()) {
-			console.log('🔥 BLACK FRIDAY MODE ACTIVATED! 🔥');
-			
-			// Show Black Friday elements
-			document.getElementById('bf-top-banner').style.display = 'block';
-			document.getElementById('bf-hero-banner').style.display = 'block';
-			document.getElementById('bf-planos-alert').style.display = 'block';
-			document.getElementById('bf-disclaimer').style.display = 'block';
-			
-            // Update header position (account for top banner)
-            const bannerHeight = document.getElementById('bf-top-banner').offsetHeight;
-            document.getElementById('main-header').style.top = bannerHeight + 'px';
-            document.getElementById('main-content').style.paddingTop = bannerHeight + 'px';			document.getElementById('bf-planos-title').style.display = 'inline';
-			document.getElementById('normal-planos-title').style.display = 'none';
-			document.getElementById('bf-planos-subtitle').style.display = 'inline';
-			document.getElementById('normal-planos-subtitle').style.display = 'none';
-			
-			// Show BF pricing for Mensal plan
-			document.getElementById('bf-mensal-badge').style.display = 'block';
-			document.getElementById('bf-mensal-price').style.display = 'block';
-			document.getElementById('normal-mensal-price').style.display = 'none';
-			
-			// Show BF pricing for Trimestral plan
-			document.getElementById('bf-trimestral-badge').style.display = 'block';
-			document.getElementById('bf-trimestral-price').style.display = 'block';
-			document.getElementById('normal-trimestral-price').style.display = 'none';
-			document.getElementById('normal-trimestral-badge').style.display = 'none';
-			
-			// Show BF pricing for Semestral plan
-			document.getElementById('bf-semestral-badge').style.display = 'block';
-			document.getElementById('bf-semestral-price').style.display = 'block';
-			document.getElementById('normal-semestral-price').style.display = 'none';
-			
-			// Show BF pricing for Anual plan
-			document.getElementById('bf-anual-badge').style.display = 'block';
-			document.getElementById('bf-anual-badge-text').style.display = 'block';
-			document.getElementById('normal-anual-badge').style.display = 'none';
-			document.getElementById('bf-anual-price').style.display = 'block';
-			document.getElementById('normal-anual-price').style.display = 'none';
-			
-			// Set Black Friday date in alert
-			document.getElementById('bf-date').textContent = '28/11/2025';
-			
-			// Start countdown timer
-			startCountdown();
-			
-			// Add confetti effect (optional)
-			createConfetti();
-		} else {
-			console.log('Regular pricing mode');
-			// Hide all Black Friday elements (already hidden by default with display:none in HTML)
-		}
-	}
-	
-	function startCountdown() {
-		const countdownDate = new Date('November 28, 2025 23:59:59').getTime();
-		
-		const countdownInterval = setInterval(function() {
-			const now = new Date().getTime();
-			const distance = countdownDate - now;
-			
-			if (distance < 0) {
-				clearInterval(countdownInterval);
-				document.getElementById('hours').textContent = '00';
-				document.getElementById('minutes').textContent = '00';
-				document.getElementById('seconds').textContent = '00';
-				return;
-			}
-			
-			const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-			const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-			const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-			
-			document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-			document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-			document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-		}, 1000);
-	}
-	
-	function createConfetti() {
-		// Simple confetti effect using emojis
-		const confettiEmojis = ['🎉', '🎊', '💥', '⭐', '✨', '🔥'];
-		const confettiCount = 30;
-		
-		for (let i = 0; i < confettiCount; i++) {
-			setTimeout(() => {
-				const confetti = document.createElement('div');
-				confetti.textContent = confettiEmojis[Math.floor(Math.random() * confettiEmojis.length)];
-				confetti.style.position = 'fixed';
-				confetti.style.left = Math.random() * 100 + '%';
-				confetti.style.top = '-50px';
-				confetti.style.fontSize = (Math.random() * 20 + 20) + 'px';
-				confetti.style.zIndex = '9999';
-				confetti.style.pointerEvents = 'none';
-				confetti.style.animation = `confettiFall ${Math.random() * 3 + 2}s linear forwards`;
-				
-				document.body.appendChild(confetti);
-				
-				setTimeout(() => {
-					confetti.remove();
-				}, 5000);
-			}, i * 100);
-		}
-	}
-	
-	// Add confetti animation CSS
-	const style = document.createElement('style');
-	style.textContent = `
-		@keyframes confettiFall {
-			to {
-				top: 100vh;
-				transform: translateX(${Math.random() * 200 - 100}px) rotate(${Math.random() * 360}deg);
-				opacity: 0;
-			}
-		}
-	`;
-	document.head.appendChild(style);
-	
-	// Initialize Black Friday on page load
-	initBlackFriday();
-	
-	// ========================================
-	// END BLACK FRIDAY CONTROL SYSTEM
-	// ========================================
-	
-	// Initialize AOS
-	AOS.init({
-		duration: 1000,
-		once: true,
-		offset: 100,
-		easing: 'ease-out-cubic'
-	});		// Initialize Swiper
-		const swiper = new Swiper('.plansSwiper', {
-			slidesPerView: 1,
-			spaceBetween: 30,
-			loop: true,
-			centeredSlides: true,
-			autoplay: {
-				delay: 5000,
-				disableOnInteraction: false,
-				pauseOnMouseEnter: true,
-			},
-			pagination: {
-				el: '.swiper-pagination',
-				clickable: true,
-				dynamicBullets: true,
-			},
-			navigation: {
-				nextEl: '.swiper-button-next',
-				prevEl: '.swiper-button-prev',
-			},
-			breakpoints: {
-				640: {
-					slidesPerView: 1,
-					spaceBetween: 20,
-					centeredSlides: true,
-				},
-				768: {
-					slidesPerView: 2,
-					spaceBetween: 30,
-					centeredSlides: false,
-				},
-				1024: {
-					slidesPerView: 3,
-					spaceBetween: 30,
-					centeredSlides: false,
-				},
-				1280: {
-					slidesPerView: 3,
-					spaceBetween: 40,
-					centeredSlides: false,
-				},
-			},
-			effect: 'slide',
-		speed: 800,
-		grabCursor: true,
-		watchOverflow: true,
-	});        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                mobileMenu.classList.add('hidden'); // Close mobile menu on click
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-		
-		// Counter Animation
-		const counters = document.querySelectorAll('.counter');
-		const speed = 200; // The lower, the faster
-		
-		const animateCounter = (counter) => {
-			const target = +counter.getAttribute('data-target');
-			const count = +counter.innerText;
-			const increment = target / speed;
-			
-			if (count < target) {
-				counter.innerText = Math.ceil(count + increment);
-				setTimeout(() => animateCounter(counter), 20);
-			} else {
-				counter.innerText = target + '+';
-			}
-		};
-		
-		// Intersection Observer for counters
-		const counterObserver = new IntersectionObserver((entries) => {
-			entries.forEach(entry => {
-				if (entry.isIntersecting) {
-					const counter = entry.target;
-					animateCounter(counter);
-					counterObserver.unobserve(counter);
-				}
-			});
-		}, { threshold: 0.5 });
-		
-		counters.forEach(counter => {
-			counterObserver.observe(counter);
-		});
-		
-		// FAQ Accordion
-		document.querySelectorAll('.faq-question').forEach(button => {
-			button.addEventListener('click', () => {
-				const faqItem = button.parentElement;
-				const content = faqItem.querySelector('.faq-content');
-				const icon = button.querySelector('i');
-				
-				// Close other open FAQs
-				document.querySelectorAll('.faq-item').forEach(item => {
-					if (item !== faqItem) {
-						item.querySelector('.faq-content').classList.remove('active');
-						item.querySelector('i').style.transform = 'rotate(0deg)';
-					}
-				});
-				
-				// Toggle current FAQ
-				content.classList.toggle('active');
-				icon.style.transform = content.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
-			});
-		});
-		
-		// Enviar via WhatsApp
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const submitBtn = document.getElementById('whatsapp-submit');
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const phone = document.getElementById('phone').value.trim();
-            const message = document.getElementById('message').value.trim();
-            
-            // Validação
-            if (!name || !email || !message) {
-                // Mostrar alerta
-                const alertMsg = document.createElement('div');
-                alertMsg.className = 'fixed top-20 left-1/2 transform -translate-x-1/2 bg-red-600 text-white px-6 py-4 rounded-lg shadow-2xl z-50 max-w-md text-center animate-bounce';
-                alertMsg.innerHTML = `
-                    <div class="flex items-center gap-3">
-                        <i class="fas fa-exclamation-circle text-2xl"></i>
-                        <p class="font-bold">Preencha todos os campos obrigatórios!</p>
-                    </div>
-                `;
-                document.body.appendChild(alertMsg);
-                setTimeout(() => alertMsg.remove(), 3000);
-                return;
-            }
-            
-            // Desabilitar botão temporariamente
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2 text-2xl"></i><span class="font-extrabold">Preparando...</span>';
-            submitBtn.disabled = true;
-            
-            // Criar mensagem formatada para WhatsApp
-            let whatsappMessage = `🎯 *Contato do Site ForçaTotal*\n\n`;
-            whatsappMessage += `👤 *Nome:* ${name}\n`;
-            whatsappMessage += `📧 *Email:* ${email}\n`;
-            if (phone) {
-                whatsappMessage += `📱 *Telefone:* ${phone}\n`;
-            }
-            whatsappMessage += `\n💬 *Mensagem:*\n${message}`;
-            
-            // Codificar mensagem para URL
-            const encodedMessage = encodeURIComponent(whatsappMessage);
-            
-            // Delay para feedback visual
-            setTimeout(() => {
-                // Abrir WhatsApp
-                window.open(`https://wa.me/5511948834582?text=${encodedMessage}`, '_blank');
-                
-                // Limpar formulário
-                document.getElementById('contact-form').reset();
-                
-                // Restaurar botão
-                submitBtn.innerHTML = '<i class="fab fa-whatsapp mr-2 text-2xl"></i><span class="font-extrabold">Enviar via WhatsApp</span>';
-                submitBtn.disabled = false;
-                
-                // Mostrar confirmação
-                const confirmMsg = document.createElement('div');
-                confirmMsg.className = 'fixed top-20 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-6 py-4 rounded-lg shadow-2xl z-50 max-w-md text-center';
-                confirmMsg.innerHTML = `
-                    <div class="flex items-center gap-3">
-                        <i class="fab fa-whatsapp text-3xl"></i>
-                        <div>
-                            <p class="font-bold text-lg">WhatsApp Aberto!</p>
-                            <p class="text-sm">Sua mensagem está pronta para enviar</p>
-                        </div>
-                    </div>
-                `;
-                document.body.appendChild(confirmMsg);
-                setTimeout(() => confirmMsg.remove(), 4000);
-            }, 500);
-        });
-
-		// ========================================
-		// CONTROLE DE VISIBILIDADE DO CURSO HOTMART
-		// ========================================
-		function initCursoHotmartVisibility() {
-			const cursosSection = document.getElementById('cursos');
-			if (!cursosSection) return;
-
-			const now = new Date();
-			const dateLimit = new Date('2026-01-05 23:59:59'); // 05/01/2026 às 23:59:59
-			
-			if (now <= dateLimit) {
-				// Exibir a seção de cursos
-				cursosSection.style.display = 'block';
-				console.log('✅ Seção de Cursos Hotmart visível');
-			} else {
-				// Ocultar a seção de cursos após 05/01/2026
-				cursosSection.style.display = 'none';
-				console.log('❌ Seção de Cursos Hotmart oculta (data limite ultrapassada)');
-			}
-		}
-
-		// Inicializar ao carregar a página
-		document.addEventListener('DOMContentLoaded', initCursoHotmartVisibility);
-
-		// Também inicializar imediatamente em caso de carregamento rápido
-		initCursoHotmartVisibility();
-    </script>
-
+  // Reveal on scroll
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
+  },{threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+</script>
 </body>
 </html>
