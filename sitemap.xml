@@ -3,36 +3,58 @@
 
   <url>
     <loc>https://lukascapetinga.com.br/</loc>
-    <lastmod>2025-07-26</lastmod>
+    <lastmod>2026-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://lukascapetinga.com.br/#sobre</loc>
-    <lastmod>2025-07-26</lastmod>
+    <loc>https://lukascapetinga.com.br/#arquiteto</loc>
+    <lastmod>2026-06-28</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
-  
+
   <url>
-    <loc>https://lukascapetinga.com.br/#planos</loc>
-    <lastmod>2025-07-26</lastmod>
+    <loc>https://lukascapetinga.com.br/#metodo</loc>
+    <lastmod>2026-06-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://lukascapetinga.com.br/#depoimentos</loc>
-    <lastmod>2025-07-26</lastmod>
+    <loc>https://lukascapetinga.com.br/#protocolos</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://lukascapetinga.com.br/#resultados</loc>
+    <lastmod>2026-06-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://lukascapetinga.com.br/#contato</loc>
-    <lastmod>2025-07-26</lastmod>
-    <changefreq>yearly</changefreq>
+    <loc>https://lukascapetinga.com.br/#faq</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+
+  <url>
+    <loc>https://lukascapetinga.com.br/#aplicar</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://lukascapetinga.com.br/calculadora/</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
 </urlset>
