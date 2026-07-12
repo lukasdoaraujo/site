@@ -151,7 +151,7 @@
     font-size:11px;letter-spacing:2.5px;text-transform:uppercase;
     color:var(--areia-dim);
   }
-  .strip b{color:var(--areia);font-weight:500}
+  .strip strong{color:var(--areia);font-weight:500}
 
   /* ---------- Nav ---------- */
   header.nav{
@@ -292,7 +292,7 @@
   .rcard .who{font-family:'IBM Plex Mono';font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--osso)}
   .rcard .plan-l{font-family:'IBM Plex Mono';font-size:10px;letter-spacing:2px;color:var(--texto-2);text-transform:uppercase;display:block;margin-top:3px}
   .rcard .data{margin:20px 0;border-top:1px solid var(--linha);padding-top:16px;font-family:'IBM Plex Mono';font-size:11px;letter-spacing:1px;color:var(--texto);line-height:1.9}
-  .rcard .data b{color:var(--areia);font-weight:500}
+  .rcard .data strong{color:var(--areia);font-weight:500}
   .rcard blockquote{font-size:.95rem;line-height:1.7;color:var(--texto);font-style:italic;border-left:1px solid var(--linha);padding-left:18px;margin-top:auto}
 
   /* ---------- Protocolos ---------- */
@@ -308,7 +308,7 @@
   .plan li{position:relative;padding-left:22px;font-size:.88rem;line-height:1.5;color:var(--texto)}
   .plan li::before{content:"+";position:absolute;left:0;color:var(--areia);font-family:'IBM Plex Mono'}
   .plan .btn{width:100%;font-size:12px;padding:15px}
-  .plans-note{margin-top:24px;font-family:'IBM Plex Mono';font-size:10px;letter-spacing:1.5px;color:var(--texto-2);text-transform:uppercase}
+  .plans-note{margin-top:24px;font-family:'IBM Plex Mono';font-size:10px;letter-spacing:1.5px;color:var(--areia);text-transform:uppercase}
 
   /* ---------- Elite ---------- */
   .elite{display:grid;grid-template-columns:1fr 0.9fr;border:1px solid var(--linha)}
@@ -728,7 +728,7 @@
 
 <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
-<div class="strip">Processo seletivo aberto — <b>10 vagas / mês</b> · Consultoria por aplicação</div>
+<div class="strip">Processo seletivo aberto — <strong>10 vagas / mês</strong> · Consultoria por aplicação</div>
 
 <header class="nav">
   <div class="wrap nav-inner">
@@ -903,7 +903,7 @@
           <div class="avatar duo"><img src="images/Fran.jpeg" alt="Fran Cristina, aluna da consultoria de musculação online" width="960" height="1280" loading="lazy" decoding="async"></div>
           <div><span class="who">Fran Cristina</span><span class="plan-l">Protocolo Trimestral</span></div>
         </div>
-        <div class="data">PERÍODO <b>3 meses</b><br>72 kg <b>→</b> 60 kg<br>OBJETIVO <b>definição</b></div>
+        <div class="data">PERÍODO <strong>3 meses</strong><br>72 kg <strong>→</strong> 60 kg<br>OBJETIVO <strong>definição</strong></div>
         <blockquote>"Minha evolução foi surreal: corpo mais firme, força aumentando e autoestima em alta. Ter alguém que entende e guia faz toda a diferença."</blockquote>
       </div>
       <div class="rcard">
@@ -913,7 +913,7 @@
           <div class="avatar duo"><img src="images/Joao.jpeg" alt="João Machado, aluno da consultoria de musculação online" width="1072" height="1103" loading="lazy" decoding="async"></div>
           <div><span class="who">João Machado</span><span class="plan-l">Protocolo Semestral</span></div>
         </div>
-        <div class="data">PERÍODO <b>3 meses</b><br>68 kg <b>→</b> 76 kg<br>OBJETIVO <b>massa magra</b></div>
+        <div class="data">PERÍODO <strong>3 meses</strong><br>68 kg <strong>→</strong> 76 kg<br>OBJETIVO <strong>massa magra</strong></div>
         <blockquote>"Esses protocolos mudaram tudo. Mais forte, com muito mais disposição e vendo resultado real. O acompanhamento faz a diferença."</blockquote>
       </div>
       <div class="rcard">
@@ -923,7 +923,7 @@
           <div class="avatar duo"><img src="images/Mari.jpeg" alt="Mariana Mendes, aluna da consultoria de musculação online" width="1230" height="1080" loading="lazy" decoding="async"></div>
           <div><span class="who">Mariana Mendes</span><span class="plan-l">Protocolo Mensal</span></div>
         </div>
-        <div class="data">PERÍODO <b>2 meses</b><br>SUPINO 30 kg <b>→</b> 42 kg<br>OBJETIVO <b>força</b></div>
+        <div class="data">PERÍODO <strong>2 meses</strong><br>SUPINO 30 kg <strong>→</strong> 42 kg<br>OBJETIVO <strong>força</strong></div>
         <blockquote>"Senti uma diferença enorme: muito mais definida, rendendo mais e evoluindo nas cargas. Cada exercício tem um motivo claro."</blockquote>
       </div>
     </div>
@@ -1189,7 +1189,7 @@
 
 <!-- VLibras — tradutor automático para Língua Brasileira de Sinais -->
 <div vw class="enabled">
-  <div vw-access-button class="active"></div>
+  <div vw-access-button class="active" aria-label="Ativar tradução em Libras (VLibras)"></div>
   <div vw-plugin-wrapper>
     <div class="vw-plugin-top-wrapper"></div>
   </div>
@@ -1215,8 +1215,10 @@
   document.querySelectorAll('.qitem').forEach(function(item,i){
     var btn=item.querySelector('.qbtn');
     var ans=item.querySelector('.qans');
+    btn.id='faq-btn-'+(i+1);
     ans.id='faq-ans-'+(i+1);
     ans.setAttribute('role','region');
+    ans.setAttribute('aria-labelledby',btn.id);
     ans.setAttribute('aria-hidden','true');
     btn.setAttribute('aria-controls',ans.id);
   });

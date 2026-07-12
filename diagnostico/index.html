@@ -89,7 +89,7 @@
     text-align:center;padding:10px 16px;font-family:'IBM Plex Mono',monospace;
     font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--areia-dim);
   }
-  .strip b{color:var(--areia);font-weight:500}
+  .strip strong{color:var(--areia);font-weight:500}
 
   /* Nav */
   header.nav{position:sticky;top:0;z-index:60;background:rgba(5,5,5,0.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--linha)}
@@ -108,7 +108,7 @@
   .head h1 .l2{color:var(--areia)}
   .head .lede{max-width:60ch;margin-top:22px;font-size:1.05rem;line-height:1.8}
   .head .meta-row{display:flex;flex-wrap:wrap;gap:26px;margin-top:30px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--texto-2)}
-  .head .meta-row b{color:var(--areia);font-weight:500}
+  .head .meta-row strong{color:var(--areia);font-weight:500}
 
   /* Barra de progresso */
   .progress-bar{position:sticky;top:72px;z-index:55;background:var(--carvao);border-top:1px solid var(--linha);border-bottom:1px solid var(--linha)}
@@ -223,13 +223,35 @@
     *{animation:none !important;transition:none !important}
     html{scroll-behavior:auto}
   }
+
+  /* ---------- Barra de acessibilidade ---------- */
+  .a11y-fab{position:fixed;bottom:24px;left:24px;z-index:80;width:56px;height:56px;border-radius:50%;background:var(--carvao);color:var(--areia);border:1px solid var(--areia);cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(0,0,0,.5);transition:transform .2s ease}
+  .a11y-fab:hover{transform:scale(1.08)}
+  .a11y-fab:focus-visible{outline:2px solid var(--osso);outline-offset:3px}
+  .a11y-fab svg{width:30px;height:30px}
+  .a11y-panel{position:fixed;bottom:92px;left:24px;z-index:80;width:min(272px,calc(100vw - 36px));background:var(--carvao);border:1px solid var(--linha);padding:20px;display:none;box-shadow:0 10px 40px rgba(0,0,0,.65)}
+  .a11y-panel.open{display:block}
+  .a11y-title{font-family:'IBM Plex Mono';font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--areia);margin-bottom:14px}
+  .a11y-row{display:flex;gap:8px;margin-bottom:10px}
+  .a11y-row:last-child{margin-bottom:0}
+  .a11y-btn{flex:1;background:transparent;border:1px solid var(--linha);color:var(--osso);font-family:'Instrument Sans',sans-serif;font-size:.88rem;font-weight:500;padding:11px 8px;border-radius:2px;cursor:pointer;transition:border-color .2s,background .2s,color .2s}
+  .a11y-btn:hover{border-color:var(--areia)}
+  .a11y-btn:focus-visible{outline:2px solid var(--areia);outline-offset:2px}
+  .a11y-btn[aria-pressed="true"]{background:var(--areia);color:var(--preto);border-color:var(--areia);font-weight:600}
+  .a11y-btn[aria-pressed="true"]::before{content:"✓ ";font-weight:700}
+  .a11y-escala{font-family:'IBM Plex Mono';font-size:12px;color:var(--osso);min-width:56px;display:flex;align-items:center;justify-content:center}
+  html.a11y-contraste{--texto:rgba(244,239,233,0.92);--texto-2:#C6C0BA;--areia-dim:rgba(217,194,176,0.95);--linha:rgba(217,194,176,0.45);--linha-suave:rgba(244,239,233,0.3)}
+  html.a11y-links a{text-decoration:underline !important;text-underline-offset:3px}
+  html.a11y-parado *,html.a11y-parado *::before,html.a11y-parado *::after{animation:none !important;transition:none !important}
+  @media(max-width:600px){.a11y-fab{bottom:18px;left:18px}.a11y-panel{bottom:84px;left:18px}}
+  @media print{.a11y-fab,.a11y-panel,[vw]{display:none !important}}
 </style>
 </head>
 <body>
 
-<a class="skip-link" href="#form">Pular para o formulário</a>
+<a class="skip-link" href="#diagnostico">Pular para o formulário</a>
 
-<div class="strip">Diagnóstico inicial — <b>consultoria por aplicação</b> · dados confidenciais</div>
+<div class="strip">Diagnóstico inicial — <strong>consultoria por aplicação</strong> · dados confidenciais</div>
 
 <header class="nav">
   <div class="wrap nav-inner">
@@ -246,9 +268,9 @@
     <h1><span class="l1">Ficha de</span> <span class="l2">Diagnóstico</span></h1>
     <p class="lede">Este é o ponto de partida do seu projeto. Cada resposta vira um parâmetro de engenharia do seu protocolo — quanto mais preciso você for sobre histórico, saúde, lesões, rotina e disponibilidade, mais individualizado será o treino. Leva cerca de 8 minutos.</p>
     <div class="meta-row">
-      <span>Responsável <b>Lukas Capetinga · CREF</b></span>
-      <span>Tempo <b>~8 min</b></span>
-      <span>Dados <b>Confidenciais</b></span>
+      <span>Responsável <strong>Lukas Capetinga · CREF</strong></span>
+      <span>Tempo <strong>~8 min</strong></span>
+      <span>Dados <strong>Confidenciais</strong></span>
     </div>
   </div>
 </section>
@@ -773,6 +795,96 @@
     <span>CREF Ativo · São Paulo / BR</span>
   </div>
 </footer>
+
+<!-- Balão de acessibilidade -->
+<button class="a11y-fab" id="a11yFab" aria-label="Opções de acessibilidade" aria-expanded="false" aria-controls="a11yPanel">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm9 7h-6v13h-2v-6h-2v6H9V9H3V7h18v2z"/></svg>
+</button>
+<div class="a11y-panel" id="a11yPanel" role="group" aria-label="Opções de acessibilidade">
+  <p class="a11y-title">Acessibilidade</p>
+  <div class="a11y-row">
+    <button class="a11y-btn" id="a11yMenos" type="button" aria-label="Diminuir tamanho do texto">A−</button>
+    <span class="a11y-escala" id="a11yEscala" aria-live="polite">100%</span>
+    <button class="a11y-btn" id="a11yMais" type="button" aria-label="Aumentar tamanho do texto">A+</button>
+  </div>
+  <div class="a11y-row"><button class="a11y-btn" id="a11yContraste" type="button" aria-pressed="false">Alto contraste</button></div>
+  <div class="a11y-row"><button class="a11y-btn" id="a11yLinks" type="button" aria-pressed="false">Destacar links</button></div>
+  <div class="a11y-row"><button class="a11y-btn" id="a11yParado" type="button" aria-pressed="false">Pausar animações</button></div>
+  <div class="a11y-row"><button class="a11y-btn" id="a11yReset" type="button">Restaurar padrão</button></div>
+</div>
+
+<!-- VLibras — tradutor automático para Língua Brasileira de Sinais -->
+<div vw class="enabled">
+  <div vw-access-button class="active" aria-label="Ativar tradução em Libras (VLibras)"></div>
+  <div vw-plugin-wrapper><div class="vw-plugin-top-wrapper"></div></div>
+</div>
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script>new window.VLibras.Widget('https://vlibras.gov.br/app');</script>
+
+<!-- Barra de acessibilidade — comportamento -->
+<script>
+  (function(){
+    var htmlEl=document.documentElement;
+    var fab=document.getElementById('a11yFab');
+    var panel=document.getElementById('a11yPanel');
+    var escalaEl=document.getElementById('a11yEscala');
+    var ESCALAS=[0.9,1,1.1,1.25,1.4];
+    var estado;
+    try{estado=JSON.parse(localStorage.getItem('a11y')||'{}');}catch(e){estado={};}
+    if(ESCALAS.indexOf(estado.escala)===-1)estado.escala=1;
+    var toggles=[
+      {id:'a11yContraste',chave:'contraste',classe:'a11y-contraste'},
+      {id:'a11yLinks',chave:'links',classe:'a11y-links'},
+      {id:'a11yParado',chave:'parado',classe:'a11y-parado'}
+    ];
+    function salvar(){try{localStorage.setItem('a11y',JSON.stringify(estado));}catch(e){}}
+    function aplicar(){
+      var suportaZoom=window.CSS&&CSS.supports&&CSS.supports('zoom','1.1');
+      if(suportaZoom){htmlEl.style.zoom=estado.escala===1?'':estado.escala;}
+      else{htmlEl.style.fontSize=estado.escala===1?'':(estado.escala*100)+'%';}
+      escalaEl.textContent=Math.round(estado.escala*100)+'%';
+      toggles.forEach(function(t){
+        htmlEl.classList.toggle(t.classe,!!estado[t.chave]);
+        document.getElementById(t.id).setAttribute('aria-pressed',(!!estado[t.chave]).toString());
+      });
+    }
+    function mudarEscala(dir){
+      var i=ESCALAS.indexOf(estado.escala);
+      i=Math.min(Math.max(i+dir,0),ESCALAS.length-1);
+      estado.escala=ESCALAS[i];
+      aplicar();salvar();
+    }
+    document.getElementById('a11yMais').addEventListener('click',function(){mudarEscala(1);});
+    document.getElementById('a11yMenos').addEventListener('click',function(){mudarEscala(-1);});
+    toggles.forEach(function(t){
+      document.getElementById(t.id).addEventListener('click',function(){
+        estado[t.chave]=!estado[t.chave];aplicar();salvar();
+      });
+    });
+    document.getElementById('a11yReset').addEventListener('click',function(){
+      estado={escala:1};aplicar();salvar();
+    });
+    fab.addEventListener('click',function(){
+      var aberto=panel.classList.toggle('open');
+      fab.setAttribute('aria-expanded',aberto.toString());
+      if(aberto)panel.querySelector('button').focus();
+    });
+    document.addEventListener('keydown',function(e){
+      if(e.key==='Escape'&&panel.classList.contains('open')){
+        panel.classList.remove('open');
+        fab.setAttribute('aria-expanded','false');
+        fab.focus();
+      }
+    });
+    document.addEventListener('click',function(e){
+      if(panel.classList.contains('open')&&!panel.contains(e.target)&&!fab.contains(e.target)){
+        panel.classList.remove('open');
+        fab.setAttribute('aria-expanded','false');
+      }
+    });
+    aplicar();
+  })();
+</script>
 
 <script>
 (function(){
