@@ -1,58 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
   <url>
     <loc>https://lukascapetinga.com.br/</loc>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-  </url>
-
-  <url>
-    <loc>https://lukascapetinga.com.br/#arquiteto</loc>
-    <lastmod>2026-06-28</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://lukascapetinga.com.br/#metodo</loc>
-    <lastmod>2026-06-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://lukascapetinga.com.br/#protocolos</loc>
-    <lastmod>2026-06-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://lukascapetinga.com.br/#resultados</loc>
-    <lastmod>2026-06-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://lukascapetinga.com.br/#faq</loc>
-    <lastmod>2026-06-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <url>
-    <loc>https://lukascapetinga.com.br/#aplicar</loc>
-    <lastmod>2026-06-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://lukascapetinga.com.br/images/lukas/Lucas.jpeg</image:loc>
+      <image:title>Lukas Capetinga — consultoria de musculação online</image:title>
+      <image:caption>Lukas Capetinga, personal trainer e especialista em hipertrofia, em São Paulo</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://lukascapetinga.com.br/images/lukas/Lucas1.jpeg</image:loc>
+      <image:title>Lukas Capetinga — arquitetura corporal</image:title>
+    </image:image>
   </url>
 
   <url>
     <loc>https://lukascapetinga.com.br/calculadora/</loc>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
