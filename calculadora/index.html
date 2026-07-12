@@ -1,300 +1,434 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de Metas Fitness - Lukas Capetinga</title>
-    <link rel="icon" href="../images/favicon_preto/favicon.ico" type="image/x-icon">
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "xlhkn67v7l");
+</script>
+
+<title>Calculadora Corporal | % de Gordura, IMC, TMB e Macros — Lukas Capetinga</title>
+<meta name="description" content="Calculadora corporal gratuita do Lukas Capetinga: percentual de gordura (Navy Method), IMC, massa magra e gorda, metabolismo basal (TMB), gasto calórico e macros para definição, manutenção ou hipertrofia." />
+<meta name="author" content="Lukas Capetinga" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+<meta name="theme-color" content="#050505" />
+<link rel="canonical" href="https://lukascapetinga.com.br/calculadora/" />
+<link rel="icon" href="../images/favicon_preto/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon_preto/favicon-32x32.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../images/favicon_preto/apple-touch-icon.png" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="pt_BR" />
+<meta property="og:site_name" content="Lukas Capetinga — Arquitetura Corporal" />
+<meta property="og:url" content="https://lukascapetinga.com.br/calculadora/" />
+<meta property="og:title" content="Calculadora Corporal | % de Gordura, IMC, TMB e Macros" />
+<meta property="og:description" content="Descubra seu % de gordura, IMC, metabolismo, gasto calórico e macros para definição, manutenção ou hipertrofia." />
+<meta property="og:image" content="https://lukascapetinga.com.br/images/lukas/Lucas1.jpeg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Calculadora Corporal | Lukas Capetinga" />
+<meta name="twitter:description" content="% de gordura, IMC, metabolismo, gasto calórico e macros — grátis." />
+<meta name="twitter:image" content="https://lukascapetinga.com.br/images/lukas/Lucas1.jpeg" />
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://lukascapetinga.com.br/calculadora/#app",
+      "name": "Calculadora Corporal",
+      "url": "https://lukascapetinga.com.br/calculadora/",
+      "description": "Calculadora gratuita de percentual de gordura corporal (Navy Method), IMC, massa magra e gorda, taxa metabólica basal (TMB), gasto calórico total (GCT) e distribuição de macronutrientes para definição, manutenção ou hipertrofia.",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "pt-BR",
+      "isAccessibleForFree": true,
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "BRL" },
+      "publisher": { "@id": "https://lukascapetinga.com.br/#business" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Consultoria de Musculação Online", "item": "https://lukascapetinga.com.br/" },
+        { "@type": "ListItem", "position": 2, "name": "Calculadora Corporal", "item": "https://lukascapetinga.com.br/calculadora/" }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-gray-200">
-    
-    <!-- Header & Navigation -->
-    <header class="bg-gray-900/80 backdrop-blur-sm fixed w-full z-40 shadow-lg">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="../index.html" class="text-2xl font-bold gradient-text">Lukas Capetinga</a>
-            <div class="flex items-center space-x-6">
-                <a href="../index.html" class="text-gray-300 hover:text-purple-400 transition-colors duration-300">
-                    <i class="fas fa-home mr-2"></i>Voltar ao Site
-                </a>
-            </div>
-        </nav>
-    </header>
+<body>
 
-    <main class="pt-24 pb-12 px-4 min-h-screen">
-        <div class="container mx-auto max-w-5xl">
-            <!-- Hero Section -->
-            <div class="text-center mb-12">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">
-                    <i class="fas fa-calculator mr-3"></i>Calculadora de Metas Fitness
-                </h1>
-                <p class="text-xl text-gray-400 max-w-2xl mx-auto">
-                    Descubra seu % de gordura corporal, metabolismo basal e objetivos calóricos personalizados
-                </p>
-            </div>
-            
-            <form id="calculatorForm" class="card bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border border-gray-700">
-                <!-- Dados Básicos -->
-                <div class="mb-8">
-                    <h2 class="text-2xl font-bold mb-6 text-purple-400 flex items-center">
-                        <i class="fas fa-user-circle mr-3"></i>Dados Básicos
-                    </h2>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="form-group">
-                            <label for="sexo" class="block text-sm font-semibold mb-2 text-gray-300">
-                                <i class="fas fa-venus-mars mr-2 text-purple-400"></i>Sexo
-                            </label>
-                            <select id="sexo" required class="form-input w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all">
-                                <option value="">Selecione...</option>
-                                <option value="M">Masculino</option>
-                                <option value="F">Feminino</option>
-                            </select>
-                        </div>
+<a class="skip-link" href="#topo-form">Pular para a calculadora</a>
 
-                        <div class="form-group">
-                            <label for="idade" class="block text-sm font-semibold mb-2 text-gray-300">
-                                <i class="fas fa-calendar-alt mr-2 text-purple-400"></i>Idade (anos)
-                            </label>
-                            <input type="number" id="idade" min="1" required class="form-input w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all" placeholder="Ex: 25">
-                        </div>
+<div class="strip">Ferramenta gratuita — <b>leitura corporal completa</b> · sem cadastro</div>
 
-                        <div class="form-group">
-                            <label for="peso" class="block text-sm font-semibold mb-2 text-gray-300">
-                                <i class="fas fa-weight mr-2 text-purple-400"></i>Peso (kg)
-                            </label>
-                            <input type="number" id="peso" step="0.1" min="1" required class="form-input w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all" placeholder="Ex: 75.5">
-                        </div>
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="../"><span class="dot"></span><span>LUKAS CAPETINGA<small>ARQUITETURA CORPORAL</small></span></a>
+    <a class="back-link" href="../">← Voltar ao site</a>
+  </div>
+</header>
 
-                        <div class="form-group">
-                            <label for="altura" class="block text-sm font-semibold mb-2 text-gray-300">
-                                <i class="fas fa-ruler-vertical mr-2 text-purple-400"></i>Altura (cm)
-                            </label>
-                            <input type="number" id="altura" min="1" required class="form-input w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all" placeholder="Ex: 175">
-                        </div>
+<!-- Cabeçalho -->
+<section class="head">
+  <div class="glow"></div>
+  <div class="wrap head-inner">
+    <div class="head-copy">
+      <span class="eyebrow">Ferramenta · Arquitetura Corporal</span>
+      <h1><span class="l1">Calculadora</span> <span class="l2">Corporal</span></h1>
+      <p class="lede">Uma leitura precisa do seu ponto de partida. Calcule seu percentual de gordura, IMC, massa magra, metabolismo, gasto calórico e a distribuição de calorias e macros para cada objetivo — tudo com base em fórmulas validadas. Nada é armazenado.</p>
+      <div class="meta-row">
+        <span>Método <b>Navy · Pollock · Mifflin</b></span>
+        <span>Tempo <b>~2 min</b></span>
+        <span>Custo <b>Grátis</b></span>
+      </div>
+    </div>
+    <div class="head-photo duo">
+      <img src="../images/lukas/lukas-academia.jpeg" alt="Lukas Capetinga, personal trainer e especialista em hipertrofia, na academia em São Paulo" width="1209" height="1209" loading="eager" decoding="async">
+      <div class="fade"></div>
+      <div class="stamp">LUKAS CAPETINGA · CREF ATIVO</div>
+    </div>
+  </div>
+</section>
 
-                        <div class="form-group md:col-span-2">
-                            <label for="atividade" class="block text-sm font-semibold mb-2 text-gray-300">
-                                <i class="fas fa-running mr-2 text-purple-400"></i>Nível de Atividade
-                            </label>
-                            <select id="atividade" required class="form-input w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all">
-                                <option value="">Selecione...</option>
-                                <option value="1.2">Sedentário (pouco ou nenhum exercício)</option>
-                                <option value="1.375">Levemente Ativo (exercício leve 1-3 dias/semana)</option>
-                                <option value="1.55">Moderadamente Ativo (exercício moderado 3-5 dias/semana)</option>
-                                <option value="1.725">Muito Ativo (exercício intenso 6-7 dias/semana)</option>
-                                <option value="1.9">Extremamente Ativo (exercício intenso diário + trabalho físico)</option>
-                            </select>
-                        </div>
+<main>
+<div class="wrap">
 
-                        <div class="form-group md:col-span-2">
-                            <label for="biotipo" class="block text-sm font-semibold mb-2 text-gray-300">
-                                <i class="fas fa-dna mr-2 text-purple-400"></i>Biotipo
-                            </label>
-                            <select id="biotipo" required class="form-input w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all">
-                                <option value="">Selecione...</option>
-                                <option value="ectomorfo">Ectomorfo (magro, dificuldade em ganhar peso)</option>
-                                <option value="mesomorfo">Mesomorfo (atlético, ganha músculo facilmente)</option>
-                                <option value="endomorfo">Endomorfo (corpo mais largo, facilidade em ganhar peso)</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
+<form id="calcForm" novalidate>
+  <span id="topo-form"></span>
 
-                <!-- Medidas Corporais -->
-                <div class="mb-8">
-                    <h2 class="text-2xl font-bold mb-6 text-purple-400 flex items-center">
-                        <i class="fas fa-ruler-combined mr-3"></i>Medidas Corporais
-                    </h2>
-                    <p class="text-sm text-gray-400 mb-6 italic">
-                        <i class="fas fa-info-circle mr-2"></i>Insira todas as medidas em centímetros para resultados mais precisos
-                    </p>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <div class="form-group">
-                            <label for="pescoco" class="block text-sm font-semibold mb-2 text-gray-300">
-                                Pescoço
-                            </label>
-                            <input type="number" id="pescoco" step="0.1" min="1" required class="form-input w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all" placeholder="Ex: 38">
-                        </div>
+  <!-- 01 · PERFIL -->
+  <fieldset>
+    <legend>
+      <span class="leg-num">01 · Perfil</span>
+      <span class="leg-title">Seus dados</span>
+      <span class="leg-desc">Base para o cálculo do metabolismo e do gasto calórico diário.</span>
+    </legend>
+    <div class="grid">
+      <div class="field">
+        <label for="sexo">Sexo biológico <span class="req">*</span></label>
+        <select id="sexo" required>
+          <option value="" disabled selected>Selecione</option>
+          <option value="M">Masculino</option>
+          <option value="F">Feminino</option>
+        </select>
+        <span class="hint">Usado nas fórmulas de metabolismo e composição corporal.</span>
+        <span class="err-msg">Selecione o sexo.</span>
+      </div>
+      <div class="field">
+        <label for="idade">Idade (anos) <span class="req">*</span></label>
+        <input id="idade" type="number" inputmode="numeric" min="10" max="100" placeholder="Ex.: 28" required>
+        <span class="err-msg">Informe a idade.</span>
+      </div>
+      <div class="field">
+        <label for="peso">Peso (kg) <span class="req">*</span></label>
+        <input id="peso" type="number" inputmode="decimal" step="0.1" min="30" max="300" placeholder="Ex.: 78,5" required>
+        <span class="err-msg">Informe o peso.</span>
+      </div>
+      <div class="field">
+        <label for="altura">Altura (cm) <span class="req">*</span></label>
+        <input id="altura" type="number" inputmode="numeric" min="100" max="250" placeholder="Ex.: 176" required>
+        <span class="err-msg">Informe a altura.</span>
+      </div>
+      <div class="field full">
+        <label for="atividade">Nível de atividade <span class="req">*</span></label>
+        <select id="atividade" required>
+          <option value="" disabled selected>Selecione</option>
+          <option value="1.2">Sedentário — pouco ou nenhum exercício</option>
+          <option value="1.375">Levemente ativo — treino leve 1 a 3x/semana</option>
+          <option value="1.55">Moderadamente ativo — treino 3 a 5x/semana</option>
+          <option value="1.725">Muito ativo — treino intenso 6 a 7x/semana</option>
+          <option value="1.9">Atleta — treino intenso + trabalho físico</option>
+        </select>
+        <span class="err-msg">Selecione o nível de atividade.</span>
+      </div>
+      <div class="field">
+        <label for="objetivo">Objetivo <span class="hint" style="display:inline">(opcional)</span></label>
+        <select id="objetivo">
+          <option value="" selected>Sem preferência — ver todos</option>
+          <option value="definicao">Definição / emagrecimento</option>
+          <option value="manutencao">Manutenção</option>
+          <option value="hipertrofia">Hipertrofia / ganho de massa</option>
+        </select>
+        <span class="hint">Destaca a meta recomendada nos resultados.</span>
+      </div>
+      <div class="field">
+        <label for="perfil">Perfil metabólico <span class="hint" style="display:inline">(opcional)</span></label>
+        <select id="perfil">
+          <option value="" selected>Não sei / não informar</option>
+          <option value="ecto">Ectomorfo — magro, dificuldade de ganhar peso</option>
+          <option value="meso">Mesomorfo — atlético, ganha músculo fácil</option>
+          <option value="endo">Endomorfo — ganha peso com facilidade</option>
+        </select>
+        <span class="hint">Ajusta o tamanho do déficit/superávit sugerido.</span>
+      </div>
+    </div>
+  </fieldset>
 
-                        <div class="form-group">
-                            <label for="cintura" class="block text-sm font-semibold mb-2 text-gray-300">
-                                Cintura
-                            </label>
-                            <input type="number" id="cintura" step="0.1" min="1" required class="form-input w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all" placeholder="Ex: 85">
-                        </div>
+  <!-- 02 · COMPOSIÇÃO -->
+  <fieldset>
+    <legend>
+      <span class="leg-num">02 · Composição corporal</span>
+      <span class="leg-title">Circunferências</span>
+      <span class="leg-desc">Meça com uma fita métrica, sem apertar, com o corpo relaxado. Em centímetros. É o que estima seu percentual de gordura.</span>
+    </legend>
+    <div class="grid-3">
+      <div class="field">
+        <label for="pescoco">Pescoço (cm) <span class="req">*</span></label>
+        <input id="pescoco" type="number" inputmode="decimal" step="0.1" min="10" max="80" placeholder="Ex.: 38" required>
+        <span class="hint">Logo abaixo do pomo de adão.</span>
+        <span class="err-msg">Informe o pescoço.</span>
+      </div>
+      <div class="field">
+        <label for="cintura">Cintura / abdômen (cm) <span class="req">*</span></label>
+        <input id="cintura" type="number" inputmode="decimal" step="0.1" min="40" max="200" placeholder="Ex.: 84" required>
+        <span class="hint">Na altura do umbigo, sem contrair.</span>
+        <span class="err-msg">Informe a cintura.</span>
+      </div>
+      <div class="field" id="field-quadril">
+        <label for="quadril">Quadril (cm) <span class="req" id="quadril-req">*</span></label>
+        <input id="quadril" type="number" inputmode="decimal" step="0.1" min="50" max="200" placeholder="Ex.: 98">
+        <span class="hint" id="quadril-hint">Na parte mais larga dos glúteos. Obrigatório para mulheres.</span>
+        <span class="err-msg">Informe o quadril.</span>
+      </div>
+    </div>
+  </fieldset>
 
-                        <div class="form-group">
-                            <label for="abdomen" class="block text-sm font-semibold mb-2 text-gray-300">
-                                Abdômen
-                            </label>
-                            <input type="number" id="abdomen" step="0.1" min="1" required class="form-input w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all" placeholder="Ex: 90">
-                        </div>
+  <!-- 03 · DOBRAS CUTÂNEAS (opcional) -->
+  <fieldset class="optional">
+    <legend>
+      <button type="button" class="optional-head" aria-expanded="false">
+        <span>
+          <span class="leg-num">03 · Dobras cutâneas (opcional)</span>
+          <span class="leg-title">Protocolo Pollock</span>
+        </span>
+        <span class="toggle-ic" aria-hidden="true">+</span>
+      </button>
+    </legend>
+    <div class="optional-body">
+      <p class="leg-desc" style="margin-top:20px">O método mais preciso, medido com adipômetro (plicômetro), em milímetros. Você pode informar só as <b>3 dobras</b> do seu perfil (resultado intermediário) ou as <b>7 completas</b> (Jackson &amp; Pollock, 1984 — mais preciso). As 3 principais são, para homens, <b>peitoral, abdominal e coxa</b>; para mulheres, <b>tríceps, suprailíaca e coxa</b>.</p>
+      <div class="grid-3">
+        <div class="field"><label for="d_peito">Peitoral (mm)</label><input id="d_peito" type="number" inputmode="decimal" step="0.5" min="1" max="60" placeholder="Ex.: 8"><span class="hint">Diagonal, entre a axila e o mamilo.</span></div>
+        <div class="field"><label for="d_axilar">Axilar média (mm)</label><input id="d_axilar" type="number" inputmode="decimal" step="0.5" min="1" max="60" placeholder="Ex.: 10"><span class="hint">Linha axilar média, altura do apêndice xifoide.</span></div>
+        <div class="field"><label for="d_triceps">Tríceps (mm)</label><input id="d_triceps" type="number" inputmode="decimal" step="0.5" min="1" max="60" placeholder="Ex.: 12"><span class="hint">Vertical, face posterior do braço.</span></div>
+        <div class="field"><label for="d_subescapular">Subescapular (mm)</label><input id="d_subescapular" type="number" inputmode="decimal" step="0.5" min="1" max="60" placeholder="Ex.: 12"><span class="hint">Diagonal, logo abaixo da escápula.</span></div>
+        <div class="field"><label for="d_abdominal">Abdominal (mm)</label><input id="d_abdominal" type="number" inputmode="decimal" step="0.5" min="1" max="60" placeholder="Ex.: 18"><span class="hint">Vertical, ~2 cm ao lado do umbigo.</span></div>
+        <div class="field"><label for="d_suprailiaca">Suprailíaca (mm)</label><input id="d_suprailiaca" type="number" inputmode="decimal" step="0.5" min="1" max="60" placeholder="Ex.: 14"><span class="hint">Diagonal, acima da crista ilíaca.</span></div>
+        <div class="field"><label for="d_coxa">Coxa (mm)</label><input id="d_coxa" type="number" inputmode="decimal" step="0.5" min="1" max="60" placeholder="Ex.: 15"><span class="hint">Vertical, meio da coxa (entre quadril e joelho).</span></div>
+        <div class="field" aria-hidden="true"></div>
+        <div class="field" aria-hidden="true"></div>
+      </div>
+    </div>
+  </fieldset>
 
-                        <div class="form-group">
-                            <label for="quadril" class="block text-sm font-semibold mb-2 text-gray-300">
-                                Quadril
-                            </label>
-                            <input type="number" id="quadril" step="0.1" min="1" required class="form-input w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all" placeholder="Ex: 100">
-                        </div>
+  <!-- 04 · SIMETRIA (opcional) -->
+  <fieldset class="optional">
+    <legend>
+      <button type="button" class="optional-head" aria-expanded="false">
+        <span>
+          <span class="leg-num">04 · Simetria (opcional)</span>
+          <span class="leg-title">Membros direito e esquerdo</span>
+        </span>
+        <span class="toggle-ic" aria-hidden="true">+</span>
+      </button>
+    </legend>
+    <div class="optional-body">
+      <p class="leg-desc" style="margin-top:20px">Compare os lados para identificar assimetrias que merecem atenção no treino. Opcional — preencha só o que quiser.</p>
+      <div class="grid-3">
+        <div class="field"><label for="braco_d">Braço direito (cm)</label><input id="braco_d" type="number" inputmode="decimal" step="0.1" min="15" max="70" placeholder="Ex.: 36"></div>
+        <div class="field"><label for="braco_e">Braço esquerdo (cm)</label><input id="braco_e" type="number" inputmode="decimal" step="0.1" min="15" max="70" placeholder="Ex.: 35,5"></div>
+        <div class="field"></div>
+        <div class="field"><label for="coxa_d">Coxa direita (cm)</label><input id="coxa_d" type="number" inputmode="decimal" step="0.1" min="30" max="100" placeholder="Ex.: 58"></div>
+        <div class="field"><label for="coxa_e">Coxa esquerda (cm)</label><input id="coxa_e" type="number" inputmode="decimal" step="0.1" min="30" max="100" placeholder="Ex.: 57"></div>
+        <div class="field"></div>
+        <div class="field"><label for="pant_d">Panturrilha direita (cm)</label><input id="pant_d" type="number" inputmode="decimal" step="0.1" min="20" max="70" placeholder="Ex.: 38"></div>
+        <div class="field"><label for="pant_e">Panturrilha esquerda (cm)</label><input id="pant_e" type="number" inputmode="decimal" step="0.1" min="20" max="70" placeholder="Ex.: 37,5"></div>
+        <div class="field"></div>
+      </div>
+    </div>
+  </fieldset>
 
-                        <div class="form-group">
-                            <label for="braco-direito" class="block text-sm font-semibold mb-2 text-gray-300">
-                                Braço Direito
-                            </label>
-                            <input type="number" id="braco-direito" step="0.1" min="1" class="form-input w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all" placeholder="Ex: 35">
-                        </div>
+  <div class="actions-row">
+    <button type="submit" class="btn btn-lg">Calcular leitura corporal <span class="arw" aria-hidden="true">→</span></button>
+  </div>
+</form>
 
-                        <div class="form-group">
-                            <label for="braco-esquerdo" class="block text-sm font-semibold mb-2 text-gray-300">
-                                Braço Esquerdo
-                            </label>
-                            <input type="number" id="braco-esquerdo" step="0.1" min="1" class="form-input w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all" placeholder="Ex: 34.5">
-                        </div>
+<!-- ================= RESULTADOS ================= -->
+<section class="results" id="results" aria-live="polite">
 
-                        <div class="form-group">
-                            <label for="perna-direita" class="block text-sm font-semibold mb-2 text-gray-300">
-                                Perna Direita
-                            </label>
-                            <input type="number" id="perna-direita" step="0.1" min="1" class="form-input w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all" placeholder="Ex: 60">
-                        </div>
+  <!-- Cabeçalho exclusivo da impressão -->
+  <div class="print-only print-header">
+    <img class="print-logo" src="../images/logo.png" alt="Lucas — Personal Trainer">
+    <div class="print-brand">
+      <strong>Lukas Capetinga</strong>
+      <span>Arquitetura Corporal · CREF Ativo · Leitura corporal</span>
+    </div>
+  </div>
 
-                        <div class="form-group">
-                            <label for="perna-esquerda" class="block text-sm font-semibold mb-2 text-gray-300">
-                                Perna Esquerda
-                            </label>
-                            <input type="number" id="perna-esquerda" step="0.1" min="1" class="form-input w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all" placeholder="Ex: 59.5">
-                        </div>
-                    </div>
-                </div>
+  <div class="res-head" id="res-head">
+    <span class="eyebrow">Saída de dados</span>
+    <h2>Sua leitura corporal</h2>
+  </div>
 
-                <button type="submit" class="btn-primary w-full py-4 rounded-lg text-lg font-bold flex items-center justify-center space-x-3 transform hover:scale-105 transition-all duration-300">
-                    <i class="fas fa-calculator"></i>
-                    <span>Calcular Resultados</span>
-                </button>
-            </form>
+  <!-- Destaque: % de gordura -->
+  <div class="hero-metric">
+    <div class="hm-top">
+      <span class="hm-label">Percentual de gordura corporal</span>
+      <span class="hm-class" id="r-bf-class">—</span>
+    </div>
+    <div class="hm-value"><span id="r-bf">—</span><span>%</span></div>
+    <p class="hm-sub" id="r-bf-sub">—</p>
+    <div class="range">
+      <div class="range-track"><span class="range-marker" id="r-bf-marker" style="left:0"></span></div>
+      <div class="range-scale"><span>5%</span><span>Atlético</span><span>Fitness</span><span>Aceitável</span><span>45%</span></div>
+    </div>
+  </div>
 
-            <!-- Results Section -->
-            <section id="results" class="results-section mt-12" style="display:none;">
-                <div class="card bg-gradient-to-br from-purple-900/40 to-pink-900/40 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border border-purple-500/50">
-                    <h2 class="text-3xl font-bold mb-8 text-center gradient-text flex items-center justify-center">
-                        <i class="fas fa-chart-line mr-3"></i>Seus Resultados
-                    </h2>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                        <div class="result-card bg-gray-800/60 rounded-xl p-6 border border-gray-700 hover:border-purple-500 transition-all">
-                            <div class="flex items-center mb-3">
-                                <i class="fas fa-percentage text-3xl text-purple-400 mr-4"></i>
-                                <div>
-                                    <p class="text-sm text-gray-400 uppercase tracking-wide">% de Gordura Corporal</p>
-                                    <p class="text-3xl font-bold text-white" id="gordura-result">--</p>
-                                </div>
-                            </div>
-                        </div>
+  <!-- Comparação de métodos de % de gordura -->
+  <div class="bf-methods" id="bf-methods" style="display:none">
+    <span class="bfm-title">% de gordura por método — do básico ao completo</span>
+    <div class="bfm-list">
+      <div class="bfm" id="bfm-navy"><span class="bfm-k">Circunferências · Navy</span><span class="bfm-v" id="bfm-navy-v">—</span></div>
+      <div class="bfm" id="bfm-p3"><span class="bfm-k">3 dobras · Pollock</span><span class="bfm-v" id="bfm-p3-v">—</span></div>
+      <div class="bfm" id="bfm-p7"><span class="bfm-k">7 dobras · Pollock</span><span class="bfm-v" id="bfm-p7-v">—</span></div>
+    </div>
+    <span class="bfm-note">O valor em destaque acima usa o método mais completo que você preencheu.</span>
+  </div>
 
-                        <div class="result-card bg-gray-800/60 rounded-xl p-6 border border-gray-700 hover:border-purple-500 transition-all">
-                            <div class="flex items-center mb-3">
-                                <i class="fas fa-compress-arrows-alt text-3xl text-pink-400 mr-4"></i>
-                                <div>
-                                    <p class="text-sm text-gray-400 uppercase tracking-wide">Relação Cintura/Quadril</p>
-                                    <p class="text-3xl font-bold text-white" id="rcq-result">--</p>
-                                </div>
-                            </div>
-                        </div>
+  <!-- Métricas -->
+  <div class="metrics">
+    <div class="metric"><div class="k">IMC</div><div class="v" id="r-imc">—</div><div class="c" id="r-imc-c">—</div></div>
+    <div class="metric"><div class="k">Metabolismo basal (TMB)</div><div class="v"><span id="r-tmb">—</span> <small>kcal/dia</small></div><div class="c">Energia em repouso</div></div>
+    <div class="metric"><div class="k">Gasto calórico total (GCT)</div><div class="v"><span id="r-gct">—</span> <small>kcal/dia</small></div><div class="c">Manutenção do peso</div></div>
+    <div class="metric"><div class="k">Massa magra</div><div class="v"><span id="r-magra">—</span> <small id="r-magra-u"></small></div><div class="c">Músculo, osso, órgãos</div></div>
+    <div class="metric"><div class="k">Massa gorda</div><div class="v"><span id="r-gorda">—</span> <small id="r-gorda-u"></small></div><div class="c">Gordura corporal</div></div>
+    <div class="metric"><div class="k">Relação cintura/quadril</div><div class="v" id="r-rcq">—</div><div class="c" id="r-rcq-c">—</div></div>
+  </div>
 
-                        <div class="result-card bg-gray-800/60 rounded-xl p-6 border border-gray-700 hover:border-purple-500 transition-all">
-                            <div class="flex items-center mb-3">
-                                <i class="fas fa-fire text-3xl text-orange-400 mr-4"></i>
-                                <div>
-                                    <p class="text-sm text-gray-400 uppercase tracking-wide">Taxa Metabolismo Basal</p>
-                                    <p class="text-3xl font-bold text-white" id="tmb-result">--</p>
-                                </div>
-                            </div>
-                        </div>
+  <!-- Objetivos calóricos -->
+  <div class="goals-title">
+    <span class="leg-num">Metas calóricas · macros diários</span>
+    <span class="leg-title" style="display:block;margin-top:8px">Calorias e macros por objetivo</span>
+  </div>
+  <div class="goals">
+    <div class="goal" id="g-cut">
+      <span class="gtag">// Emagrecer</span>
+      <h4>Definição</h4>
+      <div class="kcal"><span id="g-cut-kcal">—</span><small>kcal / dia</small></div>
+      <ul class="macros">
+        <li>Proteína <b id="g-cut-prot">—</b></li>
+        <li>Carboidrato <b id="g-cut-carb">—</b></li>
+        <li>Gordura <b id="g-cut-fat">—</b></li>
+      </ul>
+      <span class="feat-note" style="display:none">★ Objetivo selecionado</span>
+    </div>
+    <div class="goal" id="g-maint">
+      <span class="gtag">// Manter</span>
+      <h4>Manutenção</h4>
+      <div class="kcal"><span id="g-maint-kcal">—</span><small>kcal / dia</small></div>
+      <ul class="macros">
+        <li>Proteína <b id="g-maint-prot">—</b></li>
+        <li>Carboidrato <b id="g-maint-carb">—</b></li>
+        <li>Gordura <b id="g-maint-fat">—</b></li>
+      </ul>
+      <span class="feat-note" style="display:none">★ Objetivo selecionado</span>
+    </div>
+    <div class="goal" id="g-bulk">
+      <span class="gtag">// Ganhar massa</span>
+      <h4>Hipertrofia</h4>
+      <div class="kcal"><span id="g-bulk-kcal">—</span><small>kcal / dia</small></div>
+      <ul class="macros">
+        <li>Proteína <b id="g-bulk-prot">—</b></li>
+        <li>Carboidrato <b id="g-bulk-carb">—</b></li>
+        <li>Gordura <b id="g-bulk-fat">—</b></li>
+      </ul>
+      <span class="feat-note" style="display:none">★ Objetivo selecionado</span>
+    </div>
+  </div>
 
-                        <div class="result-card bg-gray-800/60 rounded-xl p-6 border border-gray-700 hover:border-purple-500 transition-all">
-                            <div class="flex items-center mb-3">
-                                <i class="fas fa-heartbeat text-3xl text-blue-400 mr-4"></i>
-                                <div>
-                                    <p class="text-sm text-gray-400 uppercase tracking-wide">Gasto Calórico Total</p>
-                                    <p class="text-3xl font-bold text-white" id="gct-result">--</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+  <!-- Recomendações -->
+  <div class="recs">
+    <div class="rec"><div class="k">Faixa de peso saudável</div><div class="v" id="r-peso-ideal">—</div><div class="d">Referência pelo IMC (18,5 a 24,9).</div></div>
+    <div class="rec"><div class="k">Proteína diária recomendada</div><div class="v" id="r-proteina">—</div><div class="d">1,8 a 2,2 g por kg de peso.</div></div>
+    <div class="rec"><div class="k">Hidratação diária</div><div class="v" id="r-agua">—</div><div class="d">Cerca de 35 ml por kg de peso.</div></div>
+    <div class="rec"><div class="k">Faixa de gordura ideal</div><div class="v" id="r-gordura-ideal">—</div><div class="d">Referência estética/saúde para o seu sexo.</div></div>
+  </div>
 
-                    <!-- Objetivos -->
-                    <div class="space-y-4">
-                        <h3 class="text-xl font-bold mb-4 text-purple-300 flex items-center">
-                            <i class="fas fa-bullseye mr-3"></i>Seus Objetivos Calóricos
-                        </h3>
-                        
-                        <div class="goal-card bg-gradient-to-r from-red-900/40 to-orange-900/40 rounded-xl p-6 border border-red-500/50">
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center">
-                                    <i class="fas fa-arrow-down text-3xl text-red-400 mr-4"></i>
-                                    <div>
-                                        <p class="text-sm text-gray-300 uppercase tracking-wide">Redução de Peso / Definição</p>
-                                        <p class="text-2xl font-bold text-white" id="reducao-result">--</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+  <!-- Simetria -->
+  <div class="sym" id="symmetry" style="display:none">
+    <h3>Análise de simetria</h3>
+    <p class="sym-desc">Diferença entre os lados direito e esquerdo. Até 2% é considerado simétrico; acima de 5% merece atenção no planejamento do treino.</p>
+    <div class="sym-rows">
+      <div class="sym-row" id="sym-braco"><span class="sr-name">Braços</span><div class="sym-bar"><span id="sym-braco-bar"></span></div><span class="sr-val" id="sym-braco-val"></span></div>
+      <div class="sym-row" id="sym-coxa"><span class="sr-name">Coxas</span><div class="sym-bar"><span id="sym-coxa-bar"></span></div><span class="sr-val" id="sym-coxa-val"></span></div>
+      <div class="sym-row" id="sym-pant"><span class="sr-name">Panturrilhas</span><div class="sym-bar"><span id="sym-pant-bar"></span></div><span class="sr-val" id="sym-pant-val"></span></div>
+    </div>
+  </div>
 
-                        <div class="goal-card bg-gradient-to-r from-green-900/40 to-emerald-900/40 rounded-xl p-6 border border-green-500/50">
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center">
-                                    <i class="fas fa-arrow-up text-3xl text-green-400 mr-4"></i>
-                                    <div>
-                                        <p class="text-sm text-gray-300 uppercase tracking-wide">Ganho de Massa Muscular</p>
-                                        <p class="text-2xl font-bold text-white" id="ganho-result">--</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+  <!-- Aviso -->
+  <div class="disclaimer">
+    <b>Importante:</b> os valores são estimativas baseadas em fórmulas científicas (U.S. Navy, Mifflin-St Jeor) e servem como ponto de partida — não substituem avaliação física presencial, exame de bioimpedância ou orientação médica/nutricional individualizada.
+  </div>
 
-                    <div class="mt-8 p-6 bg-yellow-900/20 border border-yellow-500/50 rounded-xl">
-                        <p class="text-sm text-yellow-200 flex items-start">
-                            <i class="fas fa-exclamation-triangle mr-3 mt-1 text-yellow-400"></i>
-                            <span><strong>Aviso Importante:</strong> Os resultados são estimativas baseadas em fórmulas científicas. Para um acompanhamento personalizado e resultados otimizados, consulte um profissional especializado.</span>
-                        </p>
-                    </div>
+  <!-- Ações -->
+  <div class="actions-row">
+    <button type="button" class="btn btn-ghost" id="recalcBtn">Refazer cálculo</button>
+    <button type="button" class="btn btn-ghost" id="printBtn">Imprimir / salvar PDF</button>
+  </div>
 
-                    <div class="mt-6 text-center">
-                        <a href="../index.html#planos" class="btn-success inline-flex items-center px-8 py-4 rounded-lg font-bold text-lg">
-                            <i class="fas fa-rocket mr-3"></i>
-                            Conheça Nossos Planos
-                        </a>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </main>
+  <!-- CTA -->
+  <div class="cta">
+    <div class="glow"></div>
+    <div class="cta-inner">
+      <span class="eyebrow" style="justify-content:center">Próximo passo</span>
+      <h3>Transforme esses números em um projeto</h3>
+      <p>Estes dados são o começo. Na consultoria, cada variável vira parâmetro de um protocolo individual, auditado e recalibrado a cada ciclo.</p>
+      <div class="actions-row">
+        <a class="btn btn-lg" id="r-whats" href="https://wa.me/5511948834582" target="_blank" rel="noopener">Enviar meus dados no WhatsApp <span class="arw" aria-hidden="true">→</span></a>
+        <a class="btn btn-ghost btn-lg" href="/diagnostico/">Fazer o diagnóstico completo</a>
+      </div>
+    </div>
+  </div>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 py-8 mt-12">
-        <div class="container mx-auto px-6 text-center text-gray-400">
-            <p>&copy; <span id="ano-atual">2025</span> Lukas Capetinga. Todos os direitos reservados.</p>
-        </div>
-    </footer>
+  <!-- Rodapé exclusivo da impressão -->
+  <div class="print-only print-footer">
+    <span>lukascapetinga.com.br</span>
+    <span>Relatório gerado em <span id="print-date"></span></span>
+  </div>
+</section>
 
-    <script src="script.js"></script>
-    <script>
-        document.getElementById('ano-atual').textContent = new Date().getFullYear();
-    </script>
+</div>
+</main>
+
+<footer>
+  <div class="wrap foot-bottom">
+    <span>© <span id="ano">2026</span> Lukas Capetinga — Arquitetura Corporal</span>
+    <span><a href="../">Voltar ao site</a> · CREF Ativo · São Paulo / BR</span>
+  </div>
+</footer>
+
+<!-- VLibras -->
+<div vw class="enabled">
+  <div vw-access-button class="active"></div>
+  <div vw-plugin-wrapper><div class="vw-plugin-top-wrapper"></div></div>
+</div>
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script>new window.VLibras.Widget('https://vlibras.gov.br/app');</script>
+
+<script src="script.js"></script>
 </body>
 </html>

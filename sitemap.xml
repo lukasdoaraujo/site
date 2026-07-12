@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
   <url>
     <loc>https://lukascapetinga.com.br/</loc>
     <lastmod>2026-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://lukascapetinga.com.br/images/lukas/Lucas.jpeg</image:loc>
+      <image:title>Lukas Capetinga — consultoria de musculação online</image:title>
+      <image:caption>Lukas Capetinga, personal trainer e especialista em hipertrofia, em São Paulo</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://lukascapetinga.com.br/images/lukas/Lucas1.jpeg</image:loc>
+      <image:title>Lukas Capetinga — arquitetura corporal</image:title>
+    </image:image>
   </url>
 
   <url>
