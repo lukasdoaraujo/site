@@ -174,6 +174,29 @@
   .field.invalid .err-msg,.qgroup.invalid .err-msg{display:block}
   .qgroup.invalid .opts .opt span{border-color:var(--erro)}
 
+  /* Mapa muscular — grade Forte / Neutro / Ponto fraco */
+  .matrix{border:1px solid var(--linha);background:var(--carvao)}
+  .m-row{display:grid;grid-template-columns:minmax(0,1fr) repeat(3,88px);border-top:1px solid var(--linha-suave)}
+  .m-row:first-child{border-top:none}
+  .m-head{background:var(--grafite)}
+  .m-head span{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--areia-dim);padding:10px 6px;text-align:center}
+  .m-head span:first-child{text-align:left;padding-left:14px}
+  .m-name{font-size:.88rem;color:var(--texto);padding:11px 14px;display:flex;align-items:center}
+  .m-cell{position:relative;display:flex;border-left:1px solid var(--linha-suave)}
+  .m-cell input{position:absolute;opacity:0;width:0;height:0}
+  .m-cell span{flex:1;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .15s}
+  .m-cell span::before{content:"";width:13px;height:13px;border:1px solid var(--linha);border-radius:50%;transition:background .15s,border-color .15s}
+  .m-cell:hover span::before{border-color:var(--areia-dim)}
+  .m-cell input:checked+span{background:rgba(217,194,176,0.07)}
+  .m-cell input:checked+span::before{background:var(--areia);border-color:var(--areia)}
+  .m-cell.forte input:checked+span::before{background:var(--ok);border-color:var(--ok)}
+  .m-cell.fraco input:checked+span::before{background:var(--erro);border-color:var(--erro)}
+  .m-cell input:focus-visible+span{outline:2px solid var(--areia);outline-offset:-3px}
+  @media(max-width:680px){
+    .m-row{grid-template-columns:minmax(0,1fr) repeat(3,60px)}
+    .m-head span{font-size:8px;letter-spacing:1px;padding:10px 2px}
+  }
+
   /* Consentimento */
   .consent{border:1px solid var(--linha);background:var(--carvao);padding:24px 26px;margin-top:16px;display:flex;gap:16px;align-items:flex-start}
   .consent input{margin-top:4px;width:20px;height:20px;flex-shrink:0;accent-color:var(--areia);cursor:pointer}
@@ -266,10 +289,10 @@
   <div class="wrap head-inner">
     <span class="eyebrow">Fase 01 · Ponto de partida</span>
     <h1><span class="l1">Ficha de</span> <span class="l2">Diagnóstico</span></h1>
-    <p class="lede">Este é o ponto de partida do seu projeto. Cada resposta vira um parâmetro de engenharia do seu protocolo — quanto mais preciso você for sobre histórico, saúde, lesões, rotina e disponibilidade, mais individualizado será o treino. Leva cerca de 8 minutos.</p>
+    <p class="lede">Este é o ponto de partida do seu projeto. Cada resposta vira um parâmetro de engenharia do seu protocolo — quanto mais preciso você for sobre histórico, rotina, disponibilidade e limitações, mais individualizado será o treino. Sete perguntas obrigatórias, o resto é opcional. Leva cerca de 5 minutos.</p>
     <div class="meta-row">
       <span>Responsável <strong>Lukas Capetinga · CREF</strong></span>
-      <span>Tempo <strong>~8 min</strong></span>
+      <span>Tempo <strong>~5 min</strong></span>
       <span>Dados <strong>Confidenciais</strong></span>
     </div>
   </div>
@@ -288,12 +311,12 @@
 
 <form id="diagnostico" novalidate>
 
-  <!-- ===== 1. IDENTIFICAÇÃO ===== -->
+  <!-- ===== 01. IDENTIFICAÇÃO ===== -->
   <fieldset>
     <legend>
       <span class="leg-num">01 · Identificação</span>
       <span class="leg-title">Quem é você</span>
-      <span class="leg-desc">Dados de contato para alinharmos o protocolo e o acompanhamento.</span>
+      <span class="leg-desc">O essencial para eu te conhecer e responder. Peso e altura ajudam a calibrar, mas não travam nada.</span>
     </legend>
     <div class="grid">
       <div class="field full">
@@ -302,458 +325,299 @@
         <span class="err-msg">Preencha seu nome.</span>
       </div>
       <div class="field">
-        <label for="whatsapp">WhatsApp (com DDD) <span class="req">*</span></label>
-        <input id="whatsapp" name="WhatsApp" type="tel" required autocomplete="tel" placeholder="(11) 99999-9999">
-        <span class="err-msg">Informe um WhatsApp para contato.</span>
+        <label for="email">E-mail <span class="req">*</span></label>
+        <input id="email" name="E-mail" type="email" required autocomplete="email" placeholder="voce@email.com">
+        <span class="err-msg">Informe um e-mail válido.</span>
       </div>
       <div class="field">
-        <label for="email">E-mail</label>
-        <input id="email" name="E-mail" type="email" autocomplete="email" placeholder="voce@email.com">
+        <label for="whatsapp">WhatsApp (com DDD)</label>
+        <input id="whatsapp" name="WhatsApp" type="tel" autocomplete="tel" placeholder="(11) 99999-9999">
       </div>
       <div class="field">
-        <label for="nascimento">Data de nascimento <span class="req">*</span></label>
-        <input id="nascimento" name="Data de nascimento" type="date" required>
-        <span class="err-msg">Informe sua data de nascimento.</span>
+        <label for="idade">Idade <span class="req">*</span></label>
+        <input id="idade" name="Idade" type="number" min="12" max="100" required placeholder="Ex.: 28">
+        <span class="err-msg">Informe sua idade.</span>
       </div>
       <div class="field">
-        <label for="sexo">Sexo biológico <span class="req">*</span></label>
-        <select id="sexo" name="Sexo biologico" required>
-          <option value="" disabled selected>Selecione</option>
-          <option>Masculino</option>
-          <option>Feminino</option>
-          <option>Prefiro não informar</option>
-        </select>
-        <span class="hint">Usado apenas para cálculos de referência (composição corporal, metabolismo).</span>
-        <span class="err-msg">Selecione uma opção.</span>
+        <label for="peso">Peso (kg)</label>
+        <input id="peso" name="Peso (kg)" type="number" min="30" max="300" step="0.1" placeholder="Ex.: 78">
       </div>
       <div class="field">
-        <label for="cidade">Cidade / Estado</label>
-        <input id="cidade" name="Cidade/Estado" type="text" placeholder="Ex.: São Paulo / SP">
+        <label for="altura">Altura (cm)</label>
+        <input id="altura" name="Altura (cm)" type="number" min="120" max="230" placeholder="Ex.: 175">
       </div>
-      <div class="field">
-        <label for="profissao">Profissão</label>
-        <input id="profissao" name="Profissao" type="text" placeholder="O que você faz">
-      </div>
-      <div class="field full">
-        <span class="q-label">Como é sua rotina de trabalho?</span>
-        <div class="opts" data-name="Rotina de trabalho">
-          <label class="opt"><input type="radio" name="Rotina de trabalho" value="Sentada / escritório"><span>Sentada / escritório</span></label>
-          <label class="opt"><input type="radio" name="Rotina de trabalho" value="Em pé / ativa"><span>Em pé / ativa</span></label>
-          <label class="opt"><input type="radio" name="Rotina de trabalho" value="Trabalho braçal pesado"><span>Braçal pesado</span></label>
-          <label class="opt"><input type="radio" name="Rotina de trabalho" value="Turnos / noturno"><span>Turnos / noturno</span></label>
+      <div class="field full qgroup" data-required="1">
+        <span class="q-label">Tempo de treino até hoje <span class="req">*</span></span>
+        <div class="opts" data-name="Tempo de treino">
+          <label class="opt"><input type="radio" name="Tempo de treino" value="Nunca treinei"><span>Nunca treinei</span></label>
+          <label class="opt"><input type="radio" name="Tempo de treino" value="Menos de 6 meses"><span>Menos de 6 meses</span></label>
+          <label class="opt"><input type="radio" name="Tempo de treino" value="6 meses a 2 anos"><span>6 meses a 2 anos</span></label>
+          <label class="opt"><input type="radio" name="Tempo de treino" value="Mais de 2 anos"><span>Mais de 2 anos</span></label>
+          <label class="opt"><input type="radio" name="Tempo de treino" value="Voltando depois de parar"><span>Voltando depois de parar</span></label>
         </div>
+        <span class="err-msg">Selecione seu tempo de treino.</span>
       </div>
     </div>
   </fieldset>
 
-  <!-- ===== 2. MEDIDAS ===== -->
+  <!-- ===== 02. DISPONIBILIDADE ===== -->
   <fieldset>
     <legend>
-      <span class="leg-num">02 · Medidas e composição</span>
-      <span class="leg-title">Sua linha de base</span>
-      <span class="leg-desc">Os números atuais. Não precisa ser exato — o que você souber já ajuda.</span>
-    </legend>
-    <div class="grid">
-      <div class="field">
-        <label for="altura">Altura (cm) <span class="req">*</span></label>
-        <input id="altura" name="Altura (cm)" type="number" min="120" max="230" required placeholder="Ex.: 175">
-        <span class="err-msg">Informe sua altura.</span>
-      </div>
-      <div class="field">
-        <label for="peso">Peso atual (kg) <span class="req">*</span></label>
-        <input id="peso" name="Peso atual (kg)" type="number" min="30" max="300" step="0.1" required placeholder="Ex.: 78">
-        <span class="err-msg">Informe seu peso atual.</span>
-      </div>
-      <div class="field">
-        <label for="peso_meta">Peso desejado (kg)</label>
-        <input id="peso_meta" name="Peso desejado (kg)" type="number" min="30" max="300" step="0.1" placeholder="Se tiver uma meta">
-      </div>
-      <div class="field">
-        <label for="gordura">% de gordura (se souber)</label>
-        <input id="gordura" name="Percentual de gordura" type="text" placeholder="Ex.: 22% (opcional)">
-      </div>
-    </div>
-  </fieldset>
-
-  <!-- ===== 3. OBJETIVO ===== -->
-  <fieldset>
-    <legend>
-      <span class="leg-num">03 · Objetivo</span>
-      <span class="leg-title">Onde você quer chegar</span>
-      <span class="leg-desc">A direção do projeto. É o que define a periodização e a prioridade dos estímulos.</span>
+      <span class="leg-num">02 · Disponibilidade</span>
+      <span class="leg-title">Seu tempo real</span>
+      <span class="leg-desc">O treino é desenhado para caber na sua semana — não o contrário.</span>
     </legend>
     <div class="grid">
       <div class="field full qgroup" data-required="1">
-        <span class="q-label">Objetivo principal <span class="req">*</span></span>
-        <div class="opts" data-name="Objetivo principal">
-          <label class="opt"><input type="radio" name="Objetivo principal" value="Hipertrofia (ganho de massa)"><span>Hipertrofia</span></label>
-          <label class="opt"><input type="radio" name="Objetivo principal" value="Emagrecimento e definição"><span>Emagrecimento e definição</span></label>
-          <label class="opt"><input type="radio" name="Objetivo principal" value="Recomposição corporal"><span>Recomposição corporal</span></label>
-          <label class="opt"><input type="radio" name="Objetivo principal" value="Força e performance"><span>Força e performance</span></label>
-          <label class="opt"><input type="radio" name="Objetivo principal" value="Saúde e qualidade de vida"><span>Saúde e qualidade de vida</span></label>
+        <span class="q-label">Quanto tempo você tem por treino? <span class="req">*</span></span>
+        <div class="opts" data-name="Tempo por treino">
+          <label class="opt"><input type="radio" name="Tempo por treino" value="Até 30 min"><span>Até 30 min</span></label>
+          <label class="opt"><input type="radio" name="Tempo por treino" value="45 min"><span>45 min</span></label>
+          <label class="opt"><input type="radio" name="Tempo por treino" value="1 hora"><span>1 hora</span></label>
+          <label class="opt"><input type="radio" name="Tempo por treino" value="1h30"><span>1h30</span></label>
+          <label class="opt"><input type="radio" name="Tempo por treino" value="Mais de 1h30"><span>Mais de 1h30</span></label>
         </div>
-        <span class="err-msg">Escolha seu objetivo principal.</span>
+        <span class="err-msg">Escolha o tempo por treino.</span>
       </div>
-      <div class="field full">
-        <span class="q-label">Regiões que você mais quer desenvolver</span>
-        <div class="opts" data-name="Regioes prioritarias">
-          <label class="opt"><input type="checkbox" name="Regioes prioritarias" value="Pernas"><span>Pernas</span></label>
-          <label class="opt"><input type="checkbox" name="Regioes prioritarias" value="Glúteos"><span>Glúteos</span></label>
-          <label class="opt"><input type="checkbox" name="Regioes prioritarias" value="Costas"><span>Costas</span></label>
-          <label class="opt"><input type="checkbox" name="Regioes prioritarias" value="Peito"><span>Peito</span></label>
-          <label class="opt"><input type="checkbox" name="Regioes prioritarias" value="Ombros"><span>Ombros</span></label>
-          <label class="opt"><input type="checkbox" name="Regioes prioritarias" value="Braços"><span>Braços</span></label>
-          <label class="opt"><input type="checkbox" name="Regioes prioritarias" value="Abdômen"><span>Abdômen</span></label>
-          <label class="opt"><input type="checkbox" name="Regioes prioritarias" value="Corpo todo"><span>Corpo todo</span></label>
-        </div>
-      </div>
-      <div class="field">
-        <label for="prazo">Você tem um prazo ou data-alvo?</label>
-        <select id="prazo" name="Prazo/meta">
-          <option value="" disabled selected>Selecione</option>
-          <option>Sem pressa — resultado sustentável</option>
-          <option>Em 3 meses</option>
-          <option>Em 6 meses</option>
-          <option>Em 1 ano</option>
-          <option>Tenho um evento específico (praia, casamento, competição...)</option>
-        </select>
-      </div>
-      <div class="field qgroup">
-        <span class="q-label">Já teve acompanhamento antes?</span>
-        <div class="opts" data-name="Ja teve consultoria" data-toggle="cond-consultoria">
-          <label class="opt"><input type="radio" name="Ja teve consultoria" value="Sim"><span>Sim</span></label>
-          <label class="opt"><input type="radio" name="Ja teve consultoria" value="Não"><span>Não</span></label>
-        </div>
-      </div>
-      <div class="field full cond" id="cond-consultoria">
-        <label for="consultoria_det">Como foi essa experiência? O que funcionou e o que não?</label>
-        <textarea id="consultoria_det" name="Experiencia anterior (detalhe)" placeholder="Conte um pouco sobre acompanhamentos anteriores."></textarea>
-      </div>
-      <div class="field full">
-        <label for="expectativa">O que seria um resultado de sucesso para você?</label>
-        <textarea id="expectativa" name="Expectativa de sucesso" placeholder="Descreva com suas palavras como você quer estar ao fim do processo."></textarea>
-      </div>
-    </div>
-  </fieldset>
-
-  <!-- ===== 4. HISTÓRICO DE TREINO ===== -->
-  <fieldset>
-    <legend>
-      <span class="leg-num">04 · Histórico de treino</span>
-      <span class="leg-title">Seu ponto de partida técnico</span>
-      <span class="leg-desc">Para calibrar volume, intensidade e a curva de progressão ao seu nível real.</span>
-    </legend>
-    <div class="grid">
       <div class="field full qgroup" data-required="1">
-        <span class="q-label">Como você classifica seu nível? <span class="req">*</span></span>
-        <div class="opts" data-name="Nivel">
-          <label class="opt"><input type="radio" name="Nivel" value="Iniciante"><span>Iniciante</span></label>
-          <label class="opt"><input type="radio" name="Nivel" value="Intermediário"><span>Intermediário</span></label>
-          <label class="opt"><input type="radio" name="Nivel" value="Avançado"><span>Avançado</span></label>
+        <span class="q-label">Quantas vezes na semana? <span class="req">*</span></span>
+        <div class="opts" data-name="Vezes por semana">
+          <label class="opt"><input type="radio" name="Vezes por semana" value="2x"><span>2x</span></label>
+          <label class="opt"><input type="radio" name="Vezes por semana" value="3x"><span>3x</span></label>
+          <label class="opt"><input type="radio" name="Vezes por semana" value="4x"><span>4x</span></label>
+          <label class="opt"><input type="radio" name="Vezes por semana" value="5x"><span>5x</span></label>
+          <label class="opt"><input type="radio" name="Vezes por semana" value="6x ou mais"><span>6x ou mais</span></label>
         </div>
-        <span class="err-msg">Selecione seu nível.</span>
-      </div>
-      <div class="field">
-        <label for="tempo_treino">Há quanto tempo treina?</label>
-        <select id="tempo_treino" name="Tempo de treino">
-          <option value="" disabled selected>Selecione</option>
-          <option>Nunca treinei</option>
-          <option>Menos de 6 meses</option>
-          <option>6 meses a 1 ano</option>
-          <option>1 a 3 anos</option>
-          <option>3 a 5 anos</option>
-          <option>Mais de 5 anos</option>
-        </select>
-      </div>
-      <div class="field">
-        <label for="freq_atual">Quantas vezes por semana treina hoje?</label>
-        <select id="freq_atual" name="Frequencia atual">
-          <option value="" disabled selected>Selecione</option>
-          <option>Não treino atualmente</option>
-          <option>1 a 2x por semana</option>
-          <option>3x por semana</option>
-          <option>4x por semana</option>
-          <option>5x por semana</option>
-          <option>6x ou mais</option>
-        </select>
-      </div>
-      <div class="field qgroup">
-        <span class="q-label">Está parado(a) no momento?</span>
-        <div class="opts" data-name="Esta parado" data-toggle="cond-parado">
-          <label class="opt"><input type="radio" name="Esta parado" value="Sim, estou parado"><span>Sim</span></label>
-          <label class="opt"><input type="radio" name="Esta parado" value="Não, estou treinando"><span>Não</span></label>
-        </div>
-      </div>
-      <div class="field cond" id="cond-parado">
-        <label for="tempo_parado">Há quanto tempo está sem treinar?</label>
-        <input id="tempo_parado" name="Tempo parado" type="text" placeholder="Ex.: 3 meses">
+        <span class="err-msg">Escolha a frequência semanal.</span>
       </div>
       <div class="field full">
-        <label for="exercicios_gosta">Exercícios ou modalidades que você gosta / não gosta</label>
-        <textarea id="exercicios_gosta" name="Preferencias de exercicio" placeholder="Ex.: gosto de treino de perna, não curto correr, tenho dificuldade com agachamento livre..."></textarea>
+        <span class="q-label">Dias que costumam funcionar</span>
+        <div class="opts" data-name="Dias da semana">
+          <label class="opt"><input type="checkbox" name="Dias da semana" value="Segunda"><span>Seg</span></label>
+          <label class="opt"><input type="checkbox" name="Dias da semana" value="Terça"><span>Ter</span></label>
+          <label class="opt"><input type="checkbox" name="Dias da semana" value="Quarta"><span>Qua</span></label>
+          <label class="opt"><input type="checkbox" name="Dias da semana" value="Quinta"><span>Qui</span></label>
+          <label class="opt"><input type="checkbox" name="Dias da semana" value="Sexta"><span>Sex</span></label>
+          <label class="opt"><input type="checkbox" name="Dias da semana" value="Sábado"><span>Sáb</span></label>
+          <label class="opt"><input type="checkbox" name="Dias da semana" value="Domingo"><span>Dom</span></label>
+        </div>
+        <span class="hint">Marque todos os dias que costumam servir — pode variar depois.</span>
       </div>
     </div>
   </fieldset>
 
-  <!-- ===== 5. DISPONIBILIDADE E LOCAL ===== -->
+  <!-- ===== 03. LOCAL ===== -->
   <fieldset>
     <legend>
-      <span class="leg-num">05 · Disponibilidade e local</span>
-      <span class="leg-title">Onde e quando você treina</span>
-      <span class="leg-desc">O protocolo é desenhado para caber na sua realidade — ambiente, equipamentos e tempo disponível.</span>
+      <span class="leg-num">03 · Local</span>
+      <span class="leg-title">Onde você treina</span>
+      <span class="leg-desc">Estrutura e equipamento definem a seleção de exercícios do protocolo.</span>
     </legend>
     <div class="grid">
       <div class="field full qgroup" data-required="1">
         <span class="q-label">Onde você vai treinar? <span class="req">*</span></span>
         <div class="opts" data-name="Local de treino">
           <label class="opt"><input type="radio" name="Local de treino" value="Academia completa"><span>Academia completa</span></label>
-          <label class="opt"><input type="radio" name="Local de treino" value="Academia de condomínio / básica"><span>Academia básica / condomínio</span></label>
-          <label class="opt"><input type="radio" name="Local de treino" value="Home gym (equipamentos em casa)"><span>Home gym</span></label>
-          <label class="opt"><input type="radio" name="Local de treino" value="Em casa com peso corporal / halteres"><span>Casa (peso corporal)</span></label>
-          <label class="opt"><input type="radio" name="Local de treino" value="Ao ar livre / praça"><span>Ao ar livre</span></label>
-          <label class="opt"><input type="radio" name="Local de treino" value="Ainda vou começar / escolher"><span>Ainda vou começar</span></label>
+          <label class="opt"><input type="radio" name="Local de treino" value="Academia de condomínio"><span>Academia de condomínio</span></label>
+          <label class="opt"><input type="radio" name="Local de treino" value="Casa com halteres ou elásticos"><span>Casa com halteres ou elásticos</span></label>
+          <label class="opt"><input type="radio" name="Local de treino" value="Casa sem equipamento"><span>Casa sem equipamento</span></label>
+          <label class="opt"><input type="radio" name="Local de treino" value="Ao ar livre"><span>Ao ar livre</span></label>
         </div>
         <span class="err-msg">Selecione onde vai treinar.</span>
       </div>
       <div class="field full">
-        <label for="equipamentos">Quais equipamentos você tem disponíveis?</label>
-        <textarea id="equipamentos" name="Equipamentos disponiveis" placeholder="Ex.: halteres até 20kg, barra, anilhas, elástico, máquina smith, esteira... ou 'academia completa'."></textarea>
-      </div>
-      <div class="field qgroup" data-required="1">
-        <span class="q-label">Quantos dias por semana você PODE treinar? <span class="req">*</span></span>
-        <div class="opts" data-name="Dias disponiveis">
-          <label class="opt"><input type="radio" name="Dias disponiveis" value="2 dias"><span>2</span></label>
-          <label class="opt"><input type="radio" name="Dias disponiveis" value="3 dias"><span>3</span></label>
-          <label class="opt"><input type="radio" name="Dias disponiveis" value="4 dias"><span>4</span></label>
-          <label class="opt"><input type="radio" name="Dias disponiveis" value="5 dias"><span>5</span></label>
-          <label class="opt"><input type="radio" name="Dias disponiveis" value="6 dias ou mais"><span>6+</span></label>
-        </div>
-        <span class="err-msg">Escolha quantos dias por semana.</span>
-      </div>
-      <div class="field qgroup" data-required="1">
-        <span class="q-label">Quanto tempo você tem por treino? <span class="req">*</span></span>
-        <div class="opts" data-name="Tempo por sessao">
-          <label class="opt"><input type="radio" name="Tempo por sessao" value="Até 30 min"><span>~30 min</span></label>
-          <label class="opt"><input type="radio" name="Tempo por sessao" value="45 min"><span>45 min</span></label>
-          <label class="opt"><input type="radio" name="Tempo por sessao" value="1 hora"><span>1 hora</span></label>
-          <label class="opt"><input type="radio" name="Tempo por sessao" value="1h15 a 1h30"><span>1h30</span></label>
-          <label class="opt"><input type="radio" name="Tempo por sessao" value="Mais de 1h30"><span>+1h30</span></label>
-        </div>
-        <span class="err-msg">Escolha o tempo por treino.</span>
-      </div>
-      <div class="field full">
-        <span class="q-label">Em que período você costuma treinar?</span>
-        <div class="opts" data-name="Horario de treino">
-          <label class="opt"><input type="checkbox" name="Horario de treino" value="Manhã"><span>Manhã</span></label>
-          <label class="opt"><input type="checkbox" name="Horario de treino" value="Almoço"><span>Almoço</span></label>
-          <label class="opt"><input type="checkbox" name="Horario de treino" value="Tarde"><span>Tarde</span></label>
-          <label class="opt"><input type="checkbox" name="Horario de treino" value="Noite"><span>Noite</span></label>
-          <label class="opt"><input type="checkbox" name="Horario de treino" value="Varia bastante"><span>Varia</span></label>
-        </div>
+        <label for="equipamento_falta">Algum equipamento que falta ou vive disputado?</label>
+        <textarea id="equipamento_falta" name="Equipamento em falta ou disputado" placeholder="Ex.: só tem um banco e vive ocupado, não tem barra fixa, halteres vão até 20kg..."></textarea>
       </div>
     </div>
   </fieldset>
 
-  <!-- ===== 6. SAÚDE E LESÕES ===== -->
+  <!-- ===== 04. OBJETIVO ===== -->
   <fieldset>
     <legend>
-      <span class="leg-num">06 · Saúde e lesões</span>
-      <span class="leg-title">Segurança em primeiro lugar</span>
-      <span class="leg-desc">A parte mais importante da ficha. Seja o mais detalhado possível — é o que garante um treino seguro e sem agravar nada.</span>
+      <span class="leg-num">04 · Objetivo</span>
+      <span class="leg-title">Onde você quer chegar</span>
+      <span class="leg-desc">A direção do projeto. É o que define a periodização e a prioridade dos estímulos.</span>
     </legend>
     <div class="grid">
       <div class="field full qgroup" data-required="1">
-        <span class="q-label">Tem ou já teve alguma lesão? <span class="req">*</span></span>
-        <div class="opts" data-name="Tem lesao" data-toggle="cond-lesao">
-          <label class="opt"><input type="radio" name="Tem lesao" value="Sim, atualmente"><span>Sim, atualmente</span></label>
-          <label class="opt"><input type="radio" name="Tem lesao" value="Já tive, mas está resolvida"><span>Já tive (resolvida)</span></label>
-          <label class="opt"><input type="radio" name="Tem lesao" value="Nunca tive"><span>Nunca tive</span></label>
+        <span class="q-label">O que você quer alcançar? <span class="req">*</span></span>
+        <div class="opts" data-name="Objetivo principal">
+          <label class="opt"><input type="radio" name="Objetivo principal" value="Ganhar massa muscular"><span>Ganhar massa muscular</span></label>
+          <label class="opt"><input type="radio" name="Objetivo principal" value="Perder gordura"><span>Perder gordura</span></label>
+          <label class="opt"><input type="radio" name="Objetivo principal" value="Ganhar força"><span>Ganhar força</span></label>
+          <label class="opt"><input type="radio" name="Objetivo principal" value="Condicionamento físico"><span>Condicionamento</span></label>
+          <label class="opt"><input type="radio" name="Objetivo principal" value="Saúde e postura"><span>Saúde e postura</span></label>
+          <label class="opt"><input type="radio" name="Objetivo principal" value="Desempenho em esporte"><span>Desempenho em esporte</span></label>
         </div>
-        <span class="err-msg">Selecione uma opção.</span>
-      </div>
-      <div class="field full cond" id="cond-lesao">
-        <label for="lesao_det">Descreva a lesão: qual região, quando ocorreu, tratamento e situação atual</label>
-        <textarea id="lesao_det" name="Lesao (detalhe)" placeholder="Ex.: hérnia de disco L4-L5 em 2022, faço fisioterapia, ainda sinto dor ao agachar com carga alta."></textarea>
+        <span class="err-msg">Escolha seu objetivo principal.</span>
       </div>
       <div class="field full">
-        <span class="q-label">Você sente dor ou desconforto em alguma articulação?</span>
-        <div class="opts" data-name="Dores articulares">
-          <label class="opt"><input type="checkbox" name="Dores articulares" value="Ombro"><span>Ombro</span></label>
-          <label class="opt"><input type="checkbox" name="Dores articulares" value="Cotovelo"><span>Cotovelo</span></label>
-          <label class="opt"><input type="checkbox" name="Dores articulares" value="Punho"><span>Punho</span></label>
-          <label class="opt"><input type="checkbox" name="Dores articulares" value="Coluna cervical (pescoço)"><span>Pescoço</span></label>
-          <label class="opt"><input type="checkbox" name="Dores articulares" value="Coluna lombar"><span>Lombar</span></label>
-          <label class="opt"><input type="checkbox" name="Dores articulares" value="Quadril"><span>Quadril</span></label>
-          <label class="opt"><input type="checkbox" name="Dores articulares" value="Joelho"><span>Joelho</span></label>
-          <label class="opt"><input type="checkbox" name="Dores articulares" value="Tornozelo"><span>Tornozelo</span></label>
-          <label class="opt"><input type="checkbox" name="Dores articulares" value="Nenhuma"><span>Nenhuma</span></label>
-        </div>
-      </div>
-      <div class="field full">
-        <label for="cirurgias">Já passou por alguma cirurgia?</label>
-        <textarea id="cirurgias" name="Cirurgias" placeholder="Qual, quando e se ficou alguma limitação. Se não, escreva 'não'."></textarea>
-      </div>
-      <div class="field full">
-        <span class="q-label">Possui alguma condição de saúde diagnosticada?</span>
-        <div class="opts" data-name="Condicoes de saude">
-          <label class="opt"><input type="checkbox" name="Condicoes de saude" value="Hipertensão (pressão alta)"><span>Pressão alta</span></label>
-          <label class="opt"><input type="checkbox" name="Condicoes de saude" value="Diabetes"><span>Diabetes</span></label>
-          <label class="opt"><input type="checkbox" name="Condicoes de saude" value="Problema cardíaco"><span>Cardíaco</span></label>
-          <label class="opt"><input type="checkbox" name="Condicoes de saude" value="Colesterol alto"><span>Colesterol alto</span></label>
-          <label class="opt"><input type="checkbox" name="Condicoes de saude" value="Alteração na tireoide"><span>Tireoide</span></label>
-          <label class="opt"><input type="checkbox" name="Condicoes de saude" value="Problema respiratório / asma"><span>Respiratório / asma</span></label>
-          <label class="opt"><input type="checkbox" name="Condicoes de saude" value="Ansiedade / depressão"><span>Ansiedade / depressão</span></label>
-          <label class="opt"><input type="checkbox" name="Condicoes de saude" value="Nenhuma"><span>Nenhuma</span></label>
-        </div>
-      </div>
-      <div class="field full">
-        <label for="condicoes_outras">Outras condições de saúde ou detalhes das acima</label>
-        <textarea id="condicoes_outras" name="Outras condicoes (detalhe)" placeholder="Descreva qualquer condição relevante que devamos considerar."></textarea>
-      </div>
-      <div class="field full">
-        <label for="medicamentos">Usa algum medicamento de uso contínuo?</label>
-        <textarea id="medicamentos" name="Medicamentos" placeholder="Quais e para quê. Se não usa, escreva 'não'."></textarea>
-      </div>
-      <div class="field qgroup" data-required="1">
-        <span class="q-label">Tem liberação médica para atividade física? <span class="req">*</span></span>
-        <div class="opts col" data-name="Liberacao medica">
-          <label class="opt"><input type="radio" name="Liberacao medica" value="Sim, tenho liberação"><span>Sim, tenho liberação</span></label>
-          <label class="opt"><input type="radio" name="Liberacao medica" value="Não fiz avaliação recente"><span>Não fiz avaliação recente</span></label>
-          <label class="opt"><input type="radio" name="Liberacao medica" value="Não / não sei"><span>Não / não sei</span></label>
-        </div>
-        <span class="err-msg">Selecione uma opção.</span>
-      </div>
-      <div class="field" id="wrap-gestante">
-        <label for="gestante">Situação específica (se aplicável)</label>
-        <select id="gestante" name="Situacao especifica">
-          <option value="" selected>Não se aplica</option>
-          <option>Gestante</option>
-          <option>Pós-parto</option>
-          <option>Amamentando</option>
-          <option>Menopausa / climatério</option>
-          <option>SOP (ovário policístico)</option>
-        </select>
+        <label for="mudanca">Em uma frase: o que você mais quer mudar?</label>
+        <input id="mudanca" name="O que mais quer mudar" type="text" placeholder="Com suas palavras — sem filtro.">
       </div>
     </div>
   </fieldset>
 
-  <!-- ===== 7. NUTRIÇÃO E ESTILO DE VIDA ===== -->
+  <!-- ===== 05. FOCO ===== -->
   <fieldset>
     <legend>
-      <span class="leg-num">07 · Nutrição e estilo de vida</span>
-      <span class="leg-title">O que sustenta o resultado</span>
-      <span class="leg-desc">Treino é só metade. Alimentação, sono e recuperação definem o quanto você evolui.</span>
+      <span class="leg-num">05 · Foco</span>
+      <span class="leg-title">Onde entra a prioridade</span>
+      <span class="leg-desc">As regiões que recebem mais volume e atenção no protocolo. Escolha até 3.</span>
+    </legend>
+    <div class="grid">
+      <div class="field full qgroup" data-required="1">
+        <span class="q-label">Prioridade <span class="req">*</span></span>
+        <div class="opts" data-name="Prioridade (ate 3)">
+          <label class="opt"><input type="checkbox" name="Prioridade (ate 3)" value="Peito"><span>Peito</span></label>
+          <label class="opt"><input type="checkbox" name="Prioridade (ate 3)" value="Costas"><span>Costas</span></label>
+          <label class="opt"><input type="checkbox" name="Prioridade (ate 3)" value="Ombros"><span>Ombros</span></label>
+          <label class="opt"><input type="checkbox" name="Prioridade (ate 3)" value="Braços"><span>Braços</span></label>
+          <label class="opt"><input type="checkbox" name="Prioridade (ate 3)" value="Abdômen"><span>Abdômen</span></label>
+          <label class="opt"><input type="checkbox" name="Prioridade (ate 3)" value="Glúteos"><span>Glúteos</span></label>
+          <label class="opt"><input type="checkbox" name="Prioridade (ate 3)" value="Pernas"><span>Pernas</span></label>
+          <label class="opt"><input type="checkbox" name="Prioridade (ate 3)" value="Panturrilhas"><span>Panturrilhas</span></label>
+          <label class="opt"><input type="checkbox" name="Prioridade (ate 3)" value="Corpo todo"><span>Corpo todo</span></label>
+        </div>
+        <span class="hint">Até 3 regiões — priorizar tudo é não priorizar nada.</span>
+        <span class="err-msg">Marque pelo menos uma região (até 3).</span>
+      </div>
+    </div>
+  </fieldset>
+
+  <!-- ===== 06. MAPA MUSCULAR ===== -->
+  <fieldset>
+    <legend>
+      <span class="leg-num">06 · Mapa muscular</span>
+      <span class="leg-title">Forte, neutro ou ponto fraco</span>
+      <span class="leg-desc">Marque como você enxerga cada região hoje. Opcional — mas quanto mais completo o mapa, mais cirúrgico o protocolo.</span>
     </legend>
     <div class="grid">
       <div class="field full">
-        <label for="alimentacao">Como é sua alimentação hoje?</label>
-        <textarea id="alimentacao" name="Alimentacao atual" placeholder="Descreva um dia típico: o que costuma comer no café, almoço, jantar e lanches."></textarea>
-      </div>
-      <div class="field qgroup">
-        <span class="q-label">Tem acompanhamento nutricional?</span>
-        <div class="opts" data-name="Acompanhamento nutricional">
-          <label class="opt"><input type="radio" name="Acompanhamento nutricional" value="Sim, com nutricionista"><span>Sim</span></label>
-          <label class="opt"><input type="radio" name="Acompanhamento nutricional" value="Não"><span>Não</span></label>
+        <span class="q-label">Cadeia anterior</span>
+        <div class="matrix" role="group" aria-label="Cadeia anterior — marque forte, neutro ou ponto fraco para cada região">
+          <div class="m-row m-head" aria-hidden="true"><span>Região</span><span>Forte</span><span>Neutro</span><span>Ponto fraco</span></div>
+          <div class="m-row">
+            <span class="m-name">Peitoral</span>
+            <label class="m-cell forte"><input type="radio" name="Mapa - Peitoral" value="Forte" aria-label="Peitoral: forte"><span></span></label>
+            <label class="m-cell"><input type="radio" name="Mapa - Peitoral" value="Neutro" aria-label="Peitoral: neutro"><span></span></label>
+            <label class="m-cell fraco"><input type="radio" name="Mapa - Peitoral" value="Ponto fraco" aria-label="Peitoral: ponto fraco"><span></span></label>
+          </div>
+          <div class="m-row">
+            <span class="m-name">Ombro anterior</span>
+            <label class="m-cell forte"><input type="radio" name="Mapa - Ombro anterior" value="Forte" aria-label="Ombro anterior: forte"><span></span></label>
+            <label class="m-cell"><input type="radio" name="Mapa - Ombro anterior" value="Neutro" aria-label="Ombro anterior: neutro"><span></span></label>
+            <label class="m-cell fraco"><input type="radio" name="Mapa - Ombro anterior" value="Ponto fraco" aria-label="Ombro anterior: ponto fraco"><span></span></label>
+          </div>
+          <div class="m-row">
+            <span class="m-name">Bíceps</span>
+            <label class="m-cell forte"><input type="radio" name="Mapa - Biceps" value="Forte" aria-label="Bíceps: forte"><span></span></label>
+            <label class="m-cell"><input type="radio" name="Mapa - Biceps" value="Neutro" aria-label="Bíceps: neutro"><span></span></label>
+            <label class="m-cell fraco"><input type="radio" name="Mapa - Biceps" value="Ponto fraco" aria-label="Bíceps: ponto fraco"><span></span></label>
+          </div>
+          <div class="m-row">
+            <span class="m-name">Antebraço</span>
+            <label class="m-cell forte"><input type="radio" name="Mapa - Antebraco" value="Forte" aria-label="Antebraço: forte"><span></span></label>
+            <label class="m-cell"><input type="radio" name="Mapa - Antebraco" value="Neutro" aria-label="Antebraço: neutro"><span></span></label>
+            <label class="m-cell fraco"><input type="radio" name="Mapa - Antebraco" value="Ponto fraco" aria-label="Antebraço: ponto fraco"><span></span></label>
+          </div>
+          <div class="m-row">
+            <span class="m-name">Abdômen</span>
+            <label class="m-cell forte"><input type="radio" name="Mapa - Abdomen" value="Forte" aria-label="Abdômen: forte"><span></span></label>
+            <label class="m-cell"><input type="radio" name="Mapa - Abdomen" value="Neutro" aria-label="Abdômen: neutro"><span></span></label>
+            <label class="m-cell fraco"><input type="radio" name="Mapa - Abdomen" value="Ponto fraco" aria-label="Abdômen: ponto fraco"><span></span></label>
+          </div>
+          <div class="m-row">
+            <span class="m-name">Quadríceps</span>
+            <label class="m-cell forte"><input type="radio" name="Mapa - Quadriceps" value="Forte" aria-label="Quadríceps: forte"><span></span></label>
+            <label class="m-cell"><input type="radio" name="Mapa - Quadriceps" value="Neutro" aria-label="Quadríceps: neutro"><span></span></label>
+            <label class="m-cell fraco"><input type="radio" name="Mapa - Quadriceps" value="Ponto fraco" aria-label="Quadríceps: ponto fraco"><span></span></label>
+          </div>
         </div>
-      </div>
-      <div class="field">
-        <label for="agua">Quanta água você bebe por dia?</label>
-        <select id="agua" name="Consumo de agua">
-          <option value="" disabled selected>Selecione</option>
-          <option>Menos de 1 litro</option>
-          <option>1 a 2 litros</option>
-          <option>2 a 3 litros</option>
-          <option>Mais de 3 litros</option>
-        </select>
       </div>
       <div class="field full">
-        <label for="restricoes">Restrições ou alergias alimentares</label>
-        <input id="restricoes" name="Restricoes alimentares" type="text" placeholder="Ex.: intolerância à lactose, vegetariano, alergia a amendoim... (ou 'nenhuma')">
-      </div>
-      <div class="field full">
-        <label for="suplementos">Usa algum suplemento?</label>
-        <textarea id="suplementos" name="Suplementos" placeholder="Ex.: whey, creatina, cafeína, multivitamínico... (ou 'nenhum')"></textarea>
-      </div>
-      <div class="field">
-        <label for="sono_horas">Quantas horas você dorme por noite?</label>
-        <select id="sono_horas" name="Horas de sono">
-          <option value="" disabled selected>Selecione</option>
-          <option>Menos de 5h</option>
-          <option>5 a 6h</option>
-          <option>6 a 7h</option>
-          <option>7 a 8h</option>
-          <option>Mais de 8h</option>
-        </select>
-      </div>
-      <div class="field qgroup">
-        <span class="q-label">Como é a qualidade do seu sono?</span>
-        <div class="opts" data-name="Qualidade do sono">
-          <label class="opt"><input type="radio" name="Qualidade do sono" value="Boa"><span>Boa</span></label>
-          <label class="opt"><input type="radio" name="Qualidade do sono" value="Regular"><span>Regular</span></label>
-          <label class="opt"><input type="radio" name="Qualidade do sono" value="Ruim"><span>Ruim</span></label>
-        </div>
-      </div>
-      <div class="field qgroup">
-        <span class="q-label">Nível de estresse no dia a dia</span>
-        <div class="opts" data-name="Nivel de estresse">
-          <label class="opt"><input type="radio" name="Nivel de estresse" value="Baixo"><span>Baixo</span></label>
-          <label class="opt"><input type="radio" name="Nivel de estresse" value="Moderado"><span>Moderado</span></label>
-          <label class="opt"><input type="radio" name="Nivel de estresse" value="Alto"><span>Alto</span></label>
-        </div>
-      </div>
-      <div class="field qgroup">
-        <span class="q-label">Consome bebida alcoólica?</span>
-        <div class="opts" data-name="Alcool">
-          <label class="opt"><input type="radio" name="Alcool" value="Não"><span>Não</span></label>
-          <label class="opt"><input type="radio" name="Alcool" value="Socialmente / fins de semana"><span>Socialmente</span></label>
-          <label class="opt"><input type="radio" name="Alcool" value="Com frequência"><span>Com frequência</span></label>
-        </div>
-      </div>
-      <div class="field qgroup">
-        <span class="q-label">Você fuma?</span>
-        <div class="opts" data-name="Fumante">
-          <label class="opt"><input type="radio" name="Fumante" value="Não"><span>Não</span></label>
-          <label class="opt"><input type="radio" name="Fumante" value="Sim"><span>Sim</span></label>
-          <label class="opt"><input type="radio" name="Fumante" value="Parei recentemente"><span>Parei recentemente</span></label>
+        <span class="q-label">Cadeia posterior</span>
+        <div class="matrix" role="group" aria-label="Cadeia posterior — marque forte, neutro ou ponto fraco para cada região">
+          <div class="m-row m-head" aria-hidden="true"><span>Região</span><span>Forte</span><span>Neutro</span><span>Ponto fraco</span></div>
+          <div class="m-row">
+            <span class="m-name">Dorsal</span>
+            <label class="m-cell forte"><input type="radio" name="Mapa - Dorsal" value="Forte" aria-label="Dorsal: forte"><span></span></label>
+            <label class="m-cell"><input type="radio" name="Mapa - Dorsal" value="Neutro" aria-label="Dorsal: neutro"><span></span></label>
+            <label class="m-cell fraco"><input type="radio" name="Mapa - Dorsal" value="Ponto fraco" aria-label="Dorsal: ponto fraco"><span></span></label>
+          </div>
+          <div class="m-row">
+            <span class="m-name">Trapézio</span>
+            <label class="m-cell forte"><input type="radio" name="Mapa - Trapezio" value="Forte" aria-label="Trapézio: forte"><span></span></label>
+            <label class="m-cell"><input type="radio" name="Mapa - Trapezio" value="Neutro" aria-label="Trapézio: neutro"><span></span></label>
+            <label class="m-cell fraco"><input type="radio" name="Mapa - Trapezio" value="Ponto fraco" aria-label="Trapézio: ponto fraco"><span></span></label>
+          </div>
+          <div class="m-row">
+            <span class="m-name">Ombro posterior</span>
+            <label class="m-cell forte"><input type="radio" name="Mapa - Ombro posterior" value="Forte" aria-label="Ombro posterior: forte"><span></span></label>
+            <label class="m-cell"><input type="radio" name="Mapa - Ombro posterior" value="Neutro" aria-label="Ombro posterior: neutro"><span></span></label>
+            <label class="m-cell fraco"><input type="radio" name="Mapa - Ombro posterior" value="Ponto fraco" aria-label="Ombro posterior: ponto fraco"><span></span></label>
+          </div>
+          <div class="m-row">
+            <span class="m-name">Tríceps</span>
+            <label class="m-cell forte"><input type="radio" name="Mapa - Triceps" value="Forte" aria-label="Tríceps: forte"><span></span></label>
+            <label class="m-cell"><input type="radio" name="Mapa - Triceps" value="Neutro" aria-label="Tríceps: neutro"><span></span></label>
+            <label class="m-cell fraco"><input type="radio" name="Mapa - Triceps" value="Ponto fraco" aria-label="Tríceps: ponto fraco"><span></span></label>
+          </div>
+          <div class="m-row">
+            <span class="m-name">Glúteo</span>
+            <label class="m-cell forte"><input type="radio" name="Mapa - Gluteo" value="Forte" aria-label="Glúteo: forte"><span></span></label>
+            <label class="m-cell"><input type="radio" name="Mapa - Gluteo" value="Neutro" aria-label="Glúteo: neutro"><span></span></label>
+            <label class="m-cell fraco"><input type="radio" name="Mapa - Gluteo" value="Ponto fraco" aria-label="Glúteo: ponto fraco"><span></span></label>
+          </div>
+          <div class="m-row">
+            <span class="m-name">Posterior de coxa</span>
+            <label class="m-cell forte"><input type="radio" name="Mapa - Posterior de coxa" value="Forte" aria-label="Posterior de coxa: forte"><span></span></label>
+            <label class="m-cell"><input type="radio" name="Mapa - Posterior de coxa" value="Neutro" aria-label="Posterior de coxa: neutro"><span></span></label>
+            <label class="m-cell fraco"><input type="radio" name="Mapa - Posterior de coxa" value="Ponto fraco" aria-label="Posterior de coxa: ponto fraco"><span></span></label>
+          </div>
+          <div class="m-row">
+            <span class="m-name">Panturrilha</span>
+            <label class="m-cell forte"><input type="radio" name="Mapa - Panturrilha" value="Forte" aria-label="Panturrilha: forte"><span></span></label>
+            <label class="m-cell"><input type="radio" name="Mapa - Panturrilha" value="Neutro" aria-label="Panturrilha: neutro"><span></span></label>
+            <label class="m-cell fraco"><input type="radio" name="Mapa - Panturrilha" value="Ponto fraco" aria-label="Panturrilha: ponto fraco"><span></span></label>
+          </div>
         </div>
       </div>
     </div>
   </fieldset>
 
-  <!-- ===== 8. CONTEXTO ===== -->
+  <!-- ===== 07. LIMITAÇÕES ===== -->
   <fieldset>
     <legend>
-      <span class="leg-num">08 · Contexto e comprometimento</span>
-      <span class="leg-title">O que mais devo saber</span>
-      <span class="leg-desc">Últimos detalhes para eu entender o seu momento e ajustar a estratégia.</span>
+      <span class="leg-num">07 · Limitações</span>
+      <span class="leg-title">Segurança em primeiro lugar</span>
+      <span class="leg-desc">A parte mais importante da ficha. É o que garante um treino que respeita o seu corpo — sem agravar nada.</span>
     </legend>
     <div class="grid">
-      <div class="field full">
-        <label for="dificuldades">Qual sua maior dificuldade para manter a rotina de treino/dieta?</label>
-        <textarea id="dificuldades" name="Maiores dificuldades" placeholder="Ex.: falta de tempo, motivação, disciplina na dieta, viagens a trabalho..."></textarea>
-      </div>
-      <div class="field full qgroup">
-        <span class="q-label">Qual seu nível de comprometimento com o processo agora?</span>
-        <div class="opts" data-name="Comprometimento">
-          <label class="opt"><input type="radio" name="Comprometimento" value="Total — quero resultado e vou seguir tudo"><span>Total</span></label>
-          <label class="opt"><input type="radio" name="Comprometimento" value="Alto, com alguns limites de rotina"><span>Alto</span></label>
-          <label class="opt"><input type="radio" name="Comprometimento" value="Médio — vou fazer o possível"><span>Médio</span></label>
+      <div class="field full qgroup" data-required="1">
+        <span class="q-label">O que precisa de cuidado? <span class="req">*</span></span>
+        <div class="opts" data-name="Precisa de cuidado">
+          <label class="opt"><input type="checkbox" name="Precisa de cuidado" value="Ombro"><span>Ombro</span></label>
+          <label class="opt"><input type="checkbox" name="Precisa de cuidado" value="Lombar"><span>Lombar</span></label>
+          <label class="opt"><input type="checkbox" name="Precisa de cuidado" value="Cervical"><span>Cervical</span></label>
+          <label class="opt"><input type="checkbox" name="Precisa de cuidado" value="Joelho"><span>Joelho</span></label>
+          <label class="opt"><input type="checkbox" name="Precisa de cuidado" value="Quadril"><span>Quadril</span></label>
+          <label class="opt"><input type="checkbox" name="Precisa de cuidado" value="Punho ou cotovelo"><span>Punho ou cotovelo</span></label>
+          <label class="opt"><input type="checkbox" name="Precisa de cuidado" value="Tornozelo"><span>Tornozelo</span></label>
+          <label class="opt"><input type="checkbox" name="Precisa de cuidado" value="Cirurgia recente"><span>Cirurgia recente</span></label>
+          <label class="opt"><input type="checkbox" name="Precisa de cuidado" value="Coração ou pressão"><span>Coração ou pressão</span></label>
+          <label class="opt"><input type="checkbox" name="Precisa de cuidado" value="Nada a declarar"><span>Nada a declarar</span></label>
         </div>
+        <span class="err-msg">Marque as regiões que precisam de cuidado — ou "Nada a declarar".</span>
       </div>
-      <div class="field">
-        <label for="como_conheceu">Como você conheceu o Lukas?</label>
-        <select id="como_conheceu" name="Como conheceu">
-          <option value="" disabled selected>Selecione</option>
-          <option>Instagram</option>
-          <option>Indicação de um amigo/aluno</option>
-          <option>Google / pesquisa</option>
-          <option>YouTube</option>
-          <option>Outro</option>
-        </select>
+      <div class="field full cond" id="cond-cuidado">
+        <label for="cuidado_det">Conte o detalhe: o que dói, em qual movimento, desde quando</label>
+        <textarea id="cuidado_det" name="Detalhe do cuidado" placeholder="Ex.: ombro direito dói no desenvolvimento acima da cabeça, desde 2023. Já fiz fisioterapia."></textarea>
       </div>
       <div class="field full">
-        <label for="observacoes">Mais alguma coisa que queira contar?</label>
-        <textarea id="observacoes" name="Observacoes" placeholder="Espaço livre — qualquer informação que julgue importante."></textarea>
+        <label for="observacoes">Mais alguma coisa que eu deva saber?</label>
+        <textarea id="observacoes" name="Observacoes" placeholder="Espaço livre — rotina, saúde, medicação, o que julgar importante."></textarea>
       </div>
     </div>
 
@@ -903,31 +767,35 @@
   var pbFill = document.getElementById('pbFill');
   var pbLabel = document.getElementById('pbLabel');
 
-  /* ---- Campos condicionais (mostrar/esconder) ---- */
-  document.querySelectorAll('.opts[data-toggle]').forEach(function(group){
-    var target = document.getElementById(group.getAttribute('data-toggle'));
-    var showValues = {
-      'cond-consultoria': ['Sim'],
-      'cond-parado': ['Sim, estou parado'],
-      'cond-lesao': ['Sim, atualmente', 'Já tive, mas está resolvida']
-    };
-    var key = group.getAttribute('data-toggle');
-    group.querySelectorAll('input').forEach(function(inp){
-      inp.addEventListener('change', function(){
-        var show = showValues[key] && showValues[key].indexOf(inp.value) !== -1;
-        target.classList.toggle('show', show);
-      });
+  /* ---- Foco: limite de 3 seleções ---- */
+  var FOCO = 'Prioridade (ate 3)';
+  form.querySelectorAll('input[name="' + FOCO + '"]').forEach(function(inp){
+    inp.addEventListener('change', function(){
+      if(inp.checked && form.querySelectorAll('input[name="' + FOCO + '"]:checked').length > 3){
+        inp.checked = false;
+      }
     });
   });
 
-  /* ---- "Situação específica" só faz sentido para sexo feminino ---- */
-  var sexoSel = document.getElementById('sexo');
-  var wrapGest = document.getElementById('wrap-gestante');
-  function toggleGest(){
-    wrapGest.style.display = (sexoSel.value === 'Feminino') ? '' : 'none';
-  }
-  sexoSel.addEventListener('change', toggleGest);
-  toggleGest();
+  /* ---- Limitações: "Nada a declarar" é exclusivo + campo de detalhe condicional ---- */
+  var CUIDADO = 'Precisa de cuidado';
+  var condCuidado = document.getElementById('cond-cuidado');
+  var cuidadoInputs = form.querySelectorAll('input[name="' + CUIDADO + '"]');
+  cuidadoInputs.forEach(function(inp){
+    inp.addEventListener('change', function(){
+      if(inp.checked){
+        if(inp.value === 'Nada a declarar'){
+          cuidadoInputs.forEach(function(o){ if(o !== inp) o.checked = false; });
+        } else {
+          cuidadoInputs.forEach(function(o){ if(o.value === 'Nada a declarar') o.checked = false; });
+        }
+      }
+      var temCuidado = Array.prototype.some.call(cuidadoInputs, function(o){
+        return o.checked && o.value !== 'Nada a declarar';
+      });
+      condCuidado.classList.toggle('show', temCuidado);
+    });
+  });
 
   /* ---- Barra de progresso ---- */
   function relevantControls(){
@@ -942,8 +810,6 @@
         seenGroups[el.name] = true;
         list.push({type:'group', name:el.name});
       } else {
-        // ignora campo gestante quando oculto
-        if(el.id === 'gestante' && wrapGest.style.display === 'none') return;
         list.push({type:'single', el:el});
       }
     });
@@ -986,7 +852,7 @@
       if(el.type === 'checkbox') return; // consent tratado à parte
       var wrap = el.closest('.field');
       var ok = el.value && el.value.trim() !== '';
-      if(el.type === 'date' && !el.value) ok = false;
+      if(ok && el.type === 'email' && !el.checkValidity()) ok = false;
       if(!ok && wrap){
         wrap.classList.add('invalid');
         if(!firstInvalid) firstInvalid = wrap;
