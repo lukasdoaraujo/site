@@ -4,6 +4,20 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+<!-- Black Friday: ativa o hotsite somente em 27/11/2026, 00:00–23:59 (Brasília, UTC−3, sem horário de verão).
+     Roda antes do CSS para não piscar o layout normal. Pré-visualização: ?bf=preview -->
+<script>
+  (function(){
+    var INICIO=Date.UTC(2026,10,27,3,0,0);   // 27/11/2026 00:00 BRT
+    var FIM=Date.UTC(2026,10,28,3,0,0);      // 28/11/2026 00:00 BRT
+    var preview=/[?&]bf=preview(&|$)/.test(location.search);
+    function noPeriodo(t){return t>=INICIO&&t<FIM;}
+    window.BF={inicio:INICIO,fim:FIM,preview:preview,
+      ativo:function(){return preview||noPeriodo(Date.now());}};
+    if(window.BF.ativo())document.documentElement.classList.add('bf');
+  })();
+</script>
+
 <!-- Microsoft Clarity -->
 <script type="text/javascript">
   (function(c,l,a,r,i,t,y){
@@ -15,7 +29,7 @@
 
 <!-- Primary Meta -->
 <title>Consultoria de Musculação Online | Lukas Capetinga · Arquitetura Corporal</title>
-<meta name="description" content="Consultoria de musculação online com Lukas Capetinga (CREF · São Paulo): treino personalizado, nutrição e periodização calculada. 500+ alunos. 10 vagas/mês — aplique agora." />
+<meta name="description" content="Consultoria de musculação online com Lukas Capetinga (CREF 217730-G/SP): treino personalizado, correção de execução por vídeo e periodização calculada. A partir de R$100/mês. 10 vagas/mês — aplique agora." />
 <meta name="keywords" content="consultoria de musculação online, treino personalizado online, consultoria fitness, hipertrofia, periodização de treino, personal trainer online, emagrecimento, Lukas Capetinga, personal online São Paulo, arquitetura corporal" />
 <meta name="author" content="Lukas Capetinga" />
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -37,18 +51,18 @@
 <meta property="og:site_name" content="Lukas Capetinga — Arquitetura Corporal" />
 <meta property="og:url" content="https://lukascapetinga.com.br/" />
 <meta property="og:title" content="Consultoria de Musculação Online | Lukas Capetinga · Arquitetura Corporal" />
-<meta property="og:description" content="Corpo não se ganha. Se projeta. Treino personalizado, nutrição e periodização calculada com Lukas Capetinga (CREF · São Paulo). 10 vagas por mês." />
-<meta property="og:image" content="https://lukascapetinga.com.br/images/lukas/Lucas1.jpeg" />
-<meta property="og:image:width" content="1209" />
-<meta property="og:image:height" content="1209" />
+<meta property="og:description" content="Corpo não se ganha. Se projeta. Treino personalizado, correção de execução por vídeo e periodização calculada com Lukas Capetinga (CREF 217730-G/SP). 10 vagas por mês." />
+<meta property="og:image" content="https://lukascapetinga.com.br/images/lukas/Lucas.jpeg" />
+<meta property="og:image:width" content="1285" />
+<meta property="og:image:height" content="1286" />
 <meta property="og:image:type" content="image/jpeg" />
 <meta property="og:image:alt" content="Lukas Capetinga, educador físico e especialista em hipertrofia" />
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Consultoria de Musculação Online | Lukas Capetinga · Arquitetura Corporal" />
-<meta name="twitter:description" content="Corpo não se ganha. Se projeta. Treino personalizado, nutrição e periodização calculada com Lukas Capetinga (CREF · São Paulo). 10 vagas por mês." />
-<meta name="twitter:image" content="https://lukascapetinga.com.br/images/lukas/Lucas1.jpeg" />
+<meta name="twitter:description" content="Corpo não se ganha. Se projeta. Treino personalizado, correção de execução por vídeo e periodização calculada com Lukas Capetinga (CREF 217730-G/SP). 10 vagas por mês." />
+<meta name="twitter:image" content="https://lukascapetinga.com.br/images/lukas/Lucas.jpeg" />
 
 <link rel="preload" as="image" href="images/lukas/Lucas.jpeg" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -237,6 +251,8 @@
   .spec:last-child{border-right:none}
   .spec .k{font-family:'IBM Plex Mono';font-size:10px;letter-spacing:2px;color:var(--areia);text-transform:uppercase}
   .spec .v{font-family:'Big Shoulders Display';font-weight:800;font-size:2.4rem;letter-spacing:1px;margin-top:6px;text-transform:uppercase;line-height:1}
+  .spec .v a{text-decoration:underline;text-decoration-color:var(--linha);text-underline-offset:6px;transition:color .2s}
+  .spec .v a:hover,.spec .v a:focus-visible{color:var(--areia);text-decoration-color:var(--areia)}
 
   /* ---------- Treinar x Auditar ---------- */
   .versus{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--linha)}
@@ -295,6 +311,22 @@
   .rcard .data strong{color:var(--areia);font-weight:500}
   .rcard blockquote{font-size:.95rem;line-height:1.7;color:var(--texto);font-style:italic;border-left:1px solid var(--linha);padding-left:18px;margin-top:auto}
 
+  /* ---------- Transformações (antes e depois) ---------- */
+  .tf{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--linha);border:1px solid var(--linha)}
+  .tf:focus-visible{outline:2px solid var(--areia);outline-offset:4px}
+  .tf-card{background:var(--preto);padding:14px 14px 16px;margin:0}
+  .tf-pair{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+  .tf-img{position:relative;aspect-ratio:1/2;overflow:hidden;background:var(--carvao)}
+  .tf-img img{width:100%;height:100%;object-fit:cover;display:block}
+  .tf-tag{
+    position:absolute;left:8px;bottom:8px;
+    font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;
+    background:rgba(5,5,5,.8);color:var(--osso);padding:5px 9px;
+  }
+  .tf-img.depois .tf-tag{background:var(--areia);color:var(--preto);font-weight:500}
+  .tf-card figcaption{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--texto-2);margin-top:12px}
+  .tf-note{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--texto-2);margin:16px 0 56px}
+
   /* ---------- Protocolos ---------- */
   .plans{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--linha);border:1px solid var(--linha)}
   .plan{background:var(--preto);padding:38px 30px;display:flex;flex-direction:column;position:relative}
@@ -303,25 +335,17 @@
   .plan h3{font-family:'Big Shoulders Display';font-weight:800;font-size:2rem;text-transform:uppercase;letter-spacing:1px;margin:12px 0 2px}
   .plan .sub{font-size:.85rem;color:var(--texto-2)}
   .plan .price{margin:26px 0 2px;font-family:'Big Shoulders Display';font-weight:900;font-size:3rem;letter-spacing:1px;line-height:1}
-  .plan .price-eq{font-family:'IBM Plex Mono';font-size:.7rem;letter-spacing:1px;color:var(--areia);display:block;margin-top:8px;text-transform:uppercase}
+  .plan .price small{font-size:1.1rem;font-weight:700;color:var(--texto-2);margin-left:4px;letter-spacing:.5px}
+  .plan .price-eq{font-family:'IBM Plex Mono';font-size:.7rem;letter-spacing:1px;color:var(--areia);display:block;margin-top:10px;text-transform:uppercase}
+  .plan .price-eq s{color:var(--texto-2);margin-left:6px}
+  .plan .price-save{font-family:'IBM Plex Mono';font-size:.66rem;letter-spacing:1px;color:var(--texto-2);display:block;margin-top:4px;text-transform:uppercase}
+  .plan .price-old{font-family:'IBM Plex Mono';font-size:.8rem;letter-spacing:1px;color:var(--texto-2);display:block;margin-top:26px}
+  .plan .price-old + .price{margin-top:4px}
   .plan ul{list-style:none;margin:26px 0 30px;display:flex;flex-direction:column;gap:13px;flex:1}
   .plan li{position:relative;padding-left:22px;font-size:.88rem;line-height:1.5;color:var(--texto)}
   .plan li::before{content:"+";position:absolute;left:0;color:var(--areia);font-family:'IBM Plex Mono'}
   .plan .btn{width:100%;font-size:12px;padding:15px}
-  .plans-note{margin-top:24px;font-family:'IBM Plex Mono';font-size:10px;letter-spacing:1.5px;color:var(--areia);text-transform:uppercase;background:var(--preto)}
-
-  /* ---------- Elite ---------- */
-  .elite{display:grid;grid-template-columns:1fr 0.9fr;border:1px solid var(--linha)}
-  .elite .l{padding:54px 48px}
-  .elite .r{padding:54px 48px;border-left:1px solid var(--linha);background:var(--grafite);display:flex;flex-direction:column;justify-content:center}
-  .elite h3{font-size:clamp(2.2rem,4vw,3.2rem);margin:16px 0 22px}
-  .elite p{font-size:.98rem;margin-bottom:18px}
-  .elite ul{list-style:none;display:flex;flex-direction:column;gap:14px;margin-top:8px}
-  .elite li{position:relative;padding-left:24px;font-size:.93rem;color:var(--texto)}
-  .elite li::before{content:"+";position:absolute;left:0;color:var(--areia);font-family:'IBM Plex Mono'}
-  .elite .coupon{font-family:'IBM Plex Mono';font-size:12px;letter-spacing:2px;color:var(--areia);border:1px dashed rgba(217,194,176,.4);padding:14px 18px;text-align:center;margin:6px 0 26px;text-transform:uppercase}
-  .elite .r h4{font-size:1.3rem;margin:16px 0 8px}
-  .elite .r p{margin-bottom:24px}
+  .plans-note{margin-top:16px;line-height:1.8;font-family:'IBM Plex Mono';font-size:10px;letter-spacing:1.5px;color:var(--areia);text-transform:uppercase;background:var(--preto)}
 
   /* ---------- FAQ ---------- */
   .faq{border-top:1px solid var(--linha)}
@@ -392,8 +416,6 @@
   .foot-links a{font-family:'IBM Plex Mono';font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--texto);transition:color .2s}
   .foot-links a:hover,.foot-links a:focus-visible{color:var(--areia);text-decoration:underline;text-underline-offset:5px}
   .foot-selos{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-top:44px}
-  .foot-selos img{display:block;height:32px;width:auto}
-  .foot-selos a{display:inline-flex;border-radius:2px}
   .selo-txt{font-family:'IBM Plex Mono';font-size:10px;letter-spacing:1.5px;color:var(--texto-2);text-transform:uppercase;max-width:52ch;line-height:1.8}
   .foot-bottom{margin-top:24px;padding-top:24px;border-top:1px solid var(--linha-suave);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
     font-family:'IBM Plex Mono';font-size:10px;letter-spacing:1.5px;color:var(--texto-2);text-transform:uppercase}
@@ -461,6 +483,65 @@
   html.a11y-parado *,html.a11y-parado *::before,html.a11y-parado *::after{animation:none !important;transition:none !important}
   html.a11y-parado .reveal{opacity:1;transform:none}
 
+  /* ---------- Black Friday (hotsite, ativo via html.bf) ---------- */
+  html:not(.bf) .bf-only{display:none !important}
+  html.bf .bf-hide{display:none !important}
+
+  .strip-bf{display:block;background:var(--areia);color:var(--preto);border-bottom:none;font-weight:500}
+  .strip-bf strong{color:var(--preto);font-weight:700}
+  .strip-bf:hover{text-decoration:underline;text-underline-offset:4px}
+
+  .bf-hero{position:relative;overflow:hidden;background:var(--preto);border-bottom:1px solid var(--linha)}
+  .bf-hero::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:
+      radial-gradient(ellipse at 15% 20%,rgba(217,194,176,0.16) 0%,transparent 50%),
+      radial-gradient(ellipse at 90% 90%,rgba(156,122,88,0.18) 0%,transparent 55%);
+  }
+  .bf-tape{
+    position:relative;z-index:1;background:var(--areia);color:var(--preto);
+    transform:rotate(-1.6deg);margin:34px -20px 0;padding:12px 0;
+    overflow:hidden;white-space:nowrap;box-shadow:0 10px 30px rgba(0,0,0,.6);
+  }
+  .bf-tape-track{display:inline-block;animation:marq 22s linear infinite}
+  .bf-tape span{font-family:'Big Shoulders Display',sans-serif;font-weight:900;text-transform:uppercase;font-size:1.35rem;letter-spacing:3px;margin:0 22px}
+  .bf-tape span::after{content:"■";font-size:.6rem;vertical-align:middle;margin-left:44px}
+  .bf-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1.05fr;gap:56px;align-items:center;padding:70px 28px 90px}
+  .bf-title{font-size:clamp(4.6rem,12vw,10rem);line-height:.84;margin:18px 0 0}
+  .bf-title .o{display:block;color:transparent;-webkit-text-stroke:2px var(--areia)}
+  .bf-title .f{display:block;color:var(--osso)}
+  .bf-off{
+    font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:clamp(3.4rem,7vw,5.4rem);
+    color:var(--areia);line-height:1;margin-top:20px;display:flex;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  }
+  .bf-off small{font-family:'IBM Plex Mono',monospace;font-weight:400;font-size:.78rem;letter-spacing:2px;text-transform:uppercase;color:var(--osso);max-width:24ch;line-height:1.6;padding-bottom:8px}
+  .bf-lede{max-width:46ch;margin:22px 0 30px;font-size:1.04rem}
+  .bf-clock{display:flex;gap:10px;align-items:stretch}
+  .bf-clock .u{border:1px solid var(--linha);background:var(--carvao);min-width:84px;padding:12px 10px;text-align:center}
+  .bf-clock b{display:block;font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:2.8rem;line-height:1;color:var(--osso);font-variant-numeric:tabular-nums}
+  .bf-clock span{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--areia)}
+  .bf-clock-l{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--areia-dim);display:block;margin-bottom:10px}
+
+  .bf-offers{display:flex;flex-direction:column;gap:1px;background:var(--linha);border:1px solid var(--linha)}
+  .bf-offer{background:var(--carvao);padding:24px 26px;display:grid;grid-template-columns:1fr auto;gap:6px 20px;align-items:center;transition:background .25s}
+  .bf-offer:hover{background:var(--grafite)}
+  .bf-offer.top{background:var(--grafite);box-shadow:inset 3px 0 0 var(--areia)}
+  .bf-offer h3{font-size:1.9rem;letter-spacing:1px}
+  .bf-offer .tot{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:1px;color:var(--texto);text-transform:uppercase;grid-column:1}
+  .bf-offer .tot s{color:var(--texto-2);margin-left:6px}
+  .bf-offer .pr{grid-column:2;grid-row:1 / span 2;text-align:right}
+  .bf-offer .pr s{display:block;font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--texto-2)}
+  .bf-offer .pr b{font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:2.6rem;line-height:1;color:var(--areia)}
+  .bf-offer .pr small{font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:var(--texto-2);margin-left:2px}
+  .bf-offer .btn{grid-column:1 / -1;margin-top:12px;padding:14px;font-size:12px}
+  .bf-terms{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1.2px;color:var(--texto-2);text-transform:uppercase;line-height:1.8;margin-top:16px}
+  .bf-apply-note{border:1px dashed rgba(217,194,176,.45);padding:14px 18px;margin:-12px 0 32px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:1.5px;color:var(--areia);text-transform:uppercase;line-height:1.8}
+  html.bf .plan .ptag{color:var(--areia)}
+  .bf-preview-tag{
+    position:fixed;top:12px;right:12px;z-index:120;background:var(--osso);color:var(--preto);
+    font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:8px 12px;
+  }
+
   /* ---------- Reveal ---------- */
   .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease}
   .reveal.in{opacity:1;transform:none}
@@ -474,9 +555,9 @@
     .phases{grid-template-columns:1fr 1fr}
     .plans{grid-template-columns:1fr 1fr}
     .results{grid-template-columns:1fr}
-    .elite{grid-template-columns:1fr}
-    .elite .r{border-left:none;border-top:1px solid var(--linha)}
+    .tf{grid-template-columns:1fr 1fr}
     .apply-inner{grid-template-columns:1fr;gap:48px}
+    .bf-grid{grid-template-columns:1fr;gap:44px;padding:56px 28px 72px}
   }
   @media(max-width:680px){
     .band{padding:78px 0}
@@ -491,6 +572,8 @@
     .spec:nth-child(even){border-right:none}
     .spec:nth-child(-n+2){border-bottom:1px solid var(--linha)}
     .phases,.plans{grid-template-columns:1fr}
+    .tf{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;background:none;border:none;padding-bottom:10px;margin:0 -28px;padding-left:28px;padding-right:28px;scroll-padding-left:28px}
+    .tf-card{flex:0 0 84%;scroll-snap-align:start;border:1px solid var(--linha)}
     .creds{grid-template-columns:1fr 1fr}
     .cred{padding:20px 14px 0}
     .cred:nth-child(odd){padding-left:0}
@@ -499,10 +582,13 @@
     .fab{bottom:18px;right:18px}
     .a11y-fab{bottom:18px;left:18px}
     .a11y-panel{bottom:84px;left:18px}
+    .bf-clock .u{min-width:0;flex:1}
+    .bf-clock b{font-size:2.2rem}
+    .bf-offer{padding:20px 18px}
   }
   @media(prefers-reduced-motion:reduce){
     .reveal{opacity:1;transform:none;transition:none}
-    .marquee-track{animation:none}
+    .marquee-track,.bf-tape-track{animation:none}
     html{scroll-behavior:auto}
   }
 
@@ -541,11 +627,11 @@
       "name": "Lukas Capetinga — Arquitetura Corporal",
       "description": "Consultoria de alta performance: auditoria biomecânica, gestão de sobrecarga e periodização calculada. Engenharia aplicada ao físico.",
       "url": "https://lukascapetinga.com.br/",
-      "image": "https://lukascapetinga.com.br/images/lukas/Lucas1.jpeg",
+      "image": "https://lukascapetinga.com.br/images/lukas/Lucas.jpeg",
       "logo": "https://lukascapetinga.com.br/images/logo.png",
       "telephone": "+55-11-94883-4582",
       "email": "contato@lukascapetinga.com.br",
-      "priceRange": "R$200 - R$1.500",
+      "priceRange": "R$150 - R$1.200",
       "areaServed": "Brasil",
       "address": {
         "@type": "PostalAddress",
@@ -561,57 +647,37 @@
           {
             "@type": "Offer",
             "name": "Protocolo Mensal",
-            "description": "Treino individualizado, orientações nutricionais, suporte via WhatsApp e ajuste mensal.",
-            "price": "200",
+            "description": "Avaliação inicial, treino individualizado, suporte via WhatsApp e ajuste mensal. R$150 por mês.",
+            "price": "150",
             "priceCurrency": "BRL",
             "url": "https://lukascapetinga.com.br/#protocolos"
           },
           {
             "@type": "Offer",
             "name": "Protocolo Trimestral",
-            "description": "Tudo do Mensal, com auditoria de vídeo da execução, ajuste a cada 45 dias e relatórios de progresso.",
-            "price": "500",
+            "description": "Tudo do Mensal, com auditoria de vídeo da execução, ajuste a cada 45 dias e relatórios de progresso. R$405 por 3 meses (R$135 por mês).",
+            "price": "405",
             "priceCurrency": "BRL",
             "url": "https://lukascapetinga.com.br/#protocolos"
           },
           {
             "@type": "Offer",
             "name": "Protocolo Semestral",
-            "description": "Tudo do Trimestral, com planejamento de suplementação, chamada de vídeo mensal e prioridade no atendimento.",
-            "price": "900",
+            "description": "Tudo do Trimestral, com chamada de vídeo mensal e prioridade no atendimento. R$720 por 6 meses (R$120 por mês).",
+            "price": "720",
             "priceCurrency": "BRL",
             "url": "https://lukascapetinga.com.br/#protocolos"
           },
           {
             "@type": "Offer",
             "name": "Protocolo Anual",
-            "description": "Tudo do Semestral, com 2 chamadas de vídeo por mês e reavaliação trimestral completa.",
-            "price": "1500",
+            "description": "Tudo do Semestral, com reavaliação trimestral completa. R$1.200 por 12 meses (R$100 por mês).",
+            "price": "1200",
             "priceCurrency": "BRL",
             "url": "https://lukascapetinga.com.br/#protocolos"
           }
         ]
       },
-      "review": [
-        {
-          "@type": "Review",
-          "author": { "@type": "Person", "name": "Fran Cristina" },
-          "reviewBody": "Minha evolução foi surreal: corpo mais firme, força aumentando e autoestima em alta. Ter alguém que entende e guia faz toda a diferença.",
-          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
-        },
-        {
-          "@type": "Review",
-          "author": { "@type": "Person", "name": "João Machado" },
-          "reviewBody": "Esses protocolos mudaram tudo. Mais forte, com muito mais disposição e vendo resultado real. O acompanhamento faz a diferença.",
-          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
-        },
-        {
-          "@type": "Review",
-          "author": { "@type": "Person", "name": "Mariana Mendes" },
-          "reviewBody": "Senti uma diferença enorme: muito mais definida, rendendo mais e evoluindo nas cargas. Cada exercício tem um motivo claro.",
-          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
-        }
-      ],
       "sameAs": [
         "https://www.instagram.com/lukascapetinga/"
       ]
@@ -624,7 +690,13 @@
       "image": "https://lukascapetinga.com.br/images/lukas/Lucas.jpeg",
       "url": "https://lukascapetinga.com.br/",
       "worksFor": { "@id": "https://lukascapetinga.com.br/#business" },
-      "knowsAbout": ["Hipertrofia", "Periodização de treino", "Musculação", "Biomecânica", "Emagrecimento", "Nutrição esportiva"],
+      "hasCredential": {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "Registro profissional",
+        "name": "CREF 217730-G/SP",
+        "recognizedBy": { "@type": "Organization", "name": "Conselho Regional de Educação Física da 4ª Região (CREF4/SP)" }
+      },
+      "knowsAbout": ["Hipertrofia", "Periodização de treino", "Musculação", "Biomecânica", "Emagrecimento"],
       "sameAs": [
         "https://www.instagram.com/lukascapetinga/"
       ]
@@ -634,13 +706,13 @@
       "@id": "https://lukascapetinga.com.br/#webpage",
       "url": "https://lukascapetinga.com.br/",
       "name": "Consultoria de Musculação Online | Lukas Capetinga · Arquitetura Corporal",
-      "description": "Consultoria de musculação online com Lukas Capetinga (CREF · São Paulo): treino personalizado, nutrição e periodização calculada.",
+      "description": "Consultoria de musculação online com Lukas Capetinga (CREF 217730-G/SP): treino personalizado, correção de execução por vídeo e periodização calculada.",
       "inLanguage": "pt-BR",
       "isPartOf": { "@id": "https://lukascapetinga.com.br/#website" },
       "about": { "@id": "https://lukascapetinga.com.br/#business" },
-      "primaryImageOfPage": "https://lukascapetinga.com.br/images/lukas/Lucas1.jpeg",
+      "primaryImageOfPage": "https://lukascapetinga.com.br/images/lukas/Lucas.jpeg",
       "datePublished": "2025-07-20",
-      "dateModified": "2026-07-11"
+      "dateModified": "2026-11-15"
     },
     {
       "@type": "WebSite",
@@ -659,7 +731,7 @@
           "name": "Como funciona a consultoria online?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Após a aplicação, fazemos a avaliação completa do seu perfil, objetivos e rotina. Com base nos dados, projeto um protocolo de treino e orientações nutricionais individualizados, entregues na plataforma. O acompanhamento é contínuo via WhatsApp, com ajustes sempre que os dados pedirem."
+            "text": "Após a aplicação, fazemos a avaliação completa do seu perfil, objetivos e rotina. Com base nos dados, projeto um protocolo de treino individualizado, entregue na plataforma. O acompanhamento é contínuo via WhatsApp, com ajustes sempre que os dados pedirem."
           }
         },
         {
@@ -683,7 +755,7 @@
           "name": "Qual a diferença entre os protocolos?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Todos incluem treino e nutrição individualizados com suporte direto. Engajamentos mais longos adicionam auditoria de vídeo, planejamento de suplementação, chamadas de acompanhamento e reavaliações trimestrais — mais profundidade de engenharia por ciclo."
+            "text": "Todos incluem avaliação inicial, treino individualizado e suporte direto. Engajamentos mais longos adicionam auditoria de vídeo da execução, chamadas de acompanhamento e reavaliações trimestrais — e quanto mais longo o plano, menor o valor por mês."
           }
         },
         {
@@ -707,7 +779,15 @@
           "name": "Quanto custa uma consultoria de musculação online?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Os protocolos vão de R$200 (mensal) a R$1.500 (anual, equivalente a cerca de R$125 por mês). Todos incluem treino individualizado, orientações nutricionais e suporte direto via WhatsApp — os engajamentos mais longos adicionam auditoria de vídeo, suplementação e reavaliações."
+            "text": "Mensal: R$150. Trimestral: R$405 (R$135 por mês). Semestral: R$720 (R$120 por mês). Anual: R$1.200 (R$100 por mês). Todos incluem treino individualizado e suporte direto via WhatsApp — os engajamentos mais longos adicionam auditoria de vídeo, chamadas de acompanhamento e reavaliações."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "A consultoria inclui dieta ou suplementação?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Não. A consultoria é de treino. Plano alimentar e prescrição de suplementos são atribuições do nutricionista — se você precisar, recomendo acompanhamento com um profissional de nutrição em paralelo ao protocolo."
           }
         },
         {
@@ -728,7 +808,8 @@
 
 <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
-<div class="strip">Processo seletivo aberto — <strong>10 vagas / mês</strong> · Consultoria por aplicação</div>
+<div class="strip bf-hide">Processo seletivo aberto — <strong>10 vagas / mês</strong> · Consultoria por aplicação</div>
+<a class="strip strip-bf bf-only" href="#black-friday">Black Friday — <strong>20% off</strong> nos protocolos Trimestral, Semestral e Anual · termina em <strong class="bf-strip-time" aria-hidden="true">--:--:--</strong><span class="sr-only">às 23:59 de hoje, horário de Brasília</span></a>
 
 <header class="nav">
   <div class="wrap nav-inner">
@@ -737,26 +818,75 @@
       <span>LUKAS CAPETINGA<small>ARQUITETURA CORPORAL</small></span>
     </a>
     <nav class="nav-links" aria-label="Navegação principal">
+      <a href="#resultados">Resultados</a>
+      <a href="#protocolos">Planos e preços</a>
       <a href="#metodo">Método</a>
       <a href="#arquiteto">O Arquiteto</a>
-      <a href="#resultados">Resultados</a>
-      <a href="#protocolos">Protocolos</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <a class="nav-cta" href="#aplicar">Aplicar</a>
+    <a class="nav-cta bf-hide" href="#aplicar">Aplicar</a>
+    <a class="nav-cta bf-only" href="#black-friday">20% off hoje</a>
     <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu"><span aria-hidden="true">≡</span></button>
   </div>
   <nav class="mobile-menu" id="mobileMenu" aria-label="Navegação principal (menu móvel)">
+    <a href="#resultados">Resultados</a>
+    <a href="#protocolos">Planos e preços</a>
     <a href="#metodo">Método</a>
     <a href="#arquiteto">O Arquiteto</a>
-    <a href="#resultados">Resultados</a>
-    <a href="#protocolos">Protocolos</a>
     <a href="#faq">FAQ</a>
+    <a class="bf-only" href="#black-friday">Black Friday · 20% off</a>
     <a href="#aplicar">Aplicar para consultoria</a>
   </nav>
 </header>
 
 <main id="conteudo">
+
+<!-- BLACK FRIDAY — hotsite (visível somente com html.bf) -->
+<section class="bf-hero bf-only" id="black-friday" aria-labelledby="bfTitulo">
+  <div class="bf-tape" aria-hidden="true">
+    <div class="bf-tape-track">
+      <span>Black Friday</span><span>−20% off</span><span>Só hoje</span><span>Trimestral · Semestral · Anual</span><span>Black Friday</span><span>−20% off</span><span>Só hoje</span><span>Trimestral · Semestral · Anual</span>
+    </div>
+  </div>
+  <div class="wrap bf-grid">
+    <div>
+      <span class="eyebrow">Somente hoje · 27 de novembro</span>
+      <h2 class="bf-title" id="bfTitulo"><span class="o">Black</span><span class="f">Friday</span></h2>
+      <p class="bf-off">−20% <small>nos protocolos Trimestral, Semestral e Anual</small></p>
+      <p class="bf-lede">Uma vez por ano. A mesma consultoria, o mesmo acompanhamento direto do Lukas — com 20% a menos no período inteiro. Vale só até 23:59 de hoje e dentro das 10 vagas do mês.</p>
+      <span class="bf-clock-l">A oferta termina em</span>
+      <div class="bf-clock" role="timer" aria-label="Tempo restante da oferta de Black Friday">
+        <div class="u"><b class="bf-h">--</b><span>horas</span></div>
+        <div class="u"><b class="bf-m">--</b><span>min</span></div>
+        <div class="u"><b class="bf-s">--</b><span>seg</span></div>
+      </div>
+      <p class="sr-only">Oferta válida até 23:59 de 27 de novembro de 2026, horário de Brasília.</p>
+    </div>
+    <div>
+      <div class="bf-offers">
+        <div class="bf-offer">
+          <h3>Anual</h3>
+          <span class="tot">Total R$960 · 12 meses <s>R$1.200</s></span>
+          <div class="pr"><span class="sr-only">De R$100 por mês, por </span><s aria-hidden="true">R$100/mês</s><b>R$80</b><small>/mês</small></div>
+          <a class="btn" href="#aplicar" data-plano="Anual">Garantir o Anual com 20% off <span class="arw" aria-hidden="true">→</span></a>
+        </div>
+        <div class="bf-offer top">
+          <h3>Semestral</h3>
+          <span class="tot">Total R$576 · 6 meses <s>R$720</s></span>
+          <div class="pr"><span class="sr-only">De R$120 por mês, por </span><s aria-hidden="true">R$120/mês</s><b>R$96</b><small>/mês</small></div>
+          <a class="btn" href="#aplicar" data-plano="Semestral">Garantir o Semestral com 20% off <span class="arw" aria-hidden="true">→</span></a>
+        </div>
+        <div class="bf-offer">
+          <h3>Trimestral</h3>
+          <span class="tot">Total R$324 · 3 meses <s>R$405</s></span>
+          <div class="pr"><span class="sr-only">De R$135 por mês, por </span><s aria-hidden="true">R$135/mês</s><b>R$108</b><small>/mês</small></div>
+          <a class="btn" href="#aplicar" data-plano="Trimestral">Garantir o Trimestral com 20% off <span class="arw" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+      <p class="bf-terms">Válido somente em 27/11/2026 até 23:59 (Brasília) · Novas contratações · Sujeito às vagas do mês · <a href="#protocolos">Ver o que cada protocolo inclui</a></p>
+    </div>
+  </div>
+</section>
 
 <!-- HERO -->
 <section class="hero" id="top" aria-label="Apresentação">
@@ -765,7 +895,7 @@
     <div class="hero-photo duo reveal">
       <img src="images/lukas/Lucas.jpeg" alt="Lukas Capetinga, personal trainer e especialista em hipertrofia, na academia em São Paulo" width="1285" height="1286" fetchpriority="high">
       <div class="fade"></div>
-      <div class="stamp">LUKAS CAPETINGA · CREF ATIVO</div>
+      <div class="stamp">LUKAS CAPETINGA · CREF 217730-G/SP</div>
     </div>
     <div class="hero-copy">
       <span class="eyebrow reveal">Consultoria de musculação · São Paulo / online</span>
@@ -773,21 +903,208 @@
       <p class="lede reveal">Consultoria de musculação online com auditoria biomecânica, gestão de sobrecarga e periodização calculada. Aqui você não compra uma ficha de treino — entra em um projeto de engenharia do seu físico, lido e recalibrado a cada ciclo.</p>
       <div class="hero-actions reveal">
         <a class="btn" href="#aplicar">Aplicar para consultoria <span class="arw" aria-hidden="true">→</span></a>
-        <a class="btn btn-ghost" href="#metodo">Conhecer o método</a>
+        <a class="btn btn-ghost" href="#protocolos">Ver planos e preços</a>
       </div>
     </div>
   </div>
   <div class="marquee" aria-hidden="true">
     <div class="marquee-track">
-      <span>Hipertrofia</span><span>Periodização calculada</span><span>Auditoria de vídeo</span><span>Sobrecarga progressiva</span><span>Nutrição aplicada</span><span>Hipertrofia</span><span>Periodização calculada</span><span>Auditoria de vídeo</span><span>Sobrecarga progressiva</span><span>Nutrição aplicada</span>
+      <span>Hipertrofia</span><span>Periodização calculada</span><span>Auditoria de vídeo</span><span>Sobrecarga progressiva</span><span>Correção de execução</span><span>Hipertrofia</span><span>Periodização calculada</span><span>Auditoria de vídeo</span><span>Sobrecarga progressiva</span><span>Correção de execução</span>
     </div>
   </div>
   <div class="wrap">
     <div class="spec-row reveal">
       <div class="spec"><div class="k">Experiência</div><div class="v">10+ anos</div></div>
       <div class="spec"><div class="k">Físicos projetados</div><div class="v">500+</div></div>
-      <div class="spec"><div class="k">Registro técnico</div><div class="v">CREF ativo</div></div>
-      <div class="spec"><div class="k">Índice de aprovação</div><div class="v">4.9 / 5</div></div>
+      <div class="spec"><div class="k">Registro CREF / SP</div><div class="v">217730-G</div></div>
+      <div class="spec"><div class="k">Planos a partir de</div><div class="v"><a href="#protocolos"><span class="bf-hide">R$100/mês</span><span class="bf-only">R$80/mês</span></a></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTADOS -->
+<section class="band" id="resultados">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Antes e depois</span>
+      <h2>Resultados reais</h2>
+      <p>Transformações de alunos da consultoria — e, logo abaixo, os números de quem mediu o início e o fim de cada ciclo.</p>
+    </div>
+    <div class="tf reveal" role="list" aria-label="Transformações de alunos: antes e depois" tabindex="0">
+      <figure class="tf-card" role="listitem">
+        <div class="tf-pair">
+          <div class="tf-img antes"><picture><source srcset="images/transformacao/t7-antes.webp" type="image/webp"><img src="images/transformacao/t7-antes.jpg" alt="Aluno da consultoria, antes: vista frontal" width="480" height="960" loading="lazy" decoding="async"></picture><span class="tf-tag" aria-hidden="true">Antes</span></div>
+          <div class="tf-img depois"><picture><source srcset="images/transformacao/t7-depois.webp" type="image/webp"><img src="images/transformacao/t7-depois.jpg" alt="Aluno da consultoria, depois: vista frontal" width="480" height="960" loading="lazy" decoding="async"></picture><span class="tf-tag" aria-hidden="true">Depois</span></div>
+        </div>
+        <figcaption>Aluno · vista frontal</figcaption>
+      </figure>
+      <figure class="tf-card" role="listitem">
+        <div class="tf-pair">
+          <div class="tf-img antes"><picture><source srcset="images/transformacao/t3-antes.webp" type="image/webp"><img src="images/transformacao/t3-antes.jpg" alt="Aluna da consultoria, antes: vista lateral" width="480" height="960" loading="lazy" decoding="async"></picture><span class="tf-tag" aria-hidden="true">Antes</span></div>
+          <div class="tf-img depois"><picture><source srcset="images/transformacao/t3-depois.webp" type="image/webp"><img src="images/transformacao/t3-depois.jpg" alt="Aluna da consultoria, depois: vista lateral" width="480" height="960" loading="lazy" decoding="async"></picture><span class="tf-tag" aria-hidden="true">Depois</span></div>
+        </div>
+        <figcaption>Aluna · vista lateral</figcaption>
+      </figure>
+      <figure class="tf-card" role="listitem">
+        <div class="tf-pair">
+          <div class="tf-img antes"><picture><source srcset="images/transformacao/t1-antes.webp" type="image/webp"><img src="images/transformacao/t1-antes.jpg" alt="Aluno da consultoria, antes: vista frontal" width="480" height="960" loading="lazy" decoding="async"></picture><span class="tf-tag" aria-hidden="true">Antes</span></div>
+          <div class="tf-img depois"><picture><source srcset="images/transformacao/t1-depois.webp" type="image/webp"><img src="images/transformacao/t1-depois.jpg" alt="Aluno da consultoria, depois: vista frontal" width="480" height="960" loading="lazy" decoding="async"></picture><span class="tf-tag" aria-hidden="true">Depois</span></div>
+        </div>
+        <figcaption>Aluno · vista frontal</figcaption>
+      </figure>
+      <figure class="tf-card" role="listitem">
+        <div class="tf-pair">
+          <div class="tf-img antes"><picture><source srcset="images/transformacao/t4-antes.webp" type="image/webp"><img src="images/transformacao/t4-antes.jpg" alt="Aluna da consultoria, antes: vista posterior" width="480" height="960" loading="lazy" decoding="async"></picture><span class="tf-tag" aria-hidden="true">Antes</span></div>
+          <div class="tf-img depois"><picture><source srcset="images/transformacao/t4-depois.webp" type="image/webp"><img src="images/transformacao/t4-depois.jpg" alt="Aluna da consultoria, depois: vista posterior" width="480" height="960" loading="lazy" decoding="async"></picture><span class="tf-tag" aria-hidden="true">Depois</span></div>
+        </div>
+        <figcaption>Aluna · vista posterior</figcaption>
+      </figure>
+      <figure class="tf-card" role="listitem">
+        <div class="tf-pair">
+          <div class="tf-img antes"><picture><source srcset="images/transformacao/t2-antes.webp" type="image/webp"><img src="images/transformacao/t2-antes.jpg" alt="Aluno da consultoria, antes: vista frontal" width="480" height="960" loading="lazy" decoding="async"></picture><span class="tf-tag" aria-hidden="true">Antes</span></div>
+          <div class="tf-img depois"><picture><source srcset="images/transformacao/t2-depois.webp" type="image/webp"><img src="images/transformacao/t2-depois.jpg" alt="Aluno da consultoria, depois: vista frontal" width="480" height="960" loading="lazy" decoding="async"></picture><span class="tf-tag" aria-hidden="true">Depois</span></div>
+        </div>
+        <figcaption>Aluno · vista frontal</figcaption>
+      </figure>
+      <figure class="tf-card" role="listitem">
+        <div class="tf-pair">
+          <div class="tf-img antes"><picture><source srcset="images/transformacao/t5-antes.webp" type="image/webp"><img src="images/transformacao/t5-antes.jpg" alt="Aluna da consultoria, antes: vista frontal" width="480" height="960" loading="lazy" decoding="async"></picture><span class="tf-tag" aria-hidden="true">Antes</span></div>
+          <div class="tf-img depois"><picture><source srcset="images/transformacao/t5-depois.webp" type="image/webp"><img src="images/transformacao/t5-depois.jpg" alt="Aluna da consultoria, depois: vista frontal" width="480" height="960" loading="lazy" decoding="async"></picture><span class="tf-tag" aria-hidden="true">Depois</span></div>
+        </div>
+        <figcaption>Aluna · vista frontal</figcaption>
+      </figure>
+    </div>
+    <p class="tf-note reveal">Fotos reais de alunos da consultoria, publicadas com autorização · Resultados individuais variam conforme aderência, rotina e genética</p>
+    <div class="results reveal">
+      <div class="rcard">
+        <span class="sr-only">Fran Cristina perdeu 12 quilos em 3 meses: de 72 para 60 quilos, com objetivo de definição.</span>
+        <div class="delta" aria-hidden="true">−12 kg</div>
+        <div class="rhead">
+          <div class="avatar duo"><img src="images/Fran.jpeg" alt="Fran Cristina, aluna da consultoria de musculação online" width="960" height="1280" loading="lazy" decoding="async"></div>
+          <div><span class="who">Fran Cristina</span><span class="plan-l">Protocolo Trimestral</span></div>
+        </div>
+        <div class="data">PERÍODO <strong>3 meses</strong><br>72 kg <strong>→</strong> 60 kg<br>OBJETIVO <strong>definição</strong></div>
+        <blockquote>"Minha evolução foi surreal: corpo mais firme, força aumentando e autoestima em alta. Ter alguém que entende e guia faz toda a diferença."</blockquote>
+      </div>
+      <div class="rcard">
+        <span class="sr-only">João Machado ganhou 8 quilos de massa magra em 3 meses: de 68 para 76 quilos.</span>
+        <div class="delta" aria-hidden="true">+8 kg</div>
+        <div class="rhead">
+          <div class="avatar duo"><img src="images/Joao.jpeg" alt="João Machado, aluno da consultoria de musculação online" width="1072" height="1103" loading="lazy" decoding="async"></div>
+          <div><span class="who">João Machado</span><span class="plan-l">Protocolo Semestral</span></div>
+        </div>
+        <div class="data">PERÍODO <strong>3 meses</strong><br>68 kg <strong>→</strong> 76 kg<br>OBJETIVO <strong>massa magra</strong></div>
+        <blockquote>"Esses protocolos mudaram tudo. Mais forte, com muito mais disposição e vendo resultado real. O acompanhamento faz a diferença."</blockquote>
+      </div>
+      <div class="rcard">
+        <span class="sr-only">Mariana Mendes aumentou 40% a força em 2 meses: supino de 30 para 42 quilos.</span>
+        <div class="delta" aria-hidden="true">+40%</div>
+        <div class="rhead">
+          <div class="avatar duo"><img src="images/Mari.jpeg" alt="Mariana Mendes, aluna da consultoria de musculação online" width="1230" height="1080" loading="lazy" decoding="async"></div>
+          <div><span class="who">Mariana Mendes</span><span class="plan-l">Protocolo Mensal</span></div>
+        </div>
+        <div class="data">PERÍODO <strong>2 meses</strong><br>SUPINO 30 kg <strong>→</strong> 42 kg<br>OBJETIVO <strong>força</strong></div>
+        <blockquote>"Senti uma diferença enorme: muito mais definida, rendendo mais e evoluindo nas cargas. Cada exercício tem um motivo claro."</blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROTOCOLOS -->
+<section class="band" id="protocolos">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Engajamento</span>
+      <h2>Protocolos</h2>
+      <p>Quanto mais longo o engajamento, mais profunda a engenharia — e menor o valor por mês. Auditoria de vídeo, chamadas e reavaliações entram conforme o ciclo se estende.</p>
+    </div>
+    <div class="plans reveal">
+      <div class="plan">
+        <span class="ptag">&nbsp;</span>
+        <h3>Mensal</h3>
+        <span class="sub">Entrada no sistema</span>
+        <div class="price">R$150<small>/mês</small></div>
+        <span class="price-eq">Total R$150 · 1 mês</span>
+        <ul>
+          <li>Avaliação inicial completa (anamnese)</li>
+          <li>Protocolo de treino individualizado</li>
+          <li>Suporte direto via WhatsApp</li>
+          <li>Ajuste mensal do protocolo</li>
+        </ul>
+        <a class="btn" href="#aplicar" data-plano="Mensal">Aplicar</a>
+      </div>
+      <div class="plan feat">
+        <span class="ptag"><span class="bf-hide">// Mais escolhido</span><span class="bf-only">// Black Friday · −20%</span></span>
+        <h3>Trimestral</h3>
+        <span class="sub">Melhor custo-benefício</span>
+        <div class="bf-hide">
+          <div class="price">R$135<small>/mês</small></div>
+          <span class="price-eq">Total R$405 · 3 meses</span>
+          <span class="price-save">Economia de R$45 (−10%) frente ao mensal</span>
+        </div>
+        <div class="bf-only">
+          <span class="price-old"><span class="sr-only">Preço normal: </span><s>R$135/mês</s></span>
+          <div class="price">R$108<small>/mês</small></div>
+          <span class="price-eq">Total R$324 · 3 meses <s>R$405</s></span>
+          <span class="price-save">Black Friday: R$81 de desconto</span>
+        </div>
+        <ul>
+          <li>Tudo do protocolo Mensal</li>
+          <li>Auditoria de vídeo da execução</li>
+          <li>Ajuste a cada 45 dias</li>
+          <li>Relatórios de progresso detalhados</li>
+        </ul>
+        <a class="btn" href="#aplicar" data-plano="Trimestral"><span class="bf-hide">Aplicar</span><span class="bf-only">Garantir 20% off</span></a>
+      </div>
+      <div class="plan">
+        <span class="ptag"><span class="bf-hide">&nbsp;</span><span class="bf-only">// Black Friday · −20%</span></span>
+        <h3>Semestral</h3>
+        <span class="sub">Construção completa</span>
+        <div class="bf-hide">
+          <div class="price">R$120<small>/mês</small></div>
+          <span class="price-eq">Total R$720 · 6 meses</span>
+          <span class="price-save">Economia de R$180 (−20%) frente ao mensal</span>
+        </div>
+        <div class="bf-only">
+          <span class="price-old"><span class="sr-only">Preço normal: </span><s>R$120/mês</s></span>
+          <div class="price">R$96<small>/mês</small></div>
+          <span class="price-eq">Total R$576 · 6 meses <s>R$720</s></span>
+          <span class="price-save">Black Friday: R$144 de desconto</span>
+        </div>
+        <ul>
+          <li>Tudo do protocolo Trimestral</li>
+          <li>Chamada de vídeo mensal</li>
+          <li>Prioridade no atendimento</li>
+        </ul>
+        <a class="btn" href="#aplicar" data-plano="Semestral"><span class="bf-hide">Aplicar</span><span class="bf-only">Garantir 20% off</span></a>
+      </div>
+      <div class="plan">
+        <span class="ptag"><span class="bf-hide">// Menor valor por mês</span><span class="bf-only">// Black Friday · −20%</span></span>
+        <h3>Anual</h3>
+        <span class="sub">Engajamento total</span>
+        <div class="bf-hide">
+          <div class="price">R$100<small>/mês</small></div>
+          <span class="price-eq">Total R$1.200 · 12 meses</span>
+          <span class="price-save">Economia de R$600 (−33%) frente ao mensal</span>
+        </div>
+        <div class="bf-only">
+          <span class="price-old"><span class="sr-only">Preço normal: </span><s>R$100/mês</s></span>
+          <div class="price">R$80<small>/mês</small></div>
+          <span class="price-eq">Total R$960 · 12 meses <s>R$1.200</s></span>
+          <span class="price-save">Black Friday: R$240 de desconto</span>
+        </div>
+        <ul>
+          <li>Tudo do protocolo Semestral</li>
+          <li>Reavaliação trimestral completa</li>
+          <li>Ciclo anual de periodização planejado</li>
+        </ul>
+        <a class="btn" href="#aplicar" data-plano="Anual"><span class="bf-hide">Aplicar</span><span class="bf-only">Garantir 20% off</span></a>
+      </div>
+    </div>
+    <div class="reveal">
+      <p class="plans-note">Preços em valor mensal equivalente; o total de cada período aparece abaixo do preço · Pagamento via PIX, cartão de crédito ou transferência · 10 novos projetos por mês, por aplicação</p>
+      <p class="plans-note bf-only">Black Friday: 20% off válido somente em 27/11/2026, até 23:59 (horário de Brasília), para novas contratações dos protocolos Trimestral, Semestral e Anual, dentro das vagas do mês. O Mensal não tem desconto.</p>
+      <p class="plans-note plans-scope">A consultoria é de treino. Plano alimentar e suplementação são atribuições de nutricionista.</p>
     </div>
   </div>
 </section>
@@ -868,7 +1185,7 @@
     <div class="arch">
       <div class="arch-photo duo reveal">
         <img src="images/lukas/lukas-treino.jpeg" alt="Lukas Capetinga, educador físico, em treino de corrida em São Paulo" width="1132" height="1599" loading="lazy" decoding="async">
-        <div class="stamp">REF // LC-001 · CREF</div>
+        <div class="stamp">REF // LC-001 · CREF 217730-G/SP</div>
       </div>
       <div class="arch-body reveal">
         <span class="eyebrow">O responsável técnico</span>
@@ -879,147 +1196,9 @@
         <div class="creds">
           <div class="cred"><div class="n">10+</div><div class="l">anos de campo</div></div>
           <div class="cred"><div class="n">500+</div><div class="l">projetos</div></div>
-          <div class="cred"><div class="n">98%</div><div class="l">taxa de êxito</div></div>
-          <div class="cred"><div class="n">CREF</div><div class="l">registro ativo</div></div>
+          <div class="cred"><div class="n">BR</div><div class="l">atendimento online</div></div>
+          <div class="cred"><div class="n">CREF</div><div class="l">217730-G/SP</div></div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- RESULTADOS -->
-<section class="band" id="resultados">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">Dados de saída</span>
-      <h2>Resultados, em números</h2>
-      <p>Cada transformação é um delta mensurável. Não panfletos — variáveis lidas no início e no fim do ciclo, contadas por quem viveu o processo.</p>
-    </div>
-    <div class="results reveal">
-      <div class="rcard">
-        <span class="sr-only">Fran Cristina perdeu 12 quilos em 3 meses: de 72 para 60 quilos, com objetivo de definição.</span>
-        <div class="delta" aria-hidden="true">−12 kg</div>
-        <div class="rhead">
-          <div class="avatar duo"><img src="images/Fran.jpeg" alt="Fran Cristina, aluna da consultoria de musculação online" width="960" height="1280" loading="lazy" decoding="async"></div>
-          <div><span class="who">Fran Cristina</span><span class="plan-l">Protocolo Trimestral</span></div>
-        </div>
-        <div class="data">PERÍODO <strong>3 meses</strong><br>72 kg <strong>→</strong> 60 kg<br>OBJETIVO <strong>definição</strong></div>
-        <blockquote>"Minha evolução foi surreal: corpo mais firme, força aumentando e autoestima em alta. Ter alguém que entende e guia faz toda a diferença."</blockquote>
-      </div>
-      <div class="rcard">
-        <span class="sr-only">João Machado ganhou 8 quilos de massa magra em 3 meses: de 68 para 76 quilos.</span>
-        <div class="delta" aria-hidden="true">+8 kg</div>
-        <div class="rhead">
-          <div class="avatar duo"><img src="images/Joao.jpeg" alt="João Machado, aluno da consultoria de musculação online" width="1072" height="1103" loading="lazy" decoding="async"></div>
-          <div><span class="who">João Machado</span><span class="plan-l">Protocolo Semestral</span></div>
-        </div>
-        <div class="data">PERÍODO <strong>3 meses</strong><br>68 kg <strong>→</strong> 76 kg<br>OBJETIVO <strong>massa magra</strong></div>
-        <blockquote>"Esses protocolos mudaram tudo. Mais forte, com muito mais disposição e vendo resultado real. O acompanhamento faz a diferença."</blockquote>
-      </div>
-      <div class="rcard">
-        <span class="sr-only">Mariana Mendes aumentou 40% a força em 2 meses: supino de 30 para 42 quilos.</span>
-        <div class="delta" aria-hidden="true">+40%</div>
-        <div class="rhead">
-          <div class="avatar duo"><img src="images/Mari.jpeg" alt="Mariana Mendes, aluna da consultoria de musculação online" width="1230" height="1080" loading="lazy" decoding="async"></div>
-          <div><span class="who">Mariana Mendes</span><span class="plan-l">Protocolo Mensal</span></div>
-        </div>
-        <div class="data">PERÍODO <strong>2 meses</strong><br>SUPINO 30 kg <strong>→</strong> 42 kg<br>OBJETIVO <strong>força</strong></div>
-        <blockquote>"Senti uma diferença enorme: muito mais definida, rendendo mais e evoluindo nas cargas. Cada exercício tem um motivo claro."</blockquote>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROTOCOLOS -->
-<section class="band" id="protocolos">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">Engajamento</span>
-      <h2>Protocolos</h2>
-      <p>Quanto mais longo o engajamento, mais profunda a engenharia: auditoria de vídeo, suplementação e recalibração entram conforme o ciclo se estende.</p>
-    </div>
-    <div class="plans reveal">
-      <div class="plan">
-        <span class="ptag">&nbsp;</span>
-        <h3>Mensal</h3>
-        <span class="sub">Entrada no sistema</span>
-        <div class="price">R$200<span class="price-eq">R$200 / mês</span></div>
-        <ul>
-          <li>Protocolo de treino individualizado</li>
-          <li>Orientações nutricionais completas</li>
-          <li>Suporte direto via WhatsApp</li>
-          <li>Ajuste mensal do protocolo</li>
-        </ul>
-        <a class="btn" href="#aplicar">Aplicar</a>
-      </div>
-      <div class="plan feat">
-        <span class="ptag">// Mais escolhido</span>
-        <h3>Trimestral</h3>
-        <span class="sub">Melhor custo-benefício</span>
-        <div class="price">R$500<span class="price-eq">≈ R$167 / mês</span></div>
-        <ul>
-          <li>Tudo do protocolo Mensal</li>
-          <li>Auditoria de vídeo da execução</li>
-          <li>Ajuste a cada 45 dias</li>
-          <li>Relatórios de progresso detalhados</li>
-        </ul>
-        <a class="btn" href="#aplicar">Aplicar</a>
-      </div>
-      <div class="plan">
-        <span class="ptag">&nbsp;</span>
-        <h3>Semestral</h3>
-        <span class="sub">Construção completa</span>
-        <div class="price">R$900<span class="price-eq">≈ R$150 / mês</span></div>
-        <ul>
-          <li>Tudo do protocolo Trimestral</li>
-          <li>Planejamento de suplementação</li>
-          <li>Chamada de vídeo mensal</li>
-          <li>Prioridade no atendimento</li>
-        </ul>
-        <a class="btn" href="#aplicar">Aplicar</a>
-      </div>
-      <div class="plan">
-        <span class="ptag">// Engajamento total</span>
-        <h3>Anual</h3>
-        <span class="sub">Acompanhamento VIP</span>
-        <div class="price">R$1.500<span class="price-eq">≈ R$125 / mês</span></div>
-        <ul>
-          <li>Tudo do protocolo Semestral</li>
-          <li>2 chamadas de vídeo por mês</li>
-          <li>Reavaliação trimestral completa</li>
-          <li>Atendimento prioritário</li>
-        </ul>
-        <a class="btn" href="#aplicar">Aplicar</a>
-      </div>
-    </div>
-    <div class="reveal">
-      <p class="plans-note">Vagas limitadas a 10 novos projetos por mês · acesso por aplicação</p>
-    </div>
-  </div>
-</section>
-
-<!-- PROTOCOLO ELITE -->
-<section class="band">
-  <div class="wrap">
-    <div class="elite reveal">
-      <div class="l">
-        <span class="eyebrow">Produto digital</span>
-        <h3>Protocolo Elite</h3>
-        <p>Um sistema completo de periodização para quem quer romper o platô e alcançar estética avançada: pernas torneadas, glúteos e superiores definidos, com simetria e proporção.</p>
-        <p>Não é uma ficha de exercícios — é metodologia. A estrutura semanal alterna dias de força pura e sessões metabólicas, unindo a ciência da hipertrofia à intensidade calculada.</p>
-        <ul>
-          <li>Divisão semanal com ênfase em pontos estéticos críticos</li>
-          <li>Guia visual com ilustração de cada movimento</li>
-          <li>Técnicas avançadas — bi-sets e variações metabólicas</li>
-          <li>Protocolo para tônus, força e definição reais</li>
-        </ul>
-      </div>
-      <div class="r">
-        <span class="eyebrow">Acesso vitalício · Hotmart</span>
-        <h4>Acesso ao curso completo</h4>
-        <p>Material didático completo, prático e visualmente claro — do agachamento livre à mesa flexora.</p>
-        <div class="coupon">Cupom · SOUELITE</div>
-        <a class="btn" href="https://hotmart.com/pt-BR/club/lucas-oliveira-araujo-1/" target="_blank" rel="noopener">Acessar o curso <span class="arw" aria-hidden="true">→</span></a>
       </div>
     </div>
   </div>
@@ -1035,7 +1214,7 @@
     <div class="faq reveal">
       <div class="qitem">
         <button class="qbtn" aria-expanded="false">Como funciona a consultoria online?<span class="ic" aria-hidden="true">+</span></button>
-        <div class="qans"><p>Após a aplicação, fazemos a avaliação completa do seu perfil, objetivos e rotina. Com base nos dados, projeto um protocolo de treino e orientações nutricionais individualizados, entregues na plataforma. O acompanhamento é contínuo via WhatsApp, com ajustes sempre que os dados pedirem.</p></div>
+        <div class="qans"><p>Após a aplicação, fazemos a avaliação completa do seu perfil, objetivos e rotina. Com base nos dados, projeto um protocolo de treino individualizado, entregue na plataforma. O acompanhamento é contínuo via WhatsApp, com ajustes sempre que os dados pedirem.</p></div>
       </div>
       <div class="qitem">
         <button class="qbtn" aria-expanded="false">Preciso ter experiência em musculação?<span class="ic" aria-hidden="true">+</span></button>
@@ -1047,7 +1226,7 @@
       </div>
       <div class="qitem">
         <button class="qbtn" aria-expanded="false">Qual a diferença entre os protocolos?<span class="ic" aria-hidden="true">+</span></button>
-        <div class="qans"><p>Todos incluem treino e nutrição individualizados com suporte direto. Engajamentos mais longos adicionam auditoria de vídeo, planejamento de suplementação, chamadas de acompanhamento e reavaliações trimestrais — mais profundidade de engenharia por ciclo.</p></div>
+        <div class="qans"><p>Todos incluem avaliação inicial, treino individualizado e suporte direto. Engajamentos mais longos adicionam auditoria de vídeo da execução, chamadas de acompanhamento e reavaliações trimestrais — e quanto mais longo o plano, menor o valor por mês.</p></div>
       </div>
       <div class="qitem">
         <button class="qbtn" aria-expanded="false">Como é feito o pagamento?<span class="ic" aria-hidden="true">+</span></button>
@@ -1059,7 +1238,11 @@
       </div>
       <div class="qitem">
         <button class="qbtn" aria-expanded="false">Quanto custa uma consultoria de musculação online?<span class="ic" aria-hidden="true">+</span></button>
-        <div class="qans"><p>Os protocolos vão de R$200 (mensal) a R$1.500 (anual, equivalente a cerca de R$125 por mês). Todos incluem treino individualizado, orientações nutricionais e suporte direto via WhatsApp — os engajamentos mais longos adicionam auditoria de vídeo, suplementação e reavaliações.</p></div>
+        <div class="qans"><p>Mensal: R$150. Trimestral: R$405 (R$135 por mês). Semestral: R$720 (R$120 por mês). Anual: R$1.200 (R$100 por mês). Todos incluem treino individualizado e suporte direto via WhatsApp — os engajamentos mais longos adicionam auditoria de vídeo, chamadas de acompanhamento e reavaliações.</p></div>
+      </div>
+      <div class="qitem">
+        <button class="qbtn" aria-expanded="false">A consultoria inclui dieta ou suplementação?<span class="ic" aria-hidden="true">+</span></button>
+        <div class="qans"><p>Não. A consultoria é de treino. Plano alimentar e prescrição de suplementos são atribuições do nutricionista — se você precisar, recomendo acompanhamento com um profissional de nutrição em paralelo ao protocolo.</p></div>
       </div>
       <div class="qitem">
         <button class="qbtn" aria-expanded="false">Consultoria de musculação online funciona?<span class="ic" aria-hidden="true">+</span></button>
@@ -1076,7 +1259,8 @@
     <div class="reveal">
       <span class="eyebrow">Iniciar projeto</span>
       <h2>Monte sua ficha de projeto</h2>
-      <p class="lede">A consultoria opera por aplicação, com 10 novos projetos por mês. Responda três perguntas, veja sua ficha se preencher ao lado e envie a aplicação direto no WhatsApp — a primeira leitura de viabilidade é sem custo.</p>
+      <p class="lede">A consultoria opera por aplicação, com 10 novos projetos por mês. Responda às perguntas, veja sua ficha se preencher ao lado e envie a aplicação direto no WhatsApp — a primeira leitura de viabilidade é sem custo.</p>
+      <p class="bf-apply-note bf-only">Black Friday ativa · Escolha Trimestral, Semestral ou Anual na pergunta 04 — o desconto de 20% vai registrado na sua aplicação.</p>
 
       <div class="qz-group" role="group" aria-labelledby="lblObjetivo">
         <span class="qz-label" id="lblObjetivo">01 · Qual o objetivo?</span>
@@ -1103,8 +1287,18 @@
           <button class="chip" type="button" aria-pressed="false">Ainda vou começar</button>
         </div>
       </div>
+      <div class="qz-group" role="group" aria-labelledby="lblPlano">
+        <span class="qz-label" id="lblPlano">04 · Protocolo de interesse <span class="bf-hide">(opcional)</span><span class="bf-only">(escolha para garantir os 20% off)</span></span>
+        <div class="chips" data-group="plano">
+          <button class="chip" type="button" aria-pressed="false" data-plano="Mensal">Mensal</button>
+          <button class="chip" type="button" aria-pressed="false" data-plano="Trimestral">Trimestral</button>
+          <button class="chip" type="button" aria-pressed="false" data-plano="Semestral">Semestral</button>
+          <button class="chip" type="button" aria-pressed="false" data-plano="Anual">Anual</button>
+          <button class="chip" type="button" aria-pressed="false" data-plano="">Ainda não sei</button>
+        </div>
+      </div>
       <div class="qz-field">
-        <span class="qz-label"><label for="nome">04 · Seu nome</label></span>
+        <span class="qz-label"><label for="nome">05 · Seu nome</label></span>
         <input id="nome" type="text" placeholder="Como você quer ser chamado" autocomplete="name">
       </div>
     </div>
@@ -1120,7 +1314,8 @@
           <div class="row"><span class="k">Objetivo</span><span class="val empty" id="bObjetivo">aguardando…</span></div>
           <div class="row"><span class="k">Nível</span><span class="val empty" id="bNivel">aguardando…</span></div>
           <div class="row"><span class="k">Local de treino</span><span class="val empty" id="bLocal">aguardando…</span></div>
-          <div class="row"><span class="k">Responsável técnico</span><span class="val">Lukas Capetinga · CREF</span></div>
+          <div class="row"><span class="k">Protocolo</span><span class="val empty" id="bPlano">a definir</span></div>
+          <div class="row"><span class="k">Responsável técnico</span><span class="val">Lukas Capetinga · CREF 217730-G/SP</span></div>
           <div class="row"><span class="k">Primeira leitura</span><span class="val">Sem custo</span></div>
         </div>
         <p class="brief-status" id="bStatus" aria-live="polite" role="status">Status // 0 de 4 campos preenchidos</p>
@@ -1138,7 +1333,7 @@
     <div class="foot">
       <div>
         <a class="brand" href="#top"><span class="dot"></span><span>LUKAS CAPETINGA<small>ARQUITETURA CORPORAL</small></span></a>
-        <p>Consultoria de musculação online e arquitetura corporal. Treino personalizado, nutrição e periodização calculada — São Paulo / atendimento em todo o Brasil.</p>
+        <p>Consultoria de musculação online e arquitetura corporal. Treino personalizado, correção de execução e periodização calculada — São Paulo / atendimento em todo o Brasil.</p>
       </div>
       <div class="foot-links">
         <a href="https://www.instagram.com/lukascapetinga/" target="_blank" rel="noopener">Instagram →</a>
@@ -1148,7 +1343,6 @@
       <div class="foot-links">
         <a href="/diagnostico/">Diagnóstico inicial →</a>
         <a href="/calculadora/">Calculadora de metas →</a>
-        <a href="https://hotmart.com/pt-BR/club/lucas-oliveira-araujo-1/" target="_blank" rel="noopener">Curso Protocolo Elite →</a>
       </div>
       <div class="foot-links">
         <a href="https://lukascapetinga.com.br/termos/TermosUso.pdf" target="_blank" rel="noopener">Termos de uso →</a>
@@ -1156,14 +1350,11 @@
       </div>
     </div>
     <div class="foot-selos">
-      <a href="https://www.w3.org/WAI/WCAG2AA-Conformance" target="_blank" rel="noopener" title="Explicação da conformidade WCAG 2.1 nível AA">
-        <img src="https://www.w3.org/WAI/wcag21/wcag2.1AA-blue-v.svg" alt="Selo de conformidade nível AA, W3C Web Content Accessibility Guidelines 2.1" width="88" height="31" loading="lazy">
-      </a>
-      <span class="selo-txt">Site acessível — WCAG 2.1 nível AA · Conteúdo traduzível para Libras pelo VLibras (Governo Federal)</span>
+      <span class="selo-txt">Recursos de acessibilidade no site · Conteúdo traduzível para Libras pelo VLibras (Governo Federal)</span>
     </div>
     <div class="foot-bottom">
       <span>© Lukas Capetinga — Todos os direitos reservados</span>
-      <span>CREF Certificado · São Paulo / BR</span>
+      <span>Lukas Capetinga · CREF 217730-G/SP · São Paulo / BR</span>
     </div>
   </div>
 </footer>
@@ -1198,7 +1389,7 @@
 </div>
 <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
 <script>
-  new window.VLibras.Widget('https://vlibras.gov.br/app');
+  if(window.VLibras)new window.VLibras.Widget('https://vlibras.gov.br/app');
 </script>
 
 <script>
@@ -1246,33 +1437,68 @@
   });
 
   // Ficha de Projeto — configurador
-  var ficha={objetivo:'',nivel:'',local:'',nome:''};
-  var briefMap={objetivo:'bObjetivo',nivel:'bNivel',local:'bLocal',nome:'bNome'};
+  // Fonte única dos preços usados na mensagem (os da página estão no HTML acima).
+  var PLANOS={
+    Mensal:{meses:1,mes:150,total:150},
+    Trimestral:{meses:3,mes:135,total:405,bf:{mes:108,total:324}},
+    Semestral:{meses:6,mes:120,total:720,bf:{mes:96,total:576}},
+    Anual:{meses:12,mes:100,total:1200,bf:{mes:80,total:960}}
+  };
+  function brl(v){return 'R$'+v.toLocaleString('pt-BR');}
+  function bfAtivo(){return document.documentElement.classList.contains('bf');}
+  function descrevePlano(nome){
+    var p=PLANOS[nome];
+    if(!p)return '';
+    if(bfAtivo()&&p.bf){
+      return nome+' — Black Friday 20% off: '+brl(p.bf.total)+' ('+brl(p.bf.mes)+'/mês, de '+brl(p.total)+')';
+    }
+    return nome+' — '+brl(p.total)+(p.meses>1?' ('+brl(p.mes)+'/mês)':'');
+  }
+
+  var ficha={objetivo:'',nivel:'',local:'',nome:'',plano:''};
+  var obrigatorios={objetivo:'bObjetivo',nivel:'bNivel',local:'bLocal',nome:'bNome'};
   var sendBtn=document.getElementById('sendBtn');
   var statusEl=document.getElementById('bStatus');
+  var planoEl=document.getElementById('bPlano');
 
   function atualizaFicha(){
     var preenchidos=0;
-    Object.keys(briefMap).forEach(function(k){
-      var el=document.getElementById(briefMap[k]);
+    Object.keys(obrigatorios).forEach(function(k){
+      var el=document.getElementById(obrigatorios[k]);
       if(ficha[k]){el.textContent=ficha[k];el.classList.remove('empty');preenchidos++;}
       else{el.textContent='aguardando…';el.classList.add('empty');}
     });
+    if(ficha.plano){planoEl.textContent=descrevePlano(ficha.plano);planoEl.classList.remove('empty');}
+    else{planoEl.textContent='a definir';planoEl.classList.add('empty');}
     statusEl.textContent='Status // '+preenchidos+' de 4 campos preenchidos';
     var completo=preenchidos===4;
     sendBtn.disabled=!completo;
     if(completo){statusEl.textContent='Status // Ficha completa — pronta para envio';}
   }
 
+  function marcaChip(group,chip){
+    group.querySelectorAll('.chip').forEach(function(c){c.setAttribute('aria-pressed','false');});
+    chip.setAttribute('aria-pressed','true');
+  }
+
   document.querySelectorAll('.chips').forEach(function(group){
     var key=group.getAttribute('data-group');
     group.querySelectorAll('.chip').forEach(function(chip){
       chip.addEventListener('click',function(){
-        group.querySelectorAll('.chip').forEach(function(c){c.setAttribute('aria-pressed','false');});
-        chip.setAttribute('aria-pressed','true');
-        ficha[key]=chip.textContent.trim();
+        marcaChip(group,chip);
+        ficha[key]=chip.hasAttribute('data-plano')?chip.getAttribute('data-plano'):chip.textContent.trim();
         atualizaFicha();
       });
+    });
+  });
+
+  // Botões dos planos / ofertas preenchem a pergunta 04 antes de rolar até a ficha
+  var grupoPlano=document.querySelector('.chips[data-group="plano"]');
+  document.querySelectorAll('a[data-plano]').forEach(function(a){
+    a.addEventListener('click',function(){
+      var nome=a.getAttribute('data-plano');
+      var chip=grupoPlano.querySelector('.chip[data-plano="'+nome+'"]');
+      if(chip){marcaChip(grupoPlano,chip);ficha.plano=nome;atualizaFicha();}
     });
   });
 
@@ -1283,13 +1509,61 @@
 
   sendBtn.addEventListener('click',function(){
     if(sendBtn.disabled)return;
-    var txt='Olá Lukas, quero aplicar para a consultoria.%0A%0A'+
-            'Nome: '+encodeURIComponent(ficha.nome)+'%0A'+
-            'Objetivo: '+encodeURIComponent(ficha.objetivo)+'%0A'+
-            'Nível: '+encodeURIComponent(ficha.nivel)+'%0A'+
-            'Onde treino: '+encodeURIComponent(ficha.local);
-    window.open('https://wa.me/5511948834582?text='+txt,'_blank');
+    var linhas=[
+      bfAtivo()?'Olá Lukas, quero aplicar para a consultoria na Black Friday.':'Olá Lukas, quero aplicar para a consultoria.',
+      '',
+      'Nome: '+ficha.nome,
+      'Objetivo: '+ficha.objetivo,
+      'Nível: '+ficha.nivel,
+      'Onde treino: '+ficha.local,
+      'Protocolo: '+(ficha.plano?descrevePlano(ficha.plano):'ainda não sei')
+    ];
+    if(window.BF&&window.BF.preview)linhas.push('','[teste — pré-visualização da Black Friday]');
+    window.open('https://wa.me/5511948834582?text='+encodeURIComponent(linhas.join('\n')),'_blank');
   });
+
+  // Black Friday — relógio e troca automática de modo na virada (00:00 e 23:59 BRT)
+  (function(){
+    if(!window.BF)return;
+    var htmlEl=document.documentElement;
+    var fab=document.querySelector('.fab');
+    var FAB_NORMAL=fab.getAttribute('href');
+    var FAB_BF='https://wa.me/5511948834582?text='+encodeURIComponent('Olá, quero aproveitar a Black Friday da consultoria (20% off).');
+    var hs=document.querySelectorAll('.bf-h'),ms=document.querySelectorAll('.bf-m'),ss=document.querySelectorAll('.bf-s'),strip=document.querySelectorAll('.bf-strip-time');
+    // Na pré-visualização fora da data, o relógio conta até a próxima meia-noite de Brasília.
+    function alvo(){
+      var t=Date.now();
+      if(t>=BF.inicio&&t<BF.fim)return BF.fim;
+      var DIA=864e5,OFF=3*36e5;
+      return Math.floor((t-OFF)/DIA)*DIA+DIA+OFF;
+    }
+    function dois(n){return (n<10?'0':'')+n;}
+    function set(list,v){for(var i=0;i<list.length;i++)list[i].textContent=v;}
+    var estado=null;
+    function tick(){
+      var ativo=BF.ativo();
+      if(ativo!==estado){
+        estado=ativo;
+        htmlEl.classList.toggle('bf',ativo);
+        fab.setAttribute('href',ativo?FAB_BF:FAB_NORMAL);
+        atualizaFicha();
+      }
+      if(!ativo)return;
+      var r=Math.max(0,alvo()-Date.now());
+      var h=Math.floor(r/36e5),m=Math.floor(r%36e5/6e4),s=Math.floor(r%6e4/1e3);
+      set(hs,dois(h));set(ms,dois(m));set(ss,dois(s));
+      set(strip,dois(h)+':'+dois(m)+':'+dois(s));
+    }
+    tick();
+    // Só mantém o relógio rodando se a oferta estiver ativa ou começar nas próximas 24h.
+    if(BF.ativo()||(BF.inicio-Date.now()<864e5&&Date.now()<BF.fim))setInterval(tick,1000);
+    if(BF.preview){
+      var tag=document.createElement('div');
+      tag.className='bf-preview-tag';tag.setAttribute('role','status');
+      tag.textContent='Pré-visualização · Black Friday';
+      document.body.appendChild(tag);
+    }
+  })();
 
   // Balão de acessibilidade
   (function(){
